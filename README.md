@@ -11,7 +11,7 @@ CompartiendoPiso es una aplicación web que permite publicar anuncios para alqui
 - Administrador: Será el encargado de actualizar y moderar las ofertas de pisos y habitaciones.
 
 ## Entidades:
-- Usario: El usuario podrá editar y actualizar su perfil al igual que crear y editar ofertas sobre pisos o habitaciones.
+- Usuario: El usuario podrá editar y actualizar su perfil al igual que crear y editar ofertas sobre pisos o habitaciones.
 		
 - Piso: Información asociada a un piso a alquilar, fotos, descripción, reseñas asociadas...
 
