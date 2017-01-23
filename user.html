@@ -60,7 +60,7 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-right">
-                    <a href="signin.html" class="aa-login"><font color="#000000"><b>Sign up</b></font></a>
+                    <a href="signin.html" class="aa-login"><font color="#000000"><b>Desconectar</b></font></a>
                 </div>
               </div>
             </div>
@@ -122,19 +122,30 @@
                     <div class="col-md-12">
                       <article class="aa-blog-single aa-blog-details">
                         <div class="col-lg-3 col-md-3">
-                            <img src="http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg" alt="" title="" width="150" height="150">
+                            <img src="http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg" alt="" title="" width="150" height="150" id="imgSalida">
+                            <div class="changeImage" hidden>
+                              <input name="file-input" class="btn btn-default" id="file-input" type="file" />
+                            </div>
                         </div>
                         <div class="col-lg-9">
                            <div class="text-right">
-                            <a href="#" class="btn btn-default" role="button">Añadir oferta</a>
+                              <a href="#" class="btn btn-default editText" role="button">Añadir oferta</a>
+                              <button type="button" class="btn btn-default editButton" role="button">Editar Perfil</button>
                             </div>
-                            <h2 class="box-heading">Mario Francia Rius</h2>
+                            <h2 class="box-heading" id="editName">Mario Francia Rius</h2>
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <h5 class="box-heading">Apasionado de los deportes de riesgo y buena persona.</h5>
-                                 </div>
+                              <div class="col-lg-12">
+                                <h5 class="box-heading" id="editDescription">Apasionado de los deportes de riesgo y buena persona.</h5>
+                              </div>
                             </div> 
-                        </div>          
+                        </div>     
+                        <span hidden class="guardarCambios">
+                          <div class="text-right">
+                            <button type="button" class="btn btn-primary" role="button">
+                              <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>  Guardar Cambios
+                            </button>
+                          </div>
+                        </span>     
                       </article>
                     </div>
                     <!-- Related blog post -->
@@ -306,7 +317,7 @@
                   <div class="aa-blog-sidebar-single">
                     <form action="">
                       <div class="aa-blog-search">
-                        <input class="aa-search-text" type="text" placeholder="Search...">
+                        <input class="aa-search-text" type="text" placeholder="Buscar...">
                         <button class="aa-search-submit" type="submit">
                           <i class="fa fa-search"></i>
                         </button>
