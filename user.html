@@ -38,7 +38,7 @@
   
 
   </head>
-  <body>
+  <body class="aa-price-range">
    
   <!-- Pre Loader -->
   <div id="aa-preloader-area">
@@ -110,17 +110,17 @@
   <!-- End Proerty header  -->
 
   <!-- Start Blog  -->
-  <section id="aa-blog">
+  <section id="aa-properties">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="aa-blog-area">
+          <div class="aa-properties-area">
             <div class="row">
               <div class="col-md-8">
-                <div class="aa-blog-content">
+                <div class="aa-properties-content">
                   <div class="row">
                     <div class="col-md-12">
-                      <article class="aa-blog-single aa-blog-details">
+                      <article class="aa-properties-single-sidebar aa-properties-details">
                         <div class="col-lg-3 col-md-3">
                             <img src="http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg" alt="" title="" width="150" height="150" id="imgSalida">
                             <div class="changeImage" hidden>
@@ -139,9 +139,9 @@
                               </div>
                             </div> 
                         </div>     
-                        <span hidden class="guardarCambios">
+                        <span hidden class="saveButton">
                           <div class="text-right">
-                            <button type="button" class="btn btn-primary" role="button">
+                            <button type="button" class="btn btn-primary guardarCambios" role="button">
                               <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>  Guardar Cambios
                             </button>
                           </div>
@@ -212,179 +212,43 @@
                         </div>
                       </div>
                     </div>  
-                    <!-- comment threats -->
-                    <div class="col-md-12">
-                      <div class="aa-comments-area">
-                        <h3>4 Comentarios</h3>
-                        <div class="comments">
-                          <ul class="commentlist">
-                            <li>
-                              <div class="media">
-                                <div class="media-left">    
-                                    <img alt="img" src="img/testimonial-1.png" class="media-object news-img">      
-                                </div>
-                                <div class="media-body">
-                                 <h4 class="author-name">Oscar García</h4>
-                                 <span class="comments-date"> 20 Enero, 2017</span>
-                                 <p>Hola Mario, como podría contactar contigo para hablar sobre el piso del Soto? </p>
-                                 <a class="reply-btn" href="#">Responder</a>
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="media">
-                                <div class="media-left">    
-                                    <img alt="img" src="img/testimonial-2.png" class="media-object news-img">      
-                                </div>
-                                <div class="media-body">
-                                 <h4 class="author-name">Diego López</h4>
-                                 <span class="comments-date"> 29 Diciembre, 2016</span>
-                                 <p>Me gusta mucho la habitación de la Calle Benito Peréz Galdós</p>
-                                 <a class="reply-btn" href="#">Responder</a>
-                                </div>
-                              </div>
-                            </li>
-                            <ul class="children">
-                              <li class="author-comments">
-                                <div class="media">
-                                  <div class="media-left">    
-                                      <img alt="img" src="img/testimonial-3.png" class="media-object news-img">      
-                                  </div>
-                                  <div class="media-body">
-                                   <h4 class="author-name">Mario Francia</h4>
-                                   <span class="comments-date"> 01 Enero, 2017</span>
-                                   <span class="author-tag">Author</span>
-                                   <p>Hola Diego, puedes ponerte en contacto conmigo cuando quieras.</p>
-                                   <a class="reply-btn" href="#">Responder</a>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
-                          </ul>
-                          <!-- comments pagination -->
-                          <nav>
-                            <ul class="pagination comments-pagination">
-                              <li>
-                                <a aria-label="Previous" href="#">
-                                  <span aria-hidden="true">«</span>
-                                </a>
-                              </li>
-                              <li><a href="#">1</a></li>
-                              <li><a href="#">2</a></li>
-                              <li>
-                                <a aria-label="Next" href="#">
-                                  <span aria-hidden="true">»</span>
-                                </a>
-                              </li>
-                            </ul>
-                          </nav>
-                        </div>
-                      </div>
-                    </div>   
-                    <!-- Respond box -->
-                    <div class="col-md-12">
-                      <div id="respond">
-                        <h3 class="reply-title">Deja un comentario</h3>
-                        <form id="commentform">
-                          <p class="comment-notes">
-                            Tu dirección de correo no será publicada. Los campos marcados son obligatorios.<span class="required">*</span>
-                          </p>
-                          <p class="comment-form-author">
-                            <label for="author">Nombre <span class="required">*</span></label>
-                            <input type="text" required="required" size="30" value="" name="author">
-                          </p>
-                          <p class="comment-form-email">
-                            <label for="email">Email <span class="required">*</span></label>
-                            <input type="email" required="required" aria-required="true" value="" name="email">
-                          </p>
-                          <p class="comment-form-comment">
-                            <label for="comment">Comentario</label>
-                            <textarea required="required" aria-required="true" rows="8" cols="45" name="comment"></textarea>
-                          </p>
-                          <p class="form-submit">
-                            <a href ="#"><input type="submit" value="Publicar comentario" class="aa-browse-btn" name="submit"></a>
-                          </p>
-                        </form>
-                      </div>
-                    </div>
-                  </div>                                   
+                  </div>
+                </div>   
+              </div>
+                      <div class="col-md-4">
+          <aside class="aa-properties-sidebar">
+            <!-- Start Single properties sidebar -->
+            <div class="aa-properties-single-sidebar">
+              <h3>Buscador de Ofertas</h3>
+              <form action="">
+                <div class="aa-single-advance-search">
+                  <input type="text" placeholder="Escribe la dirección">
                 </div>
-              </div>
-              <!-- Start blog sidebar -->
-              <div class="col-md-4">
-                <aside class="aa-blog-sidebar">
-                  <!-- Start single sidebar -->
-                  <div class="aa-blog-sidebar-single">
-                    <form action="">
-                      <div class="aa-blog-search">
-                        <input class="aa-search-text" type="text" placeholder="Buscar...">
-                        <button class="aa-search-submit" type="submit">
-                          <i class="fa fa-search"></i>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                  <!-- Start single sidebar -->
-                  <div class="aa-blog-sidebar-single">
-                    <h3>Categorias</h3>
-                    <ul class="aa-blog-catg">
-                      <li>Pisos <span>15000</span></li>
-                      <li>Habitaciones <span>5000</span></li>
-                    </ul>
-                  </div>
-                  <!-- Start single sidebar -->
-                  <div class="aa-blog-sidebar-single">
-                    <h3>Tags</h3>
-                    <div class="tag-cloud">
-                      <a href="#">Pisos</a>
-                      <a href="#">Habitaciones</a>
-                    </div>                    
-                  </div>
-                  <!-- Start single sidebar >
-                  <div class="aa-blog-sidebar-single">
-                    <h3>Publicaciones recientes</h3>
-                    <div class="aa-blog-recent-post">
-                      <div class="media">
-                        <div class="media-left">
-                          <a href="#">
-                            <img alt="img" src="img/blog-img-3.jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <h4 class="media-heading"><a href="#">This is Title</a></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>                
-                          <span>15 April, 16</span>
-                        </div>              
-                      </div>
-                      <div class="media">
-                        <div class="media-left">
-                          <a href="#">
-                            <img alt="img" src="img/blog-img-2.jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <h4 class="media-heading"><a href="#">This is Title</a></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>                
-                          <span>15 April, 16</span>
-                        </div>              
-                      </div>
-                      <div class="media">
-                        <div class="media-left">
-                          <a href="#">
-                            <img alt="img" src="img/blog-img-1.jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <h4 class="media-heading"><a href="#">This is Title</a></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>                
-                          <span>15 April, 16</span>
-                        </div>              
-                      </div>
-                    </div>                    
-                  </div>
-                  <!-- Start single sidebar -->
-                </aside>
-              </div>
+                <div class="aa-single-advance-search">
+                  <select id="" name="">
+                    <option selected="" value="0">Categoría</option>
+                    <option value="1">Piso</option>
+                    <option value="2">Dúplex</option>
+                    <option value="3">Casa baja</option>
+                    <option value="4">Chalet adosado</option>
+                  </select>
+                </div>
+                <div class="aa-single-filter-search">
+                  <span>PRECIO</span>
+                  <span>DESDE</span>
+                  <span id="skip-value-lower" class="example-val">30.00</span>
+                  <span>HASTA</span>
+                  <span id="skip-value-upper" class="example-val">100.00</span>
+                  <div id="aa-sqrfeet-range" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
+                  </div>                  
+                </div>
+                <div class="aa-single-advance-search">
+                  <input type="submit" value="Buscar" class="aa-search-btn">
+                </div>
+              </form>
+            </div> 
+          </aside>
+        </div>
             </div>
           </div>
         </div>
@@ -400,12 +264,12 @@
         <div class="col-md-12">
         <div class="aa-footer-area">
           <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-8 col-sm-6 col-xs-12">
               <div class="aa-footer-left">
                <p>Universidad Rey Juan Carlos 2017</p>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="aa-footer-middle">
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -413,15 +277,6 @@
                 <a href="#"><i class="fa fa-youtube"></i></a>
               </div>
             </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-              <div class="aa-footer-right">
-                <a href="#">Inicio</a>
-                <a href="#">Support</a>
-                <a href="#">License</a>
-                <a href="#">FAQ</a>
-                <a href="#">Privacy & Term</a>
-              </div>
-            </div>            
           </div>
         </div>
       </div>
