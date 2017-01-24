@@ -24,7 +24,6 @@
 
   
 **/
-
 jQuery(function($){
 
 
@@ -202,7 +201,7 @@ jQuery(function($){
             },
             snap: true,
             connect: true,
-            start: [200, 700]
+            start: [80, 500]
         });
         // for value print
         var skipValues = [
@@ -373,7 +372,7 @@ $(document).ready(function(){
   $(".editButton").click(function(){
       $("#editName").replaceWith('<input type="text" class="form-control editName" value="' + $("#editName").html() + '"/><br>');
       $("#editDescription").replaceWith('<input type="text" class="form-control editDescription" value="' + $("#editDescription").html() + '"/><br>');     
-      $(".guardarCambios").show();   
+      $(".saveButton").show();   
       $(".changeImage").show();        
   });
 
@@ -385,10 +384,18 @@ $(document).ready(function(){
     $(".editName").replaceWith(username[0]);
     $(".editDescription").replaceWith(userdescription[0]);
     $("br").remove();
-    $(".guardarCambios").hide();
+    $(".saveButton").hide();
     $(".changeImage").hide();
   });
+
+  $(".logued").click(function(){
+    $(".logedUser").show();
+  })
+  $(".unlogued").click(function(){
+    $(".logedUser").hide();
+  })
 })
+
 $(window).load(function(){
 
  $(function() {
