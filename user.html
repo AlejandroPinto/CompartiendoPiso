@@ -60,7 +60,8 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-right">
-                    <a href="signin.html" class="aa-login"><font color="#000000"><b>Desconectar</b></font></a>
+                    <a href="#" class="aa-login unlogued"><font color="#000000"><b>Desconectar</b></font></a> | 
+                    <a href="#" class="aa-login logued"><font color="#000000"><b>Conectar</b></font></a>
                 </div>
               </div>
             </div>
@@ -128,16 +129,16 @@
                             </div>
                         </div>
                         <div class="col-lg-9">
-                           <div class="text-right">
-                              <a href="#" class="btn btn-default editText" role="button">Añadir oferta</a>
-                              <button type="button" class="btn btn-default editButton" role="button">Editar Perfil</button>
+                           <div hidden class="text-right logedUser">
+                            <a href="#" class="btn btn-default editText" role="button">Añadir oferta</a>
+                            <button type="button" class="btn btn-default editButton" role="button">Editar Perfil</button>
+                          </div>
+                          <h2 class="box-heading" id="editName">Mario Francia Rius</h2>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editDescription">Apasionado de los deportes de riesgo y buena persona.</h5>
                             </div>
-                            <h2 class="box-heading" id="editName">Mario Francia Rius</h2>
-                            <div class="row">
-                              <div class="col-lg-12">
-                                <h5 class="box-heading" id="editDescription">Apasionado de los deportes de riesgo y buena persona.</h5>
-                              </div>
-                            </div> 
+                          </div> 
                         </div>     
                         <span hidden class="saveButton">
                           <div class="text-right">
@@ -159,6 +160,11 @@
                           <div class="row">
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
+                                <span class="logedUser" hidden>
+                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <br>
+                                </span>
                                 <figure class="aa-blog-img">
                                   <a href="#"><img src= "http://img.inmotek.com/media/bilbocasa/fotos/inmuebles/med/med-16146~pisoenventaendeustoref16146salonvistaunobilbocasa.com.jpg" alt="img"></a>
                                   <span class="aa-date-tag">15 Abril, 2016</span>
@@ -176,6 +182,11 @@
                             </div>
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
+                                <span class="logedUser" hidden>
+                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <br>
+                                </span>
                                 <figure class="aa-blog-img">
                                   <a href="#"><img src="http://c50039.r39.cf3.rackcdn.com/uploads/photo/file/42633123/sorter.jpg" alt="img"></a>
                                   <span class="aa-date-tag">01 Enero, 17</span>
@@ -192,6 +203,11 @@
                               </article>
                             </div>
                             <div class="col-md-6 col-sm-6">
+                              <span class="logedUser" hidden>
+                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <br>
+                                </span>
                               <article class="aa-blog-single">
                                 <figure class="aa-blog-img">
                                   <a href="#"><img src="http://fotos.pisocompartido.com/fotos/2017/01/08/P547361/5872b9f0edbf0-dormitorio-invierno.jpg" alt="img"></a>

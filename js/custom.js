@@ -24,7 +24,6 @@
 
   
 **/
-
 jQuery(function($){
 
 
@@ -388,7 +387,15 @@ $(document).ready(function(){
     $(".saveButton").hide();
     $(".changeImage").hide();
   });
+
+  $(".logued").click(function(){
+    $(".logedUser").show();
+  })
+  $(".unlogued").click(function(){
+    $(".logedUser").hide();
+  })
 })
+
 $(window).load(function(){
 
  $(function() {
