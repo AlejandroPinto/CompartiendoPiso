@@ -24,7 +24,6 @@
 
   
 **/
-
 jQuery(function($){
 
 
@@ -202,7 +201,7 @@ jQuery(function($){
             },
             snap: true,
             connect: true,
-            start: [200, 700]
+            start: [80, 500]
         });
         // for value print
         var skipValues = [
@@ -366,4 +365,60 @@ jQuery(function($){
 
  
 });
+
+$(document).ready(function(){
+  var username = $("#editName");
+  var userdescription = $("#editDescription");
+  $(".editButton").click(function(){
+      $("#editName").replaceWith('<input type="text" class="form-control editName" value="' + $("#editName").html() + '"/><br>');
+      $("#editDescription").replaceWith('<input type="text" class="form-control editDescription" value="' + $("#editDescription").html() + '"/><br>');     
+      $(".saveButton").show();   
+      $(".changeImage").show();        
+  });
+
+  $(".guardarCambios").click(function(){
+    var value = $(".editName").val();
+    username[0]["innerText"] = value;
+    value = $(".editDescription").val();
+    userdescription[0]["innerText"] = value;
+    $(".editName").replaceWith(username[0]);
+    $(".editDescription").replaceWith(userdescription[0]);
+    $("br").remove();
+    $(".saveButton").hide();
+    $(".changeImage").hide();
+  });
+
+  $(".logued").click(function(){
+    $(".logedUser").show();
+  })
+  $(".unlogued").click(function(){
+    $(".logedUser").hide();
+  })
+})
+
+$(window).load(function(){
+
+ $(function() {
+  $('#file-input').change(function(e) {
+      addImage(e); 
+     });
+
+     function addImage(e){
+      var file = e.target.files[0],
+      imageType = /image.*/;
+    
+      if (!file.type.match(imageType))
+       return;
+  
+      var reader = new FileReader();
+      reader.onload = fileOnload;
+      reader.readAsDataURL(file);
+     }
+  
+     function fileOnload(e) {
+      var result=e.target.result;
+      $('#imgSalida').attr("src",result);
+     }
+    });
+  });
 

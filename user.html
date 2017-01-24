@@ -38,7 +38,7 @@
   
 
   </head>
-  <body>
+  <body class="aa-price-range">
    
   <!-- Pre Loader -->
   <div id="aa-preloader-area">
@@ -60,7 +60,8 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-right">
-                    <a href="signin.html" class="aa-login"><font color="#000000"><b>Sign up</b></font></a>
+                    <a href="#" class="aa-login unlogued"><font color="#000000"><b>Desconectar</b></font></a> | 
+                    <a href="#" class="aa-login logued"><font color="#000000"><b>Conectar</b></font></a>
                 </div>
               </div>
             </div>
@@ -91,23 +92,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
             <li><a href="index.html">Inicio</a></li>
-             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="properties.html">PROPERTIES <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">                
-                <li><a href="properties.html">PROPERTIES</a></li>
-                <li><a href="properties-detail.html">PROPERTIES DETAIL</a></li>                                            
-              </ul>
-            </li>
-            <li><a href="gallery.html">GALLERY</a></li>                                         
-            <li class="dropdown active">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="blog-archive.html">BLOG <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">                
-                <li><a href="blog-archive.html">BLOG</a></li>
-                <li><a href="blog-single.html">BLOG DETAILS</a></li>                                            
-              </ul>
-            </li>
-            <li><a href="contact.html">CONTACT</a></li>
-           <li><a href="404.html">404 PAGE</a></li>
+            <li><a href="properties.html">Ofertas</a></li>                                        
+            <li><a href="contact.html">Contacto</a></li>
           </ul>                          
         </div><!--/.nav-collapse -->       
       </div>          
@@ -125,41 +111,43 @@
   <!-- End Proerty header  -->
 
   <!-- Start Blog  -->
-  <section id="aa-blog">
+  <section id="aa-properties">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="aa-blog-area">
+          <div class="aa-properties-area">
             <div class="row">
               <div class="col-md-8">
-                <div class="aa-blog-content">
+                <div class="aa-properties-content">
                   <div class="row">
                     <div class="col-md-12">
-                      <article class="aa-blog-single aa-blog-details">
+                      <article class="aa-properties-single-sidebar aa-properties-details">
                         <div class="col-lg-3 col-md-3">
-                            <img src="https://image.freepik.com/iconos-gratis/perfil-macho-sombra-de-usuario_318-40244.jpg" alt="" title="" width="150" height="150">
+                            <img src="http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg" alt="" title="" width="150" height="150" id="imgSalida">
+                            <div class="changeImage" hidden>
+                              <input name="file-input" class="btn btn-default" id="file-input" type="file" />
+                            </div>
                         </div>
                         <div class="col-lg-9">
-                            <h2 class="box-heading">Mario Francia Rius</h2>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h5 class="box-heading">La vida es lo mejor La vida es lo mejor La vida es lo mejor La vida es lo mejor</h5>
-                                 </div>
+                           <div hidden class="text-right logedUser">
+                            <a href="#" class="btn btn-default editText" role="button">Añadir oferta</a>
+                            <button type="button" class="btn btn-default editButton" role="button">Editar Perfil</button>
+                          </div>
+                          <h2 class="box-heading" id="editName">Mario Francia Rius</h2>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editDescription">Apasionado de los deportes de riesgo y buena persona.</h5>
                             </div>
-                        </div>          
+                          </div> 
+                        </div>     
+                        <span hidden class="saveButton">
+                          <div class="text-right">
+                            <button type="button" class="btn btn-primary guardarCambios" role="button">
+                              <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>  Guardar Cambios
+                            </button>
+                          </div>
+                        </span>     
                       </article>
-                    </div>
-                    <!-- Post tags -->
-                    <div class="col-md-12">
-                      <div class="aa-blog-post-tag">
-                        <ul>
-                          <li>TAGES:</li>
-                          <li><a href="#">Piso,</a></li>
-                          <li><a href="#">Habitación,</a></li>
-                          <li><a href="#">Chalé,</a></li>
-                          <li><a href="#">Apartamento</a></li>                         
-                        </ul>
-                      </div>
                     </div>
                     <!-- Related blog post -->
                     <div class="col-md-12">
@@ -172,13 +160,19 @@
                           <div class="row">
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
+                                <span class="logedUser" hidden>
+                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <br>
+                                </span>
                                 <figure class="aa-blog-img">
-                                  <a href="#"><img src="img/blog-img-1.jpg" alt="img"></a>
-                                  <span class="aa-date-tag">15 April, 16</span>
+                                  <a href="#"><img src= "http://img.inmotek.com/media/bilbocasa/fotos/inmuebles/med/med-16146~pisoenventaendeustoref16146salonvistaunobilbocasa.com.jpg" alt="img"></a>
+                                  <span class="aa-date-tag">15 Abril, 2016</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
-                                  <h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio est quaerat magnam exercitationem voluptas, voluptatem sed quam ab laborum voluptatum tempore dolores itaque, molestias vitae.</p>
+                                  <h3><a href="#">Alquiler de piso en avenida Olimpica, 1, El Soto - Coveta, Móstoles</a></h3>
+                                 <h4><b>240€/mes</b></h4>
+                                   <p>Se alquila piso en Móstoles, en la zona del Soto. Piso de 4 dormitorios reformado, con armarios empotrados, calefacción central, y cocina eléctrica. Zona tranquila y segura, especialmente para familias.</p>
                                   <div class="aa-blog-single-bottom">
                                     <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
                                     <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
@@ -188,45 +182,41 @@
                             </div>
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
+                                <span class="logedUser" hidden>
+                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <br>
+                                </span>
                                 <figure class="aa-blog-img">
-                                  <a href="#"><img src="img/blog-img-2.jpg" alt="img"></a>
-                                  <span class="aa-date-tag">15 April, 16</span>
+                                  <a href="#"><img src="http://c50039.r39.cf3.rackcdn.com/uploads/photo/file/42633123/sorter.jpg" alt="img"></a>
+                                  <span class="aa-date-tag">01 Enero, 17</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
-                                  <h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio est quaerat magnam exercitationem voluptas, voluptatem sed quam ab laborum voluptatum tempore dolores itaque, molestias vitae.</p>
+                                  <h3><a href="#">Alquiler de habitación en calle Hermanos Grimm, 91, El Soto - Coveta, Móstoles</a></h3>
+                                  <h4><b>240€/mes</b></h4>
+                                  <p>Tengo 1 habitacion libre en chalet de 210 m2 en urbanizacion tranquila. buena comunicacion renfe, metro, autobus, a 5 minutos de A5 y universidad. Habitacion de 13 m2 con 1 armario, escritorio, cama 90 1.90 y con cerradura en la puerta.</p>
                                   <div class="aa-blog-single-bottom">
                                     <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
-                                    <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
-                                  </div>
-                                </div>                   
-                              </article>
-                            </div>
-                                                        <div class="col-md-6 col-sm-6">
-                              <article class="aa-blog-single">
-                                <figure class="aa-blog-img">
-                                  <a href="#"><img src="img/blog-img-1.jpg" alt="img"></a>
-                                  <span class="aa-date-tag">15 April, 16</span>
-                                </figure>
-                                <div class="aa-blog-single-content">
-                                  <h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio est quaerat magnam exercitationem voluptas, voluptatem sed quam ab laborum voluptatum tempore dolores itaque, molestias vitae.</p>
-                                  <div class="aa-blog-single-bottom">
-                                    <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
-                                    <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
+                                    <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>4</a>
                                   </div>
                                 </div>                   
                               </article>
                             </div>
                             <div class="col-md-6 col-sm-6">
+                              <span class="logedUser" hidden>
+                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <br>
+                                </span>
                               <article class="aa-blog-single">
                                 <figure class="aa-blog-img">
-                                  <a href="#"><img src="img/blog-img-2.jpg" alt="img"></a>
-                                  <span class="aa-date-tag">15 April, 16</span>
+                                  <a href="#"><img src="http://fotos.pisocompartido.com/fotos/2017/01/08/P547361/5872b9f0edbf0-dormitorio-invierno.jpg" alt="img"></a>
+                                  <span class="aa-date-tag">20 Enero, 2017</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
-                                  <h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio est quaerat magnam exercitationem voluptas, voluptatem sed quam ab laborum voluptatum tempore dolores itaque, molestias vitae.</p>
+                                  <h3><a href="#">Alquiler de habitación en calle Benito Pérez Galdós, 9, El Soto - Coveta, Móstoles</a></h3>
+                                  <h4><b>215€/mes</b></h4>
+                                  <p>Se alquila habitación en piso compartido. El piso está situado al lado del Parque Liana, y se compone de cuatro habitaciones, salón, cocina y baño, equipado con todo y reformado y pintado recientemente.</p>
                                   <div class="aa-blog-single-bottom">
                                     <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
                                     <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
@@ -238,238 +228,43 @@
                         </div>
                       </div>
                     </div>  
-                    <!-- comment threats -->
-                    <div class="col-md-12">
-                      <div class="aa-comments-area">
-                        <h3>5 Comments</h3>
-                        <div class="comments">
-                          <ul class="commentlist">
-                            <li>
-                              <div class="media">
-                                <div class="media-left">    
-                                    <img alt="img" src="img/testimonial-1.png" class="media-object news-img">      
-                                </div>
-                                <div class="media-body">
-                                 <h4 class="author-name">Adam Barney</h4>
-                                 <span class="comments-date"> 20th April, 2016</span>
-                                 <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
-                                 <a class="reply-btn" href="#">Reply</a>
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="media">
-                                <div class="media-left">    
-                                    <img alt="img" src="img/testimonial-2.png" class="media-object news-img">      
-                                </div>
-                                <div class="media-body">
-                                 <h4 class="author-name">John Smith</h4>
-                                 <span class="comments-date"> 20th April, 2016</span>
-                                 <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
-                                 <a class="reply-btn" href="#">Reply</a>
-                                </div>
-                              </div>
-                            </li>
-                            <ul class="children">
-                              <li class="author-comments">
-                                <div class="media">
-                                  <div class="media-left">    
-                                      <img alt="img" src="img/testimonial-3.png" class="media-object news-img">      
-                                  </div>
-                                  <div class="media-body">
-                                   <h4 class="author-name">Admin</h4>
-                                   <span class="comments-date"> 20th April, 2016</span>
-                                   <span class="author-tag">Author</span>
-                                   <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
-                                   <a class="reply-btn" href="#">Reply</a>
-                                  </div>
-                                </div>
-                              </li>
-                              <ul class="children">
-                                <li>
-                                  <div class="media">
-                                    <div class="media-left">    
-                                        <img alt="img" src="img/testimonial-1.png" class="media-object news-img">      
-                                    </div>
-                                    <div class="media-body">
-                                     <h4 class="author-name">Adam Barney</h4>
-                                     <span class="comments-date"> 20th April, 2016</span>
-                                     <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
-                                     <a class="reply-btn" href="#">Reply</a>
-                                    </div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </ul>
-                            <li>
-                              <div class="media">
-                                <div class="media-left">    
-                                    <img alt="img" src="img/testimonial-2.png" class="media-object news-img">      
-                                </div>
-                                <div class="media-body">
-                                 <h4 class="author-name">Jhon Smith</h4>
-                                 <span class="comments-date"> 20th April, 2016</span>
-                                 <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
-                                 <a class="reply-btn" href="#">Reply</a>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                          <!-- comments pagination -->
-                          <nav>
-                            <ul class="pagination comments-pagination">
-                              <li>
-                                <a aria-label="Previous" href="#">
-                                  <span aria-hidden="true">«</span>
-                                </a>
-                              </li>
-                              <li><a href="#">1</a></li>
-                              <li><a href="#">2</a></li>
-                              <li><a href="#">3</a></li>
-                              <li><a href="#">4</a></li>
-                              <li><a href="#">5</a></li>
-                              <li>
-                                <a aria-label="Next" href="#">
-                                  <span aria-hidden="true">»</span>
-                                </a>
-                              </li>
-                            </ul>
-                          </nav>
-                        </div>
-                      </div>
-                    </div>   
-                    <!-- Respond box -->
-                    <div class="col-md-12">
-                      <div id="respond">
-                        <h3 class="reply-title">Leave a Comment</h3>
-                        <form id="commentform">
-                          <p class="comment-notes">
-                            Your email address will not be published. Required fields are marked <span class="required">*</span>
-                          </p>
-                          <p class="comment-form-author">
-                            <label for="author">Name <span class="required">*</span></label>
-                            <input type="text" required="required" size="30" value="" name="author">
-                          </p>
-                          <p class="comment-form-email">
-                            <label for="email">Email <span class="required">*</span></label>
-                            <input type="email" required="required" aria-required="true" value="" name="email">
-                          </p>
-                          <p class="comment-form-comment">
-                            <label for="comment">Comment</label>
-                            <textarea required="required" aria-required="true" rows="8" cols="45" name="comment"></textarea>
-                          </p>
-                          <p class="form-allowed-tags">
-                            You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </code>
-                          </p>
-                          <p class="form-submit">
-                            <input type="submit" value="Post Comment" class="aa-browse-btn" name="submit">
-                          </p>        
-                        </form>
-                      </div>
-                    </div>
-                  </div>                                   
+                  </div>
+                </div>   
+              </div>
+                      <div class="col-md-4">
+          <aside class="aa-properties-sidebar">
+            <!-- Start Single properties sidebar -->
+            <div class="aa-properties-single-sidebar">
+              <h3>Buscador de Ofertas</h3>
+              <form action="">
+                <div class="aa-single-advance-search">
+                  <input type="text" placeholder="Escribe la dirección">
                 </div>
-              </div>
-              <!-- Start blog sidebar -->
-              <div class="col-md-4">
-                <aside class="aa-blog-sidebar">
-                  <!-- Start single sidebar -->
-                  <div class="aa-blog-sidebar-single">
-                    <form action="">
-                      <div class="aa-blog-search">
-                        <input class="aa-search-text" type="text" placeholder="Search...">
-                        <button class="aa-search-submit" type="submit">
-                          <i class="fa fa-search"></i>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                  <!-- Start single sidebar -->
-                  <div class="aa-blog-sidebar-single">
-                    <h3>Categories</h3>
-                    <ul class="aa-blog-catg">
-                      <li>Properties <span>15000</span></li>
-                      <li>Apartment <span>5000</span></li>
-                      <li>Office  <span>3000</span></li>
-                      <li>Residential <span>4500</span></li>
-                      <li>Commercial <span>1000</span>
-                          <ul>
-                            <li>category 2.1 <span>50</span></li>
-                            <li>category 2.2 <span>100</span></li>
-                          </ul>
-                      </li>
-                      <li>Villa <span>800</span></li>
-                      <li>Bungalow  <span>200</span></li>
-                      <li>News <span>375</span></li>
-                      <li>Reviews <span>458</span></li>
-                    </ul>
-                  </div>
-                  <!-- Start single sidebar -->
-                  <div class="aa-blog-sidebar-single">
-                    <h3>Tags</h3>
-                    <div class="tag-cloud">
-                      <a href="#">Apartment</a>
-                      <a href="#">Propery</a>
-                      <a href="#">Residential</a>
-                      <a href="#">Commercial</a>
-                      <a href="#">Office</a>
-                      <a href="#">Rent</a>
-                      <a href="#">Sale</a>
-                      <a href="#">Villa</a>
-                    </div>                    
-                  </div>
-                  <!-- Start single sidebar -->
-                  <div class="aa-blog-sidebar-single">
-                    <h3>Recent Post</h3>
-                    <div class="aa-blog-recent-post">
-                      <div class="media">
-                        <div class="media-left">
-                          <a href="#">
-                            <img alt="img" src="img/blog-img-3.jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <h4 class="media-heading"><a href="#">This is Title</a></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>                
-                          <span>15 April, 16</span>
-                        </div>              
-                      </div>
-                      <div class="media">
-                        <div class="media-left">
-                          <a href="#">
-                            <img alt="img" src="img/blog-img-2.jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <h4 class="media-heading"><a href="#">This is Title</a></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>                
-                          <span>15 April, 16</span>
-                        </div>              
-                      </div>
-                      <div class="media">
-                        <div class="media-left">
-                          <a href="#">
-                            <img alt="img" src="img/blog-img-1.jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <h4 class="media-heading"><a href="#">This is Title</a></h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>                
-                          <span>15 April, 16</span>
-                        </div>              
-                      </div>
-                    </div>                    
-                  </div>
-                  <!-- Start single sidebar -->
-                  <div class="aa-blog-sidebar-single">                    
-                    <div class="aa-banner-ads">
-                      <a href="#">
-                        <img src="img/banner-ads.jpg" alt="banner img">
-                      </a>
-                    </div>                    
-                  </div>
-                </aside>
-              </div>
+                <div class="aa-single-advance-search">
+                  <select id="" name="">
+                    <option selected="" value="0">Categoría</option>
+                    <option value="1">Piso</option>
+                    <option value="2">Dúplex</option>
+                    <option value="3">Casa baja</option>
+                    <option value="4">Chalet adosado</option>
+                  </select>
+                </div>
+                <div class="aa-single-filter-search">
+                  <span>PRECIO</span>
+                  <span>DESDE</span>
+                  <span id="skip-value-lower" class="example-val">30.00</span>
+                  <span>HASTA</span>
+                  <span id="skip-value-upper" class="example-val">100.00</span>
+                  <div id="aa-sqrfeet-range" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
+                  </div>                  
+                </div>
+                <div class="aa-single-advance-search">
+                  <input type="submit" value="Buscar" class="aa-search-btn">
+                </div>
+              </form>
+            </div> 
+          </aside>
+        </div>
             </div>
           </div>
         </div>
@@ -485,12 +280,12 @@
         <div class="col-md-12">
         <div class="aa-footer-area">
           <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-8 col-sm-6 col-xs-12">
               <div class="aa-footer-left">
-               <p>Designed by <a rel="nofollow" href="http://www.markups.io/">MarkUps.io</a></p>
+               <p>Universidad Rey Juan Carlos 2017</p>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="aa-footer-middle">
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -498,15 +293,6 @@
                 <a href="#"><i class="fa fa-youtube"></i></a>
               </div>
             </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-              <div class="aa-footer-right">
-                <a href="#">Home</a>
-                <a href="#">Support</a>
-                <a href="#">License</a>
-                <a href="#">FAQ</a>
-                <a href="#">Privacy & Term</a>
-              </div>
-            </div>            
           </div>
         </div>
       </div>
