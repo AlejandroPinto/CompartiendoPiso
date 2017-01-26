@@ -2733,7 +2733,7 @@ USER SECTION
   display: inline;
   float: left;
   position: relative;
-  min-height: 130px;
+  height: 100px;
   width: 100%;
 }
 #aa-user::before {
