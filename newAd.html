@@ -52,18 +52,11 @@
                     <div class="aa-header-area">
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                <div class="aa-header-left">
-                                    <div class="aa-telephone-no">
-                                        <span class="fa fa-phone"></span> 1-900-523-3564
-                                    </div>
-                                    <div class="aa-email hidden-xs">
-                                        <span class="fa fa-envelope-o"></span> info@markups.com
-                                    </div>
-                                </div>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="aa-header-right">
-                                    <a href="signin.html" class="aa-login">Log out</a>
+                                    <a href="register.html" class="aa-register">Registro</a>
+                                    <a href="signin.html" class="aa-login">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +80,7 @@
                     </button>
                     <!-- LOGO -->
                     <!-- Text based logo -->
-                    <a class="navbar-brand aa-logo" href="index.html"> Home <span>Property</span></a>
+                    <a class="navbar-brand aa-logo" href="index.html"> Compartiendo<span>Piso</span></a>
                     <!-- Image based logo -->
                     <!-- <a class="navbar-brand aa-logo-img" href="index.html"><img src="img/logo.png" alt="logo"></a> -->
                 </div>
@@ -125,127 +118,173 @@
                     <div class="aa-contact-area">
                         <div class="aa-contact-bottom">
                             <div class="aa-title">
-				                <h2>Anuncio</h2>
-				                <span></span>
-				                <p>Los campos señalados son obligatorios<strong class="required">*</strong></p>
-				             </div>
+                                <h2>Anuncio</h2>
+                                <span></span>
+                                <p>Los campos señalados son obligatorios<strong class="required">*</strong>
+                                </p>
+                            </div>
                             <div class="aa-contact-form">
                                 <form class="contactform">
+                                    <div class="row">
+                                        <div data-toggle="buttons" class="col-md-6 btn-group">
+                                            <label class="btn btn-primary active btn-lg btn-block">
+                                                <input type="checkbox" checked autocomplete="off"> PISO
+                                        </div>
+                                        <div data-toggle="buttons" class="col-md-6 btn-group">
+                                            <label class="btn btn-primary btn-lg btn-block">
+                                                <input type="checkbox" autocomplete="off"> HABITACIÓN
+                                        </div>
+                                    </div>
+                                    <br>
                                     <p class="comment-form-author">
-                                        <label for="author">Nombre anuncio<span class="required">*</span>
+                                        <label>Título anuncio<span class="required">*</span>
                                         </label>
-                                        <input type="text" name="author" value="" size="30" required="required">
+                                        <input type="text" required="required">
                                     </p>
                                     <p class="comment-form-email">
-                                        <label for="email">Precio <span class="required">*</span>
+                                        <label>Precio <span class="required">*</span>
                                         </label>
-                                        <input type="email" name="email" value="" aria-required="true" required="required">
+                                        <input type="text" required="required">
                                     </p>
                                     <p class="comment-form-comment">
                                         <label for="comment">Descripción</label>
-                                        <textarea name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea>
+                                        <textarea name="description" cols="45" rows="8" aria-required="true"></textarea>
                                     </p>
-                                    <p class="comment-form-email">
-                                        <label for="email">Ubicación <span class="required">*</span>
-                                        </label>
-                                        <input type="email" name="email" value="" aria-required="true" required="required">
-                                    </p>
-                                    <p class="comment-form-url">
-                                        <label for="subject">Video</label>
-                                        <input type="text" name="subject">
-                                    </p>
-                                    <label class="control-label">Fotos</label>
-										<input id="input-1" type="file" class="file">
-                                    <div id="caracteristicas-anuncio">
-                                    <label>Características:</label>
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Aire acondicionado</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Ascensor</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Armarios</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Amueblado</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Calefacción central</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Electrodomesticos</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Mascotas</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Bajo
+                                        <div class="col-md-4">
+                                            <p class="comment-form-url">
+                                                <label>Provincia<span class="required">*</span>
                                                 </label>
-                                            </div>
+                                                <input type="text">
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="comment-form-url">
+                                                <label>Localidad</label>
+                                                <input type="text">
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p>
+                                                <label>Barrio</label>
+                                                <input type="text">
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-3">
-	                                        <div class="checkbox">
-	                                                <label>
-	                                                    <input type="checkbox" value="">Puerta blindada
-	                                                </label>
-	                                        </div>
+                                        <div class="col-md-4">
+                                            <p>
+                                                <label>Superficie</label>
+                                                <input type="text">
+                                            </p>
                                         </div>
-                                        <div class="col-md-3">
-	                                        <div class="checkbox">
-	                                                <label>
-	                                                    <input type="checkbox" value="">
-	                                                </label>
-	                                        </div>
+                                        <div class="col-md-4">
+                                            <p>
+                                                <label>Nº baños</label>
+                                                <input type="text">
+                                            </p>
                                         </div>
-                                        <div class="col-md-3">
-	                                        <div class="checkbox">
-	                                                <label>
-	                                                    <input type="checkbox" value="">
-	                                                </label>
-	                                        </div>
-                                        </div>
-                                        <div class="col-md-3">
-	                                        <div class="checkbox">
-	                                                <label>
-	                                                    <input type="checkbox" value="">
-	                                                </label>
-	                                        </div>
+                                        <div class="col-md-4">
+                                            <p>
+                                                <label>Nº habitaciones</label>
+                                                <input type="text">
+                                            </p>
                                         </div>
                                     </div>
+                                    <label class="control-label">Fotos<span class="required">*</span>
+                                    </label>
+                                    <input id="input-1" type="file" class="file">
+                                    <br>
+                                    <div id="caracteristicas-anuncio">
+                                        <label>Características:</label>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Aire
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Ascensor</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Fumadores</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Mascotas</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Calefacción central</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Piscina</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Terraza</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Bajo
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Puerta blindada
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Trastero
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Patio
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div data-toggle="buttons" class="checkbox">
+                                                    <label class="btn btn-primary btn-block">
+                                                        <input type="checkbox" value="">Garaje
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <p class="form-submit">
-                                                <input type="submit" name="submit" class="aa-browse-btn" value="Publicar">
+                                                <input type="submit" name="submit" class="aa-browse-btn btn-lg btn-block" value="Publicar">
                                             </p>
                                         </div>
                                     </div>
@@ -285,8 +324,6 @@
                                     <a href="#">Home</a>
                                     <a href="#">Support</a>
                                     <a href="#">License</a>
-                                    <a href="#">FAQ</a>
-                                    <a href="#">Privacy & Term</a>
                                 </div>
                             </div>
                         </div>
