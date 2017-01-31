@@ -422,3 +422,10 @@ $(window).load(function(){
     });
   });
 
+$(function () {
+        $("#chk1").click(function () {
+            $("#advancedSearch").toggle();
+        
+        });
+    });
+
