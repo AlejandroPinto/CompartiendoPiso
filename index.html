@@ -147,31 +147,44 @@
       <div class="aa-advance-search-area">
         <div class="form">
          <div class="aa-advance-search-top">
-            <div class="row">
+           <div class="row">
               <div class="col-md-6">
                 <div class="aa-single-advance-search">
-                  <input type="text" placeholder="Escriba la localización o usuario...">
+                  <input type="text" placeholder="Dirección...">
                 </div>
               </div>
+              <div class="col-md-2">
+                <div class="aa-single-advance-search">
+                  <input type="text" placeholder="Precio (€) desde:">
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="aa-single-advance-search">
+                  <input type="text" placeholder="Hasta:">
+                </div>
+              </div>
+           </div>
+            <div class="row">
+             <br>
               <div class="col-md-2">
                 <div class="aa-single-advance-search">
                   <select>
                    <option value="0" selected>Categoria</option>
-                    <option value="1">Casa</option>
-                    <option value="2">Habitación</option>
+                   <option value="1">Casa</option>
+                   <option value="2">Habitación</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-2">
-                 <div class="aa-single-advance-search">
+                <div class="aa-single-advance-search">
                   <select>
-                    <option value="0" selected>Tipo</option>
-                    <option value="1">Piso</option>
-                    <option value="2">Adosado</option>
-                    <option value="3">Chalé</option>
-                    <option value="4">Dúplex</option>
+                   <option value="0" selected>Tipo</option>
+                   <option value="1">Piso</option>
+                   <option value="2">Adosado</option>
+                   <option value="3">Chalé</option>
+                   <option value="4">Dúplex</option>
                   </select>
-              </div>
+               </div>
               </div>
               <div class="col-md-2">
                <div class="text-right">
@@ -180,23 +193,72 @@
                 </div>
               </div>
               </div>
-            </div>
-          </div>
-         <div class="aa-advance-search-bottom">
-           <div class="row">
-            <div class="col-md-12">
-              <div class="aa-single-filter-search">
-               <span>Precio (€)</span>
-                <span>Desde</span>
-                <span id="skip-value-lower" class="example-val">30.00</span>
-                <span>Hasta</span>
-                <span id="skip-value-upper" class="example-val">100.00</span>
-                <div id="aa-sqrfeet-range" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                </div>                  
+             </div>
+             <div class="row">
+             <br>
+              <div class="col-md-3">
+               <div class="checkbox">
+                 <label id ="chk1">
+                     <span class="glyphicon glyphicon-chevron-down"></span><b> Búsqueda avanzada</b>
+                  </label>
+                </div>
+               </div>
+             </div> 
+            <div id=advancedSearch hidden>
+            <!--<span hidden class="advandecSearch"-->  
+            <div class="row">
+             <div class="col-md-2">
+             </div>
+              <div class="col-md-2">
+                <div class="aa-single-advance-search">
+                  <select>
+                   <option value="0" selected>Habitaciones</option>
+                   <option value="1">1 o más habs.</option>
+                   <option value="2">2 o más habs.</option>
+                   <option value="3">3 o más habs.</option>
+                   <option value="4">4 o más habs.</option>
+                  </select>
+               </div>
               </div>
-            </div>
-          </div>  
+              <div class="col-md-2">
+                <div class="aa-single-advance-search">
+                  <select>
+                   <option value="0" selected>Baños</option>
+                   <option value="1">1 o más baños</option>
+                   <option value="2">2 o más baños</option>
+                   <option value="3">3 o más baños</option>
+                  </select>
+               </div>
+              </div>
+              <div class="col-md-2">
+                <div class="aa-single-advance-search">
+                  <input type="text" placeholder="Superficie (m2)">
+                </div>
+              </div>
+             </div>  
+             <div class="row">
+              <br>
+               <div align=right >
+                <div class="col-md-2">
+                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
+                </div>
+                <div class="col-md-2" style="width:150px;">
+                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
+                </div>
+                <div class="col-md-2" style="width:150px;">
+                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
+                </div>
+                <div class="col-md-2" style="width:180px;">
+                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
+                </div>
+                <div class="col-md-2" style="width:170px;">
+                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
+                </div>
+              </div>
+            <!--/span-->
+           </div> <!--ID-->     
          </div>
+        </div>
         </div>
       </div>
     </div>
