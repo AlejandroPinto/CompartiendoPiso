@@ -38,7 +38,7 @@
   
 
   </head>
-  <body class="aa-price-range">
+  <body>
    
   <!-- Pre Loader -->
   <div id="aa-preloader-area">
@@ -122,15 +122,13 @@
                   <div class="row">
                     <div class="col-md-12">
                       <article class="aa-properties-single-sidebar aa-properties-details">
+                        <form action="editarPerfil">
                         <div class="col-lg-3 col-md-3">
-                            <img src="http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg" alt="" title="" width="150" height="150" id="imgSalida">
-                            <div class="changeImage" hidden>
-                              <input name="file-input" class="btn btn-default" id="file-input" type="file" />
-                            </div>
+                            <img src="http://geroabai.com/upload/entradas/650_img_222_nafarroa-bai-irunea-propone-ampliar-el-perfil-de-los-destinatarios-de-las-viviendas-municipales.jpg" alt="" title="" width="150" height="150" id="imgSalida">                            
                         </div>
                         <div class="col-lg-9">
                            <div hidden class="text-right logedUser">
-                            <a href="#" class="btn btn-default editText" role="button">Añadir oferta</a>
+                            <a href="newAd.html" class="btn btn-default editText" role="button">Añadir oferta</a>
                             <button type="button" class="btn btn-default editButton" role="button">Editar Perfil</button>
                           </div>
                           <h2 class="box-heading" id="editName">Mario Francia Rius</h2>
@@ -138,7 +136,25 @@
                             <div class="col-lg-12">
                               <h5 class="box-heading" id="editDescription">Apasionado de los deportes de riesgo y buena persona.</h5>
                             </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editMail">user@user.com</h5>
+                            </div>
                           </div> 
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editPhone">653788963</h5>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <input type="hidden" class="form-control" id="editPassword" name="password" placeholder="Escriba la nueva contraseña">
+                            </div>
+                          </div>
+                          <div class="changeImage" hidden>
+                            <input name="file-input" class="btn btn-default" id="file-input" type="file"/>
+                          </div>
                         </div>     
                         <span hidden class="saveButton">
                           <div class="text-right">
@@ -146,7 +162,8 @@
                               <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>  Guardar Cambios
                             </button>
                           </div>
-                        </span>     
+                        </span>    
+                        </form> 
                       </article>
                     </div>
                     <!-- Related blog post -->
@@ -231,7 +248,7 @@
                   </div>
                 </div>   
               </div>
-                      <div class="col-md-4">
+        <div class="col-md-4">
           <aside class="aa-properties-sidebar">
             <!-- Start Single properties sidebar -->
             <div class="aa-properties-single-sidebar">
@@ -248,15 +265,6 @@
                     <option value="3">Casa baja</option>
                     <option value="4">Chalet adosado</option>
                   </select>
-                </div>
-                <div class="aa-single-filter-search">
-                  <span>PRECIO</span>
-                  <span>DESDE</span>
-                  <span id="skip-value-lower" class="example-val">30.00</span>
-                  <span>HASTA</span>
-                  <span id="skip-value-upper" class="example-val">100.00</span>
-                  <div id="aa-sqrfeet-range" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                  </div>                  
                 </div>
                 <div class="aa-single-advance-search">
                   <input type="submit" value="Buscar" class="aa-search-btn">
