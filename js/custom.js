@@ -478,4 +478,3 @@ $("#fileUpload").on('change', function () {
          alert("Pls select only images");
      }
  });
->>>>>>> feature/vistaRegistroUsuario
