@@ -36,6 +36,8 @@
 */
 /* BASE - Base tyles, Variables, Mixins, etc. */
 
+
+
 body {
   background-color: #ffffff;
   font-family: "Open Sans", sans-serif;
@@ -718,6 +720,41 @@ img {
 }
 
 /*==================
+ VALORATION SECTION
+====================*/
+
+.star-rating a {
+  display: inline-block;
+  color: #95a5a6; /* gris (normal) */
+}
+.star-rating:hover a {
+  color: #f39c12; /* amarillo (seleccionado) */
+}
+  .star-rating:hover a:hover ~ a {
+    color: #95a5a6; /* gris (normal) */
+  }
+
+.ec-stars-wrapper {
+	font-size: 0;
+	display: inline-block;
+}
+.ec-stars-wrapper a {
+	text-decoration: none;
+	display: inline-block;
+	font-size: 32px;
+	font-size: 2rem;
+	color: #888;
+}
+
+.ec-stars-wrapper:hover a {
+	color: rgb(232, 240, 36);
+}
+
+.ec-stars-wrapper > a:hover ~ a {
+	color: #888;
+} 
+
+/*==================
  LATEST PROPERTY SECTION
 ====================*/
 
@@ -726,7 +763,7 @@ img {
   display: inline;
   float: left;
   width: 100%;
-  padding: 100px 0;
+  padding: 70px 0;
 }
 #aa-latest-property .aa-latest-property-area {
   display: inline;
