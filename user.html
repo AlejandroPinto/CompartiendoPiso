@@ -15,14 +15,12 @@
     <link href="css/bootstrap.css" rel="stylesheet">   
     <!-- slick slider -->
     <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="css/nouislider.css">
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">     
 
     <!-- Main style sheet -->
     <link href="css/style.css" rel="stylesheet">    
-
+    <link href="css/custom.css" rel="stylesheet">  
    
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>    
@@ -91,8 +89,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="properties.html">Ofertas</a></li>                                        
+            <li><a href="index.html">Inicio</a></li>                                     
             <li><a href="contact.html">Contacto</a></li>
           </ul>                          
         </div><!--/.nav-collapse -->       
@@ -248,31 +245,52 @@
                   </div>
                 </div>   
               </div>
-        <div class="col-md-4">
-          <aside class="aa-properties-sidebar">
-            <!-- Start Single properties sidebar -->
-            <div class="aa-properties-single-sidebar">
-              <h3>Buscador de Ofertas</h3>
-              <form action="">
-                <div class="aa-single-advance-search">
-                  <input type="text" placeholder="Escribe la dirección">
-                </div>
-                <div class="aa-single-advance-search">
-                  <select id="" name="">
-                    <option selected="" value="0">Categoría</option>
-                    <option value="1">Piso</option>
-                    <option value="2">Dúplex</option>
-                    <option value="3">Casa baja</option>
-                    <option value="4">Chalet adosado</option>
-                  </select>
-                </div>
-                <div class="aa-single-advance-search">
-                  <input type="submit" value="Buscar" class="aa-search-btn">
-                </div>
-              </form>
-            </div> 
-          </aside>
-        </div>
+              <div class="col-md-4">
+                <aside class="aa-properties-sidebar">
+                  <!-- Start Single properties sidebar -->
+                  <div class="aa-properties-single-sidebar">
+                    <h3>Buscador de Ofertas</h3>
+                    <form action="browser">
+                      <div class="col-md-12 aa-single-advance-search">
+                        <input type="text" placeholder="Escribe la dirección">
+                      </div>
+                      <div class="col-md-12 aa-single-advance-search">
+                        <select id="" name="">
+                          <option selected="" value="0">Categoría</option>
+                          <option value="1">Piso</option>
+                          <option value="2">Dúplex</option>
+                          <option value="3">Casa baja</option>
+                          <option value="4">Chalet adosado</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="aa-single-advance-search">
+                          <input type="text" placeholder="(€) Desde:" name="priceTFrom">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="aa-single-advance-search">
+                          <input type="text" placeholder="(€) Hasta:" name="priceTo">
+                        </div>
+                      </div>
+                      <label class="properties" for="skills">Características</label>
+                      <div class="col-md-12">
+                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
+                      </div>
+                      <div class="aa-single-advance-search">
+                        <input type="submit" value="buscar" class="aa-search-btn">
+                      </div>
+                    </form>
+                  </div> 
+                </aside>
+              </div>
             </div>
           </div>
         </div>
@@ -316,8 +334,6 @@
   <script src="js/bootstrap.js"></script>   
   <!-- slick slider -->
   <script type="text/javascript" src="js/slick.js"></script>
-  <!-- Price picker slider -->
-  <script type="text/javascript" src="js/nouislider.js"></script>
   
   <!-- Custom js -->
   <script src="js/custom.js"></script> 

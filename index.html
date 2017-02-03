@@ -15,13 +15,11 @@
     <link href="css/bootstrap.css" rel="stylesheet">   
     <!-- slick slider -->
     <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="css/nouislider.css"> 
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">     
-
     <!-- Main style sheet -->
-    <link href="css/style.css" rel="stylesheet">    
+    <link href="css/style.css" rel="stylesheet">   
+    <link href="css/custom.css" rel="stylesheet">  
 
    
     <!-- Google Font -->
@@ -37,7 +35,7 @@
     <![endif]-->
 
   </head>
-  <body class="aa-price-range">  
+  <body>  
   <!-- Pre Loader -->
   <div id="aa-preloader-area">
     <div class="pulse"></div>
@@ -145,119 +143,113 @@
     <div class="container">
       <div class="aa-advance-search-area">
         <div class="form">
-         <div class="aa-advance-search-top">
-           <div class="row">
-              <div class="col-md-6">
-                <div class="aa-single-advance-search">
-                  <input type="text" placeholder="Dirección...">
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="aa-single-advance-search">
-                  <input type="text" placeholder="Precio (€) desde:">
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="aa-single-advance-search">
-                  <input type="text" placeholder="Hasta:">
-                </div>
-              </div>
-           </div>
-            <div class="row">
-             <br>
-              <div class="col-md-2">
-                <div class="aa-single-advance-search">
-                  <select>
-                   <option value="0" selected>Categoria</option>
-                   <option value="1">Casa</option>
-                   <option value="2">Habitación</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="aa-single-advance-search">
-                  <select>
-                   <option value="0" selected>Tipo</option>
-                   <option value="1">Piso</option>
-                   <option value="2">Adosado</option>
-                   <option value="3">Chalé</option>
-                   <option value="4">Dúplex</option>
-                  </select>
-               </div>
-              </div>
-              <div class="col-md-2">
-               <div class="text-right">
-                <div class="aa-single-advance-search">
-                  <input class="aa-search-btn" type="submit" value="Buscar">
-                </div>
-              </div>
-              </div>
-             </div>
+          <form action="browser">
+           <div class="aa-advance-search-top">
              <div class="row">
-             <br>
-              <div class="col-md-3">
-               <div class="checkbox">
-                 <label id ="chk1">
-                     <span class="glyphicon glyphicon-chevron-down"></span><b> Búsqueda avanzada</b>
-                  </label>
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="aa-single-advance-search">
+                    <input type="text" placeholder="Dirección..." name="direction">
+                  </div>
                 </div>
-               </div>
-             </div> 
-            <div id=advancedSearch hidden>
-            <!--<span hidden class="advandecSearch"-->  
-            <div class="row">
-             <div class="col-md-2">
              </div>
-              <div class="col-md-2">
-                <div class="aa-single-advance-search">
-                  <select>
-                   <option value="0" selected>Habitaciones</option>
-                   <option value="1">1 o más habs.</option>
-                   <option value="2">2 o más habs.</option>
-                   <option value="3">3 o más habs.</option>
-                   <option value="4">4 o más habs.</option>
-                  </select>
-               </div>
-              </div>
-              <div class="col-md-2">
-                <div class="aa-single-advance-search">
-                  <select>
-                   <option value="0" selected>Baños</option>
-                   <option value="1">1 o más baños</option>
-                   <option value="2">2 o más baños</option>
-                   <option value="3">3 o más baños</option>
-                  </select>
-               </div>
-              </div>
-              <div class="col-md-2">
-                <div class="aa-single-advance-search">
-                  <input type="text" placeholder="Superficie (m2)">
+              <div class="row">
+               <br>
+                <div class="col-md-2 col-md-offset-2">
+                  <div class="aa-single-advance-search">
+                    <select name="category">
+                     <option value="0" selected>Categoría</option>
+                     <option value="1">Casa</option>
+                     <option value="2">Habitación</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-             </div>  
-             <div class="row">
-              <br>
-               <div align=right >
                 <div class="col-md-2">
-                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
+                  <div class="aa-single-advance-search">
+                    <select name="type">
+                     <option value="0" selected>Tipo</option>
+                     <option value="1">Piso</option>
+                     <option value="2">Adosado</option>
+                     <option value="3">Chalé</option>
+                     <option value="4">Dúplex</option>
+                    </select>
+                 </div>
                 </div>
-                <div class="col-md-2" style="width:150px;">
-                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <input type="text" placeholder="Precio (€) desde:" name="priceTFrom">
+                  </div>
                 </div>
-                <div class="col-md-2" style="width:150px;">
-                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
-                </div>
-                <div class="col-md-2" style="width:180px;">
-                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
-                </div>
-                <div class="col-md-2" style="width:170px;">
-                   <button type="button" class="btn btn-default" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <input type="text" placeholder="Hasta:" name="priceTo">
+                  </div>
                 </div>
               </div>
-            <!--/span-->
-           </div> <!--ID-->     
-         </div>
-        </div>
+              <br>
+              <div class="row">
+                <div class="col-md-2 col-md-offset-4">
+                  <div class="aa-single-advance-search">
+                    <input class="aa-search-btn" type="submit" value="Buscar">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                 <div class="checkbox">
+                   <label id ="chk1">
+                       <span class="glyphicon glyphicon-chevron-down"></span><b> Búsqueda avanzada</b>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div id="advancedSearch" hidden>
+              <!--<span hidden class="advandecSearch"-->  
+              <div class="row">
+                <div class="col-md-3 col-md-offset-2">
+                  <div class="aa-single-advance-search">
+                    <select name="rooms">
+                     <option value="0" selected>Habitaciones</option>
+                     <option value="1">1 o más habs.</option>
+                     <option value="2">2 o más habs.</option>
+                     <option value="3">3 o más habs.</option>
+                     <option value="4">4 o más habs.</option>
+                    </select>
+                 </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="aa-single-advance-search">
+                    <select name="baths">
+                     <option value="0" selected>Baños</option>
+                     <option value="1">1 o más baños</option>
+                     <option value="2">2 o más baños</option>
+                     <option value="3">3 o más baños</option>
+                    </select>
+                 </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <input type="text" placeholder="Superficie (m2)" name="area">
+                  </div>
+                </div>
+               </div>  
+               <div class="row">
+                <br>
+                 <div>
+                  <div class="col-md-8 col-md-offset-2">
+                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
+                  </div>
+                </div>
+              <!--/span-->
+             </div> <!--ID-->     
+           </div>
+          </div>
+        </form>
         </div>
       </div>
     </div>
@@ -428,7 +420,7 @@
            <div align="right">
             <div class="col-md-3">
                <div class="media-left">    
-                 <a href="user.html"><img alt="img" src="/img/perfil1.jpg" class="media-object news-img img-circle"  width="150" height="150"></a>      
+                 <a href="user.html"><img alt="img" src="img/perfil1.jpg" class="media-object news-img img-circle"  width="150" height="150"></a>      
                </div>
             </div>
             <div class="col-md-3">
@@ -497,17 +489,13 @@
   </footer>
   <!-- / Footer -->
 
-  
   <!-- jQuery library -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
   <script src="js/jquery.min.js"></script>   
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.js"></script>   
   <!-- slick slider -->
-  <script type="text/javascript" src="js/slick.js"></script>
-  <!-- Price picker slider -->
-  <script type="text/javascript" src="js/nouislider.js"></script>
-  
+  <script type="text/javascript" src="js/slick.js"></script>  
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
 
