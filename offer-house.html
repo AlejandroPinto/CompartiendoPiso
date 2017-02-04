@@ -16,13 +16,12 @@
     <link href="css/bootstrap.css" rel="stylesheet">   
     <!-- slick slider -->
     <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="css/nouislider.css">
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">     
 
     <!-- Main style sheet -->
-    <link href="css/style.css" rel="stylesheet">    
+    <link href="css/style.css" rel="stylesheet">   
+    <link href="css/custom.css" rel="stylesheet">   
 
    
     <!-- Google Font -->
@@ -39,7 +38,7 @@
   
 
   </head>
-  <body class="aa-price-range">  
+  <body>  
   <!-- Pre Loader -->
   <div id="aa-preloader-area">
     <div class="pulse"></div>
@@ -122,16 +121,22 @@
                <h2>Alquiler de piso en calle Hermanos Grimm, 91, El Soto - Coveta, Móstoles</h2>
                <span class="aa-price">240€/mes</span>
                 <div class=".visible-*-inline">
-                  <h4>Valoración global: </h4>
-                     <div class="ec-stars-wrapper">
-                        <a data-value="1">&#9733;</a>
-                        <a data-value="2">&#9733;</a>
-                        <a data-value="3">&#9733;</a>
-                        <a data-value="4">&#9733;</a>
-                        <a data-value="5">&#9733;</a>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <h4>Valoración global: </h4>
                     </div>
+                    <div class="col-md-2 globalValoration">
+                       <div class="ec-stars-wrapper">
+                          <a data-value="1">&#9733;</a>
+                          <a data-value="2">&#9733;</a>
+                          <a data-value="3">&#9733;</a>
+                          <a data-value="4">&#9733;</a>
+                          <a data-value="5">&#9733;</a>
+                      </div>
+                    </div>
+                  </div>
                 </div> 
-                </div>
+              </div>
                <p>"Alquiler piso de 100 m2 en urbanizacion tranquila. buena comunicacion renfe, metro, autobus, a 5 minutos de A5 y universidad. Habitaciones de 13 m2 con 1 armario, escritorio, cama 90 1.90 y con cerradura en la puerta. 1 baño y 1 aseo, salon totalmente amueblado de 30 m2, cocina de 15 m2 totalmente amueblada con 2 frigorificos y taquillas individuales de comida con cerradura. Gastos incluidos en el precio."</p>
                <h4>Características básicas</h4>
                <ul>
@@ -322,38 +327,57 @@
             </div>
             <!-- Respond box -->
             <div class="col-md-8">
-              <div id="respond">
-                <h3 class="reply-title">Deja un comentario</h3>
-                <form id="commentform">
-                  <p class="comment-notes">
-                    Tu Email no será publicado. Los campos señalados son obligatorios<span class="required">*</span>
-                  </p>
-                  <p class="comment-form-author">
-                    <label for="author">Nombre <span class="required">*</span></label>
-                    <input type="text" required="required" size="30" value="" name="author">
-                  </p>
-                  <p class="comment-form-email">
-                    <label for="email">Email <span class="required">*</span></label>
-                    <input type="email" required="required" aria-required="true" value="" name="email">
-                  </p>
-                  <p class="comment-form-comment">
-                    <label>Valoración</label>
-                    <!--div class="ec-stars-wrapper">
-                        <a data-value="1">&#9733;</a>
-                        <a data-value="2">&#9733;</a>
-                        <a data-value="3">&#9733;</a>
-                        <a data-value="4">&#9733;</a>
-                        <a data-value="5">&#9733;</a>
-                    </div-->
-                  </p>
-                  <p class="comment-form-comment">
-                    <label for="comment">Comentario</label>
-                    <textarea required="required" aria-required="true" rows="8" cols="45" name="comment"></textarea>
-                  </p>
-                  <p class="form-submit">
-                    <input type="submit" value="Publicar comentario" class="aa-browse-btn" name="submit">
-                  </p>        
-                </form>
+                <div id="respond">
+                  <h3 class="reply-title">Deja un comentario</h3>
+                  <form action="commentform" type="post">
+                    <div class="row">
+                      <div class="col md-12">
+                        <p class="comment-notes">
+                          Tu Email no será publicado. Los campos señalados son obligatorios<span class="required">*</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p class="comment-form-author">
+                          <label for="author">Nombre <span class="required">*</span></label>
+                          <input type="text" required="required" size="30" value="" name="author">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p class="comment-form-email">
+                          <label for="email">Email <span class="required">*</span></label>
+                          <input type="email" required="required" aria-required="true" value="" name="email">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2">
+                        <p class="comment-form-comment commentValoration">
+                          <label>Valoración</label>
+                        </p>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="ec-stars-wrapper">
+                            <a data-value="1">&#9733;</a>
+                            <a data-value="2">&#9733;</a>
+                            <a data-value="3">&#9733;</a>
+                            <a data-value="4">&#9733;</a>
+                            <a data-value="5">&#9733;</a>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="comment-form-comment">
+                      <label for="comment">Comentario</label>
+                      <textarea required="required" aria-required="true" rows="8" cols="45" name="comment"></textarea>
+                    </p>
+                    <p class="form-submit">
+                      <input type="submit" value="Publicar comentario" class="aa-browse-btn" name="submit">
+                    </p>        
+                  </form>
+                </div>
               </div>
             </div>    
           </div>                                   
@@ -397,8 +421,6 @@
   <script src="js/bootstrap.js"></script>   
   <!-- slick slider -->
   <script type="text/javascript" src="js/slick.js"></script>
-  <!-- Price picker slider -->
-  <script type="text/javascript" src="js/nouislider.js"></script>
   
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
