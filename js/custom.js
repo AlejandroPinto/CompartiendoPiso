@@ -404,10 +404,29 @@ $(document).ready(function(){
 
   $(".logued").click(function(){
     $(".logedUser").show();
-  })
+  });
   $(".unlogued").click(function(){
     window.location.href = "user.html";
-  })
+  });
+
+  $(".delete-offert").click(function(){
+    bootbox.confirm({
+    message: "¿Está seguro de que desea eliminar la oferta?",
+    buttons: {
+        confirm: {
+            label: 'Confirmar',
+            className: 'btn-primary'
+        },
+        cancel: {
+            label: 'Cancelar',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      alert("La oferta ha sido eliminado");
+    }
+});
+  });
 })
 
 $(window).load(function(){
