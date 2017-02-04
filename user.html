@@ -175,8 +175,8 @@
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
                                 <span class="logedUser" hidden>
-                                  <button  class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
-                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
                                   <br>
                                 </span>
                                 <figure class="aa-blog-img">
@@ -197,8 +197,8 @@
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
                                 <span class="logedUser" hidden>
-                                  <a href="newAdModify.html"><button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button></a>
-                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
                                   <br>
                                 </span>
                                 <figure class="aa-blog-img">
@@ -219,7 +219,7 @@
                             <div class="col-md-6 col-sm-6">
                               <span class="logedUser" hidden>
                                   <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
-                                  <button  class="btn btn-default text-right"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
                                   <br>
                                 </span>
                               <article class="aa-blog-single">
@@ -255,7 +255,7 @@
                         <input type="text" placeholder="Escribe la dirección">
                       </div>
                       <div class="col-md-12 aa-single-advance-search">
-                        <select id="" name="">
+                        <select name="category" class="select-color">
                           <option selected="" value="0">Categoría</option>
                           <option value="1">Piso</option>
                           <option value="2">Dúplex</option>
@@ -265,7 +265,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="aa-single-advance-search">
-                          <input type="text" placeholder="(€) Desde:" name="priceTFrom">
+                          <input class="select-color" type="text" placeholder="Desde (€):" name="priceTFrom">
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -275,14 +275,14 @@
                       </div>
                       <label class="properties" for="skills">Características</label>
                       <div class="col-md-12">
-                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
-                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
-                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
-                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
-                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
-                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
-                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
-                        <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
                       </div>
                       <div class="aa-single-advance-search">
                         <input type="submit" value="buscar" class="aa-search-btn">
@@ -324,14 +324,16 @@
       </div>
       </div>
     </div>
-  </footer>    
+  </footer>
   <!-- / Footer -->
 
   <!-- jQuery library -->
   <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
   <script src="js/jquery.min.js"></script>   
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.js"></script>   
+  <script src="js/bootstrap.js"></script>
+  <!-- Include bootbox.min.js -->
+  <script type="text/javascript" src="js/bootbox.min.js"></script>  
   <!-- slick slider -->
   <script type="text/javascript" src="js/slick.js"></script>
   
