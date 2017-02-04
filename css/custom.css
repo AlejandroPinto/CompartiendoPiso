@@ -63,4 +63,7 @@
 
 .ec-stars-wrapper > a:hover ~ a {
 	color: #888;
-} 
+}
+.user-admin {
+	height: 220px !important;
+}

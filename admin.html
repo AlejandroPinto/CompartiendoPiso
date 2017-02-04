@@ -15,15 +15,13 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">   
     <!-- slick slider -->
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="css/nouislider.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">  
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">     
 
     <!-- Main style sheet -->
     <link href="css/style.css" rel="stylesheet">    
-
+    <link href="css/custom.css" rel="stylesheet"> 
    
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>    
@@ -39,7 +37,7 @@
   
 
   </head>
-  <body class="aa-price-range">   
+  <body>   
   <!-- Pre Loader -->
   <div id="aa-preloader-area">
     <div class="pulse"></div>
@@ -69,8 +67,8 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-right">
-                  <a href="register.html" class="aa-register">Conectarse</a>
-                  <a href="signin.html" class="aa-login">Desconectarse</a>
+                  <a href="signin.html" class="aa-register">Conectarse</a>
+                  <a href="index.html" class="aa-login">Desconectarse</a>
                 </div>
               </div>
             </div>
@@ -94,7 +92,7 @@
           </button>
           <!-- LOGO -->                                               
           <!-- Text based logo -->
-          <a class="navbar-brand aa-logo" href="index.html"><span>Admin</span></a>
+          <a class="navbar-brand aa-logo" href="#">CompartiendoPiso|<span>Admin</span></a>
           <!-- Image based logo -->
           <!-- <a class="navbar-brand aa-logo-img" href="index.html"><img src="img/logo.png" alt="logo"></a> -->                     
         </div>
@@ -107,16 +105,7 @@
                 <li><a href="properties.html">PROPERTIES</a></li>
                 <li><a href="properties-detail.html">PROPERTIES DETAIL</a></li>                                            
               </ul>
-            </li-->
-            <li><a href="gallery.html">Ofertas</a></li>
-            <!--li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="blog-archive.html">BLOG <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">                
-                <li><a href="blog-archive.html">BLOG</a></li>
-                <li><a href="blog-single.html">BLOG DETAILS</a></li>                                            
-              </ul>
-            </li-->
-            <li><a href="contact.html">Reportes</a></li>            
+            </li-->            
           </ul>                           
         </div><!--/.nav-collapse -->       
       </div>          
@@ -126,7 +115,7 @@
 
   <!-- Start Proerty header  -->
 
-  <section id="aa-user">
+  <section id="aa-user" class="user-admin" >
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -143,52 +132,188 @@
   </section> 
 
   <!-- End Proerty header  -->
-
-  <!-- Start Properties  -->
-  <section id="aa-properties">
+  <!-- Advance Search -->
+  <section id="aa-advance-search">
     <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="aa-properties-content">
-            <!-- start properties content head -->
-            <div class="aa-properties-content-head">              
-              <div class="aa-properties-content-head-left">
-                <form action="" class="aa-sort-form">
-                  <label for="">Ordenar por:</label>
-                  <select name="">
-                    <!--option value="1" selected="Default">Default</option-->
-                    <option value="2">Nombre</option>
-                    <option value="3">Precio</option>
-                    <option value="4">Fecha</option>
+      <div class="aa-advance-search-area">
+        <div class="form">
+          <form action="browser">
+           <div class="aa-advance-search-top">
+             <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="aa-single-advance-search">
+                    <input type="text" placeholder="Dirección..." name="direction">
+                  </div>
+                </div>
+             </div>
+             <div class="row">
+               <br>
+                <div class="col-md-2 col-md-offset-2">
+                  <div class="aa-single-advance-search">
+                    <select class="select-color" name="priceTo">
+                     <option class="select-color" value="0" selected>Desde (€)</option>
+                     <option class="select-color" value="100">100</option>
+                     <option class="select-color" value="200">200</option>
+                     <option class="select-color" value="300">300</option>
+                     <option class="select-color" value="400">400</option>
+                     <option class="select-color" value="500">500</option>
+                     <option class="select-color" value="600">600</option>
+                     <option class="select-color" value="700">700</option>
+                     <option class="select-color" value="800">800</option>
+                     <option class="select-color" value="900">900</option>
+                     <option class="select-color" value="1000">1000</option>
+                     <option class="select-color" value="1400">1400</option>
+                     <option class="select-color" value="1800">1800</option>
+                     <option class="select-color" value="2000">2000</option>
+                     <option class="select-color" value="2500">2500</option>
+                     <option class="select-color" value="3000">3000</option>
+                     <option class="select-color" value="4000">4000</option>
+                     <option class="select-color" value="5000">5000</option>
+                     <option class="select-color" value="6000">6000</option>
+                     <option class="select-color" value="7000">7000</option>
+                     <option class="select-color" value="10000">10000</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                <div class="aa-single-advance-search">
+                  <select class="select-color" name="priceFrom">
+                   <option value="0" selected>Hasta (€)</option>
+                   <option value="100">100</option>
+                   <option value="200">200</option>
+                   <option value="300">300</option>
+                   <option value="400">400</option>
+                   <option value="500">500</option>
+                   <option value="600">600</option>
+                   <option value="700">700</option>
+                   <option value="800">800</option>
+                   <option value="900">900</option>
+                   <option value="1000">1000</option>
+                   <option value="1400">1400</option>
+                   <option value="1800">1800</option>
+                   <option value="2000">2000</option>
+                   <option value="2500">2500</option>
+                   <option value="3000">3000</option>
+                   <option value="4000">4000</option>
+                   <option value="5000">5000</option>
+                   <option value="6000">6000</option>
+                   <option value="7000">7000</option>
+                   <option value="10000">10000</option>
                   </select>
-                </form>
-                <form action="" class="aa-show-form">
-                  <label for="">Mostrar ultimas:</label>
-                  <select name="">
-                    <option value="1" selected="12">5</option>
-                    <option value="2">10</option>
-                    <option value="3">30</option>
-                  </select>
-                </form>
+               </div>
               </div>
-              <div class="aa-properties-content-head-right">
-                <a id="aa-grid-properties" href="#"><span class="fa fa-th"></span></a>
-                <a id="aa-list-properties" href="#"><span class="fa fa-list"></span></a>
-              </div>            
-            </div>
-            <!-- Start properties content body -->
-            <div class="aa-properties-content-body">
-              <ul class="aa-properties-nav">
-                <li>
-                  <article class="aa-properties-item">
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <select name="category" class="select-color">
+                     <option value="0" selected>Categoría</option>
+                     <option value="1">Casa</option>
+                     <option value="2">Habitación</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <select name="type" class="select-color">
+                     <option value="0" selected>Tipo</option>
+                     <option value="1">Piso</option>
+                     <option value="2">Adosado</option>
+                     <option value="3">Chalé</option>
+                     <option value="4">Dúplex</option>
+                    </select>
+                 </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-2 col-md-offset-4">
+                  <div class="aa-single-advance-search">
+                    <input class="aa-search-btn" type="submit" value="Buscar">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                 <div class="checkbox">
+                   <label id ="chk1">
+                       <span class="glyphicon glyphicon-chevron-down"></span><b> Búsqueda avanzada</b>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div id="advancedSearch" hidden>
+              <!--<span hidden class="advandecSearch"-->  
+              <div class="row">
+                <div class="col-md-3 col-md-offset-2">
+                  <div class="aa-single-advance-search">
+                    <select name="rooms" class="select-color">
+                     <option value="0" selected>Habitaciones</option>
+                     <option value="1">1 o más habs.</option>
+                     <option value="2">2 o más habs.</option>
+                     <option value="3">3 o más habs.</option>
+                     <option value="4">4 o más habs.</option>
+                    </select>
+                 </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="aa-single-advance-search">
+                    <select name="baths" class="select-color">
+                     <option value="0" selected>Baños</option>
+                     <option value="1">1 o más baños</option>
+                     <option value="2">2 o más baños</option>
+                     <option value="3">3 o más baños</option>
+                    </select>
+                 </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <input type="text" placeholder="Superficie (m2)" name="area">
+                  </div>
+                </div>
+               </div>  
+               <div class="row">
+                <br>
+                 <div>
+                  <div class="col-md-8 col-md-offset-2">
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
+                  </div>
+                </div>
+              <!--/span-->
+             </div> <!--ID-->     
+           </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest property -->
+  <section id="aa-latest-property">
+    <div class="container">
+      <div class="aa-latest-property-area">
+        <div class="aa-title">
+          <h2>Ofertas</h2>
+          <span></span>
+          <p>Se muestran ofertas de acuerdo a su búsqueda.</p>         
+        </div>
+        <div class="aa-latest-properties-content">
+          <div class="row">
+            <div class="col-md-4">
+              <article class="aa-properties-item">
                     <br>
                     <div class="logedUser text-center">
-                      <a href="#" class="btn btn-danger editText" role="button">Rechazar</a>
-                      <button type="button" class="btn btn-primary editButton" role="button">Editar</button>
+                      <a href="#" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
+                      <button onclick="window.location.href='newAdModify.html'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
                     </div>
                     <br>
                     <a class="aa-properties-item-img" href="#">
-                      <img alt="img" src="img/cocina.americana.jpg">
+                      <img src="img/cocina.americana.jpg" alt="img" width="370" height="220">
                     </a>
                     <div class="aa-properties-item-content">
                       <div class="aa-properties-info">
@@ -211,17 +336,17 @@
                       </div>
                     </div>
                   </article>
-                </li>
-                <li>
-                  <article class="aa-properties-item">
+            </div>
+            <div class="col-md-4">
+             <article class="aa-properties-item">
                    <br>
                     <div class="logedUser text-center">
-                      <a href="#" class="btn btn-danger editText" role="button">Rechazar</a>
-                      <button type="button" class="btn btn-primary editButton" role="button">Editar</button>
+                      <a href="#" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
+                      <button onclick="window.location.href='newAdModify.html'" type="button" class="btn btn-primary editButton " role="button">Editar</button>
                     </div>
                     <br>
                     <a class="aa-properties-item-img" href="#">
-                      <img alt="img" src="img/duplex.jpg">
+                      <img src="img/duplex.jpg" alt="img" width="370" height="220">
                     </a>                    
                     <div class="aa-properties-item-content">
                       <div class="aa-properties-info">
@@ -230,10 +355,10 @@
                         <span>3 Baños</span>                        
                       </div>
                       <div class="aa-properties-about">
-                        <h3><a href="#">Duplex Mostoles,Av Iker Casiilas</a></h3>
+                        <h3><a href="#">Duplex Av Iker Casillas</a></h3>
                         <p>Se alquila duplex en la zona centro 
                         de mostoles , cerca del metro  y recien remodelado ,
-                        a estrenar.</p>                      
+                        a estrenar. 105 m2 , perfecto para parejas jóvenes.</p>                      
                       </div>
                       <div class="aa-properties-detial">
                         <span class="aa-price">
@@ -243,17 +368,17 @@
                       </div>
                     </div>
                   </article>
-                </li>
-                 <li>
-                  <article class="aa-properties-item">
+            </div>
+            <div class="col-md-4">
+               <article class="aa-properties-item">
                    <br>
                     <div class="logedUser text-center">
-                      <a href="#" class="btn btn-danger editText" role="button">Rechazar</a>
-                      <button type="button" class="btn btn-primary editButton" role="button">Editar</button>
+                      <a href="#" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
+                      <button onclick="window.location.href='newAdModify.html'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
                     </div>
                     <br>
                     <a class="aa-properties-item-img" href="#">
-                      <img alt="img" src="img/piso3.jpg">
+                      <img src="img/piso3.jpg" alt="img" width="370" height="220">
                     </a>                  
                     <div class="aa-properties-item-content">
                       <div class="aa-properties-info">
@@ -262,7 +387,7 @@
                         <span>1 Baño</span>                       
                       </div>
                       <div class="aa-properties-about">
-                        <h3><a href="#">Habitacion Mostoles, C/ Tulipan 7.</a></h3>
+                        <h3><a href="#">Habitacion C/ Tulipan 7.</a></h3>
                         <p>Se alquila habitacion de estudiante 
                         en mostoles , al lado de la urjc en mostoles.
                         Piso de 75 m2 , perfecto para universitarios. </p>                      
@@ -275,17 +400,49 @@
                       </div>
                     </div>
                   </article>
-                </li>
-                <li>
-                  <article class="aa-properties-item">
-                   <br>
+            </div>
+            <div class="col-md-4">
+              <article class="aa-properties-item">
+                    <br>
                     <div class="logedUser text-center">
-                      <a href="#" class="btn btn-danger editText" role="button">Rechazar</a>
-                      <button type="button" class="btn btn-primary editButton" role="button">Editar</button>
+                      <a href="#" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
+                      <button onclick="window.location.href='newAdModify.html'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
                     </div>
                     <br>
                     <a class="aa-properties-item-img" href="#">
-                      <img alt="img" src="img/piso4.jpg">
+                      <img src="https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/61/4c/c0/117618352.jpg"  alt="img" width="370" height="220">
+                    </a>
+                    <div class="aa-properties-item-content">
+                      <div class="aa-properties-info">
+                        <span>1Habitaciones</span>
+                        <span>1 Camas</span>
+                        <span>2Baño</span>                      
+                      </div>
+                      <div class="aa-properties-about">
+                        <h3><a href="#">Habitacion zona norte,C/ Pintor Velázquez</a></h3>
+                        <p>Alquiler habitacion situada en buena zona
+                        de móstoles , cercano a la universidad.Piso muy 
+                        luminoso con vistas despejadas.</p>                      
+                      </div>
+                      <div class="aa-properties-detial">
+                        <span class="aa-price">
+                          €150
+                        </span>
+                        <a class="aa-secondary-btn" href="#">Aceptar</a>
+                      </div>
+                    </div>
+                  </article>
+            </div>
+            <div class="col-md-4">
+             <article class="aa-properties-item">
+                   <br>
+                    <div class="logedUser text-center">
+                      <a href="#" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
+                      <button onclick="window.location.href='newAdModify.html'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
+                    </div>
+                    <br>
+                    <a class="aa-properties-item-img" href="#">
+                      <img src="img/piso4.jpg" alt="img" width="370" height="220">
                     </a>                 
                     <div class="aa-properties-item-content">
                       <div class="aa-properties-info">
@@ -307,69 +464,103 @@
                       </div>
                     </div>
                   </article>
-                </li>
-              </ul>
             </div>
-            <!-- Start properties content bottom -->
-            <div class="aa-properties-content-bottom">
-              <nav>
-                <ul class="pagination">
-                  <li>
-                    <a href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
+            <div class="col-md-4">
+              <article class="aa-properties-item">
+                    <br>
+                    <div class="logedUser text-center">
+                      <a href="#" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
+                      <button onclick="window.location.href='newAdModify.html'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
+                    </div>
+                    <br>
+                    <a class="aa-properties-item-img" href="#">
+                      <img src="https://imganuncios.mitula.net/casa_adosada_en_venta_en_mostoles_7110062481227368034.jpg"  alt="img" width="370" height="220">
                     </a>
-                  </li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li class="active"><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li>
-                    <a href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+                    <div class="aa-properties-item-content">
+                      <div class="aa-properties-info">
+                        <span>2 Habitaciones</span>
+                        <span>2 Camas</span>
+                        <span>1 Baño</span>                      
+                      </div>
+                      <div class="aa-properties-about">
+                        <h3><a href="#">Piso Mostoles , calle granada Nº 7</a></h3>
+                        <p>Se alquila piso mostoles calle granada.
+                        Piso de 2 dormitorios , con cocina americana ,
+                        algo antiguo pero con las habitaciones recien 
+                        reformadas.</p>                      
+                      </div>
+                      <div class="aa-properties-detial">
+                        <span class="aa-price">
+                          €300
+                        </span>
+                        <a class="aa-secondary-btn" href="#">Aceptar</a>
+                      </div>
+                    </div>
+                  </article>
             </div>
           </div>
-        </div>
-        <!-- Start properties sidebar -->
-        <div class="col-md-4">
-          <aside class="aa-properties-sidebar">
-            <!-- Start Single properties sidebar -->
-            <div class="aa-properties-single-sidebar">
-              <h3>Opciones de búsqueda</h3>
-              <form action="">
-                <div class="aa-single-advance-search">
-                  <select id="" name="">
-                    <option selected="" value="0">Tipo de vivienda</option>
-                    <option value="1">Piso</option>
-                    <option value="2">Duplex</option>
-                    <option value="3">Chalet</option>                 
-                  </select>
-                </div>
-                <div class="aa-single-filter-search">
-                  <span>Precio(€)</span>
-                  <span>Desde</span>
-                  <span id="skip-value-lower" class="example-val">30.00</span>
-                  <span></span>
-                  <span id="skip-value-upper" class="example-val">100.00</span>
-                  <div id="aa-sqrfeet-range" class="noUi-target noUi-ltr noUi-horizontal noUi-background">
-                  </div>                  
-                </div>
-                <div class="aa-single-advance-search">
-                  <input type="submit" value="Buscar" class="aa-search-btn">
-                </div>
-              </form>
-            </div> 
-            <!-- Start Single properties sidebar -->
-          </aside>
         </div>
       </div>
     </div>
   </section>
-  <!-- / Properties  -->
+  <!-- / Latest property -->
+    <!-- Client Latest property -->
+  <section id="aa-latest-property">
+    <div class="container">
+      <div class="aa-latest-property-area">
+        <div class="aa-title">
+          <h2>Usuarios</h2>
+          <span></span>
+          <p>Se muestran usuarios de acuerdo a su búsqueda.</p>         
+        </div>
+        <div class="aa-latest-properties-content">
+          <div class="row">
+           <div class="col-md-12 col-md-offset-2">
+            <div class="col-md-3">
+               <div class="media-left">    
+                 <a href="user.html"><img alt="img" src="img/users/perfil1.jpg" class="media-object news-img img-circle"  width="150" height="150"></a>      
+               </div>
+            </div>
+            <div class="col-md-3">
+             <div class="media-left">    
+                 <a href="user.html"><img alt="img" src="img/users/perfil2.jpg" class="media-object news-img img-circle" width="150" height="150"></a>      
+               </div>
+            </div>
+            <div class="col-md-3">
+              <div class="media-left">    
+                  <a href="user.html"><img alt="img" src="img/users/perfil3.jpg" class="media-object news-img img-circle" width="150" height="150"></a>   
+               </div>
+            </div>
+          </div>
+         </div>
+         <br>
+         <div class="row">
+            <div class="col-md-12 col-md-offset-2">
+            <div class="col-md-3">
+              <div class="media-left">    
+                  <a href="user.html"><img alt="img" src="img/users/perfil4.jpg" class="media-object news-img img-circle" width="150" height="150"></a>      
+               </div>
+            </div>
+            <div class="col-md-3">
+              <div class="media-left">    
+                  <a href="user.html"><img alt="img" src="img/users/perfil5.jpg" class="media-object news-img img-circle" width="150" height="150"></a>      
+               </div>
+            </div>
+            <div class="col-md-3">
+             <div class="media-left">    
+                 <a href="user.html"><img alt="img" src="img/users/perfil6.jpg" class="media-object news-img img-circle" width="150" height="150"></a>  
+               </div>
+            </div>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Latest property -->
+  
+  
+ 
 
   <!-- Footer -->
   <footer id="aa-footer">
@@ -407,11 +598,12 @@
   <script src="js/bootstrap.js"></script>   
   <!-- slick slider -->
   <script type="text/javascript" src="js/slick.js"></script>
-  <!-- Price picker slider -->
-  <script type="text/javascript" src="js/nouislider.js"></script>
+  <!-- Include bootbox.min.js -->
+  <script type="text/javascript" src="js/bootbox.min.js"></script>
   
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
+
 
 
 
