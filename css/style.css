@@ -3883,5 +3883,11 @@ USER SECTION
   #caracteristicas-anuncio{
     background-color: : #59abe3;
   }
+
+  #button-caracteristics{
+    border-color: #59abe3;
+    text-decoration-color:#59abe3;
+    color:#59abe3;
+  }
   
 }
