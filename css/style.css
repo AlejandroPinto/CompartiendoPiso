@@ -720,41 +720,6 @@ img {
 }
 
 /*==================
- VALORATION SECTION
-====================*/
-
-.star-rating a {
-  display: inline-block;
-  color: #95a5a6; /* gris (normal) */
-}
-.star-rating:hover a {
-  color: #f39c12; /* amarillo (seleccionado) */
-}
-  .star-rating:hover a:hover ~ a {
-    color: #95a5a6; /* gris (normal) */
-  }
-
-.ec-stars-wrapper {
-	font-size: 0;
-	display: inline-block;
-}
-.ec-stars-wrapper a {
-	text-decoration: none;
-	display: inline-block;
-	font-size: 32px;
-	font-size: 2rem;
-	color: #888;
-}
-
-.ec-stars-wrapper:hover a {
-	color: rgb(232, 240, 36);
-}
-
-.ec-stars-wrapper > a:hover ~ a {
-	color: #888;
-} 
-
-/*==================
  LATEST PROPERTY SECTION
 ====================*/
 

@@ -8,7 +8,7 @@
     <title>Compartiendo Piso | Nuevo Anuncio</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
 
 
     <!-- Font awesome -->
@@ -17,8 +17,6 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <!-- slick slider -->
     <link rel="stylesheet" type="text/css" href="css/slick.css">
-    <!-- price picker slider -->
-    <link rel="stylesheet" type="text/css" href="css/nouislider.css">
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">
 
@@ -58,7 +56,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="aa-header-right">
                                     <a href="register.html" class="aa-register">Registro</a>
-                                    <a href="signin.html" class="aa-login">Login</a>
+                                    <a href="signin.html" class="aa-login">Conectar</a>
                                 </div>
                             </div>
                         </div>
@@ -83,21 +81,12 @@
                     <!-- LOGO -->
                     <!-- Text based logo -->
                     <a class="navbar-brand aa-logo" href="index.html"> compartiendo<span>Piso</span></a>
-                    <!-- Image based logo -->
-                    <!-- <a class="navbar-brand aa-logo-img" href="index.html"><img src="img/logo.png" alt="logo"></a> -->
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
                         <li><a href="index.html">Inicio</a>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="properties.html">Ofertas<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="properties.html">Publicar</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="gallery.html">Contacto</a>
+                        <li><a href="contact.html">Contacto</a>
                         </li>
                     </ul>
                 </div>
@@ -128,29 +117,29 @@
                             <div class="aa-contact-form">
                                 <form class="contactform">
                                     <div class="row">
-                                        <div class="col-xs-6 col-md-6" >
-                                           <button id="0" onclick="hideElements(0)"  type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> CASA</button>
-                                      </div>
-                                        <div class="col-xs-6 col-md-6" >
-                                           <button id="1" onclick="hideElements(1)" type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> HABITACIÓN</button>
-                                      </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <button id="0" onclick="hideElements(0)" type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> CASA</button>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <button id="1" onclick="hideElements(1)" type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> HABITACIÓN</button>
+                                        </div>
                                     </div>
                                     <br>
                                     <div class="row">
-                                      <div class="col-xs-6 col-md-3" >
-                                           <button  type="button" class="btn btn-default btn-block button-caracteristics"  data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
-                                      </div>
-                                      <div class="col-xs-6 col-md-3" >
-                                           <button type="button" class="btn btn-default btn-block button-caracteristics"  data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
-                                      </div>
-                                      <div class="col-md-3 col-xs-6" >
-                                           <button type="button" class="btn btn-default btn-block button-caracteristics"  data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
-                                      </div>
-                                      <div class="col-md-3 col-xs-6" >
-                                           <button type="button"  class="btn btn-default btn-block button-caracteristics"  data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
-                                      </div>
-                                   </div>
-                                   <br>
+                                        <div class="col-xs-6 col-md-3">
+                                            <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3">
+                                            <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
+                                        </div>
+                                        <div class="col-md-3 col-xs-6">
+                                            <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
+                                        </div>
+                                        <div class="col-md-3 col-xs-6">
+                                            <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
+                                        </div>
+                                    </div>
+                                    <br>
                                     <p class="comment-form-author">
                                         <label>Título anuncio<span class="required">*</span>
                                         </label>
@@ -213,94 +202,95 @@
                                     <div id="caracteristicas-anuncio">
                                         <label>Características:</label>
                                         <div class="row">
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button" id="button-caracteristics" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
-                                          </div>
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
-                                          </div>
-                                       </div>
-                                       <br>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button type="button" id="button-caracteristics" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
+                                            </div>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
+                                            </div>
+                                        </div>
+                                        <br>
                                         <div class="row">
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
-                                          </div>
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Iluminado</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Bajo</button>
-                                          </div>
-                                       </div>
-                                       <br>
-                                       <div class="row">
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Trastero</button>
-                                          </div>
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Patio</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Garaje</button>
-                                          </div>
-                                       </div>
-                                       <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p class="form-submit">
-                                                <input type="submit" name="submit" class="aa-browse-btn btn-lg btn-block" value="Publicar">
-                                            </p>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
+                                            </div>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Iluminado</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Bajo</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-xs-6  col-md-3">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Trastero</button>
+                                            </div>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Patio</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Garaje</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="form-submit">
+                                                    <input type="submit" name="submit" class="aa-browse-btn btn-lg btn-block" value="Publicar">
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
 
-     <!-- Footer -->
-  <footer id="aa-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-        <div class="aa-footer-area">
-          <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-              <div class="aa-footer-left">
-               <p>Universidad Rey Juan Carlos 2017</p>
-              </div>
+    <!-- Footer -->
+    <footer id="aa-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-footer-area">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-6 col-xs-12">
+                                <div class="aa-footer-left">
+                                    <p>Universidad Rey Juan Carlos 2017</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="aa-footer-middle">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-youtube"></i></a>
+                                </div>
+                            </div>W
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="aa-footer-middle">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-              </div>
-            </div>W     
-          </div>
         </div>
-      </div>
-      </div>
-    </div>
-  </footer>
-  <!-- / Footer -->
+    </footer>
+    <!-- / Footer -->
 
     <!-- jQuery library -->
     <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
@@ -309,8 +299,6 @@
     <script src="js/bootstrap.js"></script>
     <!-- slick slider -->
     <script type="text/javascript" src="js/slick.js"></script>
-    <!-- Price picker slider -->
-    <script type="text/javascript" src="js/nouislider.js"></script>
 
     <script type="text/javascript" src="js/functions.js"></script>
 
