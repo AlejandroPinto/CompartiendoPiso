@@ -26,6 +26,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
+
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -129,41 +130,41 @@
                                 <form class="contactform">
                                     <div class="row">
                                         <div class="col-xs-6 col-md-6" >
-                                           <button id="0" onclick="hideElements(0)"  type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> CASA</button>
+                                           <button id="0" onclick="hideElements(0)"  type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="true" autocomplete="off"> CASA</button>
                                       </div>
                                         <div class="col-xs-6 col-md-6" >
-                                           <button id="1" onclick="hideElements(1)" type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> HABITACIÓN</button>
+                                           <button id="1" onclick="hideElements(1)" type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block active" data-toggle="button" aria-pressed="false" autocomplete="off"> HABITACIÓN</button>
                                       </div>
                                     </div>
                                     <br>
                                     <div class="row">
                                       <div class="col-xs-6 col-md-3" >
-                                           <button  type="button" class="btn btn-default btn-block button-caracteristics"  data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
+                                           <button type="button"  class="btn btn-default btn-block button-caracteristics active" data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
                                       </div>
                                       <div class="col-xs-6 col-md-3" >
-                                           <button type="button" class="btn btn-default btn-block button-caracteristics"  data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
+                                           <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
                                       </div>
                                       <div class="col-md-3 col-xs-6" >
-                                           <button type="button" class="btn btn-default btn-block button-caracteristics"  data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
+                                           <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
                                       </div>
                                       <div class="col-md-3 col-xs-6" >
-                                           <button type="button"  class="btn btn-default btn-block button-caracteristics"  data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
+                                           <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
                                       </div>
                                    </div>
                                    <br>
                                     <p class="comment-form-author">
                                         <label>Título anuncio<span class="required">*</span>
                                         </label>
-                                        <input type="text" required="required" name="title">
+                                        <input type="text" required="required" name="title" value="Alquiler de habitación en calle Hermanos Grimm, 91, El Soto - Coveta, Móstoles">
                                     </p>
                                     <p class="comment-form-email">
                                         <label>Precio <span class="required">*</span>
                                         </label>
-                                        <input type="text" required="required" name="price">
+                                        <input type="text" required="required" name="price" value="240€/mes">
                                     </p>
                                     <p class="comment-form-comment">
                                         <label for="comment">Descripción</label>
-                                        <textarea name="description" cols="45" rows="8" aria-required="true"></textarea>
+                                        <textarea name="description" cols="45" rows="8" aria-required="true">Tengo 1 habitacion libre en chalet de 210 m2 en urbanizacion tranquila. buena comunicacion renfe, metro, autobus, a 5 minutos de A5 y universidad. Habitacion de 13 m2 con 1 armario, escritorio, cama 90 1.90 y con cerradura en la puerta.</textarea>
                                     </p>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -176,7 +177,7 @@
                                         <div class="col-md-4">
                                             <p class="comment-form-url">
                                                 <label>Localidad</label>
-                                                <input type="text" name="locality">
+                                                <input type="text" name="locality" value="Móstoles">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
@@ -202,7 +203,7 @@
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Nº habitaciones</label>
-                                                <input id="nHab" type="text" name="beedrooms">
+                                                <input id="nHab" type="text" name="beedrooms" disabled="true">
                                             </p>
                                         </div>
                                     </div>
