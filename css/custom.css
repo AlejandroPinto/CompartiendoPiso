@@ -20,3 +20,12 @@
 ::-webkit-input-placeholder {
    color: #59abe3;
 }
+
+
+.globalValoration{
+	margin: 18px;
+    margin-left: -95px;
+}
+.commentValoration{
+	padding-top: 3px;
+}
