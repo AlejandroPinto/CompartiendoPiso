@@ -2,6 +2,20 @@
 	min-width : 85px;
 	padding: 0px 10px;
 }
+
 .properties{
 	margin: 10px 0px;
+}
+
+.button-caracteristics{
+	border-color: #59abe3;
+	text-decoration-color:#59abe3;
+	color:#59abe3;
+}
+.select-color{
+	color:#59abe3 !important;
+
+}
+::-webkit-input-placeholder {
+   color: #59abe3;
 }

@@ -148,7 +148,7 @@
              <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                   <div class="aa-single-advance-search">
-                    <input type="text" placeholder="Dirección..." name="direction">
+                    <input type="text" class="select-color" placeholder="Dirección..." name="direction">
                   </div>
                 </div>
              </div>
@@ -156,7 +156,61 @@
                <br>
                 <div class="col-md-2 col-md-offset-2">
                   <div class="aa-single-advance-search">
-                    <select name="category">
+                    <select class="select-color" name="priceTo">
+                     <option value="0" selected>Desde (€)</option>
+                     <option value="1">100</option>
+                     <option value="2">200</option>
+                     <option value="3">300</option>
+                     <option value="4">400</option>
+                     <option value="">500</option>
+                     <option value="">600</option>
+                     <option value="">700</option>
+                     <option value="">800</option>
+                     <option value="">900</option>
+                     <option value="">1000</option>
+                     <option value="">1400</option>
+                     <option value="">1800</option>
+                     <option value="">2000</option>
+                     <option value="">2500</option>
+                     <option value="">3000</option>
+                     <option value="">4000</option>
+                     <option value="">5000</option>
+                     <option value="">6000</option>
+                     <option value="">7000</option>
+                     <option value="">10000</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                <div class="aa-single-advance-search">
+                  <select class="select-color" name="priceFrom">
+                   <option value="0" selected>Hasta (€)</option>
+                   <option value="1">100</option>
+                   <option value="2">200</option>
+                   <option value="3">300</option>
+                   <option value="4">400</option>
+                   <option value="">500</option>
+                   <option value="">600</option>
+                   <option value="">700</option>
+                   <option value="">800</option>
+                   <option value="">900</option>
+                   <option value="">1000</option>
+                   <option value="">1400</option>
+                   <option value="">1800</option>
+                   <option value="">2000</option>
+                   <option value="">2500</option>
+                   <option value="">3000</option>
+                   <option value="">4000</option>
+                   <option value="">5000</option>
+                   <option value="">6000</option>
+                   <option value="">7000</option>
+                   <option value="">10000</option>
+                  </select>
+               </div>
+              </div>
+                <div class="col-md-2">
+                  <div class="aa-single-advance-search">
+                    <select name="category" class="select-color">
                      <option value="0" selected>Categoría</option>
                      <option value="1">Casa</option>
                      <option value="2">Habitación</option>
@@ -165,7 +219,7 @@
                 </div>
                 <div class="col-md-2">
                   <div class="aa-single-advance-search">
-                    <select name="type">
+                    <select name="type" class="select-color">
                      <option value="0" selected>Tipo</option>
                      <option value="1">Piso</option>
                      <option value="2">Adosado</option>
@@ -173,16 +227,6 @@
                      <option value="4">Dúplex</option>
                     </select>
                  </div>
-                </div>
-                <div class="col-md-2">
-                  <div class="aa-single-advance-search">
-                    <input type="text" placeholder="Precio (€) desde:" name="priceTFrom">
-                  </div>
-                </div>
-                <div class="col-md-2">
-                  <div class="aa-single-advance-search">
-                    <input type="text" placeholder="Hasta:" name="priceTo">
-                  </div>
                 </div>
               </div>
               <br>
@@ -206,7 +250,7 @@
               <div class="row">
                 <div class="col-md-3 col-md-offset-2">
                   <div class="aa-single-advance-search">
-                    <select name="rooms">
+                    <select name="rooms" class="select-color">
                      <option value="0" selected>Habitaciones</option>
                      <option value="1">1 o más habs.</option>
                      <option value="2">2 o más habs.</option>
@@ -217,7 +261,7 @@
                 </div>
                 <div class="col-md-3">
                   <div class="aa-single-advance-search">
-                    <select name="baths">
+                    <select name="baths" class="select-color">
                      <option value="0" selected>Baños</option>
                      <option value="1">1 o más baños</option>
                      <option value="2">2 o más baños</option>
@@ -235,14 +279,14 @@
                 <br>
                  <div>
                   <div class="col-md-8 col-md-offset-2">
-                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
+                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
                   </div>
                 </div>
               <!--/span-->

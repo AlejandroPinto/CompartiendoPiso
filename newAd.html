@@ -128,16 +128,29 @@
                             <div class="aa-contact-form">
                                 <form class="contactform">
                                     <div class="row">
-                                        <div data-toggle="buttons" class="col-md-6 btn-group">
-                                            <label class="btn btn-primary active btn-lg btn-block">
-                                                <input type="checkbox" checked autocomplete="off"> PISO
-                                        </div>
-                                        <div data-toggle="buttons" class="col-md-6 btn-group">
-                                            <label class="btn btn-primary btn-lg btn-block">
-                                                <input type="checkbox" autocomplete="off"> HABITACIÓN
-                                        </div>
+                                        <div class="col-xs-6 col-md-6" >
+                                           <button id="0" onclick="hideElements(0)"  type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> CASA</button>
+                                      </div>
+                                        <div class="col-xs-6 col-md-6" >
+                                           <button id="1" onclick="hideElements(1)" type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> HABITACIÓN</button>
+                                      </div>
                                     </div>
                                     <br>
+                                    <div class="row">
+                                      <div class="col-xs-6 col-md-3" >
+                                           <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
+                                      </div>
+                                      <div class="col-xs-6 col-md-3" >
+                                           <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
+                                      </div>
+                                      <div class="col-md-3 col-xs-6" >
+                                           <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
+                                      </div>
+                                      <div class="col-md-3 col-xs-6" >
+                                           <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
+                                      </div>
+                                   </div>
+                                   <br>
                                     <p class="comment-form-author">
                                         <label>Título anuncio<span class="required">*</span>
                                         </label>
@@ -189,7 +202,7 @@
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Nº habitaciones</label>
-                                                <input type="text">
+                                                <input id="nHab" type="text">
                                             </p>
                                         </div>
                                     </div>
@@ -200,89 +213,50 @@
                                     <div id="caracteristicas-anuncio">
                                         <label>Características:</label>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Aire
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Ascensor</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Fumadores</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Mascotas</label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                          <div class="col-xs-6  col-md-3" >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
+                                          </div>
+                                          <div class="col-xs-6  col-md-3" >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
+                                          </div>
+                                          <div class="col-md-3 col-xs-6 " >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
+                                          </div>
+                                          <div class="col-md-3 col-xs-6 " >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
+                                          </div>
+                                       </div>
+                                       <br>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Calefacción central</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Piscina</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Terraza</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Bajo
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Puerta blindada
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Trastero
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Patio
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div data-toggle="buttons" class="checkbox">
-                                                    <label class="btn btn-primary btn-block">
-                                                        <input type="checkbox" value="">Garaje
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                          <div class="col-xs-6  col-md-3" >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
+                                          </div>
+                                          <div class="col-xs-6  col-md-3" >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
+                                          </div>
+                                          <div class="col-md-3 col-xs-6 " >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Iluminado</button>
+                                          </div>
+                                          <div class="col-md-3 col-xs-6 " >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Bajo</button>
+                                          </div>
+                                       </div>
+                                       <br>
+                                       <div class="row">
+                                          <div class="col-xs-6  col-md-3" >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Trastero</button>
+                                          </div>
+                                          <div class="col-xs-6  col-md-3" >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
+                                          </div>
+                                          <div class="col-md-3 col-xs-6 " >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Patio</button>
+                                          </div>
+                                          <div class="col-md-3 col-xs-6 " >
+                                               <button type="button" style=" border-color: #59abe3; text-decoration-color:#59abe3; color:#59abe3;" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Garaje</button>
+                                          </div>
+                                       </div>
+                                       <br>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <p class="form-submit">
@@ -300,41 +274,33 @@
     </section>
 
 
-    <!-- Footer -->
-    <footer id="aa-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="aa-footer-area">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="aa-footer-left">
-                                    <p>Designed by <a rel="nofollow" href="http://www.markups.io/">MarkUps.io</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="aa-footer-middle">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#"><i class="fa fa-youtube"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                <div class="aa-footer-right">
-                                    <a href="#">Home</a>
-                                    <a href="#">Support</a>
-                                    <a href="#">License</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+     <!-- Footer -->
+  <footer id="aa-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="aa-footer-area">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <div class="aa-footer-left">
+               <p>Universidad Rey Juan Carlos 2017</p>
+              </div>
             </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="aa-footer-middle">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+              </div>
+            </div>W     
+          </div>
         </div>
-    </footer>
-    <!-- / Footer -->
+      </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / Footer -->
 
     <!-- jQuery library -->
     <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
@@ -345,6 +311,8 @@
     <script type="text/javascript" src="js/slick.js"></script>
     <!-- Price picker slider -->
     <script type="text/javascript" src="js/nouislider.js"></script>
+
+    <script type="text/javascript" src="js/functions.js"></script>
 
     <!-- Custom js -->
     <script src="js/custom.js"></script>
