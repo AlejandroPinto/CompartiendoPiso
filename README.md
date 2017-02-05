@@ -71,7 +71,7 @@ En las vistas offer-house.html y offer-room.html se muestra la oferta en particu
 ![OfferHouse2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaOfferHouse2.PNG?raw=true "OfferHouse2")
 
 ![OfferRoom](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaOfferRoom1.PNG?raw=true "OfferRoom")
-![OfferRoom2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaOfferRoom2.PNG?raw=true "OfferRoom2")
+![OfferRoom2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaofferRoom2.PNG?raw=true "OfferRoom2")
 
 En la vista user.html se muestra los datos personales del usuario junto con la lista de las ofertas añadidas por el propio usuario además de un buscador. En esta vista, cuando el usuario esta logueado permite editar su perfil y ofertas y añadir nuevas ofertas.
 
