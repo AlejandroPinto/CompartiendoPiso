@@ -92,7 +92,6 @@ La vista contact.html, permite contactar con los propietarios de la aplicación 
 La vista admin.html, permite administrar las ofertas creadas por los usuarios, rechazarlas, editarlar o aceptarlas. Incluye un buscador por si el administrator quisiera buscar una oferta en concreto.
 
 ![Admin1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaAdmin1.PNG?raw=true "Admin1")
-![Admin2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaAdmin2.PNG?raw=true "Admin2")
 
 ##Template utlizado:
 Hemos usado de plantilla la web Home property (http://www.markups.io/preview/home-property/) y hemos utilizado los siguientes html:
