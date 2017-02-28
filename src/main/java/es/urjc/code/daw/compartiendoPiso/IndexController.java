@@ -71,20 +71,6 @@ public class IndexController {
 		
 	}
 	
-	@RequestMapping("/user/{id}")
-	public String userView(@PathVariable AtomicInteger id){
-		
-		return "contact";
-		
-	}
-	
-	@RequestMapping("/user")
-	public String userView(){
-		
-		return "user";
-		
-	}
-	
 	@RequestMapping("/newAd")
 	public String newAnnouncementView(){
 		
