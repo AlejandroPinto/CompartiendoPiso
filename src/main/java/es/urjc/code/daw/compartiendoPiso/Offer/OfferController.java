@@ -15,26 +15,31 @@ public class OfferController {
 	@Autowired
 	private OfferRepository offerRepository;
 	
+	@Autowired
+	private CharacteristicsRepository characteristicsRepository;
+	
 	@PostConstruct
 	public void init() {
-		//offerRepository.save(new Offer("Pepe", "Hola caracola", "XXXX","","","","","","","","","",""));
-		//offerRepository.save(new Offer("Pepe", "Hola caracola", "XXXX","","","","","","","","","",""));
+		
+		Offer offer = new Offer("Oferta1",222,"casa bonita","Madrid","location","el olivar",200,2,1,"chalé",1);
+		//offerRepository.save(new Offer("Oferta1",222,"casa bonita","Madrid","location","el olivar",200,2,1,"chalé",1));
+		offerRepository.save(offer);
+		Characteristics c1 = new Characteristics("Terraza", true);
+		c1.setOffer(offer);
+		characteristicsRepository.save(c1);
+		//offerRepository.save(offer);
 		
 	}
-	
-	/*@RequestMapping("/offer-room/new")
+
+	/*@RequestMapping("/offer/new")
 	public String nuevoAnuncio(Model model, Offer offer) {
-
 		offers.add(offer);
-
 		usuario.setNombre(offer.getNombre());
 		usuario.incAnuncios();
-
 		return "offer-house";
+	}*/
 
-	}
-
-	@RequestMapping("/offer/new")
+	/*@RequestMapping("/offer/new")
 	public String newOffer(Model model, Offer offer) {
 
 		offerRepository.save(offer);
@@ -43,14 +48,14 @@ public class OfferController {
 
 	}*/
 
-	@RequestMapping("/anuncio/{id}")
+	@RequestMapping("/offer/{id}")
 	public String verAnuncio(Model model, @PathVariable long id) {
 		
 		Offer offer = offerRepository.findOne(id);
 
-		model.addAttribute("anuncio", offer );
+		model.addAttribute("offer", offer);
 
-		return "ver_anuncio";
+		return "offer";
 	}
 	
 	

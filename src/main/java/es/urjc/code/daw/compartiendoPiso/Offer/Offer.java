@@ -1,12 +1,15 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 
 @Entity
 public class Offer {
@@ -21,25 +24,32 @@ public class Offer {
 	 private String location;
 	 private String neighborhood;
 	 private int area;
-	 private int bathdroom;
-	 private String[] photos;
+	 private int bathroom;
+	 //private String[] photos;
 	 private int rooms;
 	 private String type;
 	 //@OneToMany
 	 //private List<User> members = new ArrayList<>();
 	
-	 @OneToMany
-	 private Characteristics characteristics;
-	 //private User userID;
+	 @OneToMany(mappedBy="offer")
+	 private List<Characteristics> characteristics = new ArrayList<>();
+	 
+	 //private User usesrID;
 	 private int numPlaces;
 	 
-	 protected Offer() {}
+	 public int getBathroom() {
+		return bathroom;
+	}
+
+	public void setCharacteristics(List<Characteristics> characteristics) {
+		this.characteristics = characteristics;
+	}
+
+	protected Offer() {}
 	
-	 public Offer(long id, String tittle, float price, String description, String province, String location,
-	 String neighborhood, int area, int bathdroom, String[] photos, int rooms, String type,
-	 Characteristics characteristics, int numPlaces) {
-		super();
-		this.id = id;
+	 public Offer(String tittle, float price, String description, String province, String location,
+	 String neighborhood, int area, int bathdroom, int rooms, String type,
+	 int numPlaces) {
 		this.tittle = tittle;
 		this.price = price;
 		this.description = description;
@@ -47,11 +57,9 @@ public class Offer {
 		this.location = location;
 		this.neighborhood = neighborhood;
 		this.area = area;
-		this.bathdroom = bathdroom;
-		this.photos = photos;
+		this.bathroom = bathdroom;
 		this.rooms = rooms;
 		this.type = type;
-		this.characteristics = characteristics;
 		this.numPlaces = numPlaces;
 	}
 	 
@@ -104,16 +112,10 @@ public class Offer {
 		this.area = area;
 	}
 	public int getBathdroom() {
-		return bathdroom;
+		return bathroom;
 	}
-	public void setBathdroom(int bathdroom) {
-		this.bathdroom = bathdroom;
-	}
-	public String[] getPhotos() {
-		return photos;
-	}
-	public void setPhotos(String[] photos) {
-		this.photos = photos;
+	public void setBathroom(int bathdroom) {
+		this.bathroom = bathdroom;
 	}
 	public int getRooms() {
 		return rooms;
@@ -127,12 +129,6 @@ public class Offer {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Characteristics getCharacteristics() {
-		return characteristics;
-	}
-	public void setCharacteristics(Characteristics characteristics) {
-		this.characteristics = characteristics;
-	}
 	public int getNumPlaces() {
 		return numPlaces;
 	}
@@ -140,13 +136,22 @@ public class Offer {
 		this.numPlaces = numPlaces;
 	}
 
+	public List<Characteristics> getCharacteristics() {
+		return characteristics;
+	}
+
+	public void setCharacteristics(ArrayList<Characteristics> characteristics) {
+		this.characteristics = characteristics;
+	}
+
 	@Override
 	public String toString() {
 		return "Offer [id=" + id + ", tittle=" + tittle + ", price=" + price + ", description=" + description
 				+ ", province=" + province + ", location=" + location + ", neighborhood=" + neighborhood + ", area="
-				+ area + ", bathdroom=" + bathdroom + ", photos=" + Arrays.toString(photos) + ", rooms=" + rooms
-				+ ", type=" + type + ", characteristics=" + characteristics + ", numPlaces=" + numPlaces + "]";
+				+ area + ", bathdroom=" + bathroom + ", rooms=" + rooms + ", type=" + type + ", characteristics="
+				+ characteristics + ", numPlaces=" + numPlaces + "]";
 	}
+
 	 
 	 
 	 

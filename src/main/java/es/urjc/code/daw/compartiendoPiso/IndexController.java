@@ -36,34 +36,6 @@ public class IndexController {
 		
 	}
 	
-	@RequestMapping("/offer-room")
-	public String offerRoomView(){
-		
-		return "offer-room";
-		
-	}
-	
-	@RequestMapping("/offer-house")
-	public String offerHouseView(){
-		
-		return "offer-house";
-		
-	}
-	
-	@RequestMapping("/offer-room/{id}")
-	public String offerRoomView(@PathVariable AtomicInteger id){
-		
-		return "offer-room";
-		
-	}
-	
-	@RequestMapping("/offer-house/{id}")
-	public String offerHouseView(@PathVariable AtomicInteger id){
-		
-		return "offer-house";
-		
-	}
-	
 	@RequestMapping("/contact")
 	public String contactView(){
 		
