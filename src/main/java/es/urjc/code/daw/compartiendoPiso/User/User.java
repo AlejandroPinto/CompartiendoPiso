@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
 public class User {
 	
@@ -35,7 +37,7 @@ public class User {
 		this.secondLastName = secondLastName;
 		this.email = email;
 		this.phone = phone;
-		this.pass = pass;
+		this.pass = new BCryptPasswordEncoder().encode(pass);
 		this.description = description;
 		this.admin = admin;
 	}
