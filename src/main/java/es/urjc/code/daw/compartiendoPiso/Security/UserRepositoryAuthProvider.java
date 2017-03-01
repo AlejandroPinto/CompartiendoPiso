@@ -54,13 +54,13 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider {
 
       userComponent.setLoggedUser(user);
 
-      /*List<GrantedAuthority> roles = new ArrayList<>();
+      List<GrantedAuthority> roles = new ArrayList<>();
       for (String role : user.getRoles()) {
         roles.add(new SimpleGrantedAuthority(role));
-      }*/
+      }
 
-      //return new UsernamePasswordAuthenticationToken(username, password, roles);
-      return null;
+      return new UsernamePasswordAuthenticationToken(username, password, roles);
+      
     }
   }
 
