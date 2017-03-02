@@ -15,7 +15,9 @@ public class Characteristics {
 	 private boolean value;
 	 @ManyToOne
 	 private Offer offer;
-
+	 
+	 protected Characteristics(){}
+	 
 	 public Characteristics(String name, boolean value){
 		 super();
 		 this.name=name;

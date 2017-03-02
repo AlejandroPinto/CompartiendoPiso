@@ -1,5 +1,8 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +24,17 @@ public class OfferController {
 	@PostConstruct
 	public void init() {
 		
-		Offer offer = new Offer("Oferta1",222,"casa bonita","Madrid","location","el olivar",200,2,1,"chalé",1);
-		//offerRepository.save(new Offer("Oferta1",222,"casa bonita","Madrid","location","el olivar",200,2,1,"chalé",1));
+		Offer offer = new Offer("Chalé bastante moderno",222,"Vivienda de dos dormitorios, REFORMADA TOTAL (2.013) PARA ENTRAR VIVIR, cocina amueblada ampliada, suelos de gres, carpintería blanco con doble acristalamiento persianas isotérmicas, terraza.","Madrid","Navalcarnero","el olivar",200,2,1,"chalé",1);
 		offerRepository.save(offer);
 		Characteristics c1 = new Characteristics("Terraza", true);
+		Characteristics c2 = new Characteristics("Balcón", true);
+		Characteristics c3 = new Characteristics("Alarma", true);
 		c1.setOffer(offer);
+		c2.setOffer(offer);
+		c3.setOffer(offer);
 		characteristicsRepository.save(c1);
-		//offerRepository.save(offer);
+		characteristicsRepository.save(c2);
+		characteristicsRepository.save(c3);	
 		
 	}
 
@@ -52,9 +59,9 @@ public class OfferController {
 	public String verAnuncio(Model model, @PathVariable long id) {
 		
 		Offer offer = offerRepository.findOne(id);
-
+		
 		model.addAttribute("offer", offer);
-
+		
 		return "offer";
 	}
 	
