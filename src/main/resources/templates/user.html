@@ -7,20 +7,20 @@
     <title>CompartiendoPiso | User </title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/logo.jpg" type="image/x-icon">
     
     <!-- Font awesome -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">   
+    <link href="/css/bootstrap.css" rel="stylesheet">   
     <!-- slick slider -->
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="/css/slick.css">
     <!-- Theme color -->
-    <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">     
+    <link id="switcher" href="/css/theme-color/default-theme.css" rel="stylesheet">     
 
     <!-- Main style sheet -->
-    <link href="css/style.css" rel="stylesheet">    
-    <link href="css/custom.css" rel="stylesheet">  
+    <link href="/css/style.css" rel="stylesheet">    
+    <link href="/css/custom.css" rel="stylesheet">  
    
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>    
@@ -110,27 +110,27 @@
                       <article class="aa-properties-single-sidebar aa-properties-details">
                         <form action="editarPerfil">
                         <div class="col-lg-3 col-md-3">
-                            <img src="img/users/perfil5.jpg" alt="" title="" width="150" height="150" id="imgSalida">                      
+                            <img src="/img/users/perfil5.jpg" alt="" title="" width="150" height="150" id="imgSalida">                      
                         </div>
                         <div class="col-lg-9">
                            <div hidden class="text-right logedUser">
                             <a href="/newAd" class="btn btn-default editText" role="button">Añadir oferta</a>
                             <button type="button" class="btn btn-default editButton" role="button">Editar Perfil</button>
                           </div>
-                          <h2 class="box-heading" id="editName">Mario Francia Rius</h2>
+                          <h2 class="box-heading" id="editName">{{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
                           <div class="row">
                             <div class="col-lg-12">
-                              <h5 class="box-heading" id="editDescription">Apasionado de los deportes de riesgo y buena persona.</h5>
+                              <h5 class="box-heading" id="editDescription">{{user.description}}</h5>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-lg-12">
-                              <h5 class="box-heading" id="editMail">user@user.com</h5>
+                              <h5 class="box-heading" id="editMail">{{user.email}}</h5>
                             </div>
                           </div> 
                           <div class="row">
                             <div class="col-lg-12">
-                              <h5 class="box-heading" id="editPhone">653788963</h5>
+                              <h5 class="box-heading" id="editPhone">{{user.phone}}</h5>
                             </div>
                           </div>
                           <div class="row">
@@ -156,7 +156,7 @@
                     <div class="col-md-12">
                       <div class="aa-blog-related-post">
                         <div class="aa-title">
-                          <h2>Lista de pisos del usuario Mario Francia Rius</h2>
+                          <h2>Lista de pisos del usuario {{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
                           <span></span>
                         </div>
                         <div class="aa-blog-related-post-area">
@@ -164,12 +164,12 @@
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
                                 <span class="logedUser" hidden>
-                                  <button class="btn btn-default" onclick="window.location.href='newAdModify.html'"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button class="btn btn-default" onclick="window.location.href='/newAD'"><i class="fa fa-pencil"></i>Editar</button>
                                   <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
                                   <br>
                                 </span>
                                 <figure class="aa-blog-img">
-                                  <a href="/offer-house"><img src="img/piso1.jpg" alt="img" width="360" height="240"></a>
+                                  <a href="/offer-house"><img src="/img/piso1.jpg" alt="img" width="360" height="240"></a>
                                   <span class="aa-date-tag">15 Abril, 2016</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
@@ -186,12 +186,12 @@
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
                                 <span class="logedUser" hidden>
-                                  <button class="btn btn-default" onclick="window.location.href='newAdModify.html'"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button class="btn btn-default" onclick="window.location.href='/newAd'"><i class="fa fa-pencil"></i>Editar</button>
                                   <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
                                   <br>
                                 </span>
                                 <figure class="aa-blog-img">
-                                  <a href="/offer-room"><img src="img/piso2.jpg" alt="img" width="360" height="240"></a>
+                                  <a href="/offer-room"><img src="/img/piso2.jpg" alt="img" width="360" height="240"></a>
                                   <span class="aa-date-tag">01 Enero, 17</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
@@ -208,13 +208,13 @@
                             <br>
                             <div class="col-md-6 col-sm-6">
                               <span class="logedUser" hidden>
-                                  <button class="btn btn-default" onclick="window.location.href='newAdModify.html'"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button class="btn btn-default" onclick="window.location.href='/newAd'"><i class="fa fa-pencil"></i>Editar</button>
                                   <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
                                   <br>
                                 </span>
                               <article class="aa-blog-single">
                                 <figure class="aa-blog-img">
-                                  <a href="/offer-room"><img src="img/offer-house1_pc.jpg" alt="img" width="360" height="240"></a>
+                                  <a href="/offer-room"><img src="/img/offer-house1_pc.jpg" alt="img" width="360" height="240"></a>
                                   <span class="aa-date-tag">20 Enero, 2017</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
@@ -319,16 +319,16 @@
 
   <!-- jQuery library -->
   <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-  <script src="js/jquery.min.js"></script>   
+  <script src="/js/jquery.min.js"></script>   
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.js"></script>
+  <script src="/js/bootstrap.js"></script>
   <!-- Include bootbox.min.js -->
-  <script type="text/javascript" src="js/bootbox.min.js"></script>  
+  <script type="text/javascript" src="/js/bootbox.min.js"></script>  
   <!-- slick slider -->
-  <script type="text/javascript" src="js/slick.js"></script>
+  <script type="text/javascript" src="/js/slick.js"></script>
   
   <!-- Custom js -->
-  <script src="js/custom.js"></script> 
+  <script src="/js/custom.js"></script> 
   
   </body>
 </html>

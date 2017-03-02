@@ -2,7 +2,10 @@ package es.urjc.code.daw.compartiendoPiso;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -43,20 +46,6 @@ public class IndexController {
 		
 	}
 	
-	@RequestMapping("/user/{id}")
-	public String userView(@PathVariable AtomicInteger id){
-		
-		return "contact";
-		
-	}
-	
-	@RequestMapping("/user")
-	public String userView(){
-		
-		return "user";
-		
-	}
-	
 	@RequestMapping("/newAd")
 	public String newAnnouncementView(){
 		
@@ -71,9 +60,11 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/admin")
-	public String administratorView(){
+	public String administratorView(Model model, HttpServletRequest request){
+	    	
+	    model.addAttribute("admin", request.isUserInRole("ADMIN"));
 		
-		return "admin";
+	    return "admin";
 		
 	}
 	
