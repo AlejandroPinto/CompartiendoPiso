@@ -17,7 +17,7 @@ public class Offer {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	 private long id;
-	 private String tittle;
+	 private String title;
 	 private float price;
 	 private String description;
 	 private String province;
@@ -47,10 +47,10 @@ public class Offer {
 
 	protected Offer() {}
 	
-	 public Offer(String tittle, float price, String description, String province, String location,
-	 String neighborhood, int area, int bathdroom, int rooms, String type,
+	 public Offer(String type, String title, float price, String description, String province, String location,
+	 String neighborhood, int area, int bathdroom, int rooms,
 	 int numPlaces) {
-		this.tittle = tittle;
+		this.title = title;
 		this.price = price;
 		this.description = description;
 		this.province = province;
@@ -69,11 +69,11 @@ public class Offer {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
+	public void setTitle(String tittle) {
+		this.title = tittle;
 	}
 	public float getPrice() {
 		return price;
@@ -146,7 +146,7 @@ public class Offer {
 
 	@Override
 	public String toString() {
-		return "Offer [id=" + id + ", tittle=" + tittle + ", price=" + price + ", description=" + description
+		return "Offer [id=" + id + ", title=" + title + ", price=" + price + ", description=" + description
 				+ ", province=" + province + ", location=" + location + ", neighborhood=" + neighborhood + ", area="
 				+ area + ", bathdroom=" + bathroom + ", rooms=" + rooms + ", type=" + type + ", characteristics="
 				+ characteristics + ", numPlaces=" + numPlaces + "]";
