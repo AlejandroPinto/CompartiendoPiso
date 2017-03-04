@@ -366,40 +366,84 @@ jQuery(function($){
  
 });
 
+function modifyUser(){
+	$("#name").show();
+	$("#editName").hide();
+	$("#label_name").show();	  
+	$("#fisrtLastName").show();
+	$("#label_firstLastName").show();
+	$("#secondLastName").show();
+	$("#label_secondLastName").show();
+	$("#description").show();
+	$("#label_description").show();	
+	$("#editDescription").hide();
+	$("#phone").show();
+	$("#label_phone").show();	
+	$("#editPhone").hide();
+    $("#email").show();
+    $("#label_email").show();	
+    $("#editMail").hide();
+    $(".saveButton").show(); 
+}
+
+function reloadUserModified(data){
+	$("#name").hide();
+	$("#label_name").hide();	  
+	$("#fisrtLastName").hide();
+	$("#label_firstLastName").hide();
+	$("#secondLastName").hide();
+	$("#label_secondLastName").hide();
+	$("#editName").text(data["name"]+ " " + data["firstLastName"] + " " + data["secondLastName"]);
+	$("#editName").show();
+	
+	$("#description").hide();
+	$("#label_description").hide();	
+	$("#editDescription").text(data["description"]);
+	$("#editDescription").show();
+	
+	$("#phone").hide();
+	$("#label_phone").hide();
+	$("#editPhone").text(data["phone"]);
+	$("#editPhone").show();
+	
+    $("#email").hide();
+    $("#label_email").hide();	
+    $("#editMail").text(data["email"]);
+    $("#editMail").show();
+    
+    $(".saveButton").hide();
+}
+
 $(document).ready(function(){
-  var username = $("#editName");
-  var userdescription = $("#editDescription");
-  var userphone = $("#editPhone");
-  var usermail = $("#editMail");
-  $(".editButton").click(function(){
-      $("#editName").replaceWith('<input type="text" class="form-control editName" value="' + $("#editName").html() + '"/><br>');
-      $("#editDescription").replaceWith('<input type="text" class="form-control editDescription" value="' + $("#editDescription").html() + '"/><br>'); 
-      $("#editPhone").replaceWith('<input type="text" class="form-control editPhone" value="' + $("#editPhone").html() + '"/><br>');
-      $("#editMail").replaceWith('<input type="text" class="form-control editMail" value="' + $("#editMail").html() + '"/><br>');
-      $("#editPassword").attr("type","password");
-      $("#editPassword").parent().append("<br>");
-      $("#editPassword").show();    
-      $(".saveButton").show();   
-      $(".changeImage").show();        
+  $(".editButton").click(function(){  
+	  modifyUser();
   });
 
   $(".guardarCambios").click(function(){
-    var value = $(".editName").val();
-    username[0]["innerText"] = value;
-    value = $(".editDescription").val();
-    userdescription[0]["innerText"] = value;
-    value = $(".editPhone").val();
-    userphone[0]["innerText"] = value;
-    value = $(".editMail").val();
-    usermail[0]["innerText"] = value;
-    $(".editName").replaceWith(username[0]);
-    $(".editDescription").replaceWith(userdescription[0]);
-    $(".editPhone").replaceWith(userphone[0]);
-    $(".editMail").replaceWith(usermail[0]);
-    $("#editPassword").hide();
-    $("br").remove();
-    $(".saveButton").hide();
-    $(".changeImage").hide();
+	  var id_user = $("#id_user").val();
+	  var param = 
+		  {	  
+			  name: $("#name").val(),
+			  firstLastName: $("#fisrtLastName").val(),
+			  secondLastName: $("#secondLastName").val(),
+			  description: $("#description").val(),
+			  email: $("#email").val(),
+			  phone: $("#phone").val(),
+			  pass: $("#pass").val(),
+			  admin: $("#admin").val(),
+		  }
+	  $.ajax({
+		  method:"PUT",
+		  url: "/user/"+id_user,
+		  data: JSON.stringify(param),
+		  headers:{
+			  "Content-type": "application/json"
+		  }
+	  }).done(function(response){
+		  reloadUserModified(response);
+	  }).fail(function(response){
+		  console.log(response);
+	  });
   });
 
   $(".logued").click(function(){

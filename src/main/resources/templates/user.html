@@ -118,29 +118,39 @@
                             <button type="button" class="btn btn-default editButton" role="button">Editar Perfil</button>
                           </div>
                           <h2 class="box-heading" id="editName">{{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
+                          
+                          <label id="label_name" style='display:none;'>Nombre: </label><input name="name" class="form-control editName" id="name" style='display:none;' value="{{user.name}}"/>
+                          <label id="label_firstLastName" style='display:none;'>Primer apellido: </label><input name="name" class="form-control editName" id="fisrtLastName" style='display:none;' value="{{user.firstLastName}}"/>
+                          <label id="label_secondLastName" style='display:none;'>Segundo apellido:</label> <input name="name" class="form-control editName" id="secondLastName" style='display:none;' value="{{user.secondLastName}}"/>
                           <div class="row">
                             <div class="col-lg-12">
                               <h5 class="box-heading" id="editDescription">{{user.description}}</h5>
+                              <label id="label_description" style='display:none;'>Descripción: </label><input name="description" class="form-control editDescription" id="description" style='display:none;' value="{{user.description}}"/>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-lg-12">
                               <h5 class="box-heading" id="editMail">{{user.email}}</h5>
+                              <label id="label_email" style='display:none;'>Email: </label><input name="email" class="form-control editEmail" id="email" style='display:none;' value="{{user.email}}"/>
+                              
                             </div>
                           </div> 
                           <div class="row">
                             <div class="col-lg-12">
                               <h5 class="box-heading" id="editPhone">{{user.phone}}</h5>
+                              <label id="label_phone" style='display:none;'>Teléfono: </label><input name="phone" class="form-control editPhone" id="phone" style='display:none;' value="{{user.phone}}"/>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-lg-12">
-                              <input type="hidden" class="form-control" id="editPassword" name="password" placeholder="Escriba la nueva contraseña">
+                              <label id="label_pass" style='display:none;'>Contraseña: </label><input style='display:none;' class="form-control" id="editPassword" name="password" placeholder="Escriba la nueva contraseña">
                             </div>
                           </div>
-                          <div class="changeImage" hidden>
+                         <!--  <div class="changeImage" hidden>
                             <input name="file-input" class="btn btn-default" id="file-input" type="file"/>
-                          </div>
+                          </div> -->
+                          <input name="id" value="{{user.id}}" id="id_user" type="hidden"/>
+                          <input name="admin" value="false" id="admin" type="hidden"/>
                         </div>     
                         <span hidden class="saveButton">
                           <div class="text-right">
