@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import es.urjc.code.daw.compartiendoPiso.User.User;
 
 
 @Controller
@@ -24,7 +27,7 @@ public class OfferController {
 	@PostConstruct
 	public void init() {
 		
-		Offer offer = new Offer("Chalé bastante moderno",222,"Vivienda de dos dormitorios, REFORMADA TOTAL (2.013) PARA ENTRAR VIVIR, cocina amueblada ampliada, suelos de gres, carpintería blanco con doble acristalamiento persianas isotérmicas, terraza.","Madrid","Navalcarnero","el olivar",200,2,1,"chalé",1);
+		Offer offer = new Offer("Chale","Chalé bastante moderno",222,"Vivienda de dos dormitorios, REFORMADA TOTAL (2.013) PARA ENTRAR VIVIR, cocina amueblada ampliada, suelos de gres, carpintería blanco con doble acristalamiento persianas isotérmicas, terraza.","Madrid","Navalcarnero","el olivar",200,2,1,1);
 		offerRepository.save(offer);
 		Characteristics c1 = new Characteristics("Terraza", true);
 		Characteristics c2 = new Characteristics("Balcón", true);
@@ -63,6 +66,18 @@ public class OfferController {
 		model.addAttribute("offer", offer);
 		
 		return "offer";
+	}
+	@RequestMapping("/newOffer")
+	public String newOffer(Model model, Offer offer, String attributes) {
+		Offer saveOffer = offerRepository.saveAndFlush(offer);	
+		String[] atributtesList= attributes.split(",");
+		for(String attribute :atributtesList){
+			Characteristics c = new Characteristics(attribute, true);
+			c.setOffer(offer);
+			characteristicsRepository.save(c);
+		}
+		model.addAttribute("offer", saveOffer);
+		return "redirect:/offer/"+saveOffer.getId();
 	}
 	
 	
