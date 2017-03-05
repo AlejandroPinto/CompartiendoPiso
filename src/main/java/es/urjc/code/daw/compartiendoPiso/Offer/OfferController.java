@@ -1,5 +1,8 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
+import es.urjc.code.daw.compartiendoPiso.review.Review;
+import es.urjc.code.daw.compartiendoPiso.review.ReviewRepository;
 
 
 @Controller
@@ -25,6 +30,9 @@ public class OfferController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private ReviewRepository reviewRepository;
 	
 	@PostConstruct
 	public void init() {
@@ -40,6 +48,14 @@ public class OfferController {
 		characteristicsRepository.save(c1);
 		characteristicsRepository.save(c2);
 		characteristicsRepository.save(c3);	
+		
+		Review review = new Review(5,"regular");
+		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","b@b.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
+		
+		
+		review.setOfferReview(offer);
+		review.setUserReview(user);
+		reviewRepository.save(review);
 		
 	}
 
@@ -63,8 +79,7 @@ public class OfferController {
 	@RequestMapping("/offer/{id}")
 	public String verAnuncio(Model model, @PathVariable long id) {
 		
-		Offer offer = offerRepository.findOne(id);
-		
+		Offer offer = offerRepository.findOne(id);		
 		model.addAttribute("offer", offer);
 		
 		return "offer";

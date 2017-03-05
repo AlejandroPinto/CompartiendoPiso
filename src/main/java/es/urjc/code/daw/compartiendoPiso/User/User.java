@@ -15,8 +15,8 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
+import es.urjc.code.daw.compartiendoPiso.review.Review;
 
 @Entity
 public class User {
@@ -44,6 +44,9 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private List<Offer> offers = new ArrayList<>();
+	
+	@OneToMany(mappedBy="userReview")
+	private List<Review> reviews = new ArrayList<>();
 
 	
 	public User(String name, String firstLastName, String secondLastName, String email, int phone, String pass, String description,
@@ -146,6 +149,18 @@ public class User {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public void setOffers(List<Offer> offers) {
+		this.offers = offers;
 	}
 	
 	

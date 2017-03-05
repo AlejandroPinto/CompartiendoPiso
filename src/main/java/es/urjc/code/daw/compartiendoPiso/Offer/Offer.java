@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import es.urjc.code.daw.compartiendoPiso.User.User;
+import es.urjc.code.daw.compartiendoPiso.review.Review;
 
 
 @Entity
@@ -36,6 +37,9 @@ public class Offer {
 	 
 	 @ManyToOne
 	 private User user;
+	 
+	 @OneToMany(mappedBy="offerReview")
+	 private List<Review> reviews = new ArrayList<>();
 	
 	 public User getUser() {
 		return user;
@@ -156,6 +160,14 @@ public class Offer {
 
 	public void setCharacteristics(ArrayList<Characteristics> characteristics) {
 		this.characteristics = characteristics;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	@Override
