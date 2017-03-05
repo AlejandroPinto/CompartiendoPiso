@@ -11,8 +11,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics;
+import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 
 @Entity
 public class User {
@@ -38,6 +42,10 @@ public class User {
 	
 	public User () {}
 	
+	@OneToMany(mappedBy="user")
+	private List<Offer> offers = new ArrayList<>();
+
+	
 	public User(String name, String firstLastName, String secondLastName, String email, int phone, String pass, String description,
 			boolean admin, String... roles) {
 		super();
@@ -51,7 +59,15 @@ public class User {
 		this.admin = admin;
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
+	
+	public List<Offer> getOffers() {
+		return offers;
+	}
 
+	public void setOffer(Offer offer) {
+		this.offers.add(offer);
+	}
+	
 	public List<String> getRoles() {
 		return roles;
 	}

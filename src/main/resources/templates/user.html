@@ -171,6 +171,7 @@
                         </div>
                         <div class="aa-blog-related-post-area">
                           <div class="row">
+                          {{#user.offers}}
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
                                 <span class="logedUser" hidden>
@@ -183,7 +184,7 @@
                                   <span class="aa-date-tag">15 Abril, 2016</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
-                                  <h3><a href="#">Alquiler de piso en avenida Olimpica, 1, El Soto - Coveta, Móstoles</a></h3>
+                                  <h3><a href="#">{{title}}</a></h3>
                                  <h4><b>240€/mes</b></h4>
                                    <p>Se alquila piso en Móstoles, en la zona del Soto. Piso de 4 dormitorios reformado, con armarios empotrados, calefacción central, y cocina eléctrica. Zona tranquila y segura, especialmente para familias.</p>
                                   <div class="aa-blog-single-bottom">
@@ -193,51 +194,7 @@
                                 </div>                   
                               </article>
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                              <article class="aa-blog-single">
-                                <span class="logedUser" hidden>
-                                  <button class="btn btn-default" onclick="window.location.href='/newAd'"><i class="fa fa-pencil"></i>Editar</button>
-                                  <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
-                                  <br>
-                                </span>
-                                <figure class="aa-blog-img">
-                                  <a href="/offer-room"><img src="/img/piso2.jpg" alt="img" width="360" height="240"></a>
-                                  <span class="aa-date-tag">01 Enero, 17</span>
-                                </figure>
-                                <div class="aa-blog-single-content">
-                                  <h3><a href="#">Alquiler de habitación en calle Hermanos Grimm, 91, El Soto - Coveta, Móstoles</a></h3>
-                                  <h4><b>240€/mes</b></h4>
-                                  <p>Tengo 1 habitacion libre en chalet de 210 m2 en urbanizacion tranquila. buena comunicacion renfe, metro, autobus, a 5 minutos de A5 y universidad. Habitacion de 13 m2 con 1 armario, escritorio, cama 90 1.90 y con cerradura en la puerta.</p>
-                                  <div class="aa-blog-single-bottom">
-                                    <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
-                                    <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>4</a>
-                                  </div>
-                                </div>                   
-                              </article>
-                            </div>
-                            <br>
-                            <div class="col-md-6 col-sm-6">
-                              <span class="logedUser" hidden>
-                                  <button class="btn btn-default" onclick="window.location.href='/newAd'"><i class="fa fa-pencil"></i>Editar</button>
-                                  <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
-                                  <br>
-                                </span>
-                              <article class="aa-blog-single">
-                                <figure class="aa-blog-img">
-                                  <a href="/offer-room"><img src="/img/offer-house1_pc.jpg" alt="img" width="360" height="240"></a>
-                                  <span class="aa-date-tag">20 Enero, 2017</span>
-                                </figure>
-                                <div class="aa-blog-single-content">
-                                  <h3><a href="#">Alquiler de habitación en calle Benito Pérez Galdós, 9, El Soto - Coveta, Móstoles</a></h3>
-                                  <h4><b>215€/mes</b></h4>
-                                  <p>Se alquila habitación en piso compartido. El piso está situado al lado del Parque Liana, y se compone de cuatro habitaciones, salón, cocina y baño, equipado con todo y reformado y pintado recientemente.</p>
-                                  <div class="aa-blog-single-bottom">
-                                    <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
-                                    <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
-                                  </div>
-                                </div>                   
-                              </article>
-                            </div>
+                            {{/user.offers}}
                           </div>
                         </div>
                       </div>

@@ -43,12 +43,12 @@ public class IndexController {
 		
 	}
 	
-	@RequestMapping("/newAd")
-	public String newAnnouncementView(){
-		
-		return "newAd";
-		
-	}
+//	@RequestMapping("/newAd")
+//	public String newAnnouncementView(){
+//		
+//		return "newAd";
+//		
+//	}
 	@RequestMapping("/ad-modify")
 	public String updateAdView(){
 		

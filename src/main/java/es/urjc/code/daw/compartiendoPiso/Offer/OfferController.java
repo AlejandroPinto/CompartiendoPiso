@@ -1,18 +1,17 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.urjc.code.daw.compartiendoPiso.User.User;
+import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
 
 
 @Controller
@@ -23,6 +22,9 @@ public class OfferController {
 	
 	@Autowired
 	private CharacteristicsRepository characteristicsRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	@PostConstruct
 	public void init() {
@@ -67,15 +69,31 @@ public class OfferController {
 		
 		return "offer";
 	}
-	@RequestMapping("/newOffer")
-	public String newOffer(Model model, Offer offer, String attributes) {
-		Offer saveOffer = offerRepository.saveAndFlush(offer);	
+	
+	@RequestMapping("/newAd")
+	public String newAdToUser(Model model, @RequestParam long userid) {
+		
+		User user = userRepository.findOne(userid);
+		
+		model.addAttribute("user", user);
+		return "newAd";
+	}
+	
+	@RequestMapping("/newOffer/{userid}")
+	public String newOffer(Model model, Offer offer, String attributes, @PathVariable long userid ) {
+	
+		User user =  userRepository.findOne(userid);			
+		userRepository.save(user);
+		Offer saveOffer = offerRepository.saveAndFlush(offer);
+		offer.setUser(user);
+		
 		String[] atributtesList= attributes.split(",");
 		for(String attribute :atributtesList){
 			Characteristics c = new Characteristics(attribute, true);
 			c.setOffer(offer);
 			characteristicsRepository.save(c);
 		}
+		
 		model.addAttribute("offer", saveOffer);
 		return "redirect:/offer/"+saveOffer.getId();
 	}

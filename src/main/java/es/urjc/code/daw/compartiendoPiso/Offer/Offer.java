@@ -8,7 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import es.urjc.code.daw.compartiendoPiso.User.User;
 
 
 @Entity
@@ -30,8 +33,19 @@ public class Offer {
 	 private String type;
 	 //@OneToMany
 	 //private List<User> members = new ArrayList<>();
+	 
+	 @ManyToOne
+	 private User user;
 	
-	 @OneToMany(mappedBy="offer")
+	 public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@OneToMany(mappedBy="offer")
 	 private List<Characteristics> characteristics = new ArrayList<>();
 	 
 	 //private User usesrID;
