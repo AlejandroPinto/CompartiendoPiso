@@ -571,7 +571,7 @@ img {
   border-radius: 10px 10px 0 0;
   display: inline;
   float: left;
-  margin-top: -100px;
+  margin-top: -425px;
   min-height: 200px;
   padding: 25px 20px;
   position: relative;
@@ -2590,7 +2590,7 @@ display: flex;
 ====================*/
 
 #aa-signin {
-  background-image: url("../img/fondo_login.png");
+  background-image: url("../img/canvas-index.jpg");
   background-position: center center;
   background-size: cover;
   bottom: 0;

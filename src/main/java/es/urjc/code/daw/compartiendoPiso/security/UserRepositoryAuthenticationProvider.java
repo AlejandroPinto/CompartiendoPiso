@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import es.urjc.code.daw.compartiendoPiso.User.User;
+import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
 
 @Component
@@ -23,26 +24,35 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	@Autowired
 	private UserRepository userRepository;
 
-	@Override
-	public Authentication authenticate(Authentication auth) throws AuthenticationException {
+	@Autowired
+	private UserComponent userComponent;
 
-		User user = userRepository.findByEmail(auth.getName());
+	@Override
+	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+
+		String email = authentication.getName();
+		String password = (String) authentication.getCredentials();
+
+		User user = userRepository.findByEmail(email);
 
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}
 
-		String password = (String) auth.getCredentials();
 		if (!new BCryptPasswordEncoder().matches(password, user.getPass())) {
+
 			throw new BadCredentialsException("Wrong password");
-		}
+		} else {
 
-		List<GrantedAuthority> roles = new ArrayList<>();
-		for (String role : user.getRoles()) {
-			roles.add(new SimpleGrantedAuthority(role));
-		}
+			userComponent.setLoggedUser(user);
 
-		return new UsernamePasswordAuthenticationToken(user.getName(), password, roles);
+			List<GrantedAuthority> roles = new ArrayList<>();
+			for (String role : user.getRoles()) {
+				roles.add(new SimpleGrantedAuthority(role));
+			}
+
+			return new UsernamePasswordAuthenticationToken(email, password, roles);
+		}
 	}
 
 	@Override

@@ -50,7 +50,7 @@ public class OfferController {
 		characteristicsRepository.save(c3);	
 		
 		Review review = new Review(5,"regular");
-		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","b@b.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
+		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","c@c.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
 		
 		
 		review.setOfferReview(offer);

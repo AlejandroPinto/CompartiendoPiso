@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import es.urjc.code.daw.compartiendoPiso.security.LoginController;
 
 @Controller
 public class UserController {
@@ -20,15 +19,20 @@ public class UserController {
 	
 	@Autowired
 	private UserComponent userComponent;
-	
-	@Autowired 
-	private LoginController loginController;
-	
+		
 	@PostConstruct
 	public void init() {
 		userRepository.save(new User ("Adrian","Martin","Sanchez","a@a.com",918115789,"1234","es un parguelas",false,"ROLE_USER"));
 		userRepository.save(new User ("Oscar","Sanchez","Sanchez","b@b.com",918115789,"1234","Soy una maquina",false,"ROLE_ADMIN"));
 		
+	}
+	
+	@RequestMapping("/user")
+	public String userloginView(Model model){
+		User user = userComponent.getLoggedUser();
+		model.addAttribute("user", user);
+		
+		return "user";
 	}
 	
 	@RequestMapping("/user/{id}")

@@ -47,7 +47,6 @@
                 <div class="aa-single-field">
                   <label for="password">Contraseña <span class="required">*</span></label>
                   <input type="password" name="pass"> 
-                  <input type="hidden" name="_csrf" value="{{token}}"/>
                 </div>
                 <div class="aa-single-field">
                 <label>
@@ -56,6 +55,7 @@
                 </div> 
                 <div class="aa-single-submit">
                   <input type="submit" value="Aceptar" class="aa-browse-btn">
+                  <input type="hidden" name="_csrf" value="{{token}}"/>
                   <p>¿No tienes una cuenta todavía?. <a href="/register">Regístrate</a></p>
                   {{#notFound}}
                   <p>No hay usuario</p>
