@@ -55,7 +55,7 @@ public class UserController {
 			if(userComponent.getLoggedUser().getId() == user.getId()){
 				model.addAttribute("isLoged",true);			
 			}
-			model.addAttribute("isLoged",false);
+			
 			return "user";
 		}else{
 			
@@ -72,7 +72,7 @@ public class UserController {
 			if(userComponent.getLoggedUser().getId() == user.getId()){
 				model.addAttribute("isLoged",true);
 			}
-			model.addAttribute("isLoged",false);
+			
 			return "user";
 		}else{
 			return "redirect:/signin";

@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 
 public interface OfferRepository extends JpaRepository<Offer,Long>{
-	List<Offer> findByUser(User user);
+	
 }
