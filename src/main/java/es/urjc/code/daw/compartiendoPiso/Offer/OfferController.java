@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.urjc.code.daw.compartiendoPiso.User.User;
+import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
 import es.urjc.code.daw.compartiendoPiso.review.Review;
 import es.urjc.code.daw.compartiendoPiso.review.ReviewRepository;
@@ -26,13 +27,17 @@ public class OfferController {
 	private OfferRepository offerRepository;
 	
 	@Autowired
-	private CharacteristicsRepository characteristicsRepository;
-	
-	@Autowired
 	private UserRepository userRepository;
 	
 	@Autowired
+	private CharacteristicsRepository characteristicsRepository;
+	
+	@Autowired
 	private ReviewRepository reviewRepository;
+	
+	@Autowired
+	private UserComponent userComponent;
+	
 	
 	@PostConstruct
 	public void init() {
@@ -86,19 +91,16 @@ public class OfferController {
 	}
 	
 	@RequestMapping("/newAd")
-	public String newAdToUser(Model model, @RequestParam long userid) {
-		
-		User user = userRepository.findOne(userid);
-		
-		model.addAttribute("user", user);
+	public String newAd() {
 		return "newAd";
 	}
 	
-	@RequestMapping("/newOffer/{userid}")
-	public String newOffer(Model model, Offer offer, String attributes, @PathVariable long userid ) {
+	@RequestMapping("/newOffer")
+	public String newOffer(Model model, Offer offer, String attributes) {
 	
-		User user =  userRepository.findOne(userid);			
-		userRepository.save(user);
+		User user = userComponent.getLoggedUser();
+		 System.out.println("+++++++++++++++++++"+user.getName());
+		 
 		Offer saveOffer = offerRepository.saveAndFlush(offer);
 		offer.setUser(user);
 		
