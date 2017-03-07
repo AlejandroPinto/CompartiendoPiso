@@ -420,7 +420,6 @@ $(document).ready(function(){
   });
 
   $(".guardarCambios").click(function(){
-	  var id_user = $("#id_user").val();
 	  var param = 
 		  {	  
 			  name: $("#name").val(),
@@ -434,10 +433,11 @@ $(document).ready(function(){
 		  }
 	  $.ajax({
 		  method:"PUT",
-		  url: "/user/"+id_user,
+		  url: "/user",
 		  data: JSON.stringify(param),
 		  headers:{
-			  "Content-type": "application/json"
+			  "Content-type": "application/json",
+			  "Accept": "application/json"
 		  }
 	  }).done(function(response){
 		  reloadUserModified(response);

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics;
 import es.urjc.code.daw.compartiendoPiso.Offer.CharacteristicsRepository;
@@ -98,6 +99,30 @@ public class UserController {
 			model.addAttribute("notFound", true);
 			return "redirect:/";
 		}
-		
 	}
+	
+	@RequestMapping("/edit-user")
+	public String editUser(Model model){
+		if(userComponent.isLoggedUser()){
+			model.addAttribute("user",userComponent.getLoggedUser());
+			return "editUser";
+		}else{
+			return "redirect:/signin";
+		}
+	}
+	
+	@RequestMapping(value="/edit-user", method=RequestMethod.POST)
+	public String editUser(Model model, User editUser){
+		if(userComponent.isLoggedUser()){
+			User userLogin = userComponent.getLoggedUser();
+				editUser.setId(userLogin.getId());
+				User user = userRepository.saveAndFlush(editUser);
+				userComponent.setLoggedUser(user);
+				return "redirect:/user";
+		}else{
+			model.addAttribute("notFound", true);
+			return "redirect:/signin";
+		}
+	}
+	
 }
