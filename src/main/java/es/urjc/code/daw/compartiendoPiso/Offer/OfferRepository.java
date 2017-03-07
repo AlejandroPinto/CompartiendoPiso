@@ -1,7 +1,11 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OfferRepository extends JpaRepository<Offer,Long>{
+import es.urjc.code.daw.compartiendoPiso.User.User;
 
+public interface OfferRepository extends JpaRepository<Offer,Long>{
+	List<Offer> findByUser(User user);
 }
