@@ -25,6 +25,8 @@ public class Review {
 	@ManyToOne
 	private User userReview;
 	
+	public Review(){
+	}
 	
 	public Review(int valoration, String comment) {
 		super();

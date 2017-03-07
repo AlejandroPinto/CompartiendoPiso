@@ -24,7 +24,6 @@ public class UserController {
 	public void init() {
 		userRepository.save(new User ("Adrian","Martin","Sanchez","a@a.com",918115789,"1234","es un parguelas",false,"ROLE_USER"));
 		userRepository.save(new User ("Oscar","Sanchez","Sanchez","b@b.com",918115789,"1234","Soy una maquina",false,"ROLE_ADMIN"));
-		
 	}
 	
 	@RequestMapping("/user")
