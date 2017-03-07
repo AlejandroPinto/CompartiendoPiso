@@ -6,11 +6,13 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.urjc.code.daw.compartiendoPiso.User.User;
@@ -42,7 +44,10 @@ public class OfferController {
 	@PostConstruct
 	public void init() {
 		
+		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","c@c.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
+		
 		Offer offer = new Offer("Chale","Chalé bastante moderno",222,"Vivienda de dos dormitorios, REFORMADA TOTAL (2.013) PARA ENTRAR VIVIR, cocina amueblada ampliada, suelos de gres, carpintería blanco con doble acristalamiento persianas isotérmicas, terraza.","Madrid","Navalcarnero","el olivar",200,2,1,1);
+		offer.setUser(user);
 		offerRepository.save(offer);
 		Characteristics c1 = new Characteristics("Terraza", true);
 		Characteristics c2 = new Characteristics("Balcón", true);
@@ -54,6 +59,7 @@ public class OfferController {
 		characteristicsRepository.save(c2);
 		characteristicsRepository.save(c3);	
 		
+		
 		Review review = new Review(5,"regular");
 		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","d@d.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
 		
@@ -63,23 +69,6 @@ public class OfferController {
 		reviewRepository.save(review);
 		
 	}
-
-	/*@RequestMapping("/offer/new")
-	public String nuevoAnuncio(Model model, Offer offer) {
-		offers.add(offer);
-		usuario.setNombre(offer.getNombre());
-		usuario.incAnuncios();
-		return "offer-house";
-	}*/
-
-	/*@RequestMapping("/offer/new")
-	public String newOffer(Model model, Offer offer) {
-
-		offerRepository.save(offer);
-
-		return "anuncio_guardado";
-
-	}*/
 
 	@RequestMapping("/offer/{id}")
 	public String verAnuncio(Model model, @PathVariable long id) {
@@ -95,13 +84,82 @@ public class OfferController {
 		return "newAd";
 	}
 	
+	@RequestMapping("/offerModify/{idOffer}")
+	public String offerModify(Model model,@PathVariable long idOffer) {
+		
+		User user = userComponent.getLoggedUser();
+		Offer offer = offerRepository.findOne(idOffer);	
+		
+		if(user.getId()==offer.getUser().getId()){
+			model.addAttribute("offer", offer);
+			return "adModify";
+		}
+		else{
+			return "signin";
+		}
+	}
+	
+	@RequestMapping("/deleteOffer/{idOffer}")
+	public String deleteOffer(Model model, @PathVariable long idOffer) {
+		
+		if(userComponent.isLoggedUser()){
+			Offer offer = offerRepository.findOne(idOffer);
+			User user = userRepository.findOne(userComponent.getLoggedUser().getId());
+			if(user.getId() == offer.getUser().getId()){
+				characteristicsRepository.delete(offer.getCharacteristics());
+				reviewRepository.delete(offer.getReviews());
+				offerRepository.delete(idOffer);
+				model.addAttribute("user", user);
+				return "redirect:/user";
+			}
+			else{
+				return "redirect:/signin";
+			}
+		}
+		else{
+			return "redirect:/signin";
+		}
+		
+	}
+	
+	@RequestMapping(value="/setModify/{idOffer}", method=RequestMethod.POST)
+	public String setModify(Model model, Offer editOffer, String attributes, @PathVariable long idOffer){
+		
+		if(userComponent.isLoggedUser()){
+			User user = userComponent.getLoggedUser();
+			Offer originalOffer = offerRepository.findOne(idOffer);
+			characteristicsRepository.delete(originalOffer.getCharacteristics());
+			if(user.getId() == originalOffer.getUser().getId()){
+				editOffer.setId(idOffer);
+				editOffer.setUser(user);
+				
+				String[] atributtesList= attributes.split(",");
+				for(String attribute :atributtesList){
+					Characteristics c = new Characteristics(attribute, true);
+					c.setOffer(editOffer);
+
+					characteristicsRepository.save(c);
+				}
+				offerRepository.save(editOffer);
+				model.addAttribute("offer", editOffer);
+				return "redirect:/offer/"+editOffer.getId();
+			}
+			else{
+				return "redirect:/signin";
+			}
+		}
+		else{
+			return "redirect:/signin";
+		}
+	}
+	
+	
 	@RequestMapping("/newOffer")
 	public String newOffer(Model model, Offer offer, String attributes) {
 	
 		User user = userComponent.getLoggedUser();
-		 System.out.println("+++++++++++++++++++"+user.getName());
 		 
-		Offer saveOffer = offerRepository.saveAndFlush(offer);
+		offerRepository.save(offer);
 		offer.setUser(user);
 		
 		String[] atributtesList= attributes.split(",");
@@ -111,8 +169,8 @@ public class OfferController {
 			characteristicsRepository.save(c);
 		}
 		
-		model.addAttribute("offer", saveOffer);
-		return "redirect:/offer/"+saveOffer.getId();
+		model.addAttribute("offer", offer);
+		return "redirect:/offer/"+offer.getId();
 	}
 	
 	

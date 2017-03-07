@@ -5,25 +5,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Compartiendo Piso | Modificar Anuncio</title>
+    <title>Compartiendo Piso | Nuevo Anuncio</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/logo.jpg" type="image/x-icon">
 
 
     <!-- Font awesome -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
     <!-- slick slider -->
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="/css/slick.css">
     <!-- Theme color -->
-    <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">
+    <link id="switcher" href="/css/theme-color/default-theme.css" rel="stylesheet">
 
     <!-- Main style sheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
 
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
@@ -57,7 +56,7 @@
                             <div class="col-md-6 col-sm-6 col-xs-6">
                                 <div class="aa-header-right">
                                     <a href="/register" class="aa-register">Registro</a>
-                                    <a href="/contact" class="aa-login">Conectar</a>
+                                    <a href="/signin" class="aa-login">Conectar</a>
                                 </div>
                             </div>
                         </div>
@@ -116,63 +115,56 @@
                                 </p>
                             </div>
                             <div class="aa-contact-form">
-                                <form class="contactform">
-                                    <div class="row">
-                                        <div class="col-xs-6 col-md-6" >
-                                           <button id="0" onclick="hideElements(0)"  type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="true" autocomplete="off"> CASA</button>
-                                      </div>
-                                        <div class="col-xs-6 col-md-6" >
-                                           <button id="1" onclick="hideElements(1)" type="button" style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block active" data-toggle="button" aria-pressed="false" autocomplete="off"> HABITACIÓN</button>
-                                      </div>
-                                    </div>
+                                <form class="contactform" method="POST" action="/setModify/{{offer.id}}">
                                     <br>
                                     <div class="row">
-                                      <div class="col-xs-6 col-md-3" >
-                                           <button type="button"  class="btn btn-default btn-block button-caracteristics active" data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
-                                      </div>
-                                      <div class="col-xs-6 col-md-3" >
-                                           <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
-                                      </div>
-                                      <div class="col-md-3 col-xs-6" >
-                                           <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
-                                      </div>
-                                      <div class="col-md-3 col-xs-6" >
-                                           <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
-                                      </div>
-                                   </div>
-                                   <br>
+                                        <div class="col-xs-6 col-md-3">
+                                            <button onClick="setInputType('Piso')" type="button"   style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3">
+                                            <button onClick="setInputType('Adosado')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
+                                        </div>
+                                        <div class="col-md-3 col-xs-6">
+                                            <button onClick="setInputType('Chalé')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
+                                        </div>
+                                        <div class="col-md-3 col-xs-6">
+                                            <button onClick="setInputType('Duplex')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
+                                        </div>
+                                        <input id="type" type="text" name="type" value="" hidden>
+                                    </div>
+                                    <br>
                                     <p class="comment-form-author">
                                         <label>Título anuncio<span class="required">*</span>
                                         </label>
-                                        <input type="text" required="required" name="title" value="Alquiler de habitación en calle Hermanos Grimm, 91, El Soto - Coveta, Móstoles">
+                                        <input type="text" required="required" name="title" value="{{offer.title}}" >
                                     </p>
                                     <p class="comment-form-email">
                                         <label>Precio <span class="required">*</span>
                                         </label>
-                                        <input type="text" required="required" name="price" value="240€/mes">
+                                        <input type="number" required="required" name="price" value="{{offer.price}}">
                                     </p>
                                     <p class="comment-form-comment">
                                         <label for="comment">Descripción</label>
-                                        <textarea name="description" cols="45" rows="8" aria-required="true">Tengo 1 habitacion libre en chalet de 210 m2 en urbanizacion tranquila. buena comunicacion renfe, metro, autobus, a 5 minutos de A5 y universidad. Habitacion de 13 m2 con 1 armario, escritorio, cama 90 1.90 y con cerradura en la puerta.</textarea>
+                                        <textarea name="description" required="required" cols="45" rows="8"  aria-required="true">{{offer.description}}</textarea>
                                     </p>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <p class="comment-form-url">
                                                 <label>Provincia<span class="required">*</span>
                                                 </label>
-                                                <input type="text" name="city">
+                                                <input type="text" required="required" name="province" value="{{offer.province}}">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p class="comment-form-url">
                                                 <label>Localidad</label>
-                                                <input type="text" name="locality" value="Móstoles">
+                                                <input type="text" required="required" name="location" value="{{offer.location}}">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Barrio</label>
-                                                <input type="text" name="" name="neighbourd">
+                                                <input type="text" required="required" name="neighborhood" value="{{offer.neighborhood}}">
                                             </p>
                                         </div>
                                     </div>
@@ -180,19 +172,19 @@
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Superficie</label>
-                                                <input type="text" name="surface">
+                                                <input type="number" required="required" name="area" value="{{offer.area}}">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Nº baños</label>
-                                                <input type="text" name="toilets">
+                                                <input type="number" required="required" name="bathroom" value="{{offer.bathroom}}">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Nº habitaciones</label>
-                                                <input id="nHab" type="text" name="beedrooms" disabled="true">
+                                                <input id="nHab" type="number" name="rooms" value="{{offer.rooms}}">
                                             </p>
                                         </div>
                                     </div>
@@ -203,108 +195,109 @@
                                     <div id="caracteristicas-anuncio">
                                         <label>Características:</label>
                                         <div class="row">
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button" id="button-caracteristics" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
-                                          </div>
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
-                                          </div>
-                                       </div>
-                                       <br>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button onClick="setAttributee('Aire')" type="button" id="button-caracteristics" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
+                                            </div>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button onClick="setAttributee('Ascensor')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button onClick="setAttributee('Terraza')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button onClick="setAttributee('Piscina')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
+                                            </div>
+                                        </div>
+                                        <br>
                                         <div class="row">
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
-                                          </div>
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Iluminado</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Bajo</button>
-                                          </div>
-                                       </div>
-                                       <br>
-                                       <div class="row">
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Trastero</button>
-                                          </div>
-                                          <div class="col-xs-6  col-md-3" >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button"  class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Patio</button>
-                                          </div>
-                                          <div class="col-md-3 col-xs-6 " >
-                                               <button type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Garaje</button>
-                                          </div>
-                                       </div>
-                                       <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p class="form-submit">
-                                                <input type="submit" name="submit" class="aa-browse-btn btn-lg btn-block" value="Publicar">
-                                            </p>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button onClick="setAttributee('Fumadores')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
+                                            </div>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button onClick="setAttributee('Mascotas')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button onClick="setAttributee('Iluminado')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Iluminado</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button onClick="setAttributee('Bajo')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Bajo</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-xs-6  col-md-3">
+                                                <button onClick="setAttributee('Trastero')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Trastero</button>
+                                            </div>
+                                            <div class="col-xs-6  col-md-3">
+                                                <button onClick="setAttributee('Calefacción central')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button onClick="setAttributee('Patio')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Patio</button>
+                                            </div>
+                                            <div class="col-md-3 col-xs-6 ">
+                                                <button onClick="setAttributee('Garaje')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Garaje</button>
+                                            </div>
+                                        </div>
+                                        <input id="attributes" type="text" value="" name="attributes" hidden/>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="form-submit">
+                                                    <input type="submit" name="submit"class="aa-browse-btn btn-lg btn-block" value="Modificar">
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                    </div>
                                 </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="aa-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-footer-area">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-6 col-xs-12">
+                                <div class="aa-footer-left">
+                                    <p>Universidad Rey Juan Carlos 2017</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="aa-footer-middle">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-youtube"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-
-     <!-- Footer -->
-  <footer id="aa-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-        <div class="aa-footer-area">
-          <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-              <div class="aa-footer-left">
-               <p>Universidad Rey Juan Carlos 2017</p>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="aa-footer-middle">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-              </div>
-            </div>     
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </footer>
-  <!-- / Footer -->
+    </footer>
+    <!-- / Footer -->
 
     <!-- jQuery library -->
     <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-    <script src="js/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.js"></script>
+    <script src="/js/bootstrap.js"></script>
     <!-- slick slider -->
-    <script type="text/javascript" src="js/slick.js"></script>
+    <script type="text/javascript" src="/js/slick.js"></script>
 
-    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="/js/functions.js"></script>
 
     <!-- Custom js -->
-    <script src="js/custom.js"></script>
+    <script src="/js/custom.js"></script>
 
 
 </body>
