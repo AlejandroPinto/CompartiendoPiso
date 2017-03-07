@@ -38,7 +38,7 @@ public class UserController {
 	public void init() {
 		userRepository.save(new User ("Adrian","Martin","Sanchez","a@a.com",918115789,"1234","es un parguelas",false,"ROLE_USER"));
 		userRepository.save(new User ("Oscar","Sanchez","Sanchez","b@b.com",918115789,"1234","Soy una maquina",false,"ROLE_ADMIN"));
-		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","c@c.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
+		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","w@w.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
 		userRepository.save(user);
 		Offer offer = new Offer("Piso","Piso bastante guapo",222,"Se alquila piso en Móstoles, en la zona del Soto. Piso de 4 dormitorios reformado, con armarios empotrados, calefacción central, y cocina eléctrica. Zona tranquila y segura, especialmente para familias.","Madrid","El alamo","callejuelos",200,2,1,1);
 		offer.setUser(user);

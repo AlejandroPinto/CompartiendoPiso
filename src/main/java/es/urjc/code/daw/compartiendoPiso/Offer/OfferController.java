@@ -61,11 +61,11 @@ public class OfferController {
 		
 		
 		Review review = new Review(5,"regular");
-		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","d@d.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
+		User user2 = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","d@d.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
 		
 		
 		review.setOfferReview(offer);
-		review.setUserReview(user);
+		review.setUserReview(user2);
 		reviewRepository.save(review);
 		
 	}
