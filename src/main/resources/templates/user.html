@@ -49,8 +49,7 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-right">
-                    <a href="#" class="aa-login unlogued"><font color="#000000"><b>Desconectar</b></font></a> | 
-                    <a href="#" class="aa-login logued"><font color="#000000"><b>Conectar</b></font></a>
+                    <a href="#" class="aa-login unlogued"><font color="#000000"><b>Desconectar</b></font></a>
                 </div>
               </div>
             </div>
@@ -112,13 +111,15 @@
                         <div class="col-lg-3 col-md-3">
                             <img src="/img/users/perfil5.jpg" alt="" title="" width="150" height="150" id="imgSalida">                      
                         </div>
+                        
                         <div class="col-lg-9">
-                           <div hidden class="text-right logedUser">
+                        {{#isLoged}}
+                           <div class="text-right logedUser">
                             <a href="/newAd" class="btn btn-default editText" role="button">Añadir oferta</a>
-                            <button type="button" class="btn btn-default editButton" role="button">Editar Perfil</button>
+                            <a href="/edit-user" class="btn btn-default editText" role="button">Editar Perfil</a>
                           </div>
+                        {{/isLoged}}
                           <h2 class="box-heading" id="editName">{{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
-                          
                           <label id="label_name" style='display:none;'>Nombre: </label><input name="name" class="form-control editName" id="name" style='display:none;' value="{{user.name}}"/>
                           <label id="label_firstLastName" style='display:none;'>Primer apellido: </label><input name="name" class="form-control editName" id="fisrtLastName" style='display:none;' value="{{user.firstLastName}}"/>
                           <label id="label_secondLastName" style='display:none;'>Segundo apellido:</label> <input name="name" class="form-control editName" id="secondLastName" style='display:none;' value="{{user.secondLastName}}"/>
@@ -169,23 +170,26 @@
                           <h2>Lista de pisos del usuario {{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
                           <span></span>
                         </div>
+                        {{#offers}}
                         <div class="aa-blog-related-post-area">
                           <div class="row">
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
-                                <span class="logedUser" hidden>
-                                  <button class="btn btn-default" onclick="window.location.href='/newAD'"><i class="fa fa-pencil"></i>Editar</button>
-                                  <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash"></i>Eliminar</button>
+                              {{#isLoged}}
+                                <span class="logedUser">
+                                  <button class="btn btn-default" onclick="window.location.href='/offerModify/{{offer.id}}'"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash" onclick="window.location.href='/deleteOffer/{{offer.id}}'"></i>Eliminar</button>
                                   <br>
                                 </span>
+                              {{/isLoged}}  
                                 <figure class="aa-blog-img">
                                   <a href="/offer-house"><img src="/img/piso1.jpg" alt="img" width="360" height="240"></a>
-                                  <span class="aa-date-tag">15 Abril, 2016</span>
+                                  <span class="aa-date-tag">{{title}}</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
                                   <h3><a href="#"></a></h3>
-                                 <h4><b>240€/mes</b></h4>
-                                   <p>Se alquila piso en Móstoles, en la zona del Soto. Piso de 4 dormitorios reformado, con armarios empotrados, calefacción central, y cocina eléctrica. Zona tranquila y segura, especialmente para familias.</p>
+                                 <h4><b>{{price}} €</b></h4>
+                                   <p>{{description}}</p>
                                   <div class="aa-blog-single-bottom">
                                     <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
                                     <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
@@ -195,6 +199,10 @@
                             </div>
                           </div>
                         </div>
+                        {{/offers}}
+                        {{^offers}}
+                        <p>El usuario no ha publicado ofertas</p>
+                        {{/offers}}
                       </div>
                     </div>  
                   </div>
@@ -253,7 +261,6 @@
     </div>
   </section>
   <!-- / Blog  -->
-
   <!-- Footer -->
   <footer id="aa-footer">
     <div class="container">

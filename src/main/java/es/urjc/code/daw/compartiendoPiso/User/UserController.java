@@ -1,5 +1,7 @@
 package es.urjc.code.daw.compartiendoPiso.User;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics;
+import es.urjc.code.daw.compartiendoPiso.Offer.CharacteristicsRepository;
+import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
+import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
+
 
 @Controller
 public class UserController {
@@ -20,27 +27,57 @@ public class UserController {
 	
 	@Autowired
 	private UserComponent userComponent;
+	
+	@Autowired
+	private CharacteristicsRepository characteristicsRepository;
+	
+	@Autowired
+	private OfferRepository offerRepository;
 		
 	@PostConstruct
 	public void init() {
 		userRepository.save(new User ("Adrian","Martin","Sanchez","a@a.com",918115789,"1234","es un parguelas",false,"ROLE_USER"));
 		userRepository.save(new User ("Oscar","Sanchez","Sanchez","b@b.com",918115789,"1234","Soy una maquina",false,"ROLE_ADMIN"));
-		
+		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","c@c.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
+		userRepository.save(user);
+		Offer offer = new Offer("Piso","Piso bastante guapo",222,"Se alquila piso en Móstoles, en la zona del Soto. Piso de 4 dormitorios reformado, con armarios empotrados, calefacción central, y cocina eléctrica. Zona tranquila y segura, especialmente para familias.","Madrid","El alamo","callejuelos",200,2,1,1);
+		offer.setUser(user);
+		offerRepository.save(offer);
 	}
 	
 	@RequestMapping("/user")
 	public String userloginView(Model model){
-		User user = userComponent.getLoggedUser();
-		model.addAttribute("user", user);
-		
-		return "user";
-	}
+		if((userComponent.isLoggedUser())){
+			long id = userComponent.getLoggedUser().getId();	
+			User user = userRepository.findOne(id);
+			model.addAttribute("user", user);
+			model.addAttribute("offers",user.getOffers());
+			if(userComponent.getLoggedUser().getId() == user.getId()){
+				model.addAttribute("isLoged",true);			
+			}
+			
+			return "user";
+		}else{
+			
+			return "redirect:/signin";
+		}
+	}	
 	
 	@RequestMapping("/user/{id}")
 	public String userView(@PathVariable long id, Model model){
-		User user = userRepository.findOne(id);
-			model.addAttribute("user", user);	
-		return "user";
+		if(userComponent.isLoggedUser()){
+			User user = userRepository.findOne(id);
+			model.addAttribute("user", user);
+			model.addAttribute("offers",user.getOffers());
+			if(userComponent.getLoggedUser().getId() == user.getId()){
+				model.addAttribute("isLoged",true);
+			}
+			
+			return "user";
+		}else{
+			return "redirect:/signin";
+		}
+			
 	}
 	
 	@RequestMapping("/newUser")
