@@ -72,11 +72,29 @@ public class OfferController {
 
 	@RequestMapping("/offer/{id}")
 	public String verAnuncio(Model model, @PathVariable long id) {
-		
+		if(userComponent.isLoggedUser()){
+			model.addAttribute("isLogued",true);
+		}
 		Offer offer = offerRepository.findOne(id);		
 		model.addAttribute("offer", offer);
+		model.addAttribute("reviews",offer.getReviews());
+		model.addAttribute("numReviews",offer.getReviews().size());
 		
 		return "offer";
+	}
+	
+	@RequestMapping("/addReview/{id}")
+	public String addReviewOffer(Model model, @PathVariable long id,@RequestParam("valoration") float valoration, @RequestParam("comment") String comment) {
+		if(userComponent.isLoggedUser()){
+			Offer offer = offerRepository.findOne(id);
+			Review review = new Review(valoration, comment);
+			review.setOfferReview(offer);
+			review.setUserReview(userComponent.getLoggedUser());
+			reviewRepository.save(review);
+			return "redirect:/offer/"+offer.getId();
+		}else{
+			return "redirect:/offer/"+id;
+		}	
 	}
 	
 	@RequestMapping("/newAd")

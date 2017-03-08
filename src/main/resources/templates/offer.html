@@ -21,7 +21,8 @@
 
     <!-- Main style sheet -->
     <link href="/css/style.css" rel="stylesheet">   
-    <link href="/css/custom.css" rel="stylesheet">   
+    <link href="/css/custom.css" rel="stylesheet"> 
+    <link href="/css/star-rating/star-rating.css" rel="stylesheet">  
 
    
     <!-- Google Font -->
@@ -40,7 +41,8 @@
 
 
   <!-- Start header section -->
-  <header id="aa-header">  
+{{^isLogued}} 
+  <header id="aa-header"> 
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -49,10 +51,12 @@
               <div class="col-md-6 col-sm-6 col-xs-6">         
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
+              
                 <div class="aa-header-right">
                   <a href="/register" class="aa-register">Registrarse</a>
                   <a href="/signin" class="aa-login logued">Conectar</a>
                 </div>
+              
               </div>
             </div>
           </div>
@@ -60,6 +64,7 @@
       </div>
     </div>
   </header>
+  {{/isLogued}}
   <!-- End header section -->
   <!-- Start menu section -->
   <section id="aa-menu-area">
@@ -232,70 +237,30 @@
                 </div>
              </div>
             </div>
-            <!-- comment threats others 
+            <!-- comment threats others -->
             <div class="col-md-12">
               <div class="aa-comments-area">
-                <h3>3 Comentarios</h3>
+                <h3>{{numReviews}} Comentario/s</h3>
                 <div class="comments">
                   <ul class="commentlist">
+                  {{#reviews}}
                     <li>
                       <div class="media">
                         <div class="media-left">    
                             <img alt="img" src="/img/users/perfil1.jpg" class="media-object news-img">      
                         </div>
                         <div class="media-body">
-                         <h4 class="author-name">Carlos López</h4>
-                             <div class="ec-stars-wrapper">
-                                <a data-value="1">&#9733;</a>
-                                <a data-value="2">&#9733;</a>
-                                <a data-value="3">&#9733;</a>
-                                <a data-value="4">&#9733;</a>
-                                <a data-value="5">&#9733;</a>
-                             </div>
-                         <span class="comments-date"> 2 de Enero, 2017</span>
-                         <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
-                         <a class="reply-btn" href="#">Contestar</a>
+                         <h4 class="author-name">{{userReview.name}} {{userReview.firstLastName}} {{userReview.secondLastName}}</h4>
+							 <input id="input-21e" value="{{valoration}}" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" readonly>
+                         <span class="comments-date">{{date}}</span>
+                         <p>{{comment}}</p>
+                         <!-- <a class="reply-btn" href="#">Contestar</a>  -->
                         </div>
                       </div>
                     </li>
-                    <li>
-                      <div class="media">
-                        <div class="media-left">    
-                            <img alt="img" src="/img/users/perfil2.jpg" class="media-object news-img">      
-                        </div>
-                        <div class="media-body">
-                         <h4 class="author-name">John Smith</h4>
-                             <div class="ec-stars-wrapper">
-                                <a data-value="1">&#9733;</a>
-                                <a data-value="2">&#9733;</a>
-                                <a data-value="3">&#9733;</a>
-                                <a data-value="4">&#9733;</a>
-                                <a data-value="5">&#9733;</a>
-                            </div>
-                         <span class="comments-date"> 7 de Enero, 2017</span>
-                         <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
-                         <a class="reply-btn" href="#">Contestar</a>
-                        </div>
-                      </div>
-                    </li>
-                    <ul class="children">
-                      <li class="author-comments">
-                        <div class="media">
-                          <div class="media-left">    
-                              <img alt="img" src="/img/users/perfil5.jpg" class="media-object news-img">      
-                          </div>
-                          <div class="media-body">
-                           <h4 class="author-name">Mario Francia</h4>
-                           <span class="comments-date"> 10 de Enero, 2017</span>
-                           <span class="author-tag">Autor</span>
-                           <p>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English</p>
-                           <a class="reply-btn" href="#">Contestar</a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
+                    {{/reviews}}
                    </ul>
-                  <!-- comments pagination 
+                  <!-- comments pagination -->
                   <nav>
                     <ul class="pagination comments-pagination">
                       <li>
@@ -317,53 +282,25 @@
                   </nav>
                 </div>
               </div>
-            </div> -->
-            <!-- Respond 
+            </div>
+            <!-- Respond -->
             <div class="col-md-8">
+            	{{#isLogued}}
                 <div id="respond">
                   <h3 class="reply-title">Deja un comentario</h3>
-                  <form action="commentform" type="post">
-                    <div class="row">
-                      <div class="col md-12">
-                        <p class="comment-notes">
-                          Tu Email no será publicado. Los campos señalados son obligatorios<span class="required">*</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <p class="comment-form-author">
-                          <label for="author">Nombre <span class="required">*</span></label>
-                          <input type="text" required="required" size="30" value="" name="author">
-                        </p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <p class="comment-form-email">
-                          <label for="email">Email <span class="required">*</span></label>
-                          <input type="email" required="required" aria-required="true" value="" name="email">
-                        </p>
-                      </div>
-                    </div>
+                  <form action="/addReview/{{offer.id}}" type="post">
                     <div class="row">
                       <div class="col-md-2">
                         <p class="comment-form-comment commentValoration">
-                          <label>Valoración</label>
+                          <label for="valoration">Valoración: <span class="required">*</span></label>
                         </p>
                       </div>
-                      <div class="col-md-2">
-                        <div class="ec-stars-wrapper">
-                            <a data-value="1">&#9733;</a>
-                            <a data-value="2">&#9733;</a>
-                            <a data-value="3">&#9733;</a>
-                            <a data-value="4">&#9733;</a>
-                            <a data-value="5">&#9733;</a>
-                        </div>
+                      <div class="col-md-4">
+                        <input id="input-21e" name="valoration" value="" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs">
                       </div>
                     </div>
                     <p class="comment-form-comment">
-                      <label for="comment">Comentario</label>
+                      <label for="author">Comentario: <span class="required">*</span></label>
                       <textarea required="required" aria-required="true" rows="8" cols="45" name="comment"></textarea>
                     </p>
                     <p class="form-submit">
@@ -371,6 +308,7 @@
                     </p>        
                   </form>
                 </div>
+                {{/isLogued}}
               </div>
               <!-- End Respond box -->
             </div>    
@@ -418,6 +356,8 @@
   
   <!-- Custom js -->
   <script src="/js/custom.js"></script> 
+  <script src="/js/star-rating/star-rating.js" type="text/javascript"></script> 
+  <script src="/js/star-rating/locales/es.js" type="text/javascript"></script>
 
   </body>
 </html>

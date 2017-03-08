@@ -1,5 +1,9 @@
 package es.urjc.code.daw.compartiendoPiso.review;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,8 +20,9 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	private int valoration;
+	private float valoration;
 	private String comment;
+	private Date date;
 	
 	@ManyToOne
 	private Offer offerReview;
@@ -28,10 +33,11 @@ public class Review {
 	public Review(){
 	}
 	
-	public Review(int valoration, String comment) {
+	public Review(float valoration, String comment) {
 		super();
 		this.valoration = valoration;
 		this.comment = comment;
+		this.date = new Date();
 	}
 	
 	public long getId() {
@@ -42,7 +48,7 @@ public class Review {
 		this.id = id;
 	}
 	
-	public int getValoration() {
+	public float getValoration() {
 		return valoration;
 	}
 	
@@ -73,6 +79,16 @@ public class Review {
 	public void setUserReview(User userReview) {
 		this.userReview = userReview;
 	}
+
+	public String getDate() {
+		DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm");
+		return dateFormat.format(this.date);
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 	
 	
 }
