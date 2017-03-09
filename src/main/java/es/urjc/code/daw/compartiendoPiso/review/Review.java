@@ -3,6 +3,7 @@ package es.urjc.code.daw.compartiendoPiso.review;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -81,7 +82,7 @@ public class Review {
 	}
 
 	public String getDate() {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+		DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy HH:mm", new Locale("es","ES"));
 		return dateFormat.format(this.date);
 	}
 
