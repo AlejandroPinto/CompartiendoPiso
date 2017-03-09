@@ -2,21 +2,31 @@ package es.urjc.code.daw.compartiendoPiso;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
+
+
+
 @Controller
 public class IndexController {
 	
+	@Autowired
+	private UserComponent userComponent;
+	
 	@RequestMapping("/")
-	public String indexView(){
+	public String indexView(Model model, HttpServletRequest request){
+		
+		model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
 		
 		return "index";
 		
 	}
 	
-	@RequestMapping("/disconnect")
+	@RequestMapping("/logout")
 	public String disconnectView(){
 		
 		return "index";
@@ -37,7 +47,9 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/contact")
-	public String contactView(){
+	public String contactView(Model model, HttpServletRequest request){
+		
+		model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
 		
 		return "contact";
 		
@@ -56,14 +68,14 @@ public class IndexController {
 		
 	}
 	
-	@RequestMapping("/admin")
-	public String administratorView(Model model, HttpServletRequest request){
-	    	
-	    model.addAttribute("admin", request.isUserInRole("ADMIN"));
-		
-	    return "admin";
-		
-	}
+//	@RequestMapping("/admin")
+//	public String administratorView(Model model, HttpServletRequest request){
+//	    	
+//	    model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
+//		
+//	    return "admin";
+//		
+//	}
 	
 	@RequestMapping("/reject")
 	public String rejectView(){

@@ -67,3 +67,7 @@
 .user-admin {
 	height: 220px !important;
 }
+
+.offerParagraph{
+	min-height: 130px;
+}
