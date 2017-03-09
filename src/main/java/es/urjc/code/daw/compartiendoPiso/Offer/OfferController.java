@@ -108,7 +108,7 @@ public class OfferController {
 		User user = userComponent.getLoggedUser();
 		Offer offer = offerRepository.findOne(idOffer);	
 		
-		if(user.getId()==offer.getUser().getId()){
+		if((user.getId()==offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_ADMIN]"))){
 			model.addAttribute("offer", offer);
 			return "adModify";
 		}
@@ -122,13 +122,19 @@ public class OfferController {
 		
 		if(userComponent.isLoggedUser()){
 			Offer offer = offerRepository.findOne(idOffer);
-			User user = userRepository.findOne(userComponent.getLoggedUser().getId());
-			if(user.getId() == offer.getUser().getId()){
+			User user = userComponent.getLoggedUser();
+			//User user = userRepository.findOne(userComponent.getLoggedUser().getId());
+			System.out.println();
+			if((user.getId() == offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_ADMIN]"))){
 				characteristicsRepository.delete(offer.getCharacteristics());
 				reviewRepository.delete(offer.getReviews());
 				offerRepository.delete(idOffer);
-				model.addAttribute("user", user);
-				return "redirect:/user";
+				if(user.getRoles().toString().equals("[ROLE_ADMIN]")){
+					return "redirect:/admin";
+				}else{
+					model.addAttribute("user", user);
+					return "redirect:/user";
+				}
 			}
 			else{
 				return "redirect:/signin";
@@ -147,7 +153,7 @@ public class OfferController {
 			User user = userComponent.getLoggedUser();
 			Offer originalOffer = offerRepository.findOne(idOffer);
 			characteristicsRepository.delete(originalOffer.getCharacteristics());
-			if(user.getId() == originalOffer.getUser().getId()){
+			if((user.getId() == originalOffer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_ADMIN]"))){
 				editOffer.setId(idOffer);
 				editOffer.setUser(user);
 				

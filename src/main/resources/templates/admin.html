@@ -58,7 +58,6 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="aa-header-right">
-                  <a href="/signin" class="aa-register">Conectarse</a>
                   <a href="/disconnect" class="aa-login">Desconectarse</a>
                 </div>
               </div>
@@ -88,7 +87,10 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
             <li><a href="/">Inicio</a></li>
-            <li><a href="/contact">Contacto</a></li>        
+            <li><a href="/contact">Contacto</a></li>
+            {{#admin}}
+            <li><a href="/admin">ADMIN</a></li>
+            {{/admin}}        
           </ul>                           
         </div><!--/.nav-collapse -->       
       </div>          
@@ -278,16 +280,19 @@
     <div class="container">
       <div class="aa-latest-property-area">
         <div class="aa-title">
-          <h2>Ofertas</h2>       
+          <h2>Ofertas</h2>
+          <span></span>
+          <p>Todas.</p>         
         </div>
         <div class="aa-latest-properties-content">
           <div class="row">
+          {{#offers}}
             <div class="col-md-4">
               <article class="aa-properties-item">
                     <br>
                     <div class="logedUser text-center">
-                      <a href="/reject" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
-                      <button onclick="window.location.href='/ad-modify'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
+                      <a href="/deleteOffer/{{id}}" class="btn btn-danger editText discard-offert" role="button">Eliminar</a>
+                      <button onclick="window.location.href='/offerModify/{{id}}'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
                     </div>
                     <br>
                     <a class="aa-properties-item-img" href="#">
@@ -295,187 +300,24 @@
                     </a>
                     <div class="aa-properties-item-content">
                       <div class="aa-properties-info">
-                        <span>2 Habitaciones</span>
-                        <span>2 Camas</span>
-                        <span>1 Baño</span>                      
+                        <span>{{area}} m2</span>
+                        <span>{{rooms}} Habitaciones</span>
+                        <span>{{bathroom}} Baño</span>                      
                       </div>
                       <div class="aa-properties-about">
-                        <h3><a href="#">Piso Mostoles , calle granada</a></h3>
-                        <p>Se alquila piso mostoles calle granada.
-                        Piso de 2 dormitorios , con cocina americana ,
-                        algo antiguo pero con las habitaciones recien 
-                        reformadas.</p>                      
+                        <h3><a href="/offer/{{id}}">{{title}}</a></h3>
+                        <p class="offerParagraph">{{description}}</p>                      
                       </div>
                       <div class="aa-properties-detial">
                         <span class="aa-price">
-                          €300
+                          {{price}} €
                         </span>
-                        <a class="aa-secondary-btn" href="/accept-offer">Aceptar</a>
+                        <a class="aa-secondary-btn" href="/offer/{{id}}">Ver</a>
                       </div>
                     </div>
                   </article>
             </div>
-            <div class="col-md-4">
-             <article class="aa-properties-item">
-                   <br>
-                    <div class="logedUser text-center">
-                      <a href="/reject" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
-                      <button onclick="window.location.href='/ad-modify'" type="button" class="btn btn-primary editButton " role="button">Editar</button>
-                    </div>
-                    <br>
-                    <a class="aa-properties-item-img" href="#">
-                      <img src="img/duplex.jpg" alt="img" width="370" height="220">
-                    </a>                    
-                    <div class="aa-properties-item-content">
-                      <div class="aa-properties-info">
-                        <span>3 Habitaciones</span>
-                        <span>3 Camas</span>
-                        <span>3 Baños</span>                        
-                      </div>
-                      <div class="aa-properties-about">
-                        <h3><a href="#">Duplex Av Iker Casillas</a></h3>
-                        <p>Se alquila duplex en la zona centro 
-                        de mostoles , cerca del metro  y recien remodelado ,
-                        a estrenar. 105 m2 , perfecto para parejas jóvenes.</p>                      
-                      </div>
-                      <div class="aa-properties-detial">
-                        <span class="aa-price">
-                          €700
-                        </span>
-                        <a class="aa-secondary-btn" href="/accept-offer">Aceptar</a>
-                      </div>
-                    </div>
-                  </article>
-            </div>
-            <div class="col-md-4">
-               <article class="aa-properties-item">
-                   <br>
-                    <div class="logedUser text-center">
-                      <a href="/reject" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
-                      <button onclick="window.location.href='/ad-modify'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
-                    </div>
-                    <br>
-                    <a class="aa-properties-item-img" href="#">
-                      <img src="img/piso3.jpg" alt="img" width="370" height="220">
-                    </a>                  
-                    <div class="aa-properties-item-content">
-                      <div class="aa-properties-info">
-                        <span>2 Habitaciones</span>
-                        <span>2 Camas</span>
-                        <span>1 Baño</span>                       
-                      </div>
-                      <div class="aa-properties-about">
-                        <h3><a href="#">Habitacion C/ Tulipan 7.</a></h3>
-                        <p>Se alquila habitacion de estudiante 
-                        en mostoles , al lado de la urjc en mostoles.
-                        Piso de 75 m2 , perfecto para universitarios. </p>                      
-                      </div>
-                      <div class="aa-properties-detial">
-                        <span class="aa-price">
-                          $150
-                        </span>
-                        <a class="aa-secondary-btn" href="/accept-offer">Aceptar</a>
-                      </div>
-                    </div>
-                  </article>
-            </div>
-            <div class="col-md-4">
-              <article class="aa-properties-item">
-                    <br>
-                    <div class="logedUser text-center">
-                      <a href="/reject" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
-                      <button onclick="window.location.href='/ad-modify'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
-                    </div>
-                    <br>
-                    <a class="aa-properties-item-img" href="#">
-                      <img src="https://img3.idealista.com/blur/WEB_DETAIL-L-L/0/id.pro.es.image.master/61/4c/c0/117618352.jpg"  alt="img" width="370" height="220">
-                    </a>
-                    <div class="aa-properties-item-content">
-                      <div class="aa-properties-info">
-                        <span>1Habitaciones</span>
-                        <span>1 Camas</span>
-                        <span>2Baño</span>                      
-                      </div>
-                      <div class="aa-properties-about">
-                        <h3><a href="#">Habitacion zona norte,C/ Pintor Velázquez</a></h3>
-                        <p>Alquiler habitacion situada en buena zona
-                        de móstoles , cercano a la universidad.Piso muy 
-                        luminoso con vistas despejadas.</p>                      
-                      </div>
-                      <div class="aa-properties-detial">
-                        <span class="aa-price">
-                          €150
-                        </span>
-                        <a class="aa-secondary-btn" href="/accept-offer">Aceptar</a>
-                      </div>
-                    </div>
-                  </article>
-            </div>
-            <div class="col-md-4">
-             <article class="aa-properties-item">
-                   <br>
-                    <div class="logedUser text-center">
-                      <a href="/reject" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
-                      <button onclick="window.location.href='/ad-modify'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
-                    </div>
-                    <br>
-                    <a class="aa-properties-item-img" href="#">
-                      <img src="img/piso4.jpg" alt="img" width="370" height="220">
-                    </a>                 
-                    <div class="aa-properties-item-content">
-                      <div class="aa-properties-info">
-                        <span>2 Habitaciones</span>
-                        <span>3 Camas</span>
-                        <span>2 Baños</span>
-                      </div>
-                      <div class="aa-properties-about">
-                        <h3><a href="#">Habitacion en Mostoles, Av.Dos de mayo </a></h3>
-                        <p>Tengo una habitacion libre en la zona centro de mostoles ,
-                        y me gustaria compartir piso , preferiblemente estudiantes.                       
-                        </p>                      
-                      </div>
-                      <div class="aa-properties-detial">
-                        <span class="aa-price">
-                          €200
-                        </span>
-                        <a class="aa-secondary-btn" href="/accept-offer">Aceptar</a>
-                      </div>
-                    </div>
-                  </article>
-            </div>
-            <div class="col-md-4">
-              <article class="aa-properties-item">
-                    <br>
-                    <div class="logedUser text-center">
-                      <a href="/reject" class="btn btn-danger editText discard-offert" role="button">Rechazar</a>
-                      <button onclick="window.location.href='/ad-modify'" type="button" class="btn btn-primary editButton" role="button">Editar</button>
-                    </div>
-                    <br>
-                    <a class="aa-properties-item-img" href="#">
-                      <img src="https://imganuncios.mitula.net/casa_adosada_en_venta_en_mostoles_7110062481227368034.jpg"  alt="img" width="370" height="220">
-                    </a>
-                    <div class="aa-properties-item-content">
-                      <div class="aa-properties-info">
-                        <span>2 Habitaciones</span>
-                        <span>2 Camas</span>
-                        <span>1 Baño</span>                      
-                      </div>
-                      <div class="aa-properties-about">
-                        <h3><a href="#">Piso Mostoles , calle granada Nº 7</a></h3>
-                        <p>Se alquila piso mostoles calle granada.
-                        Piso de 2 dormitorios , con cocina americana ,
-                        algo antiguo pero con las habitaciones recien 
-                        reformadas.</p>                      
-                      </div>
-                      <div class="aa-properties-detial">
-                        <span class="aa-price">
-                          €300
-                        </span>
-                        <a class="aa-secondary-btn" href="/accept-offer">Aceptar</a>
-                      </div>
-                    </div>
-                  </article>
-            </div>
+            {{/offers}}
           </div>
         </div>
       </div>

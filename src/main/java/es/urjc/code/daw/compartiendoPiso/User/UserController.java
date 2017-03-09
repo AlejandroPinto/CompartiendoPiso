@@ -1,6 +1,7 @@
 package es.urjc.code.daw.compartiendoPiso.User;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,8 @@ public class UserController {
 	}
 	
 	@RequestMapping("/user")
-	public String userloginView(Model model){
+	public String userloginView(Model model, HttpServletRequest request){
+		
 		if((userComponent.isLoggedUser())){
 			long id = userComponent.getLoggedUser().getId();	
 			User user = userRepository.findOne(id);
@@ -50,10 +52,9 @@ public class UserController {
 			if(userComponent.getLoggedUser().getId() == user.getId()){
 				model.addAttribute("isLoged",true);			
 			}
-			
+			model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
 			return "user";
 		}else{
-			
 			return "redirect:/signin";
 		}
 	}	
