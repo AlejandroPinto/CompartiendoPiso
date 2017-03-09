@@ -1,13 +1,11 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,25 +58,42 @@ public class OfferController {
 		characteristicsRepository.save(c3);	
 		
 		
-		Review review = new Review(5,"regular");
+		
 		User user2 = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","d@d.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
-		
-		
-		review.setOfferReview(offer);
-		review.setUserReview(user2);
-		reviewRepository.save(review);
+		for(int i=0;i<100;i++){
+			Review review = new Review(5,"regular"+i);
+			review.setOfferReview(offer);
+			review.setUserReview(user2);
+			reviewRepository.save(review);
+		}
 		
 	}
 
 	@RequestMapping("/offer/{id}")
-	public String verAnuncio(Model model, @PathVariable long id) {
+	public String verAnuncio(Model model, @PathVariable long id, Pageable pageable, @RequestParam int page, @RequestParam int size) {
 		if(userComponent.isLoggedUser()){
 			model.addAttribute("isLogued",true);
 		}
 		Offer offer = offerRepository.findOne(id);		
 		model.addAttribute("offer", offer);
-		model.addAttribute("reviews",offer.getReviews());
+		Page<Review> reviews = reviewRepository.findByOfferReview(offer, new PageRequest(page,size));
+		model.addAttribute("reviews", reviews);
 		model.addAttribute("numReviews",offer.getReviews().size());
+		
+		model.addAttribute("showNext", !reviews.isLast());
+		model.addAttribute("showPrev", !reviews.isFirst());
+		for(int i=1; i<=5; i++){
+			if(!reviews.isLast()){
+				model.addAttribute("nextPage"+i, reviews.getNumber()+i);
+			}
+			if(!reviews.isFirst()){
+				model.addAttribute("nextPage"+i, reviews.getNumber()+i);
+			}
+			model.addAttribute("nextPage", reviews.getNumber()+1);
+			model.addAttribute("prevPage", reviews.getNumber()-1);
+			model.addAttribute("numPage", reviews.getNumber());
+			
+		}
 		
 		return "offer";
 	}

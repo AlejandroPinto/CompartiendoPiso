@@ -116,20 +116,6 @@
                <h2>{{offer.type}}: {{offer.title}}</h2>
                <span class="aa-price">{{offer.location}}, {{offer.province}}</span>
                	<p>- {{offer.description}}</p>
-                  <!-- <div class="row">
-                    <div class="col-md-3">  
-                      <h4>Valoración</h4>
-                    </div>
-                    <div class="col-md-2 globalValoration">
-                       <div class="ec-stars-wrapper">
-                          <a data-value="1">&#9733;</a>
-                          <a data-value="2">&#9733;</a>
-                          <a data-value="3">&#9733;</a>
-                          <a data-value="4">&#9733;</a>
-                          <a data-value="5">&#9733;</a>
-                      </div>
-                    </div>
-                  </div>-->
                <h4>Características básicas</h4>
 	               	<li>Tamaño: {{offer.area}} m2</li>
 	               	<li>Baños: {{offer.bathroom}} </li>
@@ -263,21 +249,21 @@
                   <!-- comments pagination -->
                   <nav>
                     <ul class="pagination comments-pagination">
+                    {{#showPrev}}
                       <li>
-                        <a aria-label="Previous" href="#">
+                        <a aria-label="Previous" href="/offer/{{offer.id}}?page={{prevPage}}&size=4">
                           <span aria-hidden="true">«</span>
                         </a>
                       </li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
+                    {{/showPrev}}
+                    <li><span aria-hidden="true">{{numPage}}</span></li>
+                    {{#showNext}}
                       <li>
-                        <a aria-label="Next" href="#">
+                        <a aria-label="Next" href="/offer/{{offer.id}}?page={{nextPage}}&size=4">
                           <span aria-hidden="true">»</span>
                         </a>
                       </li>
+                    {{/showNext}}
                     </ul>
                   </nav>
                 </div>
