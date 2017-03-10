@@ -1,5 +1,9 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +16,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import es.urjc.code.daw.compartiendoPiso.UploadFiles;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
@@ -37,7 +43,7 @@ public class OfferController {
 	
 	@Autowired
 	private UserComponent userComponent;
-	
+		
 	
 	@PostConstruct
 	public void init() {
@@ -94,6 +100,18 @@ public class OfferController {
 			model.addAttribute("numPage", reviews.getNumber());
 			
 		}
+		String path =  offer.getUser().getId()+"/"+offer.getId();
+		
+		UploadFiles uploadedFiles = new UploadFiles();
+		int numberFiles = new File(uploadedFiles.getFilesFolder()+path).listFiles().length;
+		
+		List<String> namePhotos = new ArrayList();
+		for(int i = numberFiles-1; i>=0; i--){
+			namePhotos.add(i+".jpg");
+		}
+		System.out.println(namePhotos.get(0));
+		
+		model.addAttribute("photos", namePhotos);
 		
 		return "offer";
 	}
@@ -194,11 +212,11 @@ public class OfferController {
 	
 	
 	@RequestMapping("/newOffer")
-	public String newOffer(Model model, Offer offer, String attributes) {
+	public String newOffer(Model model, Offer offer, String attributes, @RequestParam("file") List<MultipartFile> files) {
 	
 		User user = userComponent.getLoggedUser();
 		 
-		offerRepository.save(offer);
+		Offer offerSave = offerRepository.saveAndFlush(offer);
 		offer.setUser(user);
 		
 		String[] atributtesList= attributes.split(",");
@@ -207,12 +225,15 @@ public class OfferController {
 			c.setOffer(offer);
 			characteristicsRepository.save(c);
 		}
+				
+		String path =  user.getId()+"/"+offerSave.getId();
+		
+		UploadFiles uploadedFiles = new UploadFiles();
+		uploadedFiles.handleFileUpload(files,path);
 		
 		model.addAttribute("offer", offer);
 		return "redirect:/offer/"+offer.getId()+"?page=0&size=4";
 	}
-	
-	
 	
 
 }
