@@ -209,7 +209,7 @@ public class OfferController {
 		}
 		
 		model.addAttribute("offer", offer);
-		return "redirect:/offer/"+offer.getId();
+		return "redirect:/offer/"+offer.getId()+"?page=0&size=4";
 	}
 	
 	
