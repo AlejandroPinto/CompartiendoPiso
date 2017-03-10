@@ -115,7 +115,7 @@
                                 </p>
                             </div>
                             <div class="aa-contact-form">
-                                <form class="contactform" method="POST" action="/edit-user">
+                                <form class="contactform" method="POST" action="/edit-user" enctype="multipart/form-data">
 									<div class="aa-single-field">
 					                  <label for="name">Nombre <span class="required">*</span></label>
 					                  <input type="text" required="required" aria-required="true" value="{{user.name}}" name="name">
@@ -149,10 +149,10 @@
 					                  <label for="phone">Descripción del usuario</label><br>
 					                  <textarea maxlength="1080" required="required" aria-required="true" name="description">{{user.description}}</textarea>
 					                </div>
-					                <!-- <div class="aa-single-field">
+					                <div class="aa-single-field">
 					                  <label for="phone">Imagen de perfil</label><br>
-					                  <input type="file" name="pic" accept="image/*" name="userImage">
-					                </div>-->
+					                  <input type="file" accept="image/*" name="file">
+					                </div>
 					                <div class="row">
                                        <div class="col-md-12">
                                            <p class="form-submit">

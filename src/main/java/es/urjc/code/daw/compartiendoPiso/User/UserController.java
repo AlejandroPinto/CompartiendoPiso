@@ -1,5 +1,7 @@
 package es.urjc.code.daw.compartiendoPiso.User;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import es.urjc.code.daw.compartiendoPiso.UploadFiles;
 import es.urjc.code.daw.compartiendoPiso.Offer.CharacteristicsRepository;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
@@ -61,6 +67,7 @@ public class UserController {
 	
 	@RequestMapping("/user/{id}")
 	public String userView(@PathVariable long id, Model model){
+		//MIRAR, YA QUE NO TIENE QUE ESTAR LOGUEADO EL USUARIO PARA VER ESTA VISTA
 		if(userComponent.isLoggedUser()){
 			User user = userRepository.findOne(id);
 			model.addAttribute("user", user);
@@ -77,10 +84,17 @@ public class UserController {
 	}
 	
 	@RequestMapping("/newUser")
-	public String newUser(Model model, User user) {
+	public String newUser(Model model, User user, @RequestParam("file") List<MultipartFile> files) {
+		
 		User saveduser = userRepository.saveAndFlush(user);
 		userComponent.setLoggedUser(user);
 		model.addAttribute("user", user);
+		
+		String path = saveduser.getId()+"/";
+		
+		UploadFiles uploadedFiles = new UploadFiles();
+		uploadedFiles.handleFileUpload(files,path);
+		
 		return "redirect:/user/"+saveduser.getId();
 	}
 	
@@ -108,12 +122,17 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/edit-user", method=RequestMethod.POST)
-	public String editUser(Model model, User editUser){
+	public String editUser(Model model, User editUser, @RequestParam("file") List<MultipartFile> files){
 		if(userComponent.isLoggedUser()){
 			User userLogin = userComponent.getLoggedUser();
 				editUser.setId(userLogin.getId());
 				User user = userRepository.saveAndFlush(editUser);
 				userComponent.setLoggedUser(user);
+				
+				String path = user.getId()+"/";
+				UploadFiles uploadedFiles = new UploadFiles();
+				uploadedFiles.handleFileUpload(files,path);
+				
 				return "redirect:/user";
 		}else{
 			model.addAttribute("notFound", true);
