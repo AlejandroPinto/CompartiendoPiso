@@ -86,6 +86,9 @@
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
              <li><a href="/">Inicio</a></li>                                        
             <li><a href="/contact">Contacto</a></li>
+             {{#isLogued}}
+            	<li><a href="/user">Usuario</a></li>
+            {{/isLogued}}                                           
           </ul>                               
         </div><!--/.nav-collapse -->       
       </div>          
@@ -278,11 +281,11 @@
                     <div class="row">
                       <div class="col-md-2">
                         <p class="comment-form-comment commentValoration">
-                          <label for="valoration">Valoración: <span class="required">*</span></label>
+                          <label for="valoration">Valoración: <span class="required" >*</span></label>
                         </p>
                       </div>
                       <div class="col-md-4">
-                        <input id="input-21e" name="valoration" value="" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs">
+                        <input id="input-21e" name="valoration" value="" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" >
                       </div>
                     </div>
                     <p class="comment-form-comment">

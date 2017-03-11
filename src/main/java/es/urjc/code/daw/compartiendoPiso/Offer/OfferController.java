@@ -106,7 +106,7 @@ public class OfferController {
 			review.setOfferReview(offer);
 			review.setUserReview(userComponent.getLoggedUser());
 			reviewRepository.save(review);
-			return "redirect:/offer/"+offer.getId();
+			return "redirect:/offer/"+offer.getId()+"?page=0&size=4";
 		}else{
 			return "redirect:/offer/"+id;
 		}	
@@ -125,6 +125,7 @@ public class OfferController {
 		
 		if((user.getId()==offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_ADMIN]"))){
 			model.addAttribute("offer", offer);
+			
 			return "adModify";
 		}
 		else{
@@ -181,7 +182,7 @@ public class OfferController {
 				}
 				offerRepository.save(editOffer);
 				model.addAttribute("offer", editOffer);
-				return "redirect:/offer/"+editOffer.getId();
+				return "redirect:/offer/"+editOffer.getId()+"?page=0&size=4";
 			}
 			else{
 				return "redirect:/signin";

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
+import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 
 
 
@@ -22,10 +23,15 @@ public class IndexController {
 	@Autowired
 	private OfferRepository offerRepository;
 	
+	@Autowired
+	private UserComponent userComponent;
+	
 	@RequestMapping("/")
 	public String indexView(Model model, HttpServletRequest request){
 		model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
-		
+		if(userComponent.isLoggedUser()){
+			model.addAttribute("isLogued",true);
+		}
 		
 		return "index";
 		

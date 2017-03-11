@@ -87,10 +87,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
             <li><a href="/">Inicio</a></li>
-            <li><a href="/contact">Contacto</a></li>
-            {{#admin}}
-            <li><a href="/admin">ADMIN</a></li>
-            {{/admin}}        
+            <li><a href="/user">User admin</a></li>
+       
           </ul>                           
         </div><!--/.nav-collapse -->       
       </div>          
@@ -184,15 +182,6 @@
                   </select>
                </div>
               </div>
-                <div class="col-md-2">
-                  <div class="aa-single-advance-search">
-                    <select name="category" class="select-color">
-                     <option value="0" selected>Categoría</option>
-                     <option value="1">Casa</option>
-                     <option value="2">Habitación</option>
-                    </select>
-                  </div>
-                </div>
                 <div class="col-md-2">
                   <div class="aa-single-advance-search">
                     <select name="type" class="select-color">
@@ -312,7 +301,8 @@
                         <span class="aa-price">
                           {{price}} €
                         </span>
-                        <a class="aa-secondary-btn" href="/offer/{{id}}">Ver</a>
+                        <a class="aa-secondary-btn"href="/offer/{{id}}?page=0&size=4">Ver</a>
+
                       </div>
                     </div>
                   </article>
