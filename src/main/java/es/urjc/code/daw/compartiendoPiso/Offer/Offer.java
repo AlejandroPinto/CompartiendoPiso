@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.review.Review;
 
@@ -18,24 +20,35 @@ import es.urjc.code.daw.compartiendoPiso.review.Review;
 @Entity
 public class Offer {
 	
+	public interface BasicOffer{}
+	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
+	 @JsonView(BasicOffer.class)
 	 private long id;
+	 @JsonView(BasicOffer.class)
 	 private String title;
+	 @JsonView(BasicOffer.class)
 	 private float price;
+	 @JsonView(BasicOffer.class)
 	 private String description;
+	 @JsonView(BasicOffer.class)
 	 private String province;
+	 @JsonView(BasicOffer.class)
 	 private String location;
+	 @JsonView(BasicOffer.class)
 	 private String neighborhood;
+	 @JsonView(BasicOffer.class)
 	 private int area;
+	 @JsonView(BasicOffer.class)
 	 private int bathroom;
-	 //private String[] photos;
+	 @JsonView(BasicOffer.class)
 	 private int rooms;
+	 @JsonView(BasicOffer.class)
 	 private String type;
-	 //@OneToMany
-	 //private List<User> members = new ArrayList<>();
 	 
 	 @ManyToOne
+	 @JsonView(BasicOffer.class)
 	 private User user;
 	 
 	 @OneToMany(mappedBy="offerReview")

@@ -133,11 +133,11 @@
   <!-- End slider  -->
 
   <!-- Advance Search -->
-  <section id="aa-advance-search">
+  <section id="aa-advance-search" class="mainBrowser">
     <div class="container">
       <div class="aa-advance-search-area">
         <div class="form">
-          <form action="/search" type="GET">
+          <form action="/search" method="GET" id="busca">
            <div class="aa-advance-search-top">
              <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -225,7 +225,7 @@
               <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                   <div class="aa-single-advance-search">
-                    <input class="aa-search-btn" type="submit" value="Buscar">
+                    <input id="buttonSearch" class="aa-search-btn" type="button" value="Buscar">
                   </div>
                 </div>
               </div>
@@ -305,36 +305,12 @@
         <div class="aa-title">
           <h2>Ofertas</h2>
           <span></span>
-          <p>Se muestran ofertas de acuerdo a su búsqueda.</p>         
+          <p id="showInitialMessage">Se muestran ofertas de acuerdo a su búsqueda.</p>         
         </div>
         <div class="aa-latest-properties-content">
           <div class="row">
-            {{#offers}}
-            <div class="col-md-4">
-              <article class="aa-properties-item">
-                    <a class="aa-properties-item-img" href="#">
-                      <img src="img/cocina.americana.jpg" alt="img" width="370" height="220">
-                    </a>
-                    <div class="aa-properties-item-content">
-                      <div class="aa-properties-info">
-                        <span>{{area}} m2</span>
-                        <span>{{rooms}} Habitaciones</span>
-                        <span>{{bathroom}} Baño</span>                      
-                      </div>
-                      <div class="aa-properties-about">
-                        <h3><a href="/offer/{{id}}?page=0&size=4">{{title}}</a></h3>
-                        <p class="offerParagraph">{{description}}</p>                      
-                      </div>
-                      <div class="aa-properties-detial">
-                        <span class="aa-price">
-                          {{price}} €
-                        </span>
-                        <a class="aa-secondary-btn" href="/offer/{{id}}?page=0&size=4">Ver</a>
-                      </div>
-                    </div>
-                  </article>
-            </div>
-            {{/offers}}
+          	<span class="add"></span>
+          	<!-- <button id="showMore"><input hidden id="numPage" value="0"/>Mostrar Más</button> -->
           </div>
         </div>
       </div>
@@ -427,13 +403,14 @@
 
   <!-- jQuery library -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-  <script src="js/jquery.min.js"></script>   
+  <script src="/js/jquery.min.js"></script>   
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.js"></script>   
+  <script src="/js/bootstrap.js"></script>   
   <!-- slick slider -->
-  <script type="text/javascript" src="js/slick.js"></script>  
+  <script type="text/javascript" src="/js/slick.js"></script>  
   <!-- Custom js -->
-  <script src="js/custom.js"></script> 
+  <script src="/js/custom.js"></script> 
+  <script src="/js/functions.js"></script> 
 
   </body>
 </html>

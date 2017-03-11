@@ -71,3 +71,6 @@
 .offerParagraph{
 	min-height: 130px;
 }
+.mainBrowser{
+	margin-top: -325px !important;
+}

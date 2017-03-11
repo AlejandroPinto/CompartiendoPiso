@@ -89,7 +89,5 @@ public class Review {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
-	
+
 }
