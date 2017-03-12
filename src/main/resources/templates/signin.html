@@ -55,6 +55,7 @@
                 </div> 
                 <div class="aa-single-submit">
                   <input type="submit" value="Aceptar" class="aa-browse-btn">
+                  <input type="hidden" name="_csrf" value="{{token}}"/>
                   <p>¿No tienes una cuenta todavía?. <a href="/register">Regístrate</a></p>
                   {{#notFound}}
                   <p>No hay usuario</p>
