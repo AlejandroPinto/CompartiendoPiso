@@ -259,9 +259,14 @@
                     <li><span aria-hidden="true">{{numPage}}</span></li>
                     {{#showNext}}
                       <li>
-                        <a aria-label="Next" href="/offer/{{offer.id}}?page={{nextPage}}&size=4">
-                          <span aria-hidden="true">»</span>
+                      <form>
+                      	<input value="{{offer.id}}" name="idoffer" hidden/>
+                      	<input value="{{nextPage}}" name="page" hidden/>
+                      	<input value="4" name="size" hidden/>
+                      	<a id="nextPageButton" aria-label="Previous" type="button">
+                          <span aria-hidden="true">«</span>
                         </a>
+                      </form>
                       </li>
                     {{/showNext}}
                     </ul>

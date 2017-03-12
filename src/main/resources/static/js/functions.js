@@ -32,6 +32,17 @@ function browser(page){
 	})
 }
 
+function reviews(page,size){
+	$.ajax({
+		url: "/reviews/",	
+	}).done(function(data){
+		console.log(data);
+		printOffers(data);
+	}).fail(function(data){
+		console.log(data);
+	})
+}
+
 function printOffers(data){
 	for(var i=0; i<data.length; i++){
 		var text ='<div class="col-md-4">';
@@ -69,6 +80,9 @@ $(document).ready(function(){
 		$(".add").html("");
 		browser(0);
 //		$("#numPage").val($("#numPage").val()+1);
+	});
+	$("#nextPageButton").click(function(){
+		console.log($("[name='page']").val());
 	});
 //	$("#showMore").click(function(){
 //		browser($("#numPage").val());
