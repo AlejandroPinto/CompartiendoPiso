@@ -34,20 +34,24 @@ public class OfferRestController {
 	
 	@JsonView(CompleteReview.class)
 	@RequestMapping(value="/reviews", method=RequestMethod.GET)
-	public ResponseEntity<HashMap> verAnuncio(@RequestParam long idoffer, Pageable pageable, @RequestParam int page, @RequestParam int size) {
+	public ResponseEntity<List> verAnuncio(@RequestParam long idoffer, Pageable pageable, @RequestParam int page, @RequestParam int size) {
 		Offer offer = offerRepository.findOne(idoffer);
 		Page<Review> reviews = reviewRepository.findByOfferReview(offer,new PageRequest(page,size));
-		HashMap<String,Object> reviewsList = new HashMap<>();
-		reviewsList.put("content", reviews.getContent());
-		reviewsList.put("numPage",reviews.getNumber());
-		if(reviews.hasNext()){
-			reviewsList.put("nextPage",reviews.getNumber()+1);
+		List<Object> reviewsList = new ArrayList<>();
+		reviewsList.add(reviews.getContent());//content 0
+		reviewsList.add(reviews.getNumber());//numPage 1
+		if(reviews.hasNext()){ 
+			reviewsList.add(reviews.getNumber()+1);//nextPage 2
+		}else{ 
+			reviewsList.add(99999);//nextPage 2
 		}
 		if(reviews.hasPrevious()){
-			reviewsList.put("prevPage",reviews.getNumber()-1);
+			reviewsList.add(reviews.getNumber()-1);//prevPage 3
+		}else{
+			reviewsList.add(99999);//prevPage 3
 		}
-		reviewsList.put("numpages", reviews.getTotalPages());
+		reviewsList.add(reviews.getTotalPages());//numpages 4
 		
-		return  new ResponseEntity<HashMap>(reviewsList,HttpStatus.OK);
+		return  new ResponseEntity<List>(reviewsList,HttpStatus.OK);
 	}
 }

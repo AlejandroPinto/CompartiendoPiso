@@ -38,7 +38,7 @@ function reviews(page,size,idoffer){
 	}).done(function(data){
 		printReviews(data,size,idoffer);
 	}).fail(function(data){
-		console.log(1);
+		bootbox.alert("no hay mas comentarios");
 	})
 }
 
@@ -74,50 +74,27 @@ function printOffers(data){
 }
 
 function printReviews(data,size,idOffer){
-	$(".addReviews").html("");
-	$(".addNextPage").html("");
-	$(".addPrevPage").html();
-	console.log(data["prevPage"]<=0);
-	console.log(data["nextPage"]<=data["numpages"]);
-	
-	if(data["prevPage"]<=0){
-		var prev ='<li>';
-		    prev+='<form action="/reviews" method="GET" id="review">';
-		    	prev+='<input value="'+idOffer+'" name="idoffer" hidden/>';
-		    	prev+='<input value="'+data["prevPage"]+'" name="page" hidden/>';
-		    	prev+='<input value="4" name="size" hidden/>';
-		    	prev+='<a id="prevPageButton" aria-label="Previous" type="button">';
-		        prev+='<span aria-hidden="true">«</span>';
-		      prev+='</a>';
-		    prev+='</form>';
-		prev+='</li>';
-		$(".addPrevPage").append(prev);
+	$(".addReviews").html("");	
+	if(data[3]<=0){
+		var prev = "<button id='prevPageButton'><<</button>"
+		$(".addPrevPage").html(prev);
 	}
-	$("#numPage").text(data["numPage"])
-	if(data["nextPage"]<=data["numpages"]){
-		var prev ='<li>';
-		    prev+='<form action="/reviews" method="GET" id="review">';
-		    	prev+='<input value="'+idOffer+'" name="idoffer" hidden/>';
-		    	prev+='<input value="'+data["nextPage"]+'" name="page" hidden/>';
-		    	prev+='<input value="4" name="size" hidden/>';
-		    	prev+='<a id="nextPageButton" aria-label="Previous" type="button">';
-		        prev+='<span aria-hidden="true">»</span>';
-		      prev+='</a>';
-		    prev+='</form>';
-		prev+='</li>';
-		$(".addNextPage").append(prev);
-		}
-	for(var i=0; i<1; i++){
+	$("#numPage").text(data[1])
+	if(data[2] <= data[4]){
+		var prev = "<button id='nextPageButton'>>></button>"
+		$(".addNextPage").html(prev);
+	}
+	for(var i=0; i<size; i++){
 		var text='<li>';
 		    text+='<div class="media">';
 		        text+='<div class="media-left">';   
-		            text+='<img alt="img" src="/img/users/perfil1.jpg" class="media-object news-img">';    
+		            text+='<img alt="img" src="/img/users/perfil1.jpg" class="media-object news-img"/>';    
 		        text+='</div>';
 		        text+='<div class="media-body">';
-		             text+='<h4 class="author-name">'+data["content"][i]["userReview"]["name"]+' '+data["content"][i]["userReview"]["firstLastName"]+' '+data["content"][i]["userReview"]["secondLastName"]+'</h4>';
-				     text+='<input id="input-21e" value="'+data["content"][i]["valoration"]+'" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" readonly>';
-		            text+='<span class="comments-date">'+data["content"][i]["date"]+'</span>';
-		            text+='<p>'+data["content"][i]["comment"]+'</p>';
+		             text+='<h4 class="author-name">'+data[0][i]["userReview"]["name"]+' '+data[0][i]["userReview"]["firstLastName"]+' '+data[0][i]["userReview"]["secondLastName"]+'</h4>';
+				     text+='<input id="input-21e" value="'+data[0][i]["valoration"]+'" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" readonly>';
+		            text+='<span class="comments-date">'+data[0][i]["date"]+'</span>';
+		            text+='<p>'+data[0][i]["comment"]+'</p>';
 		        text+='</div>';
 		    text+='</div>';
 		text+='</li>';
@@ -134,8 +111,17 @@ $(document).ready(function(){
 		$(".add").html("");
 		browser(0);
 	});
+	var pageReviews = 1;
+	var idOffer = $("#idOfferReview").val();
 	$("#nextPageButton").click(function(){
-		reviews($("[name='page']").val(),$("[name='size']").val(),$("[name='idoffer']").val());
+		reviews(pageReviews,4,idOffer);
+		pageReviews++;
+		console.log(pageReviews);
+	});
+	$("#prevPageButton").click(function(){
+		reviews(pageReviews,4,idOffer);
+		pageReviews--;
+		console.log(pageReviews);
 	});
 
 });
