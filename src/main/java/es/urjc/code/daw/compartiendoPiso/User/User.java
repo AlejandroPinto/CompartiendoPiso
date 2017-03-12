@@ -30,8 +30,11 @@ public class User {
 	@JsonView(BasicUser.class)
 	private long id;
 	
+	@JsonView(BasicUser.class)
 	private String name;
+	@JsonView(BasicUser.class)
 	private String firstLastName;
+	@JsonView(BasicUser.class)
 	private String secondLastName;
 	private String email;
 	private int phone;

@@ -229,7 +229,9 @@
                 <h3>{{numReviews}} Comentario/s</h3>
                 <div class="comments">
                   <ul class="commentlist">
+                  <span>
                   {{#reviews}}
+                  <span class="addReviews">
                     <li>
                       <div class="media">
                         <div class="media-left">    
@@ -244,30 +246,40 @@
                         </div>
                       </div>
                     </li>
+                    </span>
                     {{/reviews}}
                    </ul>
                   <!-- comments pagination -->
                   <nav>
                     <ul class="pagination comments-pagination">
                     {{#showPrev}}
+                    <span class="addPrevPage">
                       <li>
-                        <a aria-label="Previous" href="/offer/{{offer.id}}?page={{prevPage}}&size=4">
-                          <span aria-hidden="true">«</span>
-                        </a>
+	                      <form action="/reviews" method="GET" id="review">
+	                      	<input value="{{offer.id}}" name="idoffer" hidden/>
+	                      	<input value="{{prevPage}}" name="page" hidden/>
+	                      	<input value="4" name="size" hidden/>
+	                      	<a id="prevPageButton" aria-label="Previous" type="button">
+	                          <span aria-hidden="true">«</span>
+	                        </a>
+	                      </form>
                       </li>
+                     </span>
                     {{/showPrev}}
-                    <li><span aria-hidden="true">{{numPage}}</span></li>
+                    <li><span aria-hidden="true" id="numPage">{{numPage}}</span></li>
                     {{#showNext}}
+                    <span class="addNextPage">
                       <li>
-                      <form>
+                      <form action="/reviews" method="GET" id="review">
                       	<input value="{{offer.id}}" name="idoffer" hidden/>
                       	<input value="{{nextPage}}" name="page" hidden/>
                       	<input value="4" name="size" hidden/>
                       	<a id="nextPageButton" aria-label="Previous" type="button">
-                          <span aria-hidden="true">«</span>
+                          <span aria-hidden="true">»</span>
                         </a>
                       </form>
                       </li>
+                      </span>
                     {{/showNext}}
                     </ul>
                   </nav>
@@ -347,6 +359,7 @@
   
   <!-- Custom js -->
   <script src="/js/custom.js"></script> 
+    <script src="/js/functions.js"></script> 
   <script src="/js/star-rating/star-rating.js" type="text/javascript"></script> 
   <script src="/js/star-rating/locales/es.js" type="text/javascript"></script>
 

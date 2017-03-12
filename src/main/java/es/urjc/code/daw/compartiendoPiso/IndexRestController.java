@@ -24,7 +24,7 @@ public class IndexRestController {
 	
 	@Autowired
 	private OfferRepository offerRepository;
-	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser{}
+	public interface CompleteOffer extends Offer.BasicOffer, User.BasicUser{}
 	
 	@JsonView(CompleteOffer.class)
 	@RequestMapping(value="/search", method=RequestMethod.GET)

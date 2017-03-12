@@ -76,13 +76,13 @@ public class OfferController {
 	}
 
 	@RequestMapping("/offer/{id}")
-	public String verAnuncio(Model model, @PathVariable long id, Pageable pageable, @RequestParam int page, @RequestParam int size) {
+	public String verAnuncio(Model model, @PathVariable long id, Pageable pageable) {
 		if(userComponent.isLoggedUser()){
 			model.addAttribute("isLogued",true);
 		}
 		Offer offer = offerRepository.findOne(id);		
 		model.addAttribute("offer", offer);
-		Page<Review> reviews = reviewRepository.findByOfferReview(offer, new PageRequest(page,size));
+		Page<Review> reviews = reviewRepository.findByOfferReview(offer, new PageRequest(0,4));
 		model.addAttribute("reviews", reviews);
 		model.addAttribute("numReviews",offer.getReviews().size());
 		
@@ -102,17 +102,18 @@ public class OfferController {
 		}
 		String path =  offer.getUser().getId()+"/"+offer.getId();
 		
-		UploadFiles uploadedFiles = new UploadFiles();
-		int numberFiles = new File(uploadedFiles.getFilesFolder()+path).listFiles().length;
-		
-		List<String> namePhotos = new ArrayList();
-		for(int i = numberFiles-1; i>=0; i--){
-			namePhotos.add(i+".jpg");
-		}
-		System.out.println(namePhotos.get(0));
-		
-		model.addAttribute("photos", namePhotos);
-		
+//		UploadFiles uploadedFiles = new UploadFiles();
+//		int numberFiles = new File(uploadedFiles.getFilesFolder()+path).listFiles().length;
+//		
+//		List<String> namePhotos = new ArrayList();
+//		if(!namePhotos.isEmpty()){
+//			for(int i = numberFiles-1; i>=0; i--){
+//				namePhotos.add(i+".jpg");
+//			}
+//			
+//			model.addAttribute("photos", namePhotos);
+//		}
+//		
 		return "offer";
 	}
 	

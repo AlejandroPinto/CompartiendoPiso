@@ -32,14 +32,13 @@ function browser(page){
 	})
 }
 
-function reviews(page,size){
+function reviews(page,size,idoffer){
 	$.ajax({
-		url: "/reviews/",	
+		url: "/reviews?idoffer="+idoffer+"&page="+page+"&size="+size,	
 	}).done(function(data){
-		console.log(data);
-		printOffers(data);
+		printReviews(data,size,idoffer);
 	}).fail(function(data){
-		console.log(data);
+		console.log(1);
 	})
 }
 
@@ -69,26 +68,74 @@ function printOffers(data){
             text+='</div>';
           text+='</article>';
       text+='</div>';
-      console.log(i);
 		$(".add").append(text);
 	}
 
+}
+
+function printReviews(data,size,idOffer){
+	$(".addReviews").html("");
+	$(".addNextPage").html("");
+	$(".addPrevPage").html();
+	console.log(data["prevPage"]<=0);
+	console.log(data["nextPage"]<=data["numpages"]);
+	
+	if(data["prevPage"]<=0){
+		var prev ='<li>';
+		    prev+='<form action="/reviews" method="GET" id="review">';
+		    	prev+='<input value="'+idOffer+'" name="idoffer" hidden/>';
+		    	prev+='<input value="'+data["prevPage"]+'" name="page" hidden/>';
+		    	prev+='<input value="4" name="size" hidden/>';
+		    	prev+='<a id="prevPageButton" aria-label="Previous" type="button">';
+		        prev+='<span aria-hidden="true">«</span>';
+		      prev+='</a>';
+		    prev+='</form>';
+		prev+='</li>';
+		$(".addPrevPage").append(prev);
+	}
+	$("#numPage").text(data["numPage"])
+	if(data["nextPage"]<=data["numpages"]){
+		var prev ='<li>';
+		    prev+='<form action="/reviews" method="GET" id="review">';
+		    	prev+='<input value="'+idOffer+'" name="idoffer" hidden/>';
+		    	prev+='<input value="'+data["nextPage"]+'" name="page" hidden/>';
+		    	prev+='<input value="4" name="size" hidden/>';
+		    	prev+='<a id="nextPageButton" aria-label="Previous" type="button">';
+		        prev+='<span aria-hidden="true">»</span>';
+		      prev+='</a>';
+		    prev+='</form>';
+		prev+='</li>';
+		$(".addNextPage").append(prev);
+		}
+	for(var i=0; i<1; i++){
+		var text='<li>';
+		    text+='<div class="media">';
+		        text+='<div class="media-left">';   
+		            text+='<img alt="img" src="/img/users/perfil1.jpg" class="media-object news-img">';    
+		        text+='</div>';
+		        text+='<div class="media-body">';
+		             text+='<h4 class="author-name">'+data["content"][i]["userReview"]["name"]+' '+data["content"][i]["userReview"]["firstLastName"]+' '+data["content"][i]["userReview"]["secondLastName"]+'</h4>';
+				     text+='<input id="input-21e" value="'+data["content"][i]["valoration"]+'" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" readonly>';
+		            text+='<span class="comments-date">'+data["content"][i]["date"]+'</span>';
+		            text+='<p>'+data["content"][i]["comment"]+'</p>';
+		        text+='</div>';
+		    text+='</div>';
+		text+='</li>';
+		$(".addReviews").append(text);
+	}
+	var $input = $('input.rating');
+    if ($input.length) {
+        $input.removeClass('rating-loading').addClass('rating-loading').rating();
+    }
 }
 
 $(document).ready(function(){
 	$("#buttonSearch").click(function(){
 		$(".add").html("");
 		browser(0);
-//		$("#numPage").val($("#numPage").val()+1);
 	});
 	$("#nextPageButton").click(function(){
-		console.log($("[name='page']").val());
+		reviews($("[name='page']").val(),$("[name='size']").val(),$("[name='idoffer']").val());
 	});
-//	$("#showMore").click(function(){
-//		browser($("#numPage").val());
-//		var num  = $("#numPage").val();
-//		num+=1;
-//		$("#numPage").val(num);
-//	});
-	
+
 });
