@@ -42,56 +42,56 @@ https://trello.com/b/92t9qqny/daw
 
 ##Diagrama de navegación:
 Index
-![DiagramaIndex](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/DiagramaNavegacion(index).PNG?raw=true "DiagramaIndex")
+![DiagramaIndex](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaNavegacion(index).PNG?raw=true "DiagramaIndex")
 
 Vistas privadas
-![DiagramaPrivada](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/DiagramaNavegacion(vistasPrivadas).PNG?raw=true "DiagramaPrivada")
+![DiagramaPrivada](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaNavegacion(vistasPrivadas).PNG?raw=true "DiagramaPrivada")
 
 ##Capturas:
 
 La vista register.html, permite el registro del usuario en la aplicación web compartiendoPiso.
 
-![Register](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaRegister.PNG?raw=true "Register")
+![Register](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaRegister.PNG?raw=true "Register")
 
 La vista signin.html, permite al usuario iniciar sesión en la aplicación web compartiendoPiso.
 
-![Login](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaSignIn.PNG?raw=true "Login")
+![Login](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaSignIn.PNG?raw=true "Login")
 
 En la vista index.html se muestra el buscador principal de la aplicación web y un listado de ofertas y usuarios relacionados con la búsqueda.
 
-![Index1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaIndex1.PNG?raw=true "Index1")
+![Index1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaIndex1.PNG?raw=true "Index1")
 
-![Index2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaIndex2.PNG?raw=true "Index2")
+![Index2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaIndex2.PNG?raw=true "Index2")
 
-![Index3](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaIndex3.PNG?raw=true "Index3")
+![Index3](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaIndex3.PNG?raw=true "Index3")
 
 En las vistas offer-house.html y offer-room.html se muestra la oferta en particular de un tipo de casa o habitación con su título, descripción, fotos... además de valoraciones por parte de los demás usuarios y un espacio de conversación entre el usuario interesado y el propietario de la oferta.
 
-![OfferHouse1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaOfferHouse1.PNG?raw=true "OfferHouse1")
-![OfferHouse2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaOfferHouse2.PNG?raw=true "OfferHouse2")
+![OfferHouse1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaOfferHouse1.PNG?raw=true "OfferHouse1")
+![OfferHouse2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaOfferHouse2.PNG?raw=true "OfferHouse2")
 
-![OfferRoom](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaOfferRoom1.PNG?raw=true "OfferRoom")
-![OfferRoom2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaofferRoom2.PNG?raw=true "OfferRoom2")
+![OfferRoom](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaOfferRoom1.PNG?raw=true "OfferRoom")
+![OfferRoom2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaofferRoom2.PNG?raw=true "OfferRoom2")
 
 En la vista user.html se muestra los datos personales del usuario junto con la lista de las ofertas añadidas por el propio usuario además de un buscador. En esta vista, cuando el usuario esta logueado permite editar su perfil y ofertas y añadir nuevas ofertas.
 
-![User](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaUser.PNG?raw=true "User")
+![User](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaUser.PNG?raw=true "User")
 
 La vista newAd.html, permite crear nuevos anuncios de ofertas.
 
-![newAd](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaNewAd.PNG?raw=true "newAd")
+![newAd](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaNewAd.PNG?raw=true "newAd")
 
 La vista newAdModify.html, permite modificar anuncios de ofertas.
 
-![newAdModify](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaNewAdModify.PNG?raw=true "newAdModify")
+![newAdModify](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaNewAdModify.PNG?raw=true "newAdModify")
 
 La vista contact.html, permite contactar con los propietarios de la aplicación web por si hubiese cualquier tipo de duda.
 
-![Contact](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaContact.PNG?raw=true "Contact")
+![Contact](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaContact.PNG?raw=true "Contact")
 
 La vista admin.html, permite administrar las ofertas creadas por los usuarios, rechazarlas, editarlar o aceptarlas. Incluye un buscador por si el administrator quisiera buscar una oferta en concreto.
 
-![Admin1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/develop/CapturasFase2/vistaAdmin1.PNG?raw=true "Admin1")
+![Admin1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaAdmin1.PNG?raw=true "Admin1")
 
 ##Template utlizado:
 Hemos usado de plantilla la web Home property (http://www.markups.io/preview/home-property/) y hemos utilizado los siguientes html:
@@ -103,3 +103,10 @@ Hemos usado de plantilla la web Home property (http://www.markups.io/preview/hom
 - Contact.html: Este html lo hemos utilizado para nuestro apartado de contacto, hemos cambiado un poco el diseño tocando el CSS y traduciendo todo al español.
 
 Los html newAd.html y newAdModify.html son creados por nosotros mediante formularios.
+
+
+## FASE 3
+
+#Entidades de la base de datos:
+
+#Diagrama de clases y templates:
