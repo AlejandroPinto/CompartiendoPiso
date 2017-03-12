@@ -18,6 +18,7 @@ function setAttributee(attribute){
 }
 
 function browser(page){
+	$('#spinner').html("<img src='/img/slider/spinner.gif>");
 	$.ajax({
 		url: "/search?&queryBox="+$("[name='queryBox']").val()+"&priceFrom="+
 			$("[name='priceFrom']").val()+"&priceTo="+$("[name='priceTo']").val()+
@@ -25,10 +26,13 @@ function browser(page){
 			"&bathroom="+$("[name='bathroom']").val()+"&area="+$("[name='area']").val()+
 			"&attributes=''&page="+page,	
 	}).done(function(data){
-		console.log(data);
 		printOffers(data);
+		$('#spinner').empty();
 	}).fail(function(data){
-		console.log(data);
+		$("#showMore").remove();
+		bootbox.alert("No hay más resultados");
+		
+		
 	})
 }
 
@@ -58,23 +62,22 @@ function printOffers(data){
             text+='</div>';
           text+='</article>';
       text+='</div>';
-      console.log(i);
 		$(".add").append(text);
 	}
 
 }
 
 $(document).ready(function(){
+	var counter = 0;
 	$("#buttonSearch").click(function(){
 		$(".add").html("");
-		browser(0);
-//		$("#numPage").val($("#numPage").val()+1);
+		browser(counter);
+		counter++;
+		
 	});
-//	$("#showMore").click(function(){
-//		browser($("#numPage").val());
-//		var num  = $("#numPage").val();
-//		num+=1;
-//		$("#numPage").val(num);
-//	});
+	$("#showMore").click(function(){
+		browser(counter);
+		counter++;
+	});
 	
 });
