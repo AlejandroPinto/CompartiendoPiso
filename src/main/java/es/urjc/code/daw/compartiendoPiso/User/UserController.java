@@ -97,7 +97,7 @@ public class UserController {
 		UploadFiles uploadedFiles = new UploadFiles();
 		uploadedFiles.handleFileUpload(files,path);
 		
-		return "redirect:/user/"+saveduser.getId();
+		return "redirect:/user";
 	}
 	
 	@RequestMapping("/login")
