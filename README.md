@@ -109,7 +109,7 @@ Los html newAd.html y newAdModify.html son creados por nosotros mediante formula
 
 #Entidades de la base de datos:
 
-![BBDD](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/uml.PNG?raw=true "BBDD")
+![BBDD](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/uml.png?raw=true "BBDD")
 
 #Diagrama de clases y templates:
 
