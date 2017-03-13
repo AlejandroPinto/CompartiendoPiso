@@ -24,17 +24,17 @@ public class AdminController {
 	@RequestMapping("/admin")
 	public String administratorView(Model model, HttpServletRequest request){
 		if(userComponent.isLoggedUser()){
-		    if(userComponent.getLoggedUser().getRoles().toString().equals("[ROLE_ADMIN]")){
+		    if(userComponent.getLoggedUser().getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]")){
 		    	List<Offer> offers = offerRepository.findAll();
 			    model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
 				model.addAttribute("offers",offers);
 			    return "admin";	
 		    }	
 		    else{
-		    	return "signin";
+		    	return "redirect:/signin";
 		    }
 		}else{
-			return "signin";
+			return "redirect:/signin";
 		}
 	}
 }

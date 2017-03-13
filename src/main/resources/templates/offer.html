@@ -86,6 +86,9 @@
           <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
              <li><a href="/">Inicio</a></li>                                        
             <li><a href="/contact">Contacto</a></li>
+             {{#isLogued}}
+               <li><a href="/user">Perfil</a></li>
+             {{/isLogued}} 
           </ul>                               
         </div><!--/.nav-collapse -->       
       </div>          

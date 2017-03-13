@@ -101,19 +101,22 @@ public class OfferController {
 			
 		}
 		String path =  offer.getUser().getId()+"/"+offer.getId();
-		
-		UploadFiles uploadedFiles = new UploadFiles();
-		int numberFiles = new File(uploadedFiles.getFilesFolder()+path).listFiles().length;
-		
-		List<String> namePhotos = new ArrayList();
-		for(int i = numberFiles-1; i>=0; i--){
-			namePhotos.add(i+".jpg");
+		try{
+			UploadFiles uploadedFiles = new UploadFiles();
+			int numberFiles = new File(uploadedFiles.getFilesFolder()+path).listFiles().length;
+			
+			List<String> namePhotos = new ArrayList();
+			for(int i = numberFiles-1; i>=0; i--){
+				namePhotos.add(i+".jpg");
+			}
+			System.out.println(namePhotos.get(0));
+			
+			model.addAttribute("photos", namePhotos);
+			
+			return "offer";
+		}catch(Exception e){
+			return "offer";
 		}
-		System.out.println(namePhotos.get(0));
-		
-		model.addAttribute("photos", namePhotos);
-		
-		return "offer";
 	}
 	
 	@RequestMapping("/addReview/{id}")
@@ -199,7 +202,7 @@ public class OfferController {
 				}
 				offerRepository.save(editOffer);
 				model.addAttribute("offer", editOffer);
-				return "redirect:/offer/"+editOffer.getId();
+				return "redirect:/offer/"+editOffer.getId()+"/?page=0&size=4";
 			}
 			else{
 				return "redirect:/signin";

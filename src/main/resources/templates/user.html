@@ -181,12 +181,12 @@
                               {{#isLoged}}
                                 <span class="logedUser">
                                   <button class="btn btn-default" onclick="window.location.href='/offerModify/{{id}}'"><i class="fa fa-pencil"></i>Editar</button>
-                                  <button  class="btn btn-default text-right delete-offert"><i class="fa fa-trash" onclick="window.location.href='/deleteOffer/{{id}}'"></i>Eliminar</button>
+                                  <button  class="btn btn-default text-right delete-offert" onclick="window.location.href='/deleteOffer/{{id}}'"><i class="fa fa-trash"></i>Eliminar</button>
                                   <br>
                                 </span>
                               {{/isLoged}}  
                                 <figure class="aa-blog-img">
-                                  <a href="/offer-house"><img src="/img/users/{{user.id}}/0.jpg" alt="img" width="360" height="240"></a>
+                                  <a href="/offer/{{id}}/?page=0&size=4"><img src="/img/users/{{user.id}}/{{id}}/0.jpg" alt="img" width="360" height="240"></a>
                                   <span class="aa-date-tag">{{title}}</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
@@ -211,9 +211,8 @@
                   </div>
                 </div>   
               </div>
-              <div class="col-md-4">
+              <!-- div class="col-md-4">
                 <aside class="aa-properties-sidebar">
-                  <!-- Start Single properties sidebar -->
                   <div class="aa-properties-single-sidebar">
                     <h3>Buscador de Ofertas</h3>
                     <form action="/browser">
@@ -256,7 +255,7 @@
                     </form>
                   </div> 
                 </aside>
-              </div>
+              </div-->
             </div>
           </div>
         </div>

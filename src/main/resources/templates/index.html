@@ -46,9 +46,16 @@
               <div class="col-md-6 col-sm-6 col-xs-6">    
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
+               <div class="aa-header-right">
+               {{#isLogued}}
+                    <a href="/logout" class="aa-login unlogued"><font color="#000000"><b>Desconectar</b></font></a>
+               {{/isLogued}}
+                </div>
                 <div class="aa-header-right">
+                 {{^isLogued}}
                   <a href="/register" class="aa-register">Registro</a>
                   <a href="/signin" class="aa-login">Conectar</a>
+                   {{/isLogued}}
                 </div>
               </div>
             </div>
@@ -82,7 +89,10 @@
             <li><a href="/contact">Contacto</a></li>
             {{#admin}}
             <li><a href="/admin">ADMIN</a></li>
-            {{/admin}}        
+            {{/admin}}
+            {{#isLogued}}
+               <li><a href="/user">Perfil</a></li>
+             {{/isLogued}}        
           </ul>          
           </ul>   
           </ul>                            
@@ -274,7 +284,7 @@
                </div>  
                <div class="row">
                 <br>
-                 <div>
+                 <!-- div>
                   <div class="col-md-8 col-md-offset-2">
                      <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
                      <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
@@ -285,7 +295,7 @@
                      <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
                      <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
                   </div>
-                </div>
+                </div-->
               <!--/span-->
              </div> <!--ID-->     
            </div>
@@ -311,12 +321,18 @@
           <div class="row">
           	<span class="add"></span>
           	  <span id="spinner"></span>
-          	<button id="showMore"><input hidden id="numPage"/>Mostrar Más</button>
           </div>
         </div>
       </div>
     </div>
+    <div class="row">
+    </br>
+   	  <center>
+   		<button class="btn btn-info"  style='display:none;' id="showMore"><input hidden id="numPage"/>Mostrar Más</button>
+   	</center> 
+   </div>
   </section>
+  
   <!-- / Latest property -->
     
   <!-- Footer -->

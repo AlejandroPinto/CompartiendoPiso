@@ -453,24 +453,24 @@ $(document).ready(function(){
     window.location.href = "user.html";
   });
 
-  $(".delete-offert").click(function(){
-    bootbox.confirm({
-      message: "¿Está seguro de que desea eliminar la oferta?",
-      buttons: {
-          confirm: {
-              label: 'Confirmar',
-              className: 'btn-primary'
-          },
-          cancel: {
-              label: 'Cancelar',
-              className: 'btn-danger'
-          }
-      },
-      callback: function (result) {
-        bootbox.alert("La oferta ha sido eliminado");
-      }
-    });
-  });
+//  $(".delete-offert").click(function(){
+//    bootbox.confirm({
+//      message: "¿Está seguro de que desea eliminar la oferta?",
+//      buttons: {
+//          confirm: {
+//              label: 'Confirmar',
+//              className: 'btn-primary'
+//          },
+//          cancel: {
+//              label: 'Cancelar',
+//              className: 'btn-danger'
+//          }
+//      },
+//      callback: function (result) {
+//        bootbox.alert("La oferta ha sido eliminado");
+//      }
+//    });
+//  });
     $(".discard-offert").click(function(){
     bootbox.confirm({
       message: "¿Está seguro de que desea descartar la oferta?",

@@ -27,6 +27,7 @@ function browser(page){
 			"&attributes=''&page="+page,	
 	}).done(function(data){
 		printOffers(data);
+		$('#showMore').show();
 		$('#spinner').empty();
 	}).fail(function(data){
 		$("#showMore").remove();

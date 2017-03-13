@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
+import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
+import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
 
 
 
@@ -22,24 +24,25 @@ public class IndexController {
 	@Autowired
 	private OfferRepository offerRepository;
 	
+	@Autowired
+	private UserComponent userComponent;
+	
+	
+	
 	@RequestMapping("/")
 	public String indexView(Model model, HttpServletRequest request){
-		model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
 		
-		
+		if (userComponent.isLoggedUser()){
+			System.out.println(userComponent.getLoggedUser().getRoles().toString());
+			if(userComponent.getLoggedUser().getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]")){
+				
+				model.addAttribute("admin", true);
+			}
+			model.addAttribute("isLogued",true);
+		}
 		return "index";
 		
 	}
-	
-//	@RequestMapping("/search")
-//	public String indexView(Model model,@RequestParam String queryBox,
-//			@RequestParam float priceTo, @RequestParam float priceFrom,
-//			@RequestParam String type, @RequestParam int bathroom,
-//			@RequestParam int rooms, @RequestParam int area){
-//		List<Offer> offers = offerRepository.masterQuery(queryBox,type,priceFrom,priceTo,area,rooms,bathroom);
-//		model.addAttribute("offers",offers);
-//		return "index";	
-//	}
 	
 	@RequestMapping("/logout")
 	public String disconnectView(){
@@ -65,6 +68,9 @@ public class IndexController {
 	public String contactView(Model model, HttpServletRequest request){
 		
 		model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
+		if(userComponent.isLoggedUser()){
+			model.addAttribute("isLogued",true);
+		}
 		
 		return "contact";
 		
