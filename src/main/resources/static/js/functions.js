@@ -5,7 +5,6 @@ function setInputType(type){
 } 
 
 function setAttributee(attribute){
-	
 	var indice = attributes.indexOf(attribute);
 	if (indice==-1){
 		attributes.push(attribute);	
@@ -14,7 +13,6 @@ function setAttributee(attribute){
 		attributes.splice(indice,1);
 	}
 	$("#attributes").val(attributes);
-	console.log($("#attributes").val());
 }
 
 function browser(page){
@@ -23,7 +21,7 @@ function browser(page){
 			$("[name='priceFrom']").val()+"&priceTo="+$("[name='priceTo']").val()+
 			"&type="+$("[name='type']").val()+"&rooms="+$("[name='rooms']").val()+
 			"&bathroom="+$("[name='bathroom']").val()+"&area="+$("[name='area']").val()+
-			"&attributes=''&page="+page,	
+			"&attributes="+$("[name='attributes']").val()+"&page="+page,	
 	}).done(function(data){
 		console.log(data);
 		printOffers(data);
