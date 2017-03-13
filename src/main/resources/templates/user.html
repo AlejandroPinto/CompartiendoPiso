@@ -1,0 +1,308 @@
+<!DOCTYPE html>       
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <title>CompartiendoPiso | User </title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/logo.jpg" type="image/x-icon">
+    
+    <!-- Font awesome -->
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.css" rel="stylesheet">   
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="/css/slick.css">
+    <!-- Theme color -->
+    <link id="switcher" href="/css/theme-color/default-theme.css" rel="stylesheet">     
+
+    <!-- Main style sheet -->
+    <link href="/css/style.css" rel="stylesheet">    
+    <link href="/css/custom.css" rel="stylesheet">  
+   
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    
+  </head>
+  <body>
+   
+  <!-- Pre Loader -->
+  <div id="aa-preloader-area">
+    <div class="pulse"></div>
+  </div>
+  <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+  <!-- END SCROLL TOP BUTTON -->
+
+
+  <!-- Start header section -->
+  <header id="aa-header">  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-header-area">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-6"> 
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="aa-header-right">
+                    <a href="/logout" class="aa-login unlogued"><font color="#000000"><b>Desconectar</b></font></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End header section -->
+  <!-- Start menu section -->
+  <section id="aa-menu-area">
+    <nav class="navbar navbar-default main-navbar" role="navigation">  
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- LOGO -->                                               
+          <!-- Text based logo -->
+          <a class="navbar-brand aa-logo" href="/"> compartiendo<span>Piso</span></a>                 
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
+            <li><a href="/">Inicio</a></li>                                     
+            <li><a href="/contact">Contacto</a></li>
+             {{#admin}}
+            <li><a href="/admin">ADMIN</a></li>
+            {{/admin}}
+          </ul>                          
+        </div><!--/.nav-collapse -->       
+      </div>          
+    </nav> 
+  </section>
+  <!-- End menu section -->
+
+  <!-- Start Proerty header  -->
+  <section id="aa-user">
+  </section> 
+  <!-- End Proerty header  -->
+
+  <!-- Start Proerty header  -->
+
+  <!-- End Proerty header  -->
+
+  <!-- Start Blog  -->
+  <section id="aa-properties">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-properties-area">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="aa-properties-content">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <article class="aa-properties-single-sidebar aa-properties-details">
+                        <form action="editarPerfil">
+                        <div class="col-lg-3 col-md-3">
+                            <img src="/img/users/{{user.id}}/0.jpg" alt="" title="" width="150" height="150" id="imgSalida">                      
+                        </div>
+                        
+                        <div class="col-lg-9">
+                        {{#isLoged}}
+                           <div class="text-right logedUser">
+                            <a href="/newAd" class="btn btn-default editText" role="button">Añadir oferta</a>
+                            <a href="/edit-user" class="btn btn-default editText" role="button">Editar Perfil</a>
+                          </div>
+                        {{/isLoged}}
+                          <h2 class="box-heading" id="editName">{{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
+                          <label id="label_name" style='display:none;'>Nombre: </label><input name="name" class="form-control editName" id="name" style='display:none;' value="{{user.name}}"/>
+                          <label id="label_firstLastName" style='display:none;'>Primer apellido: </label><input name="name" class="form-control editName" id="fisrtLastName" style='display:none;' value="{{user.firstLastName}}"/>
+                          <label id="label_secondLastName" style='display:none;'>Segundo apellido:</label> <input name="name" class="form-control editName" id="secondLastName" style='display:none;' value="{{user.secondLastName}}"/>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editDescription">{{user.description}}</h5>
+                              <label id="label_description" style='display:none;'>Descripción: </label><input name="description" class="form-control editDescription" id="description" style='display:none;' value="{{user.description}}"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editMail">{{user.email}}</h5>
+                              <label id="label_email" style='display:none;'>Email: </label><input name="email" class="form-control editEmail" id="email" style='display:none;' value="{{user.email}}"/>
+                              
+                            </div>
+                          </div> 
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editPhone">{{user.phone}}</h5>
+                              <label id="label_phone" style='display:none;'>Teléfono: </label><input name="phone" class="form-control editPhone" id="phone" style='display:none;' value="{{user.phone}}"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <label id="label_pass" style='display:none;'>Contraseña: </label><input style='display:none;' class="form-control" id="editPassword" name="password" placeholder="Escriba la nueva contraseña">
+                            </div>
+                          </div>
+                         <!--  <div class="changeImage" hidden>
+                            <input name="file-input" class="btn btn-default" id="file-input" type="file"/>
+                          </div> -->
+                          <input name="id" value="{{user.id}}" id="id_user" type="hidden"/>
+                          <input name="admin" value="false" id="admin" type="hidden"/>
+                        </div>     
+                        <span hidden class="saveButton">
+                          <div class="text-right">
+                            <button type="button" class="btn btn-primary guardarCambios" role="button">
+                              <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>  Guardar Cambios
+                            </button>
+                          </div>
+                        </span>    
+                        </form> 
+                      </article>
+                    </div>
+                    <!-- Related blog post -->
+                    <div class="col-md-12">
+                      <div class="aa-blog-related-post">
+                        <div class="aa-title">
+                          <h2>Lista de pisos del usuario {{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
+                          <span></span>
+                        </div>
+                        {{#offers}}
+                        <div class="aa-blog-related-post-area">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                              <article class="aa-blog-single">
+                              {{#isLoged}}
+                                <span class="logedUser">
+                                  <button class="btn btn-default" onclick="window.location.href='/offerModify/{{id}}'"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right delete-offert" onclick="window.location.href='/deleteOffer/{{id}}'"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <br>
+                                </span>
+                              {{/isLoged}}  
+                                <figure class="aa-blog-img">
+                                  <a href="/offer/{{id}}/?page=0&size=4"><img src="/img/users/{{user.id}}/{{id}}/0.jpg" alt="img" width="360" height="240"></a>
+                                  <span class="aa-date-tag">{{title}}</span>
+                                </figure>
+                                <div class="aa-blog-single-content">
+                                  <h3><a href="#"></a></h3>
+                                 <h4><b>{{price}} €</b></h4>
+                                   <p class="offerParagraph">{{description}}</p>
+                                  <div class="aa-blog-single-bottom">
+                                    <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
+                                    <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
+                                  </div>
+                                </div>                   
+                              </article>
+                            </div>
+                          </div>
+                        </div>
+                        {{/offers}}
+                        {{^offers}}
+                        <p>El usuario no ha publicado ofertas</p>
+                        {{/offers}}
+                      </div>
+                    </div>  
+                  </div>
+                </div>   
+              </div>
+              <!-- div class="col-md-4">
+                <aside class="aa-properties-sidebar">
+                  <div class="aa-properties-single-sidebar">
+                    <h3>Buscador de Ofertas</h3>
+                    <form action="/browser">
+                      <div class="col-md-12 aa-single-advance-search">
+                        <input type="text" placeholder="Escribe la dirección">
+                      </div>
+                      <div class="col-md-12 aa-single-advance-search">
+                        <select name="category" class="select-color">
+                          <option selected="" value="0">Categoría</option>
+                          <option value="1">Piso</option>
+                          <option value="2">Dúplex</option>
+                          <option value="3">Casa baja</option>
+                          <option value="4">Chalet adosado</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="aa-single-advance-search">
+                          <input class="select-color" type="text" placeholder="Desde (€):" name="priceTFrom">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="aa-single-advance-search">
+                          <input type="text" placeholder="(€) Hasta:" name="priceTo">
+                        </div>
+                      </div>
+                      <label class="properties" for="skills">Características</label>
+                      <div class="col-md-12">
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
+                        <button type="button" class="btn btn-default btn-advancedSearch select-color" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
+                      </div>
+                      <div class="aa-single-advance-search">
+                        <input type="submit" value="buscar" class="aa-search-btn">
+                      </div>
+                    </form>
+                  </div> 
+                </aside>
+              </div-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Blog  -->
+  <!-- Footer -->
+  <footer id="aa-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="aa-footer-area">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <div class="aa-footer-left">
+               <p>Universidad Rey Juan Carlos 2017</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="aa-footer-middle">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / Footer -->
+
+  <!-- jQuery library -->
+  <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+  <script src="/js/jquery.min.js"></script>   
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="/js/bootstrap.js"></script>
+  <!-- Include bootbox.min.js -->
+  <script type="text/javascript" src="/js/bootbox.min.js"></script>  
+  <!-- slick slider -->
+  <script type="text/javascript" src="/js/slick.js"></script>
+  
+  <!-- Custom js -->
+  <script src="/js/custom.js"></script> 
+  
+  </body>
+</html>

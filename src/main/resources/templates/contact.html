@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>compartiendoPiso | Contacto</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+
+
+    <!-- Font awesome -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <!-- Theme color -->
+    <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">
+
+    <!-- Main style sheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <link href="css/custom.css" rel="stylesheet">
+
+
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <!-- Pre Loader -->
+    <div id="aa-preloader-area">
+        <div class="pulse"></div>
+    </div>
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+
+    <!-- Start header section -->
+    <header id="aa-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-header-area">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="aa-header-left">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="aa-header-right">
+                                 {{#isLogued}}
+				                    <a href="/logout" class="aa-login unlogued"><font color="#000000"><b>Desconectar</b></font></a>
+				               {{/isLogued}}
+				               </div>
+				               <div class="aa-header-right">
+				               {{^isLogued}}
+                                    <a href="/register" class="aa-register">Registro</a>
+                                    <a href="/signin" class="aa-login">Conectar</a>
+                               {{/isLogued}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <!-- End header section -->
+    <!-- Start menu section -->
+    <section id="aa-menu-area">
+        <nav class="navbar navbar-default main-navbar" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- LOGO -->
+                    <!-- Text based logo -->
+                    <a class="navbar-brand aa-logo" href="/"> compartiendo<span>Piso</span></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/contact">Contacto</a></li>
+                        {{#isLogued}}
+			               <li><a href="/user">Perfil</a></li>
+			             {{/isLogued}}
+                        {{#admin}}
+			            <li><a href="/admin">ADMIN</a></li>
+			            {{/admin}} 
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+    </section>
+    <!-- End menu section -->
+
+    <!-- Start Proerty header  -->
+    <section id="aa-user">
+    </section>
+    <!-- End Proerty header  -->
+
+    <section id="aa-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-contact-area">
+                        <div class="aa-contact-top">
+                            <div class="aa-contact-top-left">
+                            	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.2566375217566!2d-3.8770808847007685!3d40.33665257937445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418e7adf68f543%3A0x841755428455a90b!2sUniversidad+Rey+Juan+Carlos!5e0!3m2!1ses!2ses!4v1489389696400" width="100%" height="450"  frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                            <div class="aa-contact-top-right">
+                                <h2>Contacto</h2>
+                                <p> Para cualquier duda o pregunta, contacte con nosotros llamando al teléfono que se muestra a continuación o envie un email a la dirección de correo siguiente.</p>
+                                <ul class="contact-info-list">
+                                    <li> <i class="fa fa-phone"></i> 918888888</li>
+                                    <li> <i class="fa fa-envelope-o"></i> info@urjc.es</li>
+                                    <li> <i class="fa fa-map-marker"></i> Universidad Rey Juan Carlos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="aa-contact-bottom">
+                            <div class="aa-title">
+                                <h2>Envía tu mensaje</h2>
+                                <span></span>
+                                <p>Tu Email no será publicado. Los campos señalados son obligatorios<strong class="required">*</strong></p>
+                            </div>
+                            <div class="aa-contact-form">
+                                <form class="contactform">
+                                    <p class="comment-form-author">
+                                        <label for="author">Nombre <span class="required">*</span></label>
+                                        <input type="text" name="author" value="" size="30" required="required">
+                                    </p>
+                                    <p class="comment-form-email">
+                                        <label for="email">Email <span class="required">*</span></label>
+                                        <input type="email" name="email" value="" aria-required="true" required="required">
+                                    </p>
+                                    <p class="comment-form-url">
+                                        <label for="subject">Asunto</label>
+                                        <input type="text" name="subject">
+                                    </p>
+                                    <p class="comment-form-comment">
+                                        <label for="comment">Mensaje</label>
+                                        <textarea name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea>
+                                    </p>
+                                    <p class="form-submit">
+                                        <input type="submit" name="submit" class="aa-browse-btn" value="Enviar mensaje" >
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer id="aa-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-footer-area">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-6 col-xs-12">
+                                <div class="aa-footer-left">
+                                    <p>Universidad Rey Juan Carlos 2017</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="aa-footer-middle">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- / Footer -->
+
+    <!-- jQuery library -->
+    <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+    <!-- slick slider -->
+    <script type="text/javascript" src="js/slick.js"></script>
+
+    <!-- Custom js -->
+    <script src="js/custom.js"></script>
+    <script src="js/bootbox.min.js"></script>
+
+
+</body>
+
+</html>
