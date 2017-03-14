@@ -66,7 +66,7 @@ public class OfferController {
 		
 		
 		User user2 = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","d@d.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
-		for(int i=0;i<100;i++){
+		for(int i=0;i<10;i++){
 			Review review = new Review(5,"regular"+i);
 			review.setOfferReview(offer);
 			review.setUserReview(user2);
@@ -127,7 +127,7 @@ public class OfferController {
 			review.setOfferReview(offer);
 			review.setUserReview(userComponent.getLoggedUser());
 			reviewRepository.save(review);
-			return "redirect:/offer/"+offer.getId();
+			return "redirect:/offer/"+offer.getId()+"?page=0&size=4";
 		}else{
 			return "redirect:/offer/"+id;
 		}	
@@ -161,11 +161,11 @@ public class OfferController {
 			User user = userComponent.getLoggedUser();
 			//User user = userRepository.findOne(userComponent.getLoggedUser().getId());
 			System.out.println();
-			if((user.getId() == offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_ADMIN]"))){
+			if((user.getId() == offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
 				characteristicsRepository.delete(offer.getCharacteristics());
 				reviewRepository.delete(offer.getReviews());
 				offerRepository.delete(idOffer);
-				if(user.getRoles().toString().equals("[ROLE_ADMIN]")){
+				if(user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]")){
 					return "redirect:/admin";
 				}else{
 					model.addAttribute("user", user);

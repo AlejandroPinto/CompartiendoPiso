@@ -30,7 +30,7 @@ function browser(page){
 		$('#showMore').show();
 		$('#spinner').empty();
 	}).fail(function(data){
-		$("#showMore").remove();
+		$("#showMore").css("display","none");
 		bootbox.alert("No hay más resultados");
 		
 		
@@ -72,7 +72,8 @@ $(document).ready(function(){
 	var counter = 0;
 	$("#buttonSearch").click(function(){
 		$(".add").html("");
-		browser(counter);
+		$("#showMore").show();
+		browser(0);
 		counter++;
 		
 	});
