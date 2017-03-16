@@ -144,7 +144,7 @@ public class OfferController {
 		User user = userComponent.getLoggedUser();
 		Offer offer = offerRepository.findOne(idOffer);	
 		
-		if((user.getId()==offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_ADMIN]"))){
+		if((user.getId()==offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
 			model.addAttribute("offer", offer);
 			return "adModify";
 		}
@@ -189,7 +189,7 @@ public class OfferController {
 			User user = userComponent.getLoggedUser();
 			Offer originalOffer = offerRepository.findOne(idOffer);
 			characteristicsRepository.delete(originalOffer.getCharacteristics());
-			if((user.getId() == originalOffer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_ADMIN]"))){
+			if((user.getId() == originalOffer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
 				editOffer.setId(idOffer);
 				editOffer.setUser(user);
 				
