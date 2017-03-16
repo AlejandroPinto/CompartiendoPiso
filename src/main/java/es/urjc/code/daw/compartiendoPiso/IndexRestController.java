@@ -38,6 +38,7 @@ public class IndexRestController {
 			@RequestParam int rooms, @RequestParam int area,@RequestParam String attributes){
 		
 		String[] atributtesList= attributes.split(",");
+
 		String a1 = "";
 		String a2 = "";
 		String a3 = "";
@@ -97,17 +98,32 @@ public class IndexRestController {
 		System.out.println(" a1:"+a1+" a2:"+a2+" a3:"+a3+" a4:"+a4+" a5:"+a5+" a6:"+a6+" a7:"+a7+" a8:"+a8+" a9:"+a9+" a10:"+a10+" a11:"+a11+" a12:"+a12);
 		List<Offer> offers = offerRepository.masterQuery(queryBox,type,priceFrom,priceTo,area,rooms,bathroom);
 		
-//		List<Offer> verifyOffers = new ArrayList<>();
-//		for(Offer o :offers){
-//				Collection<String> listOne = atributtesList; 
-//				verifyOffers.add(o);
-//		}
-		System.out.println(verifyOffers);
-		model.addAttribute("offers",offers);
+		List<Offer> verifyOffers = new ArrayList<>();
+		
+		for(Offer o :offers){
+			boolean is = false;
+			if(atributtesList[0]==""){
+				verifyOffers.add(o);				
+			}
+			else{
+				for (String attribute :atributtesList){
+					if(o.getStringCharacteristics().contains(attribute)){
+						is=true;
+					}
+					else{
+						is=false;
+					}
+				}
+				if(is){
+					verifyOffers.add(o);
+				}
+			}
+		}
+	
 		if(offers.isEmpty()){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}else{
-			return new ResponseEntity<List<Offer>>(offers,HttpStatus.OK);
+			return new ResponseEntity<List<Offer>>(verifyOffers,HttpStatus.OK);
 		}	
 	}
 	
