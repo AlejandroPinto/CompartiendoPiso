@@ -472,7 +472,7 @@ $(document).ready(function(){
 //    });
 //  });
     $(".discard-offert").click(function(){
-    	var idOffer = $(".discard-offert :input").val();
+    	var idOffer = $(this).children("input").val();
     	console.log(idOffer);
 	    bootbox.confirm({
 	      message: "¿Está seguro de que desea descartar la oferta?",
