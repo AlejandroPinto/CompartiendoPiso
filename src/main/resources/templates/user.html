@@ -181,7 +181,10 @@
                               {{#isLoged}}
                                 <span class="logedUser">
                                   <button class="btn btn-default" onclick="window.location.href='/offerModify/{{id}}'"><i class="fa fa-pencil"></i>Editar</button>
-                                  <button  class="btn btn-default text-right delete-offert" onclick="window.location.href='/deleteOffer/{{id}}'"><i class="fa fa-trash"></i>Eliminar</button>
+                                  <button class="btn btn-default text-right delete-offert discard-offert">
+                                  	<i class="fa fa-trash"></i>Eliminar
+                                  	<input class="idOffer" value="{{id}}" hidden/>
+                                  	</button>
                                   <br>
                                 </span>
                               {{/isLoged}}  
