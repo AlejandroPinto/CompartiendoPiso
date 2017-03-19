@@ -112,7 +112,7 @@
                       <article class="aa-properties-single-sidebar aa-properties-details">
                         <form action="editarPerfil">
                         <div class="col-lg-3 col-md-3">
-                            <img src="/img/users/{{user.id}}/0.jpg" alt="" title="" width="150" height="150" id="imgSalida">                      
+                            <img src="/image/{{user.id}}/0.jpg" alt="" title="" width="150" height="150" id="imgSalida">                      
                         </div>
                         
                         <div class="col-lg-9">
@@ -173,9 +173,10 @@
                           <h2>Lista de pisos del usuario {{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
                           <span></span>
                         </div>
-                        {{#offers}}
+                        
                         <div class="aa-blog-related-post-area">
                           <div class="row">
+                          {{#offers}}
                             <div class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
                               {{#isLoged}}
@@ -189,7 +190,7 @@
                                 </span>
                               {{/isLoged}}  
                                 <figure class="aa-blog-img">
-                                  <a href="/offer/{{id}}/?page=0&size=4"><img src="/img/users/{{user.id}}/{{id}}/0.jpg" alt="img" width="360" height="240"></a>
+                                  <a href="/offer/{{id}}/?page=0&size=4"><img src="/image/{{user.id}}/{{id}}/1.jpg" alt="img" width="360" height="240"></a>
                                   <span class="aa-date-tag">{{title}}</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
@@ -203,9 +204,9 @@
                                 </div>                   
                               </article>
                             </div>
+                            {{/offers}}
                           </div>
                         </div>
-                        {{/offers}}
                         {{^offers}}
                         <p>El usuario no ha publicado ofertas</p>
                         {{/offers}}
