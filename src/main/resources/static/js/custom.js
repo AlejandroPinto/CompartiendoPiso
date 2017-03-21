@@ -472,38 +472,26 @@ $(document).ready(function(){
 //    });
 //  });
     $(".discard-offert").click(function(){
-    bootbox.confirm({
-      message: "¿Está seguro de que desea descartar la oferta?",
-      buttons: {
-          confirm: {
-              label: 'Confirmar',
-              className: 'btn-primary'
-          },
-          cancel: {
-              label: 'Cancelar',
-              className: 'btn-danger'
-          }
-      },
-      callback: function (result) {
-        if(result){
-          bootbox.prompt({
-            title: "Comentario de descarte",
-            placeholder:"Escriba aquí su comentario de descarte",
-            buttons: {
-              confirm: {
-                label: "Guardar comentario"
-              },
-              cancel: {
-                label: "Cancelar"
-              }
-            },
-            callback: function(value) {
-              bootbox.alert(value);
-            }
-          });
-        }
-      }
-    });
+    	var idOffer = $(this).children("input").val();
+    	console.log(idOffer);
+	    bootbox.confirm({
+	      message: "¿Está seguro de que desea descartar la oferta?",
+	      buttons: {
+	          confirm: {
+	              label: 'Confirmar',
+	              className: 'btn-primary'
+	          },
+	          cancel: {
+	              label: 'Cancelar',
+	              className: 'btn-danger'
+	          }
+	      },
+	      callback: function (result) {
+	        if(result){
+	        	window.location.replace("/deleteOffer/"+idOffer);
+	        }
+	      }
+	    });
   });
 })
 

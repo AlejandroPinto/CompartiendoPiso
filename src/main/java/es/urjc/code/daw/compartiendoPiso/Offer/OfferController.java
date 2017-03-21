@@ -109,7 +109,6 @@ public class OfferController {
 			for(int i = numberFiles-1; i>=0; i--){
 				namePhotos.add(i+".jpg");
 			}
-			System.out.println(namePhotos.get(0));
 			
 			model.addAttribute("photos", namePhotos);
 			
@@ -160,7 +159,6 @@ public class OfferController {
 			Offer offer = offerRepository.findOne(idOffer);
 			User user = userComponent.getLoggedUser();
 			//User user = userRepository.findOne(userComponent.getLoggedUser().getId());
-			System.out.println();
 			if((user.getId() == offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
 				characteristicsRepository.delete(offer.getCharacteristics());
 				reviewRepository.delete(offer.getReviews());
