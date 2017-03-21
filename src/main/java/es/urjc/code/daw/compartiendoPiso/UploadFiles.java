@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public class UploadFiles {
-	private static final String FILES_FOLDER = "src/main/resources/static/img/users/";
+	private static final String FILES_FOLDER = "img/users/";
 
 	private List<String> imageTitles = new ArrayList<>();
 	
