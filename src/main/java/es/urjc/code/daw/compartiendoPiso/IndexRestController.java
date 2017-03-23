@@ -38,7 +38,6 @@ public class IndexRestController {
 		Page<Offer> offersPage = offerRepository.masterQuery(queryBox,type,priceFrom,priceTo,area,rooms,bathroom,new PageRequest(page,10));
 		List<Offer> offers = offersPage.getContent();
 
-		model.addAttribute("offers",offers);
 		if(!offersPage.hasContent()){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}else{

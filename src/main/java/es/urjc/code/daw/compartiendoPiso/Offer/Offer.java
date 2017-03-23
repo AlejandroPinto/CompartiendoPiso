@@ -52,6 +52,7 @@ public class Offer {
 	 private User user;
 	 
 	 @OneToMany(mappedBy="offerReview")
+	 @JsonView(BasicOffer.class)
 	 private List<Review> reviews = new ArrayList<>();
 	
 	 public User getUser() {

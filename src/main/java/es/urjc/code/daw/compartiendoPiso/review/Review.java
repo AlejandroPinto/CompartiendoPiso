@@ -11,18 +11,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 
 @Entity
 public class Review {
-
+	
+	public interface BasicReview{}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(BasicReview.class)
 	private long id;
 	
+	@JsonView(BasicReview.class)
 	private float valoration;
+	@JsonView(BasicReview.class)
 	private String comment;
+	@JsonView(BasicReview.class)
 	private Date date;
 	
 	@ManyToOne
