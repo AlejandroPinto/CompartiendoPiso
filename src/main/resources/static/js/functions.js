@@ -24,7 +24,7 @@ function browser(page){
 			$("[name='priceFrom']").val()+"&priceTo="+$("[name='priceTo']").val()+
 			"&type="+$("[name='type']").val()+"&rooms="+$("[name='rooms']").val()+
 			"&bathroom="+$("[name='bathroom']").val()+"&area="+$("[name='area']").val()+
-			"&attributes=''&page="+page,	
+			"&attributes="+$("[name='attributes']").val()+"&page="+page,	
 	}).done(function(data){
 		printOffers(data);
 		$('#showMore').show();

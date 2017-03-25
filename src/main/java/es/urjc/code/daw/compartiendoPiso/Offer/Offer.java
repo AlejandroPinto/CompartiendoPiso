@@ -191,6 +191,16 @@ public class Offer {
 				+ area + ", bathdroom=" + bathroom + ", rooms=" + rooms + ", type=" + type + ", characteristics="
 				+ characteristics + ", numPlaces=" + numPlaces + "]";
 	}
+	
+	public ArrayList<String> getStringCharacteristics(){
+		ArrayList<String> LstringCharacteristics = new ArrayList<String>();
+		int i=0;
+		for(Characteristics c : this.characteristics){
+			LstringCharacteristics.add(i, c.getName());
+			i++;
+		}
+		return LstringCharacteristics;
+	}
 
 	 
 	 
