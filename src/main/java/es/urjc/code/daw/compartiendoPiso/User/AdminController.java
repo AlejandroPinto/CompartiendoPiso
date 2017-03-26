@@ -26,7 +26,7 @@ public class AdminController {
 		if(userComponent.isLoggedUser()){
 		    if(userComponent.getLoggedUser().getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]")){
 		    	List<Offer> offers = offerRepository.findAll();
-			    model.addAttribute("admin", request.isUserInRole("ROLE_ADMIN"));
+			    model.addAttribute("admin", request.isUserInRole("ROLE_USER, ROLE_ADMIN"));
 				model.addAttribute("offers",offers);
 			    return "admin";	
 		    }	

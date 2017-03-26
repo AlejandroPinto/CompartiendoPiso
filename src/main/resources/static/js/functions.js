@@ -24,7 +24,7 @@ function browser(page){
 			$("[name='priceFrom']").val()+"&priceTo="+$("[name='priceTo']").val()+
 			"&type="+$("[name='type']").val()+"&rooms="+$("[name='rooms']").val()+
 			"&bathroom="+$("[name='bathroom']").val()+"&area="+$("[name='area']").val()+
-			"&attributes="+$("[name='attributes']").val()+"&page="+page,	
+			"&attributes=''&page="+page,	
 	}).done(function(data){
 		printOffers(data);
 		$('#showMore').show();
@@ -42,7 +42,7 @@ function printOffers(data){
 		var text ='<div class="col-md-4">';
 		text+='<article class="aa-properties-item">';
 		  text+='<a class="aa-properties-item-img" href="#">';
-		    text+='<img src="/img/users/'+data[i]["user"]["id"]+'/'+data[i]["id"]+'/0.jpg" alt="img" width="370" height="220">';
+		    text+='<img src="/image/'+data[i]["user"]["id"]+'/'+data[i]["id"]+'/0.jpg" alt="img" width="370" height="220">';
 		  text+='</a>';
 		      text+='<div class="aa-properties-item-content">';
                 text+='<div class="aa-properties-info">';
@@ -69,17 +69,19 @@ function printOffers(data){
 }
 
 $(document).ready(function(){
-	var counter = 0;
+	var counter = 1;
 	$("#buttonSearch").click(function(){
 		$(".add").html("");
 		$("#showMore").show();
 		browser(0);
-		counter++;
+		counter = 1;
+		console.log(counter);
 		
 	});
 	$("#showMore").click(function(){
 		browser(counter);
 		counter++;
+		console.log(counter);
 	});
 	
 });
