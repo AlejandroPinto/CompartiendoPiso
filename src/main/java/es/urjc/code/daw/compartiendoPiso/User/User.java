@@ -45,7 +45,9 @@ public class User {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
-	public User () {}
+	public User () {
+		this.roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
+	}
 	
 	@OneToMany(mappedBy="user")
 	private List<Offer> offers = new ArrayList<>();

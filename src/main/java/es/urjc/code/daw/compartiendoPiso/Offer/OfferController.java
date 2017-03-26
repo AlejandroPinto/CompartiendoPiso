@@ -181,7 +181,7 @@ public class OfferController {
 	}
 	
 	@RequestMapping(value="/setModify/{idOffer}", method=RequestMethod.POST)
-	public String setModify(Model model, Offer editOffer, String attributes, @PathVariable long idOffer){
+	public String setModify(Model model, Offer editOffer, String attributes, @PathVariable long idOffer, @RequestParam("file") List<MultipartFile> files){
 		
 		if(userComponent.isLoggedUser()){
 			User user = userComponent.getLoggedUser();
@@ -198,6 +198,13 @@ public class OfferController {
 
 					characteristicsRepository.save(c);
 				}
+				
+				String path =  user.getId()+"/"+editOffer.getId();
+				//String path =  editOffer.getUser().getId()+"/"+editOffer.getId();
+				
+				UploadFiles uploadedFiles = new UploadFiles();
+				uploadedFiles.handleFileUpload(files,path);	
+				
 				offerRepository.save(editOffer);
 				model.addAttribute("offer", editOffer);
 				return "redirect:/offer/"+editOffer.getId()+"/?page=0&size=4";

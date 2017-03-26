@@ -52,7 +52,6 @@ public class Offer {
 	 private User user;
 	 
 	 @OneToMany(mappedBy="offerReview")
-	 @JsonView(BasicOffer.class)
 	 private List<Review> reviews = new ArrayList<>();
 	
 	 public User getUser() {
@@ -190,16 +189,6 @@ public class Offer {
 				+ ", province=" + province + ", location=" + location + ", neighborhood=" + neighborhood + ", area="
 				+ area + ", bathdroom=" + bathroom + ", rooms=" + rooms + ", type=" + type + ", characteristics="
 				+ characteristics + ", numPlaces=" + numPlaces + "]";
-	}
-	
-	public ArrayList<String> getStringCharacteristics(){
-		ArrayList<String> LstringCharacteristics = new ArrayList<String>();
-		int i=0;
-		for(Characteristics c : this.characteristics){
-			LstringCharacteristics.add(i, c.getName());
-			i++;
-		}
-		return LstringCharacteristics;
 	}
 
 	 
