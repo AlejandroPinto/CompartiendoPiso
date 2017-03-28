@@ -23,6 +23,7 @@ import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
 
 
 @RestController
+@RequestMapping("/api")
 public class IndexRestController {
 	
 	@Autowired

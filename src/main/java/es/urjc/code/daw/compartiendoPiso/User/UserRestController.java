@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @RestController
+@RequestMapping("/api/user")
 public class UserRestController {
 
 	@Autowired 
 	private UserRepository userRepository;
 	@Autowired 
 	private UserComponent userComponent;
+	
+
+	
 	
 //	@JsonView
 //	@RequestMapping(value="/user", method=RequestMethod.PUT)

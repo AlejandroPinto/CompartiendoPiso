@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
@@ -50,9 +51,11 @@ public class User {
 	}
 	
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<Offer> offers = new ArrayList<>();
 	
 	@OneToMany(mappedBy="userReview")
+	@JsonIgnore
 	private List<Review> reviews = new ArrayList<>();
 
 	
