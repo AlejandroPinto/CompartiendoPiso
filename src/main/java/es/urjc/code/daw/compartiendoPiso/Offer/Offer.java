@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.User.User;
@@ -63,7 +64,7 @@ public class Offer {
 	}
 
 	@OneToMany(mappedBy="offer")
-	 private List<Characteristics> characteristics = new ArrayList<>();
+	private List<Characteristics> characteristics = new ArrayList<>();
 	 
 	 //private User usesrID;
 	 private int numPlaces;

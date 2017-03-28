@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import es.urjc.code.daw.compartiendoPiso.Offer.CharacteristicsRepository;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
+import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
 import es.urjc.code.daw.compartiendoPiso.review.ReviewRepository;
@@ -31,10 +32,30 @@ public class WebService {
 	public Offer getOfferById(long id){
 		return offerRepository.findOne(id);	
 	}
-
+	
 
 	public void saveOffer(Offer offer) {
-				offerRepository.save(offer);
+		offerRepository.save(offer);
 	}	
 	
+	//USER UTILS
+	public void saveUser(User user){
+		userRepository.save(user);
+	}
+	
+	public User getUserById(long id){
+		return userRepository.findOne(id);
+	}
+	
+	public boolean isLoggedUser(){
+		return userComponent.isLoggedUser();
+	}
+	
+	public boolean isAdmin(){
+		return userComponent.getLoggedUser().getRoles().equals("[ROLE_ADMIN]");
+	}
+	
+	public long getUserId(){
+		return userComponent.getLoggedUser().getId();
+	}
 }

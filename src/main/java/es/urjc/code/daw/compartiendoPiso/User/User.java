@@ -30,20 +30,26 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonView(BasicUser.class)
 	private long id;
-	
+	@JsonView(BasicUser.class)
 	private String name;
+	@JsonView(BasicUser.class)
 	private String firstLastName;
+	@JsonView(BasicUser.class)
 	private String secondLastName;
+	@JsonView(BasicUser.class)
 	private String email;
+	@JsonView(BasicUser.class)
 	private int phone;
-	
 	@Column(length = 1080)
+	@JsonView(BasicUser.class)
 	private String description;
-	
+	@JsonIgnore
 	private String pass;
+	@JsonIgnore
 	private boolean admin;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
+	@JsonIgnore
 	private List<String> roles;
 	
 	public User () {

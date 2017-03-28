@@ -30,7 +30,7 @@ public class LoginController {
 	private UserComponent userComponent;
 
 	@RequestMapping("/api/logIn")
-	public ResponseEntity<User> logIn() {
+	public ResponseEntity<String> logIn() {
 
 		if (!userComponent.isLoggedUser()) {
 			log.info("Not user logged");
@@ -38,7 +38,7 @@ public class LoginController {
 		} else {
 			User loggedUser = userComponent.getLoggedUser();
 			log.info("Logged as " + loggedUser.getName());
-			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
+			return new ResponseEntity<>("OK", HttpStatus.OK);
 		}
 	}
 
