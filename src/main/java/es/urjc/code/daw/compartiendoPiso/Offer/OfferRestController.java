@@ -1,5 +1,6 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.User.User;
+import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.review.Review;
 
 
@@ -27,6 +29,9 @@ public class OfferRestController {
 	
 	@Autowired
 	private WebService service;
+	
+	@Autowired
+	private UserComponent userComponent;
 	
 	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Review.BasicReview{}
 	
@@ -43,9 +48,43 @@ public class OfferRestController {
 	
 	@RequestMapping(value = "/addOffer", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Offer addOffer(@RequestBody Offer offer){
-		service.saveOffer(offer);
+	public Offer addOffer(@RequestBody Offer offer, String attributes){
+		if(userComponent.isLoggedUser()){
+			User user = userComponent.getLoggedUser();
+			offer.setUser(user);
+			
+//			String[] atributtesList= attributes.split(",");
+//			for(String attribute :atributtesList){
+//				Characteristics c = new Characteristics(attribute, true);
+//				c.setOffer(offer);
+//				service.saveCharacteristics(c);
+//			}
+			
+			service.saveOffer(offer);
+		}
 		return offer;
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Offer> updateBook(@PathVariable long id, @RequestBody Offer updatedOffer) {
+
+		Offer offer = service.getOfferById(id);
+		if (offer != null) {
+
+			updatedOffer.setId(id);
+			service.saveOffer(updatedOffer);
+
+			return new ResponseEntity<>(updatedOffer, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Offer> deleteBook(@PathVariable long id) {
+
+		service.deleteOffer(id);
+		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
 }

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.User.User;
@@ -71,10 +72,11 @@ public class Offer {
 	 public int getBathroom() {
 		return bathroom;
 	}
+	
 
-	public void setCharacteristics(List<Characteristics> characteristics) {
-		this.characteristics = characteristics;
-	}
+//	public void setCharacteristics(List<Characteristics> characteristics) {
+//		this.characteristics = characteristics;
+//	}
 
 	protected Offer() {}
 	
