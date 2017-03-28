@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
@@ -29,18 +30,23 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonView(BasicUser.class)
 	private long id;
-	
 	private String name;
+
 	private String firstLastName;
+
 	private String secondLastName;
+
 	private String email;
+
 	private int phone;
-	
+
 	@Column(length = 1080)
 	private String description;
-	
+
 	private String pass;
+
 	private boolean admin;
+	
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
@@ -48,10 +54,11 @@ public class User {
 	public User () {
 		this.roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
 	}
-	
+	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private List<Offer> offers = new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="userReview")
 	private List<Review> reviews = new ArrayList<>();
 
