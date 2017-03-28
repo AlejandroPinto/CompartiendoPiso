@@ -34,16 +34,47 @@ public class IndexRestController {
 	public ResponseEntity<List<Offer>> indexView(Model model,@RequestParam String queryBox,
 			@RequestParam float priceTo, @RequestParam float priceFrom,
 			@RequestParam String type, @RequestParam int bathroom,
-			@RequestParam int rooms, @RequestParam int area,@RequestParam int page){
+			@RequestParam int rooms, @RequestParam int area,@RequestParam int page, @RequestParam String attributes){
 		Page<Offer> offersPage = offerRepository.masterQuery(queryBox,type,priceFrom,priceTo,area,rooms,bathroom,new PageRequest(page,10));
 		List<Offer> offers = offersPage.getContent();
-
-		model.addAttribute("offers",offers);
+		
+		//Busqueda con caracteristicas
+		String[] atributtesList= attributes.split(",");
+		List<Offer> verifyOffers = new ArrayList<>();
+		
+		for(Offer o :offers){
+			boolean is = false;
+			if(atributtesList[0]==""){
+				verifyOffers.add(o);				
+			}
+			else{
+				for (String attribute :atributtesList){
+					if(o.getStringCharacteristics().contains(attribute)){
+						is=true;
+					}
+					else{
+						is=false;
+					}
+				}
+				if(is){
+					verifyOffers.add(o);
+				}
+			}
+		}
+		
 		if(!offersPage.hasContent()){
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}else{
-			return new ResponseEntity<List<Offer>>(offers,HttpStatus.OK);
-		}	
+			return new ResponseEntity<List<Offer>>(verifyOffers,HttpStatus.OK);
+		}
+		
+		
+//		model.addAttribute("offers",offers);
+//		if(!offersPage.hasContent()){
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}else{
+//			return new ResponseEntity<List<Offer>>(offers,HttpStatus.OK);
+//		}	
 	}
 	
 }
