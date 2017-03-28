@@ -26,7 +26,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 //            final HttpServletResponse response, final Object handler,
 //            final ModelAndView modelAndView) throws Exception {
 //
-//		CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
-//    	modelAndView.addObject("token", token.getToken());    	
+//		if (modelandView =! null){
+//			CsrfToken token = (CsrfToken) request.getAttribute("_csrf"); 
+//			modelAndView.addObject("token", token.getToken());    	
+//		}
 //    }
 //}
