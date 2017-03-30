@@ -28,7 +28,7 @@ public class LoginController {
 	private UserComponent userComponent;
 
 	@RequestMapping("/api/logIn")
-	public ResponseEntity<String> logIn() {
+	public ResponseEntity<User> logIn() {
 
 		if (!userComponent.isLoggedUser()) {
 			log.info("Not user logged");

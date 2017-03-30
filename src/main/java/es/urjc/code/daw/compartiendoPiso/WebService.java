@@ -37,12 +37,13 @@ public class WebService {
 	}
 
 	public void saveOffer(Offer offer) {
-		offerRepository.save(offer);
+		Offer o= offerRepository.saveAndFlush(offer);
+		for(Characteristics c :offer.getCharacteristics()){
+			c.setOffer(o);
+			System.out.println(c.getName()+"++++++++++++++++++++++++++++++");
+			characteristicsRepository.save(c);
+		}
 	}	
-	
-	public void saveCharacteristics(Characteristics characteristics) {
-		characteristicsRepository.save(characteristics);
-	}
 	
 	public User getOfferByUser(long id){
 		return userRepository.findOne(id);

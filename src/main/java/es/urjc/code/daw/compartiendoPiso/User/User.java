@@ -25,6 +25,7 @@ import es.urjc.code.daw.compartiendoPiso.review.Review;
 public class User {
 	
 	public interface BasicUser{}
+	public interface OtherUser{}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,12 +57,10 @@ public class User {
 	public User () {
 		this.roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
 	}
-	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	@JsonIgnore
 	private List<Offer> offers = new ArrayList<>();
 	
-	@JsonIgnore
 	@OneToMany(mappedBy="userReview")
 	@JsonIgnore
 	private List<Review> reviews = new ArrayList<>();

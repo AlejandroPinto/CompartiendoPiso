@@ -6,11 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Characteristics {
+	
+	public interface BasicCharacteristics{}
+	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	 private long id;
+	 @JsonView(BasicCharacteristics.class)
 	 private String name;
 	 private boolean value;
 	 @ManyToOne

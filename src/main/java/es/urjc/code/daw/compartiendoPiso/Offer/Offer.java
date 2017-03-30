@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
+import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics.BasicCharacteristics;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.review.Review;
 
@@ -53,6 +54,7 @@ public class Offer {
 	 private User user;
 	 
 	 @OneToMany(mappedBy="offerReview")
+	 @JsonView(BasicCharacteristics.class)
 	 private List<Review> reviews = new ArrayList<>();
 	
 	 public User getUser() {
@@ -64,6 +66,7 @@ public class Offer {
 	}
 
 	@OneToMany(mappedBy="offer")
+	@JsonView(BasicOffer.class)
 	private List<Characteristics> characteristics = new ArrayList<>();
 	 
 	 //private User usesrID;

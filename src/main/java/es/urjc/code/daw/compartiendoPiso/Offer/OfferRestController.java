@@ -33,7 +33,7 @@ public class OfferRestController {
 	@Autowired
 	private UserComponent userComponent;
 	
-	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Review.BasicReview{}
+	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Review.BasicReview, Characteristics.BasicCharacteristics{}
 	
 	@JsonView(CompleteOffer.class)
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
@@ -48,20 +48,14 @@ public class OfferRestController {
 	
 	@RequestMapping(value = "/addOffer", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Offer addOffer(@RequestBody Offer offer, String attributes){
-		if(userComponent.isLoggedUser()){
-			User user = userComponent.getLoggedUser();
-			offer.setUser(user);
+	public Offer addOffer(@RequestBody Offer offer ){
+		//if(userComponent.isLoggedUser()){
 			
-//			String[] atributtesList= attributes.split(",");
-//			for(String attribute :atributtesList){
-//				Characteristics c = new Characteristics(attribute, true);
-//				c.setOffer(offer);
-//				service.saveCharacteristics(c);
-//			}
+			//User user = userComponent.getLoggedUser();
+			//offer.setUser(user);
 			
 			service.saveOffer(offer);
-		}
+		//}
 		return offer;
 	}
 	
