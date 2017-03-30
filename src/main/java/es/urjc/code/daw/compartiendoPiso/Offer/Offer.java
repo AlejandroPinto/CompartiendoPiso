@@ -64,7 +64,7 @@ public class Offer {
 	}
 
 	@OneToMany(mappedBy="offer")
-	 private List<Characteristics> characteristics = new ArrayList<>();
+	private List<Characteristics> characteristics = new ArrayList<>();
 	 
 	 //private User usesrID;
 	 private int numPlaces;

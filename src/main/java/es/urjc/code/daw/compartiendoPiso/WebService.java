@@ -37,7 +37,7 @@ public class WebService {
 	}
 
 	public void saveOffer(Offer offer) {
-				offerRepository.save(offer);
+		offerRepository.save(offer);
 	}	
 	
 	public void saveCharacteristics(Characteristics characteristics) {
@@ -52,6 +52,24 @@ public class WebService {
 		offerRepository.delete(id);
 	}
 	
+	//USER UTILS
+	public void saveUser(User user){
+		userRepository.save(user);
+	}
 	
+	public User getUserById(long id){
+		return userRepository.findOne(id);
+	}
 	
+	public boolean isLoggedUser(){
+		return userComponent.isLoggedUser();
+	}
+	
+	public boolean isAdmin(){
+		return userComponent.getLoggedUser().getRoles().equals("[ROLE_ADMIN]");
+	}
+	
+	public long getUserId(){
+		return userComponent.getLoggedUser().getId();
+	}
 }

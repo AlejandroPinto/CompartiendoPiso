@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 
-
 /**
  * This class is used to provide REST endpoints to logIn and logOut to the
  * service. These endpoints are used by Angular 2 SPA client application.
@@ -29,7 +28,7 @@ public class LoginController {
 	private UserComponent userComponent;
 
 	@RequestMapping("/api/logIn")
-	public ResponseEntity<User> logIn() {
+	public ResponseEntity<String> logIn() {
 
 		if (!userComponent.isLoggedUser()) {
 			log.info("Not user logged");
@@ -53,5 +52,4 @@ public class LoginController {
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 	}
-
 }
