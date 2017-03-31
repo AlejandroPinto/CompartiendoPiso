@@ -30,9 +30,6 @@ public class OfferRestController {
 	@Autowired
 	private WebService service;
 	
-	@Autowired
-	private UserComponent userComponent;
-	
 	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Review.BasicReview, Characteristics.BasicCharacteristics{}
 	
 	@JsonView(CompleteOffer.class)
@@ -46,39 +43,41 @@ public class OfferRestController {
 		}
 	}
 	
+	@JsonView(CompleteOffer.class)
 	@RequestMapping(value = "/addOffer", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Offer addOffer(@RequestBody Offer offer ){
-		//if(userComponent.isLoggedUser()){
-			
-			//User user = userComponent.getLoggedUser();
-			//offer.setUser(user);
-			
+	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer ){
+		if(service.isLoggedUser()){
+			User user = service.getLoggedUser();
+			offer.setUser(user);
 			service.saveOffer(offer);
-		//}
-		return offer;
-	}
-	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Offer> updateBook(@PathVariable long id, @RequestBody Offer updatedOffer) {
-
-		Offer offer = service.getOfferById(id);
-		if (offer != null) {
-
-			updatedOffer.setId(id);
-			service.saveOffer(updatedOffer);
-
-			return new ResponseEntity<>(updatedOffer, HttpStatus.OK);
-		} else {
+			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
+		}
+		else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
+	@JsonView(CompleteOffer.class)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Offer> updateOffer(@PathVariable long id, @RequestBody Offer updatedOffer) {
+		
+		Offer offer = service.getOfferById(id);
+		if (offer != null) {
+			updatedOffer.setId(id);
+			service.saveOffer(updatedOffer);
+			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(CompleteOffer.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Offer> deleteBook(@PathVariable long id) {
-
+	public ResponseEntity<Offer> deleteOffer(@PathVariable long id) {
 		service.deleteOffer(id);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
-	
+
 }

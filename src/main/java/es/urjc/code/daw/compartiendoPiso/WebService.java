@@ -40,7 +40,6 @@ public class WebService {
 		Offer o= offerRepository.saveAndFlush(offer);
 		for(Characteristics c :offer.getCharacteristics()){
 			c.setOffer(o);
-			System.out.println(c.getName()+"++++++++++++++++++++++++++++++");
 			characteristicsRepository.save(c);
 		}
 	}	
@@ -64,6 +63,10 @@ public class WebService {
 	
 	public boolean isLoggedUser(){
 		return userComponent.isLoggedUser();
+	}
+	
+	public User getLoggedUser(){
+		return userComponent.getLoggedUser();
 	}
 	
 	public boolean isAdmin(){
