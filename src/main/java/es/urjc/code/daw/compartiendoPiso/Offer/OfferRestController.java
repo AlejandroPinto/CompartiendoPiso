@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import es.urjc.code.daw.compartiendoPiso.UploadFiles;
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
@@ -30,10 +32,7 @@ public class OfferRestController {
 	@Autowired
 	private WebService service;
 	
-	@Autowired
-	private UserComponent userComponent;
-	
-	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Review.BasicReview{}
+	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Review.BasicReview, Characteristics.BasicCharacteristics{}
 	
 	@JsonView(CompleteOffer.class)
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
@@ -46,45 +45,56 @@ public class OfferRestController {
 		}
 	}
 	
+	@JsonView(CompleteOffer.class)
 	@RequestMapping(value = "/addOffer", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public Offer addOffer(@RequestBody Offer offer, String attributes){
-		if(userComponent.isLoggedUser()){
-			User user = userComponent.getLoggedUser();
+	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer ){
+		if(service.isLoggedUser()){
+			User user = service.getLoggedUser();
 			offer.setUser(user);
-			
-//			String[] atributtesList= attributes.split(",");
-//			for(String attribute :atributtesList){
-//				Characteristics c = new Characteristics(attribute, true);
-//				c.setOffer(offer);
-//				service.saveCharacteristics(c);
-//			}
-			
 			service.saveOffer(offer);
+			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
 		}
-		return offer;
-	}
-	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Offer> updateBook(@PathVariable long id, @RequestBody Offer updatedOffer) {
-
-		Offer offer = service.getOfferById(id);
-		if (offer != null) {
-
-			updatedOffer.setId(id);
-			service.saveOffer(updatedOffer);
-
-			return new ResponseEntity<>(updatedOffer, HttpStatus.OK);
-		} else {
+		else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
+	@JsonView(CompleteOffer.class)
+	@RequestMapping(value = "/setOfferPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
+	public ResponseEntity<Offer> setPhotoToOffer(@PathVariable long id, @RequestParam("file") List<MultipartFile> files ){
+		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
+			Offer updateOffer = service.getOfferById(id);
+			UploadFiles uploadFiles = new UploadFiles();
+			String path =  service.getLoggedUser().getId()+"/"+id;
+			uploadFiles.handleFileUpload(files,path);
+				return new ResponseEntity<Offer>(updateOffer, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(CompleteOffer.class)
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Offer> updateOffer(@PathVariable long id, @RequestBody Offer updatedOffer) {
+		
+		Offer offer = service.getOfferById(id);
+		if (offer != null) {
+			updatedOffer.setId(id);
+			service.saveOffer(updatedOffer);
+			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(CompleteOffer.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Offer> deleteBook(@PathVariable long id) {
-
+	public ResponseEntity<Offer> deleteOffer(@PathVariable long id) {
 		service.deleteOffer(id);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
-	
+
 }

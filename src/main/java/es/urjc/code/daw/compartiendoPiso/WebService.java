@@ -12,6 +12,7 @@ import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
+import es.urjc.code.daw.compartiendoPiso.review.Review;
 import es.urjc.code.daw.compartiendoPiso.review.ReviewRepository;
 
 @Service
@@ -37,12 +38,12 @@ public class WebService {
 	}
 
 	public void saveOffer(Offer offer) {
-		offerRepository.save(offer);
+		Offer o= offerRepository.saveAndFlush(offer);
+		for(Characteristics c :offer.getCharacteristics()){
+			c.setOffer(o);
+			characteristicsRepository.save(c);
+		}
 	}	
-	
-	public void saveCharacteristics(Characteristics characteristics) {
-		characteristicsRepository.save(characteristics);
-	}
 	
 	public User getOfferByUser(long id){
 		return userRepository.findOne(id);
@@ -50,6 +51,15 @@ public class WebService {
 	
 	public void deleteOffer(long id) {
 		offerRepository.delete(id);
+	}
+	
+	public Review saveAndFlushReview(Review review){
+		return reviewRepository.saveAndFlush(review);
+		
+	}
+	
+	public void saveReview(Review review){
+		reviewRepository.save(review);
 	}
 	
 	//USER UTILS
@@ -63,6 +73,10 @@ public class WebService {
 	
 	public boolean isLoggedUser(){
 		return userComponent.isLoggedUser();
+	}
+	
+	public User getLoggedUser(){
+		return userComponent.getLoggedUser();
 	}
 	
 	public boolean isAdmin(){
