@@ -32,9 +32,6 @@ public class OfferRestController {
 	@Autowired
 	private WebService service;
 	
-	@Autowired
-	private UploadFiles uploadFiles;
-	
 	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Review.BasicReview, Characteristics.BasicCharacteristics{}
 	
 	@JsonView(CompleteOffer.class)
@@ -63,20 +60,20 @@ public class OfferRestController {
 		}
 	}
 	
-//	@JsonView(CompleteOffer.class)
-//	@RequestMapping(value = "/setOfferPhoto/{id}", method = RequestMethod.PUT)
-//	public ResponseEntity<Offer> setPhotoToOffer(@PathVariable long id, @RequestBody MultipartFile file ){
-//		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
-//			Offer updateOffer = service.getOfferById(id);
-//			UploadFiles uploadFiles = new UploadFiles();
-//			uploadFiles.handleFileUpload(files, type)
-//			updateOffer
-//			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
-//		}
-//		else{
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		}
-//	}
+	@JsonView(CompleteOffer.class)
+	@RequestMapping(value = "/setOfferPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
+	public ResponseEntity<Offer> setPhotoToOffer(@PathVariable long id, @RequestParam("file") List<MultipartFile> files ){
+		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
+			Offer updateOffer = service.getOfferById(id);
+			UploadFiles uploadFiles = new UploadFiles();
+			String path =  service.getLoggedUser().getId()+"/"+id;
+			uploadFiles.handleFileUpload(files,path);
+				return new ResponseEntity<Offer>(updateOffer, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
 	@JsonView(CompleteOffer.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
