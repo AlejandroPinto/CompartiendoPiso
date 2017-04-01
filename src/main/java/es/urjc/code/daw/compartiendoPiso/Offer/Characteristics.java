@@ -6,54 +6,60 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Characteristics {
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 private long id;
-	 private String name;
-	 private boolean value;
-	 @ManyToOne
-	 private Offer offer;
-	 
-	 protected Characteristics(){}
-	 
-	 public Characteristics(String name, boolean value){
-		 super();
-		 this.name=name;
-		 this.value=value;
-	 }
+  
+  public interface BasicCharacteristics{}
+  
+   @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
+   private long id;
+   @JsonView(BasicCharacteristics.class)
+   private String name;
+   private boolean value;
+   @ManyToOne
+   private Offer offer;
+   
+   protected Characteristics(){}
+   
+   public Characteristics(String name, boolean value){
+     super();
+     this.name=name;
+     this.value=value;
+   }
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public long getId() {
-		return id;
-	}
+  public long getId() {
+    return id;
+  }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+  public void setId(long id) {
+    this.id = id;
+  }
 
-	public Offer getOffer() {
-		return offer;
-	}
+  public Offer getOffer() {
+    return offer;
+  }
 
-	public void setOffer(Offer offer) {
-		this.offer = offer;
-	}
+  public void setOffer(Offer offer) {
+    this.offer = offer;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public boolean isValue() {
-		return value;
-	}
+  public boolean isValue() {
+    return value;
+  }
 
-	public void setValue(boolean value) {
-		this.value = value;
-	}
-	 
+  public void setValue(boolean value) {
+    this.value = value;
+  }
+   
 }

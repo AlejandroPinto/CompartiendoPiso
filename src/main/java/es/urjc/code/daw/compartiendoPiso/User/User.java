@@ -26,23 +26,24 @@ public class User {
 	
 	public interface BasicUser{}
 	public interface UserLogin{}
+	public interface userAndOffer{}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonView(BasicUser.class)
 	private long id;
-	@JsonView({BasicUser.class,UserLogin.class})
+	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String name;
-	@JsonView({BasicUser.class,UserLogin.class})
+	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String firstLastName;
-	@JsonView({BasicUser.class,UserLogin.class})
+	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String secondLastName;
-	@JsonView({BasicUser.class,UserLogin.class})
+	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String email;
-	@JsonView(BasicUser.class)
+	@JsonView({BasicUser.class,userAndOffer.class})
 	private int phone;
 	@Column(length = 1080)
-	@JsonView(BasicUser.class)
+	@JsonView({BasicUser.class,userAndOffer.class})
 	private String description;
 	@JsonIgnore
 	private String pass;
@@ -58,11 +59,10 @@ public class User {
 	}
 	
 	@OneToMany(mappedBy="user")
-	@JsonIgnore
+	@JsonView(userAndOffer.class)
 	private List<Offer> offers = new ArrayList<>();
 	
 	@OneToMany(mappedBy="userReview")
-	@JsonIgnore
 	private List<Review> reviews = new ArrayList<>();
 
 	

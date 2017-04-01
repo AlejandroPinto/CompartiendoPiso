@@ -1,11 +1,8 @@
 package es.urjc.code.daw.compartiendoPiso.User;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
+import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics;
 
 @RestController
 @RequestMapping("/api/user")
@@ -26,20 +24,22 @@ public class UserRestController {
 	private WebService service;
 	
 	interface CompleteUser extends User.BasicUser, Offer.BasicOffer{}
+	interface UserReviews extends User.userAndOffer, Offer.UserOffer, Characteristics.BasicCharacteristics{}
 	
 	
-	@JsonView(CompleteUser.class)
+	@JsonView(UserReviews.class)
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<String> getUser(@PathVariable long id){
+	public ResponseEntity<User> getUser(@PathVariable long id){
 		User user = service.getUserById(id);	
-		if(user != null && service.isLoggedUser()){
-			return new ResponseEntity<>("Usuario borrado", HttpStatus.OK);
+		System.out.println(user);
+		if(user != null){
+			return new ResponseEntity<>(user, HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
-	@JsonView(CompleteUser.class)
+	@JsonView(UserReviews.class)
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ResponseEntity<User> getUserLogged(){
 		User user = service.getUserById(service.getUserId());	
@@ -101,6 +101,6 @@ public class UserRestController {
 			service.deleteUser(id);
 			return new ResponseEntity<>("Usuario borrado", HttpStatus.OK);
 			}else
-			return new ResponseEntity<>("Error",HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>("User not found",HttpStatus.NOT_FOUND);
 	}
 }
