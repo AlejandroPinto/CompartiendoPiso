@@ -48,6 +48,7 @@ public class LoginController {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
 			session.invalidate();
+			userComponent.setLoggedUser(null);
 			log.info("Logged out");
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}

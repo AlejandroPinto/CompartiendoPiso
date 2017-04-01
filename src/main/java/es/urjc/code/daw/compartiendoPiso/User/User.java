@@ -25,38 +25,37 @@ import es.urjc.code.daw.compartiendoPiso.review.Review;
 public class User {
 	
 	public interface BasicUser{}
-	public interface OtherUser{}
+	public interface OffersUser extends BasicUser{}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonView(BasicUser.class)
 	private long id;
+	
 	@JsonView(BasicUser.class)
 	private String name;
+	
 	@JsonView(BasicUser.class)
 	private String firstLastName;
+	
 	@JsonView(BasicUser.class)
 	private String secondLastName;
+	
 	@JsonView(BasicUser.class)
 	private String email;
+	
 	@JsonView(BasicUser.class)
 	private int phone;
+	
 	@Column(length = 1080)
 	@JsonView(BasicUser.class)
 	private String description;
-	@JsonIgnore
+	
+	@JsonView(BasicUser.class)
 	private String pass;
-	@JsonIgnore
+	
 	private boolean admin;
 	
-	
-	@ElementCollection(fetch = FetchType.EAGER)
-	@JsonIgnore
-	private List<String> roles;
-	
-	public User () {
-		this.roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
-	}
 	@OneToMany(mappedBy="user")
 	@JsonIgnore
 	private List<Offer> offers = new ArrayList<>();
@@ -64,7 +63,14 @@ public class User {
 	@OneToMany(mappedBy="userReview")
 	@JsonIgnore
 	private List<Review> reviews = new ArrayList<>();
-
+	
+	
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
+	
+	public User () {
+		this.roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
+	}
 	
 	public User(String name, String firstLastName, String secondLastName, String email, int phone, String pass, String description,
 			boolean admin, String... roles) {
@@ -149,7 +155,7 @@ public class User {
 	}
 	
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.pass = new BCryptPasswordEncoder().encode(pass);
 	}
 	
 	public boolean isAdmin() {

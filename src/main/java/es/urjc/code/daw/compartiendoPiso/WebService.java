@@ -1,7 +1,5 @@
 package es.urjc.code.daw.compartiendoPiso;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +55,10 @@ public class WebService {
 		userRepository.save(user);
 	}
 	
+	public User saveAndFlushUser(User user){
+		return userRepository.saveAndFlush(user);
+	}
+	
 	public User getUserById(long id){
 		return userRepository.findOne(id);
 	}
@@ -71,5 +73,8 @@ public class WebService {
 	
 	public long getUserId(){
 		return userComponent.getLoggedUser().getId();
+	}
+	public User getLoggedUser(){
+		return userComponent.getLoggedUser();
 	}
 }
