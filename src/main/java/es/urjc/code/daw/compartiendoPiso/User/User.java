@@ -45,7 +45,6 @@ public class User {
 	@Column(length = 1080)
 	@JsonView({BasicUser.class,userAndOffer.class})
 	private String description;
-	@JsonIgnore
 	private String pass;
 	@JsonIgnore
 	private boolean admin;
