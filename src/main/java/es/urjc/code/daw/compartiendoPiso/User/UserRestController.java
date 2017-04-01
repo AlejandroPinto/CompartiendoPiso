@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
+import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics;
 
 @RestController
 @RequestMapping("/api/user")
@@ -23,36 +24,83 @@ public class UserRestController {
 	private WebService service;
 	
 	interface CompleteUser extends User.BasicUser, Offer.BasicOffer{}
+	interface UserReviews extends User.userAndOffer, Offer.UserOffer, Characteristics.BasicCharacteristics{}
 	
 	
-	@JsonView(CompleteUser.class)
+	@JsonView(UserReviews.class)
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<User> getUser(@PathVariable long id){
-		User user = service.getUserById(id);
+		User user = service.getUserById(id);	
+		System.out.println(user);
+		if(user != null){
+			return new ResponseEntity<>(user, HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(UserReviews.class)
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public ResponseEntity<User> getUserLogged(){
+		User user = service.getUserById(service.getUserId());	
 		if(user != null && service.isLoggedUser()){
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	//revisar
+	
+	
 	@JsonView(CompleteUser.class)
 	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public User addUser(@RequestBody User user){
-		service.saveUser(user);
-		return user;
+	public ResponseEntity<User> addUser(@RequestBody User user){
+		try{
+			service.saveUser(user);
+			return new ResponseEntity<User>(user, HttpStatus.OK);
+		}catch(Exception ex){
+			return new ResponseEntity<User>(user, HttpStatus.OK);
+		}
 	}
 	
 	
 	@JsonView(CompleteUser.class)
 	@RequestMapping(value="/editUser", method=RequestMethod.PUT)
-	public ResponseEntity<User> editUser(@RequestBody User user){
-		if((service.isAdmin()) || (user.getId()==service.getUserId())){
-			//añadir metodo de editar
-			return new ResponseEntity<User>(user, HttpStatus.OK);
-		}else{
+	public ResponseEntity<User> editUser(@RequestBody User userUpdated,@PathVariable long id){
+		
+		User user = service.getUserRepository().findOne(id);
+		
+		if ((user != null) && (user.getId() == userUpdated.getId())) {	
+			
+			if (service.isLoggedUser() || service.isAdmin()){
+				user.setName(userUpdated.getName());	
+				user.setFirstLastName(userUpdated.getFirstLastName());
+				user.setSecondLastName(userUpdated.getSecondLastName());
+				user.setEmail(userUpdated.getEmail());
+				user.setPhone(userUpdated.getPhone());
+				user.setDescription(userUpdated.getDescription());
+				user.setPass(userUpdated.getPass());
+	
+				service.saveUser(user);
+				return new ResponseEntity<>(userUpdated, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			}
+		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+			
+	}
+	
+	//El delete no se si es necesario pero ahi lo dejo
+	@JsonView(CompleteUser.class)
+	@RequestMapping(value="/deleteUser/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<String> deleteUser(@PathVariable long id){
+		
+			if(service.isAdmin()){
+			service.deleteUser(id);
+			return new ResponseEntity<>("Usuario borrado", HttpStatus.OK);
+			}else
+			return new ResponseEntity<>("User not found",HttpStatus.NOT_FOUND);
 	}
 }

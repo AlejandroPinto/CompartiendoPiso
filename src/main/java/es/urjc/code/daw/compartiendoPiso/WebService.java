@@ -86,4 +86,10 @@ public class WebService {
 	public long getUserId(){
 		return userComponent.getLoggedUser().getId();
 	}
+	public void deleteUser(long id){
+		userRepository.delete(id);
+	}
+	public UserRepository getUserRepository(){
+		return this.userRepository;
+	}
 }

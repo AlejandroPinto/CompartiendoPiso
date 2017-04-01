@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 
@@ -26,7 +27,10 @@ public class LoginController {
 
 	@Autowired
 	private UserComponent userComponent;
-
+	
+	interface UserLogin extends User.UserLogin{}
+	
+	@JsonView(UserLogin.class)
 	@RequestMapping("/api/logIn")
 	public ResponseEntity<User> logIn() {
 
