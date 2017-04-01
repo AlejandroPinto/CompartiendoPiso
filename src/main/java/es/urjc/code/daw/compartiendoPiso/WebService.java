@@ -92,4 +92,8 @@ public class WebService {
 	public UserRepository getUserRepository(){
 		return this.userRepository;
 	}
+
+	public User saveAndFlushUser(User user) {
+		return userRepository.saveAndFlush(user);
+	}
 }
