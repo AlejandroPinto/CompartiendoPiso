@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import es.urjc.code.daw.compartiendoPiso.UploadFiles;
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
@@ -29,6 +31,9 @@ public class OfferRestController {
 	
 	@Autowired
 	private WebService service;
+	
+	@Autowired
+	private UploadFiles uploadFiles;
 	
 	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Review.BasicReview, Characteristics.BasicCharacteristics{}
 	
@@ -57,6 +62,21 @@ public class OfferRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+//	@JsonView(CompleteOffer.class)
+//	@RequestMapping(value = "/setOfferPhoto/{id}", method = RequestMethod.PUT)
+//	public ResponseEntity<Offer> setPhotoToOffer(@PathVariable long id, @RequestBody MultipartFile file ){
+//		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
+//			Offer updateOffer = service.getOfferById(id);
+//			UploadFiles uploadFiles = new UploadFiles();
+//			uploadFiles.handleFileUpload(files, type)
+//			updateOffer
+//			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
+//		}
+//		else{
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
+//	}
 	
 	@JsonView(CompleteOffer.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)

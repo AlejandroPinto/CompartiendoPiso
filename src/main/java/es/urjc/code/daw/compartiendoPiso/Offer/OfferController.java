@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import es.urjc.code.daw.compartiendoPiso.UploadFiles;
+import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
@@ -43,6 +44,9 @@ public class OfferController {
 	
 	@Autowired
 	private UserComponent userComponent;
+	
+	@Autowired
+	private WebService webService;
 		
 	
 	@PostConstruct
@@ -52,7 +56,7 @@ public class OfferController {
 		
 		Offer offer = new Offer("Chale","Chalé bastante moderno",222,"Vivienda de dos dormitorios, REFORMADA TOTAL (2.013) PARA ENTRAR VIVIR, cocina amueblada ampliada, suelos de gres, carpintería blanco con doble acristalamiento persianas isotérmicas, terraza.","Madrid","Navalcarnero","el olivar",200,2,1,1);
 		offer.setUser(user);
-		offerRepository.save(offer);
+		webService.saveOffer(offer);
 		Characteristics c1 = new Characteristics("Terraza", true);
 		Characteristics c2 = new Characteristics("Balcón", true);
 		Characteristics c3 = new Characteristics("Alarma", true);
@@ -80,7 +84,7 @@ public class OfferController {
 		if(userComponent.isLoggedUser()){
 			model.addAttribute("isLogued",true);
 		}
-		Offer offer = offerRepository.findOne(id);		
+		Offer offer = webService.getOfferById(id);		
 		model.addAttribute("offer", offer);
 		Page<Review> reviews = reviewRepository.findByOfferReview(offer, new PageRequest(page,size));
 		model.addAttribute("reviews", reviews);
@@ -121,7 +125,7 @@ public class OfferController {
 	@RequestMapping("/addReview/{id}")
 	public String addReviewOffer(Model model, @PathVariable long id,@RequestParam("valoration") float valoration, @RequestParam("comment") String comment) {
 		if(userComponent.isLoggedUser()){
-			Offer offer = offerRepository.findOne(id);
+			Offer offer = webService.getOfferById(id);
 			Review review = new Review(valoration, comment);
 			review.setOfferReview(offer);
 			review.setUserReview(userComponent.getLoggedUser());
@@ -141,7 +145,7 @@ public class OfferController {
 	public String offerModify(Model model,@PathVariable long idOffer) {
 		
 		User user = userComponent.getLoggedUser();
-		Offer offer = offerRepository.findOne(idOffer);	
+		Offer offer = webService.getOfferById(idOffer);	
 		
 		if((user.getId()==offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
 			model.addAttribute("offer", offer);
@@ -156,13 +160,13 @@ public class OfferController {
 	public String deleteOffer(Model model, @PathVariable long idOffer) {
 		
 		if(userComponent.isLoggedUser()){
-			Offer offer = offerRepository.findOne(idOffer);
+			Offer offer = webService.getOfferById(idOffer);
 			User user = userComponent.getLoggedUser();
 			//User user = userRepository.findOne(userComponent.getLoggedUser().getId());
 			if((user.getId() == offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
 				characteristicsRepository.delete(offer.getCharacteristics());
 				reviewRepository.delete(offer.getReviews());
-				offerRepository.delete(idOffer);
+				webService.deleteOffer(idOffer);
 				if(user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]")){
 					return "redirect:/admin";
 				}else{
@@ -185,7 +189,7 @@ public class OfferController {
 		
 		if(userComponent.isLoggedUser()){
 			User user = userComponent.getLoggedUser();
-			Offer originalOffer = offerRepository.findOne(idOffer);
+			Offer originalOffer = webService.getOfferById(idOffer);
 			characteristicsRepository.delete(originalOffer.getCharacteristics());
 			if((user.getId() == originalOffer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
 				editOffer.setId(idOffer);
@@ -205,7 +209,7 @@ public class OfferController {
 				UploadFiles uploadedFiles = new UploadFiles();
 				uploadedFiles.handleFileUpload(files,path);	
 				
-				offerRepository.save(editOffer);
+				webService.saveOffer(editOffer);
 				model.addAttribute("offer", editOffer);
 				return "redirect:/offer/"+editOffer.getId()+"/?page=0&size=4";
 			}

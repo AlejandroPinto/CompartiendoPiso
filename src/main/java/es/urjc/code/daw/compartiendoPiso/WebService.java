@@ -12,6 +12,7 @@ import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
+import es.urjc.code.daw.compartiendoPiso.review.Review;
 import es.urjc.code.daw.compartiendoPiso.review.ReviewRepository;
 
 @Service
@@ -50,6 +51,15 @@ public class WebService {
 	
 	public void deleteOffer(long id) {
 		offerRepository.delete(id);
+	}
+	
+	public Review saveAndFlushReview(Review review){
+		return reviewRepository.saveAndFlush(review);
+		
+	}
+	
+	public void saveReview(Review review){
+		reviewRepository.save(review);
 	}
 	
 	//USER UTILS
