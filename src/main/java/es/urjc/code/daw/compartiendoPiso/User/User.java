@@ -25,18 +25,19 @@ import es.urjc.code.daw.compartiendoPiso.review.Review;
 public class User {
 	
 	public interface BasicUser{}
+	public interface UserLogin{}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonView(BasicUser.class)
 	private long id;
-	@JsonView(BasicUser.class)
+	@JsonView({BasicUser.class,UserLogin.class})
 	private String name;
-	@JsonView(BasicUser.class)
+	@JsonView({BasicUser.class,UserLogin.class})
 	private String firstLastName;
-	@JsonView(BasicUser.class)
+	@JsonView({BasicUser.class,UserLogin.class})
 	private String secondLastName;
-	@JsonView(BasicUser.class)
+	@JsonView({BasicUser.class,UserLogin.class})
 	private String email;
 	@JsonView(BasicUser.class)
 	private int phone;
