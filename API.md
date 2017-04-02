@@ -276,6 +276,36 @@ Añade un usuario al sistema.
         "phone": 918115789,
         "description": "Me gusta la playa"
       }
+### AÑADIR FOTO A UN USUARIO
+Añade una foto a una usuario existente, se añade la foto en el usuario logueado.
+
+* ##### URL
+
+	< /setUserPhoto >
+
+* ##### Método:
+
+	`PUT`
+
+* ##### URL Params
+	* Required:
+		* `id=[long]`
+
+* ##### Data Params
+	* Required:
+		* `files=[List<MultipartFile>]`
+		
+* ##### Success Response:
+
+     {
+	"id": 4,
+	"name": "Oscar",
+	"firstLastName": "Sanchez",
+	"secondLastName": "Sanchez",
+	"email": "b@b.com",
+	"phone": 918115789,
+	"description": "Soy una maquina"
+      }
 ### MODIFICAR USUARIO
 Modifica los datos de un usuario previamente creado, esta se podrá llevar a cabo por el usuario con rol de admin o el mismo usuario.
 
