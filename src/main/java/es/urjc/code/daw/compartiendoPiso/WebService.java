@@ -121,4 +121,5 @@ public class WebService {
 
 	public User saveAndFlushUser(User user) {
 		return userRepository.saveAndFlush(user);
-}
+	}
+}	
