@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics.BasicCharacteristics;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.review.Review;
+import es.urjc.code.daw.compartiendoPiso.review.Review.BasicReview;
 
 
 @Entity
@@ -53,7 +54,7 @@ public class Offer {
 	 private User user;
 	 
 	 @OneToMany(mappedBy="offerReview")
-	 @JsonView(BasicCharacteristics.class)
+	 @JsonView(BasicReview.class)
 	 private List<Review> reviews = new ArrayList<>();
 	
 	 public User getUser() {

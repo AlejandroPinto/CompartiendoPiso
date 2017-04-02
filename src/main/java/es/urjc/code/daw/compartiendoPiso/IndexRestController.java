@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.Offer.OfferRepository;
@@ -28,7 +29,7 @@ public class IndexRestController {
 	
 	@Autowired
 	private OfferRepository offerRepository;
-	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser{}
+	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Characteristics.BasicCharacteristics{}
 	
 	@JsonView(CompleteOffer.class)
 	@RequestMapping(value="/search", method=RequestMethod.GET)
