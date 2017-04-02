@@ -1,5 +1,7 @@
 package es.urjc.code.daw.compartiendoPiso.User;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,11 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import es.urjc.code.daw.compartiendoPiso.UploadFiles;
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics;
@@ -106,5 +111,24 @@ public class UserRestController {
 			return new ResponseEntity<>("Usuario borrado", HttpStatus.OK);
 			}else
 			return new ResponseEntity<>("User not found",HttpStatus.NOT_FOUND);
+	}
+	
+	@JsonView(CompleteUser.class)
+	@RequestMapping(value = "/setUserPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
+	public ResponseEntity<User> setUserPhoto(@PathVariable long id, @RequestParam("file") List<MultipartFile> files ){
+		if((service.isLoggedUser())){
+			if(service.getLoggedUser().getId() == id){
+				User updatedUser = service.getLoggedUser();
+				UploadFiles uploadFiles = new UploadFiles();
+				String path =  service.getLoggedUser().getId()+"";
+				uploadFiles.handleFileUpload(files,path);
+				return new ResponseEntity<User>(updatedUser, HttpStatus.OK);
+			}else{
+				return new ResponseEntity<>(HttpStatus.NETWORK_AUTHENTICATION_REQUIRED);
+			}
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 }
