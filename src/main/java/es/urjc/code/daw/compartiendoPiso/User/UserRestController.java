@@ -56,12 +56,16 @@ public class UserRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<User> addUser(@RequestBody User user){
 		try{
-			service.saveUser(user);
-			return new ResponseEntity<User>(user, HttpStatus.OK);
+			user.setPass(user.getPass());
+			User userSaved = service.saveAndFlushUser(user);
+			
+			return new ResponseEntity<User>(userSaved, HttpStatus.CREATED);
 		}catch(Exception ex){
-			return new ResponseEntity<User>(user, HttpStatus.OK);
+			ex.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
 	
 	
 	@JsonView(CompleteUser.class)

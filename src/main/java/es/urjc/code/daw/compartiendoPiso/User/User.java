@@ -45,7 +45,6 @@ public class User {
 	@Column(length = 1080)
 	@JsonView({BasicUser.class,userAndOffer.class})
 	private String description;
-	@JsonIgnore
 	private String pass;
 	@JsonIgnore
 	private boolean admin;
@@ -149,7 +148,7 @@ public class User {
 	}
 	
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.pass = new BCryptPasswordEncoder().encode(pass); 
 	}
 	
 	public boolean isAdmin() {
