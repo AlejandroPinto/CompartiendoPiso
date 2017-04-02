@@ -38,6 +38,9 @@ n.garciagarci@alumnos.urjc.es https://github.com/Nazaret7
 ## Enlace a Trello:
 https://trello.com/b/92t9qqny/daw
 
+## API-REST documentación:
+https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/API.md
+
 ## FASE 2
 
 ##Diagrama de navegación:
