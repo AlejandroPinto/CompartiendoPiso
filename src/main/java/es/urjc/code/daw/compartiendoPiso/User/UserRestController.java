@@ -69,27 +69,18 @@ public class UserRestController {
 	
 	
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value="/editUser", method=RequestMethod.PUT)
-	public ResponseEntity<User> editUser(@RequestBody User userUpdated,@PathVariable long id){
+	@RequestMapping(value="/editUser/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<User> editUser(@PathVariable long id,@RequestBody User userUpdated){
 		
-		User user = service.getUserRepository().findOne(id);
+		User user = service.getUserById(id);	
 		
-		if ((user != null) && (user.getId() == userUpdated.getId())) {	
+		if ((user != null) && (service.isLoggedUser())){	
 			
-			if (service.isLoggedUser() || service.isAdmin()){
-				user.setName(userUpdated.getName());	
-				user.setFirstLastName(userUpdated.getFirstLastName());
-				user.setSecondLastName(userUpdated.getSecondLastName());
-				user.setEmail(userUpdated.getEmail());
-				user.setPhone(userUpdated.getPhone());
-				user.setDescription(userUpdated.getDescription());
-				user.setPass(userUpdated.getPass());
-	
-				service.saveUser(user);
-				return new ResponseEntity<>(userUpdated, HttpStatus.OK);
-			} else {
-				return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-			}
+			userUpdated.setId(id);
+			userUpdated.setPass(user.getPass());
+			service.saveUser(userUpdated);
+			
+			return new ResponseEntity<>(userUpdated, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
