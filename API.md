@@ -297,15 +297,15 @@ Añade una foto a una usuario existente, se añade la foto en el usuario loguead
 		
 * ##### Success Response:
 
-     {
-	"id": 4,
-	"name": "Oscar",
-	"firstLastName": "Sanchez",
-	"secondLastName": "Sanchez",
-	"email": "b@b.com",
-	"phone": 918115789,
-	"description": "Soy una maquina"
-      }
+	     {
+		"id": 4,
+		"name": "Oscar",
+		"firstLastName": "Sanchez",
+		"secondLastName": "Sanchez",
+		"email": "b@b.com",
+		"phone": 918115789,
+		"description": "Soy una maquina"
+	      }
 ### MODIFICAR USUARIO
 Modifica los datos de un usuario previamente creado, esta se podrá llevar a cabo por el usuario con rol de admin o el mismo usuario.
 
