@@ -105,6 +105,10 @@ public class WebService {
 		return userComponent.getLoggedUser();
 	}
 	
+	public void setLoggedUser(User user){
+		userComponent.setLoggedUser(user);;
+	}
+	
 	public boolean isAdmin(){
 		return userComponent.getLoggedUser().getRoles().equals("[ROLE_ADMIN]");
 	}
@@ -121,5 +125,9 @@ public class WebService {
 
 	public User saveAndFlushUser(User user) {
 		return userRepository.saveAndFlush(user);
+	}
+	
+	public User findUserByEmail(String email){
+		return userRepository.findByEmail(email);		
 	}
 }	
