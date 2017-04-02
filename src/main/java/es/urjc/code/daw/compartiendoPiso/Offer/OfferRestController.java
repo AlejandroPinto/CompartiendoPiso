@@ -80,8 +80,15 @@ public class OfferRestController {
 	public ResponseEntity<Offer> updateOffer(@PathVariable long id, @RequestBody Offer updatedOffer) {
 		
 		Offer offer = service.getOfferById(id);
+		service.deleteCharacteristics(offer.getCharacteristics());
 		if (offer != null) {
 			updatedOffer.setId(id);
+						
+			for(Characteristics c :updatedOffer.getCharacteristics()){
+				c.setOffer(updatedOffer);
+				service.saveCharacteristic(c);
+			}
+			
 			service.saveOffer(updatedOffer);
 			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
 		}

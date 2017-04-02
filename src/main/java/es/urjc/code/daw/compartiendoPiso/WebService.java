@@ -79,8 +79,8 @@ public class WebService {
 		return reviewRepository.findByOfferReview(offer, pageRequest);
 	}
 	
-	public void saveCharacteristics (Characteristics characteristics){
-		characteristicsRepository.save(characteristics);
+	public void saveCharacteristic (Characteristics characteristic){
+		characteristicsRepository.save(characteristic);
 	}
 	
 	public void deleteCharacteristics (List<Characteristics> characteristics){

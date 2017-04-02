@@ -48,9 +48,9 @@ public class OfferController {
 		c1.setOffer(offer);
 		c2.setOffer(offer);
 		c3.setOffer(offer);
-		webService.saveCharacteristics(c1);
-		webService.saveCharacteristics(c2);
-		webService.saveCharacteristics(c3);	
+		webService.saveCharacteristic(c1);
+		webService.saveCharacteristic(c2);
+		webService.saveCharacteristic(c3);	
 		
 		
 		
@@ -183,7 +183,7 @@ public class OfferController {
 					Characteristics c = new Characteristics(attribute, true);
 					c.setOffer(editOffer);
 
-					webService.saveCharacteristics(c);
+					webService.saveCharacteristic(c);
 				}
 				
 				String path =  user.getId()+"/"+editOffer.getId();
@@ -218,7 +218,7 @@ public class OfferController {
 		for(String attribute :atributtesList){
 			Characteristics c = new Characteristics(attribute, true);
 			c.setOffer(offer);
-			webService.saveCharacteristics(c);
+			webService.saveCharacteristic(c);
 		}
 				
 		String path =  user.getId()+"/"+offerSave.getId();
