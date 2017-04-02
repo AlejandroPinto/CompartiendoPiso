@@ -50,7 +50,8 @@ public class OfferRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer ){
 		if(service.isLoggedUser()){
-			User user = service.getLoggedUser();
+			User user = service.getUserById(service.getUserId());
+			System.out.println(user.getName()+"++++++++++++++");
 			offer.setUser(user);
 			service.saveOffer(offer);
 			return new ResponseEntity<Offer>(offer, HttpStatus.OK);

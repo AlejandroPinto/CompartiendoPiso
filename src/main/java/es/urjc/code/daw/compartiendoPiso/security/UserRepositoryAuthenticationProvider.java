@@ -14,6 +14,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
@@ -22,18 +23,15 @@ import es.urjc.code.daw.compartiendoPiso.User.UserRepository;
 public class UserRepositoryAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
-	private UserRepository userRepository;
-
-	@Autowired
-	private UserComponent userComponent;
-
+	private WebService service;
+	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
 		String email = authentication.getName();
 		String password = (String) authentication.getCredentials();
 
-		User user = userRepository.findByEmail(email);
+		User user = service.findUserByEmail(email);
 
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
@@ -44,7 +42,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 			throw new BadCredentialsException("Wrong password");
 		} else {
 
-			userComponent.setLoggedUser(user);
+			service.setLoggedUser(user);
 
 			List<GrantedAuthority> roles = new ArrayList<>();
 			for (String role : user.getRoles()) {

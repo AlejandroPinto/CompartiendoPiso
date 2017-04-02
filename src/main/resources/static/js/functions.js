@@ -20,7 +20,7 @@ function setAttributee(attribute){
 function browser(page){
 	$('#spinner').html("<img src='/img/slider/spinner.gif>");
 	$.ajax({
-		url: "/search?&queryBox="+$("[name='queryBox']").val()+"&priceFrom="+
+		url: "/api/search?&queryBox="+$("[name='queryBox']").val()+"&priceFrom="+
 			$("[name='priceFrom']").val()+"&priceTo="+$("[name='priceTo']").val()+
 			"&type="+$("[name='type']").val()+"&rooms="+$("[name='rooms']").val()+
 			"&bathroom="+$("[name='bathroom']").val()+"&area="+$("[name='area']").val()+

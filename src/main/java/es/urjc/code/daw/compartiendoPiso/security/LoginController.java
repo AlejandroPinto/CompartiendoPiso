@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
+
+import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.User.UserComponent;
 
@@ -26,7 +28,7 @@ public class LoginController {
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 
 	@Autowired
-	private UserComponent userComponent;
+	private WebService service;
 	
 	interface UserLogin extends User.UserLogin{}
 	
@@ -34,11 +36,11 @@ public class LoginController {
 	@RequestMapping("/api/logIn")
 	public ResponseEntity<User> logIn() {
 
-		if (!userComponent.isLoggedUser()) {
+		if (!service.isLoggedUser()) {
 			log.info("Not user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
-			User loggedUser = userComponent.getLoggedUser();
+			User loggedUser = service.getLoggedUser();
 			log.info("Logged as " + loggedUser.getName());
 			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
 		}
@@ -47,7 +49,7 @@ public class LoginController {
 	@RequestMapping("/api/logOut")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
-		if (!userComponent.isLoggedUser()) {
+		if (!service.isLoggedUser()) {
 			log.info("No user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		} else {
