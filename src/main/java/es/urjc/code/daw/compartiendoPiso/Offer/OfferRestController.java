@@ -91,10 +91,14 @@ public class OfferRestController {
 	}
 	
 	@JsonView(CompleteOffer.class)
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/deleteOffer/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Offer> deleteOffer(@PathVariable long id) {
-		service.deleteOffer(id);
-		return new ResponseEntity<>(null, HttpStatus.OK);
+		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
+			service.deleteOffer(id);
+			return new ResponseEntity<>(null, HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+		}
 	}
 
 }
