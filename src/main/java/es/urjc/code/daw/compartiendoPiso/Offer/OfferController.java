@@ -31,28 +31,13 @@ import es.urjc.code.daw.compartiendoPiso.review.ReviewRepository;
 public class OfferController {
 	
 	@Autowired
-	private OfferRepository offerRepository;
-	
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Autowired
-	private CharacteristicsRepository characteristicsRepository;
-	
-	@Autowired
-	private ReviewRepository reviewRepository;
-	
-	@Autowired
-	private UserComponent userComponent;
-	
-	@Autowired
 	private WebService webService;
 		
 	
 	@PostConstruct
 	public void init() {
 		
-		User user = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","c@c.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
+		User user = webService.saveAndFlushUser(new User ("JUAN","Sanchez","Sanchez","c@c.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
 		
 		Offer offer = new Offer("Chale","Chalé bastante moderno",222,"Vivienda de dos dormitorios, REFORMADA TOTAL (2.013) PARA ENTRAR VIVIR, cocina amueblada ampliada, suelos de gres, carpintería blanco con doble acristalamiento persianas isotérmicas, terraza.","Madrid","Navalcarnero","el olivar",200,2,1,1);
 		offer.setUser(user);
@@ -63,30 +48,30 @@ public class OfferController {
 		c1.setOffer(offer);
 		c2.setOffer(offer);
 		c3.setOffer(offer);
-		characteristicsRepository.save(c1);
-		characteristicsRepository.save(c2);
-		characteristicsRepository.save(c3);	
+		webService.saveCharacteristics(c1);
+		webService.saveCharacteristics(c2);
+		webService.saveCharacteristics(c3);	
 		
 		
 		
-		User user2 = userRepository.saveAndFlush(new User ("JUAN","Sanchez","Sanchez","d@d.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
+		User user2 = webService.saveAndFlushUser(new User ("JUAN","Sanchez","Sanchez","d@d.com",918115789,"1234","Soy una maquina",false,"ROLE_USER"));
 		for(int i=0;i<10;i++){
 			Review review = new Review(5,"regular"+i);
 			review.setOfferReview(offer);
 			review.setUserReview(user2);
-			reviewRepository.save(review);
+			webService.saveReview(review);
 		}
 		
 	}
 
 	@RequestMapping("/offer/{id}")
 	public String verAnuncio(Model model, @PathVariable long id, Pageable pageable, @RequestParam int page, @RequestParam int size) {
-		if(userComponent.isLoggedUser()){
+		if(webService.isLoggedUser()){
 			model.addAttribute("isLogued",true);
 		}
 		Offer offer = webService.getOfferById(id);		
 		model.addAttribute("offer", offer);
-		Page<Review> reviews = reviewRepository.findByOfferReview(offer, new PageRequest(page,size));
+		Page<Review> reviews = webService.findByOfferReview(offer, page,size);
 		model.addAttribute("reviews", reviews);
 		model.addAttribute("numReviews",offer.getReviews().size());
 		
@@ -124,12 +109,12 @@ public class OfferController {
 	
 	@RequestMapping("/addReview/{id}")
 	public String addReviewOffer(Model model, @PathVariable long id,@RequestParam("valoration") float valoration, @RequestParam("comment") String comment) {
-		if(userComponent.isLoggedUser()){
+		if(webService.isLoggedUser()){
 			Offer offer = webService.getOfferById(id);
 			Review review = new Review(valoration, comment);
 			review.setOfferReview(offer);
-			review.setUserReview(userComponent.getLoggedUser());
-			reviewRepository.save(review);
+			review.setUserReview(webService.getLoggedUser());
+			webService.saveReview(review);
 			return "redirect:/offer/"+offer.getId()+"?page=0&size=4";
 		}else{
 			return "redirect:/offer/"+id;
@@ -144,7 +129,7 @@ public class OfferController {
 	@RequestMapping("/offerModify/{idOffer}")
 	public String offerModify(Model model,@PathVariable long idOffer) {
 		
-		User user = userComponent.getLoggedUser();
+		User user = webService.getLoggedUser();
 		Offer offer = webService.getOfferById(idOffer);	
 		
 		if((user.getId()==offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
@@ -159,13 +144,11 @@ public class OfferController {
 	@RequestMapping("/deleteOffer/{idOffer}")
 	public String deleteOffer(Model model, @PathVariable long idOffer) {
 		
-		if(userComponent.isLoggedUser()){
+		if(webService.isLoggedUser()){
 			Offer offer = webService.getOfferById(idOffer);
-			User user = userComponent.getLoggedUser();
+			User user = webService.getLoggedUser();
 			//User user = userRepository.findOne(userComponent.getLoggedUser().getId());
 			if((user.getId() == offer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
-				characteristicsRepository.delete(offer.getCharacteristics());
-				reviewRepository.delete(offer.getReviews());
 				webService.deleteOffer(idOffer);
 				if(user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]")){
 					return "redirect:/admin";
@@ -187,10 +170,10 @@ public class OfferController {
 	@RequestMapping(value="/setModify/{idOffer}", method=RequestMethod.POST)
 	public String setModify(Model model, Offer editOffer, String attributes, @PathVariable long idOffer, @RequestParam("file") List<MultipartFile> files){
 		
-		if(userComponent.isLoggedUser()){
-			User user = userComponent.getLoggedUser();
+		if(webService.isLoggedUser()){
+			User user = webService.getLoggedUser();
 			Offer originalOffer = webService.getOfferById(idOffer);
-			characteristicsRepository.delete(originalOffer.getCharacteristics());
+			webService.deleteCharacteristics(originalOffer.getCharacteristics());
 			if((user.getId() == originalOffer.getUser().getId()) || (user.getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))){
 				editOffer.setId(idOffer);
 				editOffer.setUser(user);
@@ -200,7 +183,7 @@ public class OfferController {
 					Characteristics c = new Characteristics(attribute, true);
 					c.setOffer(editOffer);
 
-					characteristicsRepository.save(c);
+					webService.saveCharacteristics(c);
 				}
 				
 				String path =  user.getId()+"/"+editOffer.getId();
@@ -226,16 +209,16 @@ public class OfferController {
 	@RequestMapping("/newOffer")
 	public String newOffer(Model model, Offer offer, String attributes, @RequestParam("file") List<MultipartFile> files) {
 	
-		User user = userComponent.getLoggedUser();
+		User user = webService.getLoggedUser();
 		 
-		Offer offerSave = offerRepository.saveAndFlush(offer);
+		Offer offerSave = webService.saveAndFlushOffer(offer);
 		offer.setUser(user);
 		
 		String[] atributtesList= attributes.split(",");
 		for(String attribute :atributtesList){
 			Characteristics c = new Characteristics(attribute, true);
 			c.setOffer(offer);
-			characteristicsRepository.save(c);
+			webService.saveCharacteristics(c);
 		}
 				
 		String path =  user.getId()+"/"+offerSave.getId();
