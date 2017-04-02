@@ -43,14 +43,14 @@ https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/API.md
 
 ## FASE 2
 
-##Diagrama de navegación:
+## Diagrama de navegación:
 Index
 ![DiagramaIndex](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaNavegacion(index).PNG?raw=true "DiagramaIndex")
 
 Vistas privadas
 ![DiagramaPrivada](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaNavegacion(vistasPrivadas).PNG?raw=true "DiagramaPrivada")
 
-##Capturas:
+## Capturas:
 
 La vista register.html, permite el registro del usuario en la aplicación web compartiendoPiso.
 
@@ -65,8 +65,6 @@ En la vista index.html se muestra el buscador principal de la aplicación web y 
 ![Index1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaIndex1.PNG?raw=true "Index1")
 
 ![Index2](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaIndex2.PNG?raw=true "Index2")
-
-![Index3](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaIndex3.PNG?raw=true "Index3")
 
 En las vistas offer-house.html y offer-room.html se muestra la oferta en particular de un tipo de casa o habitación con su título, descripción, fotos... además de valoraciones por parte de los demás usuarios y un espacio de conversación entre el usuario interesado y el propietario de la oferta.
 
@@ -96,7 +94,7 @@ La vista admin.html, permite administrar las ofertas creadas por los usuarios, r
 
 ![Admin1](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/vistaAdmin1.PNG?raw=true "Admin1")
 
-##Template utlizado:
+## Template utlizado:
 Hemos usado de plantilla la web Home property (http://www.markups.io/preview/home-property/) y hemos utilizado los siguientes html:
 - Signin.html: Hemos utilizado el formulario de inicio de sesión con algunos cambios de título traducido al español y hemos tocado el CSS para cambiar el fondo.
 - Register.html: Hemos utilizado el formulario de registro, le hemos añadido nuevos campos en función de los datos que necesitamos del usuario traducido al español y hemos tocado el CSS para cambiar el fondo.
@@ -108,14 +106,12 @@ Hemos usado de plantilla la web Home property (http://www.markups.io/preview/hom
 Los html newAd.html y newAdModify.html son creados por nosotros mediante formularios.
 
 
-## FASE 3
+## FASE 3 Y FASE 4
 
-#Entidades de la base de datos:
+# Entidades de la base de datos:
 
 ![BBDD](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/uml.png?raw=true "BBDD")
 
-#Diagrama de clases y templates:
+# Diagrama de clases y templates:
 
 ![DiagramaClases](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/diagrama.PNG?raw=true "DiagramaClases")
-
-
