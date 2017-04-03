@@ -147,7 +147,7 @@
     <div class="container">
       <div class="aa-advance-search-area">
         <div class="form">
-          <form action="/search" method="GET" id="busca">
+          <form action="/api/search" method="GET" id="busca">
            <div class="aa-advance-search-top">
              <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -282,22 +282,54 @@
                </div>
               </div>
                </div>  
-               <div class="row">
-                <br>
-                 <!-- div>
-                  <div class="col-md-8 col-md-offset-2">
-                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="lift"> Ascensor</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="terrace"> Terraza</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="pool"> Piscina</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="pets"> Mascotas</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="smoker"> Fumadores</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="garage"> Garaje</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="boxroom"> Trastero</button>
-                     <button type="button" class="btn btn-default btn-advancedSearch button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off" name="air"> AC</button>
-                  </div>
-                </div-->
-              <!--/span-->
-             </div> <!--ID-->     
+               <div id="caracteristicas-anuncio">
+               <br>
+	               <div class="row">
+	                   <div class="col-md-offset-2 col-xs-6  col-md-2">
+	                       <button onClick="setAttributee('Aire')" type="button" id="button-caracteristics" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
+	                   </div>
+	                   <div class="col-xs-6  col-md-2">
+	                       <button onClick="setAttributee('Ascensor')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
+	                   </div>
+	                   <div class="col-md-2 col-xs-6 ">
+	                       <button onClick="setAttributee('Terraza')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
+	                   </div>
+	                   <div class="col-md-2 col-xs-6 ">
+	                       <button onClick="setAttributee('Piscina')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
+	                   </div>
+	               </div>
+	               <br>
+	               <div class="row">
+	                   <div class="col-md-offset-2 col-xs-6  col-md-2">
+	                       <button onClick="setAttributee('Fumadores')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
+	                   </div>
+	                   <div class="col-xs-6  col-md-2">
+	                       <button onClick="setAttributee('Mascotas')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
+	                   </div>
+	                   <div class="col-md-2 col-xs-6 ">
+	                       <button onClick="setAttributee('Iluminado')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Iluminado</button>
+	                   </div>
+	                   <div class="col-md-2 col-xs-6 ">
+	                       <button onClick="setAttributee('Bajo')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Bajo</button>
+	                   </div>
+	               </div>
+	               <br>
+	               <div class="row">
+	                   <div class="col-md-offset-2 col-xs-6  col-md-2">
+	                       <button onClick="setAttributee('Trastero')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Trastero</button>
+	                   </div>
+	                   <div class="col-xs-6  col-md-2">
+	                       <button onClick="setAttributee('Calefacción central')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
+	                   </div>
+	                   <div class="col-md-2 col-xs-6 ">
+	                       <button onClick="setAttributee('Patio')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Patio</button>
+	                   </div>
+	                   <div class="col-md-2 col-xs-6 ">
+	                       <button onClick="setAttributee('Garaje')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Garaje</button>
+	                   </div>
+	               </div> <!--ID-->     
+	               <input id="attributes" type="text" value="" name="attributes" hidden/>
+           </div>    
            </div>
           </div>
           <input id="attributes" type="text" value="" name="attributes" hidden/>

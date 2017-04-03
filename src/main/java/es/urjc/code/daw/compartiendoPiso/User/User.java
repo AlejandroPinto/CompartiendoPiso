@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
@@ -24,30 +25,40 @@ import es.urjc.code.daw.compartiendoPiso.review.Review;
 public class User {
 	
 	public interface BasicUser{}
+	public interface UserLogin{}
+	public interface userAndOffer{}
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@JsonView(BasicUser.class)
 	private long id;
-	
+	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String name;
+	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String firstLastName;
+	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String secondLastName;
+	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String email;
+	@JsonView({BasicUser.class,userAndOffer.class})
 	private int phone;
-	
 	@Column(length = 1080)
+	@JsonView({BasicUser.class,userAndOffer.class})
 	private String description;
-	
 	private String pass;
+	@JsonIgnore
 	private boolean admin;
 	
+	
 	@ElementCollection(fetch = FetchType.EAGER)
+	@JsonIgnore
 	private List<String> roles;
 	
-	public User () {}
-	
+	public User () {
+		this.roles = new ArrayList<>(Arrays.asList("ROLE_USER"));
+	}
 	@OneToMany(mappedBy="user")
+	@JsonView(userAndOffer.class)
 	private List<Offer> offers = new ArrayList<>();
 	
 	@OneToMany(mappedBy="userReview")
@@ -137,7 +148,7 @@ public class User {
 	}
 	
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.pass = new BCryptPasswordEncoder().encode(pass); 
 	}
 	
 	public boolean isAdmin() {

@@ -3,7 +3,6 @@ package es.urjc.code.daw.compartiendoPiso.Offer;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,38 +12,41 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics.BasicCharacteristics;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.review.Review;
+import es.urjc.code.daw.compartiendoPiso.review.Review.BasicReview;
 
 
 @Entity
 public class Offer {
 	
 	public interface BasicOffer{}
+	public interface UserOffer{}
 	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private long id;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private String title;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private float price;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private String description;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private String province;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private String location;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private String neighborhood;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private int area;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private int bathroom;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private int rooms;
-	 @JsonView(BasicOffer.class)
+	 @JsonView({BasicOffer.class,UserOffer.class})
 	 private String type;
 	 
 	 @ManyToOne
@@ -52,6 +54,7 @@ public class Offer {
 	 private User user;
 	 
 	 @OneToMany(mappedBy="offerReview")
+	 @JsonView(BasicReview.class)
 	 private List<Review> reviews = new ArrayList<>();
 	
 	 public User getUser() {
@@ -63,7 +66,8 @@ public class Offer {
 	}
 
 	@OneToMany(mappedBy="offer")
-	 private List<Characteristics> characteristics = new ArrayList<>();
+	@JsonView(BasicOffer.class)
+	private List<Characteristics> characteristics = new ArrayList<>();
 	 
 	 //private User usesrID;
 	 private int numPlaces;
@@ -71,10 +75,11 @@ public class Offer {
 	 public int getBathroom() {
 		return bathroom;
 	}
+	
 
-	public void setCharacteristics(List<Characteristics> characteristics) {
-		this.characteristics = characteristics;
-	}
+//	public void setCharacteristics(List<Characteristics> characteristics) {
+//		this.characteristics = characteristics;
+//	}
 
 	protected Offer() {}
 	
@@ -189,6 +194,16 @@ public class Offer {
 				+ ", province=" + province + ", location=" + location + ", neighborhood=" + neighborhood + ", area="
 				+ area + ", bathdroom=" + bathroom + ", rooms=" + rooms + ", type=" + type + ", characteristics="
 				+ characteristics + ", numPlaces=" + numPlaces + "]";
+	}
+	
+	public ArrayList<String> getStringCharacteristics(){
+		ArrayList<String> LstringCharacteristics = new ArrayList<String>();
+		int i=0;
+		for(Characteristics c : this.characteristics){
+			LstringCharacteristics.add(i, c.getName());
+			i++;
+		}
+		return LstringCharacteristics;
 	}
 
 	 
