@@ -81,6 +81,7 @@ public class OfferRestController {
 		service.deleteCharacteristics(offer.getCharacteristics());
 		if (offer != null) {
 			updatedOffer.setId(id);
+			updatedOffer.setUser(offer.getUser());
 						
 			for(Characteristics c :updatedOffer.getCharacteristics()){
 				c.setOffer(updatedOffer);
@@ -88,7 +89,7 @@ public class OfferRestController {
 			}
 			
 			service.saveOffer(updatedOffer);
-			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
+			return new ResponseEntity<Offer>(updatedOffer, HttpStatus.OK);
 		}
 		else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
