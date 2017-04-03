@@ -79,7 +79,7 @@ public class OfferRestController {
 		
 		Offer offer = service.getOfferById(id);
 		service.deleteCharacteristics(offer.getCharacteristics());
-		if (offer != null) {
+		if (offer != null && (service.isLoggedUser()) || (service.isAdmin())) {
 			updatedOffer.setId(id);
 			updatedOffer.setUser(offer.getUser());
 						
