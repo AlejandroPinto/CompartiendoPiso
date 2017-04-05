@@ -18,7 +18,7 @@ import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/review")
 public class ReviewRestController {
 	
 	@Autowired
@@ -27,7 +27,7 @@ public class ReviewRestController {
 	interface CompleteReview extends Offer.BasicOffer, User.BasicUser, Review.BasicReview, Characteristics.BasicCharacteristics{};
 	
 	@JsonView(CompleteReview.class)
-	@RequestMapping(value = "/addReview/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Offer> addReview(@PathVariable long id,@RequestBody Review review){
 		if(service.isLoggedUser()){

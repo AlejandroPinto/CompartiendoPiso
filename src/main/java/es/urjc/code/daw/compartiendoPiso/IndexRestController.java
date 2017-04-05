@@ -32,7 +32,7 @@ public class IndexRestController {
 	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Characteristics.BasicCharacteristics{}
 	
 	@JsonView(CompleteOffer.class)
-	@RequestMapping(value="/search", method=RequestMethod.GET)
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	public ResponseEntity<List<Offer>> indexView(Model model,@RequestParam String queryBox,
 			@RequestParam float priceTo, @RequestParam float priceFrom,
 			@RequestParam String type, @RequestParam int bathroom,
@@ -68,15 +68,6 @@ public class IndexRestController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}else{
 			return new ResponseEntity<List<Offer>>(verifyOffers,HttpStatus.OK);
-		}
-		
-		
-//		model.addAttribute("offers",offers);
-//		if(!offersPage.hasContent()){
-//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//		}else{
-//			return new ResponseEntity<List<Offer>>(offers,HttpStatus.OK);
-//		}	
+		}	
 	}
-	
 }

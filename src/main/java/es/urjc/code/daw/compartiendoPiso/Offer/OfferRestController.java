@@ -43,12 +43,11 @@ public class OfferRestController {
 	}
 	
 	@JsonView(CompleteOffer.class)
-	@RequestMapping(value = "/addOffer", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer ){
 		if(service.isLoggedUser()){
 			User user = service.getUserById(service.getUserId());
-			System.out.println(user.getName()+"++++++++++++++");
 			offer.setUser(user);
 			service.saveOffer(offer);
 			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
@@ -59,7 +58,7 @@ public class OfferRestController {
 	}
 	
 	@JsonView(CompleteOffer.class)
-	@RequestMapping(value = "/setOfferPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
+	@RequestMapping(value = "/offerPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
 	public ResponseEntity<Offer> setPhotoToOffer(@PathVariable long id, @RequestParam("file") List<MultipartFile> files ){
 		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
 			Offer updateOffer = service.getOfferById(id);
@@ -97,7 +96,7 @@ public class OfferRestController {
 	}
 	
 	@JsonView(CompleteOffer.class)
-	@RequestMapping(value = "/deleteOffer/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Offer> deleteOffer(@PathVariable long id) {
 		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
 			service.deleteOffer(id);

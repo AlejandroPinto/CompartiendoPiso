@@ -57,7 +57,7 @@ public class UserRestController {
 	
 	
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value="/addUser", method=RequestMethod.POST)
+	@RequestMapping(value="/", method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<User> addUser(@RequestBody User user){
 		try{
@@ -73,7 +73,7 @@ public class UserRestController {
 	
 	
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value="/editUser/{id}", method=RequestMethod.PUT)
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<User> editUser(@PathVariable long id,@RequestBody User userUpdated){
 		
 		User user = service.getUserById(id);	
@@ -93,7 +93,7 @@ public class UserRestController {
 	
 	//El delete no se si es necesario pero ahi lo dejo
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value="/deleteUser/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<String> deleteUser(@PathVariable long id){
 		
 			if(service.isAdmin()){
@@ -104,7 +104,7 @@ public class UserRestController {
 	}
 	
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value = "/setUserPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
+	@RequestMapping(value = "/userPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
 	public ResponseEntity<User> setUserPhoto(@PathVariable long id, @RequestParam("file") List<MultipartFile> files ){
 		if((service.isLoggedUser())){
 			if(service.getLoggedUser().getId() == id){
