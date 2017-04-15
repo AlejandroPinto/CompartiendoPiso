@@ -1,0 +1,302 @@
+  <body>  
+  <!-- Pre Loader -->
+  <div id="aa-preloader-area">
+    <div class="pulse"></div>
+  </div>
+  <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+  <!-- END SCROLL TOP BUTTON -->
+
+
+  <!-- Start header section -->
+  <header id="aa-header"> 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-header-area">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-6">         
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+              
+                <div class="aa-header-right">
+                  <a href="/register" class="aa-register">Registrarse</a>
+                  <a href="/signin" class="aa-login logued">Conectar</a>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- End header section -->
+  <!-- Start menu section -->
+  <section id="aa-menu-area">
+    <nav class="navbar navbar-default main-navbar" role="navigation">  
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- LOGO -->                                               
+          <!-- Text based logo -->
+          <a class="navbar-brand aa-logo" href="/">compartiendo<span>Piso</span></a>                    
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
+             <li><a href="/">Inicio</a></li>                                        
+            <li><a href="/contact">Contacto</a></li>
+             <!--{{#isLogued}}
+               <li><a href="/user">Perfil</a></li>
+             {{/isLogued}} -->
+          </ul>                               
+        </div><!--/.nav-collapse -->       
+      </div>          
+    </nav> 
+  </section>
+  <!-- End menu section -->
+
+  <!-- Start Proerty header  -->
+  <section id="aa-user">
+  </section>
+  <!-- End Proerty header  -->
+
+  <!-- Start Properties  -->
+  <section id="aa-properties">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-properties-content">            
+            <!-- Start properties content body -->
+            <div class="aa-properties-details">
+             <div class="aa-properties-details-img">
+             <!--{{#photos}}
+               <img src="/image/{{offer.user.id}}/{{offer.id}}/{{.}}" alt="img" width="1920" height="1280">
+             {{/photos}} -->
+             </div>
+             <div class="aa-properties-info">
+             <h1>Oferta de: {{offer.user.name}}</h1>
+               <h2>{{offer.type}}: {{offer.title}}</h2>
+               <span class="aa-price">{{offer.location}}, {{offer.province}}</span>
+               	<p>- {{offer.description}}</p>
+               <h4>Características básicas</h4>
+	               	<li>Tamaño: {{offer.area}} m2</li>
+	               	<li>Baños: {{offer.bathroom}} </li>
+	               	<li>Habitaciones: {{offer.rooms}}</li>   
+	               	<li>Precio: {{offer.price}} €</li> 	         	
+               <h4>Características especiales</h4>
+               <ul>
+                 {{#offer.characteristics}}
+                 	<li>{{name}}</li>
+                 {{/offer.characteristics}}
+               </ul>
+               <ul>
+                 {{#offer.offerReviews}}
+                 	<li>{{valoration}}</li>
+                 {{/offer.offerReviews}}
+               </ul>
+               <!--  
+               <h4>Ubicación</h4>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6851.201919469417!2d-86.11773906635584!3d33.47324776828677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888bdb60cc49c571%3A0x40451ca6baf275c7!2s36008+AL-77%2C+Talladega%2C+AL+35160%2C+USA!5e0!3m2!1sbn!2sbd!4v1460452919256" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+				-->             
+             </div>
+             <!-- Properties social share -->
+             <div class="aa-properties-social">
+               <ul>
+                 <li>Compartir</li>
+                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                 <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+               </ul>
+             </div>
+             <!-- Nearby properties 
+             <div class="aa-nearby-properties">
+               <div class="aa-title">
+                 <h2>Propiedades cercanas</h2>
+                 <span></span>
+               </div>
+               <div class="aa-nearby-properties-area">
+                 <div class="row">
+                   <div class="col-md-6">
+                     <article class="aa-properties-item">
+                        <a class="aa-properties-item-img">
+                          <img alt="img" src="/img/offer-house2_pc.jpg" width="550" height="220">
+                        </a>
+                        <div class="aa-tag for-sale">
+                          Alquiler
+                        </div>
+                        <div class="aa-properties-item-content">
+                          <div class="aa-properties-about">
+                            <h4>Alquiler de piso en avenida Olimpica, 1, El Soto - Coveta, Móstoles</h4>
+                            <p>Se alquila piso en Móstoles, en la zona del Soto. Piso de 4 dormitorios reformado, con armarios empotrados, calefacción central, y cocina eléctrica. Zona tranquila y segura, especialmente para familias.</p>    
+                          </div>
+                          <div class="aa-properties-detial">
+                            <span class="aa-price">
+                              600€/mes
+                            </span>
+                            <a class="aa-secondary-btn" href="/offer-house">Detalles</a>
+                          </div>
+                        </div>
+                      </article>
+                   </div>
+                   <div class="col-md-6">
+                     <article class="aa-properties-item">
+                      <a class="aa-properties-item-img">
+                        <img alt="img" src="/img/offer-house1_pc.jpg" width="550" height="220">
+                      </a>
+                      <div class="aa-tag for-sale">
+                        Alquiler
+                      </div>
+                      <div class="aa-properties-item-content">
+                        <div class="aa-properties-about">
+                          <h4>Alquiler de habitación en calle Benito Pérez Galdós, 9, El Soto - Coveta, Móstoles</h4>
+                          <p>Se alquila habitación en piso compartido. El piso está situado al lado del Parque Liana, y se compone de cuatro habitaciones, salón, cocina y baño, equipado con todo y reformado y pintado recientemente.</p>          
+                        </div>
+                        <div class="aa-properties-detial">
+                          <span class="aa-price">
+                            215€/mes
+                          </span>
+                          <a class="aa-secondary-btn" href="/offer-room">Detalles</a>
+                        </div>
+                      </div>
+                    </article>
+                   </div>
+                 </div>
+               </div>
+             </div>-->
+             <!-- comment threats user 
+            <div class="col-md-12">
+              <div class="aa-comments-area">
+                <h3>Conversaciones</h3>
+                <div class="comments">
+                  <ul class="commentlist">
+                    <li>
+                      <div class="media">
+                        <div class="media-left">    
+                            <img alt="img" src="http://www.barcelonadot.com/wp-content/uploads/2016/11/x-3-150x150.jpg" class="media-object news-img">      
+                        </div>
+                        <div class="media-body">
+                        <a href="/user"><h4 class="author-name">Oscar García</h4></a>
+                         <span class="comments-date"> 20 Enero, 2017</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+             </div>
+            </div>
+            <!-- comment threats others -->
+            <div class="col-md-12">
+              <div class="aa-comments-area">
+                <h3>{{numReviews}} Comentario/s</h3>
+                <div class="comments">
+                  <ul class="commentlist">
+                  {{#reviews}}
+                    <li>
+                      <div class="media">
+                        <div class="media-left">    
+                            <img alt="img" src="/image/{{userReview.id}}/0.jpg" class="media-object news-img">      
+                        </div>
+                        <div class="media-body">
+                         <h4 class="author-name">{{userReview.name}} {{userReview.firstLastName}} {{userReview.secondLastName}}</h4>
+							 <input id="input-21e" value="{{valoration}}" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" readonly>
+                         <span class="comments-date">{{date}}</span>
+                         <p>{{comment}}</p>
+                         <!-- <a class="reply-btn" href="#">Contestar</a>  -->
+                        </div>
+                      </div>
+                    </li>
+                    {{/reviews}}
+                   </ul>
+                  <!-- comments pagination -->
+                  <nav>
+                    <ul class="pagination comments-pagination">
+                    {{#showPrev}}
+                      <li>
+                        <a aria-label="Previous" href="/offer/{{offer.id}}?page={{prevPage}}&size=4">
+                          <span aria-hidden="true">«</span>
+                        </a>
+                      </li>
+                    {{/showPrev}}
+                    <li><span aria-hidden="true">{{numPage}}</span></li>
+                    {{#showNext}}
+                      <li>
+                        <a aria-label="Next" href="/offer/{{offer.id}}?page={{nextPage}}&size=4">
+                          <span aria-hidden="true">»</span>
+                        </a>
+                      </li>
+                    {{/showNext}}
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <!-- Respond -->
+            <div class="col-md-8">
+            	{{#isLogued}}
+                <div id="respond">
+                  <h3 class="reply-title">Deja un comentario</h3>
+                  <form action="/addReview/{{offer.id}}" type="post">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <p class="comment-form-comment commentValoration">
+                          <label for="valoration">Valoración: <span class="required">*</span></label>
+                        </p>
+                      </div>
+                      <div class="col-md-4">
+                        <input id="input-21e" name="valoration" value="" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs">
+                      </div>
+                    </div>
+                    <p class="comment-form-comment">
+                      <label for="author">Comentario: <span class="required">*</span></label>
+                      <textarea required="required" aria-required="true" rows="8" cols="45" name="comment"></textarea>
+                    </p>
+                    <p class="form-submit">
+                      <input type="submit" value="Publicar comentario" class="aa-browse-btn" name="submit">
+                    </p>        
+                  </form>
+                </div>
+                {{/isLogued}}
+              </div>
+              <!-- End Respond box -->
+            </div>    
+          </div>                                   
+        </div>
+      </div>
+    </div>          
+</section>
+
+  <!-- Footer -->
+  <footer id="aa-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="aa-footer-area">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <div class="aa-footer-left">
+               <p>Universidad Rey Juan Carlos 2017</p>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="aa-footer-middle">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+              </div>
+            </div>    
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+  </body>

@@ -1,0 +1,42 @@
+<body>
+  <section id="aa-signin">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-signin-area">
+            <div class="aa-signin-form">
+              <div class="aa-signin-form-title">
+                <h4>INICIAR SESION</h4>
+                <h4>Bienvenido de nuevo</h4>
+              </div>
+              <form class="contactform" action="/login" method="post">                                                 
+                <div class="aa-single-field">
+                  <label for="email">Email <span class="required">*</span></label>
+                  <input type="email" required="required" aria-required="true" value="" name="email">
+                </div>
+                <div class="aa-single-field">
+                  <label for="password">Contraseña <span class="required">*</span></label>
+                  <input type="password" name="pass"> 
+                </div>
+                <div class="aa-single-field">
+                <label>
+                  <input type="checkbox"> Recuérdame
+                </label>                                                          
+                </div> 
+                <div class="aa-single-submit">
+                  <input type="submit" value="Aceptar" class="aa-browse-btn">
+                  <p>¿No tienes una cuenta todavía?. <a href="/register">Regístrate</a></p>
+                  {{#notFound}}
+                  <p>No hay usuario</p>
+                  {{/notFound}}
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+  
