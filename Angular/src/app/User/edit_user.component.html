@@ -1,0 +1,170 @@
+<body>
+
+    <!-- Pre Loader -->
+    <div id="aa-preloader-area">
+        <div class="pulse"></div>
+    </div>
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+
+    <!-- Start header section -->
+    <header id="aa-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-header-area">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="aa-header-left">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="aa-header-right">
+                                    <a href="/register" class="aa-register">Registro</a>
+                                    <a href="/signin" class="aa-login">Conectar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header section -->
+    <!-- Start menu section -->
+    <section id="aa-menu-area">
+        <nav class="navbar navbar-default main-navbar" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- LOGO -->
+                    <!-- Text based logo -->
+                    <a class="navbar-brand aa-logo" href="/"> compartiendo<span>Piso</span></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
+                        <li><a href="/">Inicio</a>
+                        </li>
+                        <li><a href="/contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </nav>
+    </section>
+    <!-- End menu section -->
+
+    <!-- Start Proerty header  -->
+
+    <section id="aa-user">
+    </section>
+    <!-- End Proerty header  -->
+
+    <section id="aa-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-contact-area">
+                        <div class="aa-contact-bottom">
+                            <div class="aa-title">
+                                <h2>Editar el Usuario {{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
+                                <span></span>
+                                <p>Los campos señalados son obligatorios<strong class="required">*</strong>
+                                </p>
+                            </div>
+                            <div class="aa-contact-form">
+                                <form class="contactform" method="POST" action="/edit-user" enctype="multipart/form-data">
+									<div class="aa-single-field">
+					                  <label for="name">Nombre <span class="required">*</span></label>
+					                  <input type="text" required="required" aria-required="true" value="{{user.name}}" name="name">
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="surname1">Apellido 1 <span class="required">*</span></label>
+					                  <input type="text" required="required" aria-required="true" value="{{user.firstLastName}}" name="firstLastName">
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="surname2">Apellido 2 <span class="required">*</span></label>
+					                  <input type="text" required="required" aria-required="true" value="{{user.secondLastName}}" name="secondLastName">
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="email">Email <span class="required">*</span></label>
+					                  <input type="email" required="required" aria-required="true" value="{{user.email}}" name="email">
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="phone">Télefono <span class="required">*</span></label><br>
+					                  <input type="text" required="required" aria-required="true" value="{{user.phone}}" name="phone">
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="password">Nueva Contraseña <span class="required">*</span></label>
+					                  <input type="password" required="required" aria-required="true" value="" name="pass"> 
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="confirm-password">Confirmar contraseña <span class="required">*</span></label>
+					                  <input type="password" required="required" aria-required="true" value=""> 
+					                   
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="phone">Descripción del usuario</label><br>
+					                  <textarea maxlength="1080" required="required" aria-required="true" name="description">{{user.description}}</textarea>
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="phone">Imagen de perfil</label><br>
+					                  <input type="file" accept="image/*" name="file">
+					                </div>
+					                <div class="row">
+                                       <div class="col-md-12">
+                                           <p class="form-submit">
+                                               <input type="submit" name="submit"class="aa-browse-btn btn-lg btn-block" value="Actualizar perfil">
+                                           </p>
+                                       </div>
+                                   </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="aa-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-footer-area">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-6 col-xs-12">
+                                <div class="aa-footer-left">
+                                    <p>Universidad Rey Juan Carlos 2017</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="aa-footer-middle">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- / Footer -->
+    
+</body>
+
+</html>
