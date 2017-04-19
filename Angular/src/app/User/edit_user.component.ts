@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'register',
-  templateUrl: './register.component.html'
+  selector: 'editUser',
+  templateUrl: './edit_user.component.html'
 })
 
-export class RegisterComponent {
-
-  ngOnIni
-}
+export class EditUserComponent {}

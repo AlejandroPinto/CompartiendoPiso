@@ -1,67 +1,3 @@
-  <body>  
-  <!-- Pre Loader -->
-  <div id="aa-preloader-area">
-    <div class="pulse"></div>
-  </div>
-  <!-- SCROLL TOP BUTTON -->
-    <a class="scrollToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
-  <!-- END SCROLL TOP BUTTON -->
-
-
-  <!-- Start header section -->
-  <header id="aa-header"> 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-header-area">
-            <div class="row">
-              <div class="col-md-6 col-sm-6 col-xs-6">         
-              </div>
-              <div class="col-md-6 col-sm-6 col-xs-6">
-              
-                <div class="aa-header-right">
-                  <a href="/register" class="aa-register">Registrarse</a>
-                  <a href="/signin" class="aa-login logued">Conectar</a>
-                </div>
-              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- End header section -->
-  <!-- Start menu section -->
-  <section id="aa-menu-area">
-    <nav class="navbar navbar-default main-navbar" role="navigation">  
-      <div class="container">
-        <div class="navbar-header">
-          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- LOGO -->                                               
-          <!-- Text based logo -->
-          <a class="navbar-brand aa-logo" href="/">compartiendo<span>Piso</span></a>                    
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
-             <li><a href="/">Inicio</a></li>                                        
-            <li><a href="/contact">Contacto</a></li>
-             <!--{{#isLogued}}
-               <li><a href="/user">Perfil</a></li>
-             {{/isLogued}} -->
-          </ul>                               
-        </div><!--/.nav-collapse -->       
-      </div>          
-    </nav> 
-  </section>
-  <!-- End menu section -->
-
   <!-- Start Proerty header  -->
   <section id="aa-user">
   </section>
@@ -92,14 +28,14 @@
 	               	<li>Precio: {{offer.price}} €</li> 	         	
                <h4>Características especiales</h4>
                <ul>
-                 {{#offer.characteristics}}
+                 <!--{{#offer.characteristics}}-->
                  	<li>{{name}}</li>
-                 {{/offer.characteristics}}
+                 <!--{{/offer.characteristics}}-->
                </ul>
                <ul>
-                 {{#offer.offerReviews}}
+                 <!--{{#offer.offerReviews}}-->
                  	<li>{{valoration}}</li>
-                 {{/offer.offerReviews}}
+                 <!--{{/offer.offerReviews}}-->
                </ul>
                <!--  
                <h4>Ubicación</h4>
@@ -198,11 +134,11 @@
                 <h3>{{numReviews}} Comentario/s</h3>
                 <div class="comments">
                   <ul class="commentlist">
-                  {{#reviews}}
+                  <!--{{#reviews}}-->
                     <li>
                       <div class="media">
                         <div class="media-left">    
-                            <img alt="img" src="/image/{{userReview.id}}/0.jpg" class="media-object news-img">      
+                            <img alt="img" src="/assets/img/{{userReview.id}}/0.jpg" class="media-object news-img">      
                         </div>
                         <div class="media-body">
                          <h4 class="author-name">{{userReview.name}} {{userReview.firstLastName}} {{userReview.secondLastName}}</h4>
@@ -213,26 +149,26 @@
                         </div>
                       </div>
                     </li>
-                    {{/reviews}}
+                   <!-- {{/reviews}}-->
                    </ul>
                   <!-- comments pagination -->
                   <nav>
                     <ul class="pagination comments-pagination">
-                    {{#showPrev}}
+                   <!-- {{#showPrev}}-->
                       <li>
                         <a aria-label="Previous" href="/offer/{{offer.id}}?page={{prevPage}}&size=4">
                           <span aria-hidden="true">«</span>
                         </a>
                       </li>
-                    {{/showPrev}}
+                    <!--{{/showPrev}}-->
                     <li><span aria-hidden="true">{{numPage}}</span></li>
-                    {{#showNext}}
+                    <!--{{#showNext}}-->
                       <li>
                         <a aria-label="Next" href="/offer/{{offer.id}}?page={{nextPage}}&size=4">
                           <span aria-hidden="true">»</span>
                         </a>
                       </li>
-                    {{/showNext}}
+                    <!--{{/showNext}}-->
                     </ul>
                   </nav>
                 </div>
@@ -240,7 +176,7 @@
             </div>
             <!-- Respond -->
             <div class="col-md-8">
-            	{{#isLogued}}
+            	<!--{{#isLogued}}-->
                 <div id="respond">
                   <h3 class="reply-title">Deja un comentario</h3>
                   <form action="/addReview/{{offer.id}}" type="post">
@@ -263,7 +199,7 @@
                     </p>        
                   </form>
                 </div>
-                {{/isLogued}}
+               <!-- {{/isLogued}}-->
               </div>
               <!-- End Respond box -->
             </div>    
@@ -272,31 +208,3 @@
       </div>
     </div>          
 </section>
-
-  <!-- Footer -->
-  <footer id="aa-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-        <div class="aa-footer-area">
-          <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-              <div class="aa-footer-left">
-               <p>Universidad Rey Juan Carlos 2017</p>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <div class="aa-footer-middle">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-              </div>
-            </div>    
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </footer>
-  </body>

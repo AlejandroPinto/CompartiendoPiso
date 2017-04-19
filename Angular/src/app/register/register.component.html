@@ -1,5 +1,5 @@
-  <body>  
-  <section id="aa-signin">
+
+  <div id="aa-signin">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -50,7 +50,7 @@
                 </div>
                 <div class="aa-single-submit">
                   <input type="submit" value="Crear cuenta" name="submit"/>
-                   <p>¿Ya tienes una cuenta?. <a href="/signin">Inicia sesión</a></p>                   
+                   <p>¿Ya tienes una cuenta?. <a [routerLink]="['/signin']">Inicia sesión</a></p>                   
                 </div>
               </form>
             </div>
@@ -58,5 +58,4 @@
         </div>
       </div>
     </div>
-  </section> 
-  </body>
+  </div> 

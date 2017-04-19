@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 @Component({
-  selector: 'register',
-  templateUrl: './register.component.html'
+  selector: 'offer',
+  templateUrl: './offer.component.html'
 })
 
-export class RegisterComponent {
-
-  ngOnIni
-}
+export class OfferComponent { }

@@ -5,18 +5,26 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer.component';
-import { HeaderComponent } from './header.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
 import { RegisterComponent } from './register/register.component';
-import { AdModifyComponent } from './adModify/adModify.component';
+import { AdModifyComponent } from './offer/adModify.component';
 import { AdminComponent } from './admin/admin.component';
 import { IndexComponent } from './index/index.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SigninComponent } from './signin/signin.component';
+import { NewOfferComponent } from './offer/newOffer.component';
+import { OfferComponent } from './offer/offer.component';
+import { UserComponent } from './user/user.component';
+import { EditUserComponent } from './user/edit_user.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,ContactComponent,RegisterComponent,AdModifyComponent,AdminComponent,FooterComponent,HeaderComponent, IndexComponent
+    AppComponent,ContactComponent,RegisterComponent,SigninComponent,
+    AdModifyComponent,AdminComponent,FooterComponent,HeaderComponent, IndexComponent, NavbarComponent,
+    NewOfferComponent,OfferComponent,EditUserComponent,UserComponent
   ],
   imports: [
     BrowserModule,
