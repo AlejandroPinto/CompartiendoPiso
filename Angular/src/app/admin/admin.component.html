@@ -1,3 +1,8 @@
+  <!-- Start Proerty header  -->
+
+    <section id="aa-user">
+    </section>
+    
   <!-- Latest property -->
   <section id="aa-latest-property">
     <div class="container">
@@ -25,17 +30,17 @@
                     </a>
                     <div class="aa-properties-item-content">
                       <div class="aa-properties-info">
-                        <span>{{area}} m2</span>
-                        <span>{{rooms}} Habitaciones</span>
-                        <span>{{bathroom}} Baño</span>                      
+                        <span>{{offer.area}} m2</span>
+                        <span>{{offer.rooms}} Habitaciones</span>
+                        <span>{{offer.bathroom}} Baño</span>                      
                       </div>
                       <div class="aa-properties-about">
-                        <h3><a href="/offer/{{id}}">{{location}}, {{province}}<br>{{title}}</a></h3>
-                        <p class="offerParagraph">{{description}}</p>                      
+                        <h3><a href="/offer/{{id}}">{{offer.location}}, {{offer.province}}<br>{{offer.title}}</a></h3>
+                        <p class="offerParagraph">{{offer.description}}</p>                      
                       </div>
                       <div class="aa-properties-detial">
                         <span class="aa-price">
-                          {{price}} €
+                          {{offer.price}} €
                         </span>
                         <a class="aa-secondary-btn" href="/offer/{{id}}/?page=0&size=4">Ver</a>
                       </div>
