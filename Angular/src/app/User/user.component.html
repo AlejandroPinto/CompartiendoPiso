@@ -22,16 +22,14 @@
                       <article class="aa-properties-single-sidebar aa-properties-details">
                         <form action="editarPerfil">
                         <div class="col-lg-3 col-md-3">
-                            <img src="/image/{{user.id}}/0.jpg" alt="" title="" width="150" height="150" id="imgSalida">                      
+                            <img src="https://localhost:8443/image/{{user.id}}/0.jpg" alt="" title="" width="150" height="150" id="imgSalida">                      
                         </div>
                         
                         <div class="col-lg-9">
-                        <!--{{#isLoged}}-->
                            <div class="text-right logedUser">
-                            <a [routerLink]="['/newAd']" class="btn btn-default editText" role="button">Añadir oferta</a>
+                            <a [routerLink]="['/newOffer']" class="btn btn-default editText" role="button">Añadir oferta</a>
                             <a [routerLink]="['/editUser']" class="btn btn-default editText" role="button">Editar Perfil</a>
                           </div>
-                        <!--{{/isLoged}}-->
                           <h2 class="box-heading" id="editName">{{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
                           <label id="label_name" style='display:none;'>Nombre: </label><input name="name" class="form-control editName" id="name" style='display:none;' value="{{user.name}}"/>
                           <label id="label_firstLastName" style='display:none;'>Primer apellido: </label><input name="name" class="form-control editName" id="fisrtLastName" style='display:none;' value="{{user.firstLastName}}"/>
@@ -86,28 +84,26 @@
                         
                         <div class="aa-blog-related-post-area">
                           <div class="row">
-                          <!--{{#offers}}-->
-                            <div class="col-md-6 col-sm-6">
+                            <div *ngFor="let offer of user.offers" class="col-md-6 col-sm-6">
                               <article class="aa-blog-single">
-                              <!--{{#isLoged}}-->
                                 <span class="logedUser">
                                    <!--onclick="window.location.href='/offerModify/{{id}}'"-->
-                                  <button class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
-                                  <button class="btn btn-default text-right delete-offert discard-offert">
+                                  <button  class="btn btn-default"><i class="fa fa-pencil"></i>Editar</button>
+                                  <button  class="btn btn-default text-right delete-offert discard-offert">
                                   	<i class="fa fa-trash"></i>Eliminar
-                                  	<input class="idOffer" value="{{id}}" hidden/>
+                                  	<input class="idOffer" value="{{offer.id}}" hidden/>
                                   	</button>
                                   <br>
                                 </span>
-                              <!--{{/isLoged}} --> 
                                 <figure class="aa-blog-img">
-                                  <a href="/offer/{{id}}/?page=0&size=4"><img src="/image/{{user.id}}/{{id}}/1.jpg" alt="img" width="360" height="240"></a>
-                                  <span class="aa-date-tag">{{title}}</span>
+                                  <!--href="/offer/{{id}}/?page=0&size=4"-->
+                                  <a ><img src="https://localhost:8443/image/{{user.id}}/{{offer.id}}/0.jpg" alt="img" width="360" height="240"></a>
+                                  <span class="aa-date-tag">{{offer.title}}</span>
                                 </figure>
                                 <div class="aa-blog-single-content">
                                   <h3><a href="#"></a></h3>
-                                 <h4><b>{{price}} €</b></h4>
-                                   <p class="offerParagraph">{{description}}</p>
+                                 <h4><b>{{offer.price}} €</b></h4>
+                                   <p class="offerParagraph">{{offer.description}}</p>
                                   <div class="aa-blog-single-bottom">
                                     <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
                                     <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
@@ -115,12 +111,9 @@
                                 </div>                   
                               </article>
                             </div>
-                           <!-- {{/offers}}-->
                           </div>
                         </div>
-                       <!-- {{^offers}}-->
-                        <p>El usuario no ha publicado ofertas</p>
-                       <!-- {{/offers}}-->
+                        <p *ngIf="isEmpty()"> El usuario no ha publicado ofertas</p>
                       </div>
                     </div>  
                   </div>

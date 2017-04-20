@@ -10,10 +10,9 @@ export interface User {
     phone: number;
     pass: string;
     description?: string;
-    photo?: string;
     admin?: boolean;
     roles?: string[];
-    offerList?: Offer[];
-    reviewList: Review[];
+    offers: Offer[];
+    reviewList?: Review[];
 
 }

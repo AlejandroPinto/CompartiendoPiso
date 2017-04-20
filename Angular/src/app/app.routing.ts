@@ -17,10 +17,10 @@ const appRoutes = [
     { path: 'signin', component: SigninComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'offer', component: OfferComponent },
+    { path: 'offer/:id', component: OfferComponent },
     { path: 'newOffer', component: NewOfferComponent },
     { path: 'adModify', component: AdModifyComponent },
-    { path: 'user', component: UserComponent },
+    { path: 'user/:id', component: UserComponent },
     { path: 'editUser', component: EditUserComponent },
     { path: '', redirectTo: 'index', pathMatch: 'full' }
 ]
