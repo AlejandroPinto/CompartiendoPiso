@@ -32,7 +32,7 @@ public class IndexRestController {
 	interface CompleteOffer extends Offer.BasicOffer, User.BasicUser, Characteristics.BasicCharacteristics{}
 	
 	@JsonView(CompleteOffer.class)
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value="/search", method=RequestMethod.GET)
 	public ResponseEntity<List<Offer>> indexView(Model model,@RequestParam String queryBox,
 			@RequestParam float priceTo, @RequestParam float priceFrom,
 			@RequestParam String type, @RequestParam int bathroom,
