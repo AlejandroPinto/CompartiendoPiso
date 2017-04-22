@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="aa-single-advance-search">
-                                    <input type="text" class="select-color" placeholder="Ciudad, localidad, barrio..." name="queryBox">
+                                    <input type="text" class="select-color" placeholder="Ciudad, localidad, barrio..." [(ngModel)]="queryBox" name="queryBox">
                                 </div>
                             </div>
                         </div>
@@ -55,8 +55,8 @@
                             <br>
                             <div class="col-md-2 col-md-offset-2">
                                 <div class="aa-single-advance-search">
-                                    <select class="select-color" name="priceFrom">
-                     <option value="0" selected>Desde (€)</option>
+                                    <select class="select-color" [(ngModel)]="priceFrom" name="priceFrom">
+                     <option value="0" [selected]="1 === 1">Desde (€)</option>
                      <option value="100">100</option>
                      <option value="200">200</option>
                      <option value="300">300</option>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="aa-single-advance-search">
-                                    <select class="select-color" name="priceTo">
+                                    <select class="select-color" [(ngModel)]="priceTo" name="priceTo">
                    <option value="0" selected>Hasta (€)</option>
                    <option value="100">100</option>
                    <option value="200">200</option>
@@ -109,12 +109,12 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="aa-single-advance-search">
-                                    <select name="type" class="select-color">
+                                    <select [(ngModel)]="type" name="type" class="select-color">
                      <option value="empty">Tipo</option>
                      <option value="Piso">Piso</option>
                      <option value="Adosado">Adosado</option>
                      <option value="Chalé">Chalé</option>
-                     <option value="Dúplez">Dúplex</option>
+                     <option value="Dúplex">Dúplex</option>
                     </select>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="aa-single-advance-search">
-                                    <input id="buttonSearch" class="aa-search-btn" type="button" value="Buscar">
+                                    <button id="search" class="aa-search-btn" type="button" value="Buscar" (click)="search()">Buscar</button>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-2">
                                     <div class="aa-single-advance-search">
-                                        <select name="rooms" class="select-color">
+                                        <select [(ngModel)]="rooms" name="rooms" class="select-color">
                      <option value="0" selected>Habitaciones</option>
                      <option value="1">1 o más habs.</option>
                      <option value="2">2 o más habs.</option>
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="aa-single-advance-search">
-                                        <select name="bathroom" class="select-color">
+                                        <select [(ngModel)]="bathroom" name="bathroom" class="select-color">
                      <option value="0" selected>Baños</option>
                      <option value="1">1 o más baños</option>
                      <option value="2">2 o más baños</option>
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="aa-single-advance-search">
-                                        <select class="select-color" name="area">
+                                        <select class="select-color" [(ngModel)]="area" name="area">
                    <option value="0" selected>Superficie mínima (m2)</option>
                    <option value="100">100</option>
                    <option value="200">200</option>
@@ -259,10 +259,38 @@
             </div>
             <div class="aa-latest-properties-content">
                 <div class="row">
-                    <span class="add"></span>
+                    <span *ngFor = "let offer of offers" class="add">
+                        <div class="col-md-4">
+                            <article class="aa-properties-item">
+                                <a class="aa-properties-item-img" href="#">
+                                    <img src="https://localhost:8443/image/{{offer.user.id}}/{{offer.id}}/0.jpg" alt="img" width="370" height="220">
+                                </a>
+                                <div class="aa-properties-item-content">
+                                    <div class="aa-properties-info">
+                                    <span>{{offer.area}} m2</span>
+                                    <span>{{offer.rooms}} Habitaciones</span>
+                                    <span>{{offer.bathroom}} Baño</span>               
+                                    </div>
+                                    <div class="aa-properties-about">
+                                        <!-- href="/offer/'+data[i]["id"]+'?page=0&size=4"-->
+                                    <h3><a>{{offer.location}}, {{offer.province}}<br>{{offer.title}}</a></h3>
+                                    <p class="offerParagraph">{{offer.description}}</p>                 
+                                    </div>
+                                    <div class="aa-properties-detial">
+                                    <span class="aa-price">
+                                        {{offer.price}} €
+                                    </span>
+                                    <!--href="/offer/'+data[i]["id"]+'?page=0&size=4"-->
+                                    <a class="aa-secondary-btn" >Ver</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </span>
                     <span id="spinner"></span>
                 </div>
             </div>
+            <!--button class="btn btn-info"  *ngIf="" id="showMore"><input hidden id="numPage"/>Mostrar Más</button-->
         </div>
     </div>
 
