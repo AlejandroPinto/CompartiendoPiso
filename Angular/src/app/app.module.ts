@@ -15,6 +15,7 @@ import { SigninService } from './signin/signin.service';
 import { HttpClient } from "./HttpClient/httpClient";
 
 import { IndexComponent } from './index/index.component';
+import { IndexService } from './index/index.service';
 import { ContactComponent } from './contact/contact.component';
 
 import { NewOfferComponent } from './offer/newOffer.component';
@@ -41,6 +42,6 @@ import { UserService } from './user/user.service';
     routing
   ],
   bootstrap: [AppComponent],
-  providers: [OfferService, UserService, SigninService, HttpClient]
+  providers: [OfferService, UserService, SigninService, HttpClient,IndexService]
 })
 export class AppModule { }
