@@ -24,11 +24,13 @@ export class IndexService{
 
 	search(queryBox: String, priceFrom: number, priceTo: number, type: String, rooms: number, bathroom: number,area: number,page: number){
 		return this.http.get(BASE_URL+"search?&queryBox="+queryBox+"&priceFrom="+priceFrom+"&priceTo="+priceTo+"&type="+type+"&rooms="+rooms+"&bathroom="+bathroom+"&area="+area+"&attributes=&page="+page).map(
-			response => response.json()
+			response => response.json(),
 		)._catch(
 			error => this.handleError(error)
 		)
 	}
+
+	
 
 	// getPhotoUser(userName :string){
 	// 	return this.http.get(BASE_URL+userName+'/photo')

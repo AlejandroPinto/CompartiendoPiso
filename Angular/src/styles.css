@@ -3888,7 +3888,12 @@ USER SECTION
   .pulse {
     left: 39%;  
   }
-}/*
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+/*
 @media (max-width: 320px) {
   #aa-advance-search .aa-advance-search-area .aa-advance-search-bottom .aa-single-filter-search span {
     font-size: 12px;

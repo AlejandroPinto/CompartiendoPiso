@@ -27,7 +27,7 @@ export class IndexComponent {
         reviewList: []
   };
 
-  offers: Offer[] =[];
+  offers: Offer[] = [];
 
   queryBox: String;
   priceFrom: number;
@@ -36,6 +36,7 @@ export class IndexComponent {
   rooms?: number;
   bathroom?: number;
   area?: number;
+  page: number = 0
 
   formData: Index = {
     queryBox:"",
@@ -65,8 +66,31 @@ export class IndexComponent {
     if(this.area !== undefined)
       this.formData.area = this.area;
     
-    this.index.search(this.formData.queryBox,this.formData.priceFrom,this.formData.priceTo,this.formData.type,this.formData.rooms,this.formData.bathroom,this.formData.area,this.formData.page).subscribe(
-      offers => this.offers = offers
+    this.index.search(this.formData.queryBox,this.formData.priceFrom,this.formData.priceTo,this.formData.type,this.formData.rooms,this.formData.bathroom,this.formData.area,0).subscribe(
+      offers => this.offers = offers,
     );
+    this.page = 1;
+  }
+
+  showMore(){
+    if(this.queryBox !== undefined)
+      this.formData.queryBox = this.queryBox;
+    if(this.priceFrom !== undefined)
+      this.formData.priceFrom = this.priceFrom;
+    if(this.priceTo !== undefined)
+      this.formData.priceTo = this.priceTo;
+    if(this.type !== undefined)
+      this.formData.type = this.type;
+    if(this.rooms !== undefined)
+      this.formData.rooms = this.rooms;
+    if(this.bathroom !== undefined)
+      this.formData.bathroom = this.bathroom;
+    if(this.area !== undefined)
+      this.formData.area = this.area;
+    
+    this.index.search(this.formData.queryBox,this.formData.priceFrom,this.formData.priceTo,this.formData.type,this.formData.rooms,this.formData.bathroom,this.formData.area,this.page).subscribe(
+      offers => this.offers = this.offers.concat(offers),
+    );
+    this.page += 1;
   }
 }
