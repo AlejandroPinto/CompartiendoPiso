@@ -7,31 +7,6 @@
                 <img src="./assets/img/slider/fotoindex1.jpg" alt="img" width="1920" height="1280">
             </div>
             <!-- / Top slider single slide -->
-            <!-- Top slider single slide -->
-            <div class="aa-top-slider-single">
-                <img src="./assets/img/slider/fotoindex2.jpg" alt="img" width="1920" height="1280">
-            </div>
-            <!-- / Top slider single slide -->
-            <!-- Top slider single slide -->
-            <div class="aa-top-slider-single">
-                <img src="./assets/img/slider/fotoindex3.jpg" alt="img" width="1920" height="1280">
-            </div>
-            <!-- / Top slider single slide -->
-            <!-- Top slider single slide -->
-            <div class="aa-top-slider-single">
-                <img src="./assets/img/slider/fotoindex4.jpg" alt="img" width="1920" height="1280">
-            </div>
-            <!-- / Top slider single slide -->
-            <!-- Top slider single slide -->
-            <div class="aa-top-slider-single">
-                <img src="./assets/img/slider/fotoindex5.jpg" alt="img" width="1920" height="1280">
-            </div>
-            <!-- / Top slider single slide -->
-            <!-- Top slider single slide -->
-            <div class="aa-top-slider-single">
-                <img src="./assets/img/slider/fotoindex6.jpg" alt="img" width="1920" height="1280">
-            </div>
-            <!-- / Top slider single slide -->
         </div>
     </div>
 </section>
@@ -55,8 +30,8 @@
                             <br>
                             <div class="col-md-2 col-md-offset-2">
                                 <div class="aa-single-advance-search">
-                                    <select class="select-color" [(ngModel)]="priceFrom" name="priceFrom">
-                     <option value="0" [selected]="1 === 1">Desde (€)</option>
+                                    <select [(ngModel)]="formData.priceFrom" class="select-color" name="priceFrom">
+                     <option value="0" selected>Desde (€)</option>
                      <option value="100">100</option>
                      <option value="200">200</option>
                      <option value="300">300</option>
@@ -82,7 +57,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="aa-single-advance-search">
-                                    <select class="select-color" [(ngModel)]="priceTo" name="priceTo">
+                                    <select [(ngModel)]="formData.priceTo" class="select-color" name="priceTo">
                    <option value="0" selected>Hasta (€)</option>
                    <option value="100">100</option>
                    <option value="200">200</option>
@@ -109,7 +84,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="aa-single-advance-search">
-                                    <select [(ngModel)]="type" name="type" class="select-color">
+                                    <select [(ngModel)]="formData.type" name="type" class="select-color">
                      <option value="empty">Tipo</option>
                      <option value="Piso">Piso</option>
                      <option value="Adosado">Adosado</option>
@@ -140,40 +115,40 @@
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-2">
                                     <div class="aa-single-advance-search">
-                                        <select [(ngModel)]="rooms" name="rooms" class="select-color">
-                     <option value="0" selected>Habitaciones</option>
-                     <option value="1">1 o más habs.</option>
-                     <option value="2">2 o más habs.</option>
-                     <option value="3">3 o más habs.</option>
-                     <option value="4">4 o más habs.</option>
-                    </select>
+                                        <select [(ngModel)]="formData.rooms" name="rooms" class="select-color">
+                                        <option value="0" selected>Habitaciones</option>
+                                        <option value="1">1 o más habs.</option>
+                                        <option value="2">2 o más habs.</option>
+                                        <option value="3">3 o más habs.</option>
+                                        <option value="4">4 o más habs.</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="aa-single-advance-search">
-                                        <select [(ngModel)]="bathroom" name="bathroom" class="select-color">
-                     <option value="0" selected>Baños</option>
-                     <option value="1">1 o más baños</option>
-                     <option value="2">2 o más baños</option>
-                     <option value="3">3 o más baños</option>
-                    </select>
+                                        <select [(ngModel)]="formData.bathroom" name="bathroom" class="select-color">
+                                            <option value="0" selected>Baños</option>
+                                            <option value="1">1 o más baños</option>
+                                            <option value="2">2 o más baños</option>
+                                            <option value="3">3 o más baños</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="aa-single-advance-search">
-                                        <select class="select-color" [(ngModel)]="area" name="area">
-                   <option value="0" selected>Superficie mínima (m2)</option>
-                   <option value="100">100</option>
-                   <option value="200">200</option>
-                   <option value="300">300</option>
-                   <option value="400">400</option>
-                   <option value="500">500</option>
-                   <option value="600">600</option>
-                   <option value="700">700</option>
-                   <option value="800">800</option>
-                   <option value="900">900</option>
-                   <option value="1000">1000</option>
-                  </select>
+                                        <select class="select-color" [(ngModel)]="formData.area" name="area">
+                                            <option value="0" selected>Superficie mínima (m2)</option>
+                                            <option value="100">100</option>
+                                            <option value="200">200</option>
+                                            <option value="300">300</option>
+                                            <option value="400">400</option>
+                                            <option value="500">500</option>
+                                            <option value="600">600</option>
+                                            <option value="700">700</option>
+                                            <option value="800">800</option>
+                                            <option value="900">900</option>
+                                            <option value="1000">1000</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

@@ -12,7 +12,7 @@ export interface User {
     description?: string;
     admin?: boolean;
     roles?: string[];
-    offers: Offer[];
+    offers?: Offer[];
     reviewList?: Review[];
 
 }

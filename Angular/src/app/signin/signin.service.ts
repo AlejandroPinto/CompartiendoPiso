@@ -66,7 +66,7 @@ export class SigninService {
     //         );
     //     }
 
-    public logout() {
+    public logoutService() {
 
         if (!this.isLogged())
             return;

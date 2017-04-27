@@ -27,6 +27,7 @@ import { UserComponent } from './user/user.component';
 import { EditUserComponent } from './user/edit_user.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserService } from './user/user.service';
+import { RegisterService } from './register/register.service';
 
 
 @NgModule({
@@ -42,6 +43,6 @@ import { UserService } from './user/user.service';
     routing,JsonpModule
   ],
   bootstrap: [AppComponent],
-  providers: [OfferService, UserService, SigninService, HttpClient,IndexService]
+  providers: [OfferService, UserService, SigninService, HttpClient,IndexService,RegisterService]
 })
 export class AppModule { }

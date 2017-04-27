@@ -12,9 +12,6 @@ import { EditUserComponent } from './user/edit_user.component';
 
 
 const appRoutes = [
-    { path: 'register', component: RegisterComponent },
-    { path: 'index', component: IndexComponent },
-    { path: 'signin', component: SigninComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'offer/:id', component: OfferComponent },
@@ -22,6 +19,10 @@ const appRoutes = [
     { path: 'adModify', component: AdModifyComponent },
     { path: 'user/:id', component: UserComponent },
     { path: 'editUser', component: EditUserComponent },
-    { path: '', redirectTo: 'index', pathMatch: 'full' }
+    { path: 'index', component: IndexComponent},
+    { path: '', component: IndexComponent},
+    { path: 'register', component: RegisterComponent},
+    { path: 'signin', component: SigninComponent } 
 ]
+
 export const routing = RouterModule.forRoot(appRoutes);

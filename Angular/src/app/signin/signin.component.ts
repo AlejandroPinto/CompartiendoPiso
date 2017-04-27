@@ -27,6 +27,6 @@ export class SigninComponent {
 
    public logOutUser() {
         console.log("Cerrando sesion");
-        this.signinService.logout();
+        this.signinService.logoutService();
     }
 }

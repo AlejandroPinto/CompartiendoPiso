@@ -8,7 +8,7 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                <div class="aa-header-right">
-                    <a *ngIf="signinService.isLogged()" [routerLink]="['/index']" class="aa-login unlogued" (click)="logOut()"><font color="#000000"><b>Desconectar</b></font></a>
+                    <a *ngIf="signinService.isLogged()" class="aa-login unlogued" (click)="logOutFin()"><font color="#000000"><b>Desconectar</b></font></a>
                 </div>
                 <div class="aa-header-right">
                   <a *ngIf="!signinService.isLogged()" [routerLink]="['/register']" class="aa-register">Registro</a>
