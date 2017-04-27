@@ -58,6 +58,11 @@ export class UserComponent {
             userDetail => this.user = userDetail);
     }
 
+    isOwner(){
+      let userOwner: boolean = (this.user.id == this.signInService.getUser().id);
+      return userOwner;
+    }
+
     isEmpty(){
     if (this.user.offers.length===0){
       return true;

@@ -8,11 +8,11 @@
               </div>
               <div class="col-md-6 col-sm-6 col-xs-6">
                <div class="aa-header-right">
-                    <a [routerLink]="['/index']" class="aa-login unlogued"><font color="#000000"><b>Desconectar</b></font></a>
+                    <a *ngIf="signinService.isLogged()" [routerLink]="['/index']" class="aa-login unlogued" (click)="logOut()"><font color="#000000"><b>Desconectar</b></font></a>
                 </div>
                 <div class="aa-header-right">
-                  <a [routerLink]="['/register']" class="aa-register">Registro</a>
-                  <a [routerLink]="['/signin']" class="aa-login">Conectar</a>
+                  <a *ngIf="!signinService.isLogged()" [routerLink]="['/register']" class="aa-register">Registro</a>
+                  <a *ngIf="!signinService.isLogged()" [routerLink]="['/signin']" class="aa-login">Conectar</a>
                 </div>
               </div>
             </div>

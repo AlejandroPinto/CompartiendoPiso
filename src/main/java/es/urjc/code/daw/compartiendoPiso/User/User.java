@@ -50,7 +50,7 @@ public class User {
 	private boolean admin;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
-	@JsonIgnore
+	@JsonView({BasicUser.class,userAndOffer.class})	
 	private List<String> roles;
 	
 	public User () {

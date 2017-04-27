@@ -15,18 +15,18 @@ export class SigninComponent {
   constructor(private signinService: SigninService, private router: Router) {
   }
 
-  // logIn(email: string, pass: string) {
-  //   this.signinService.logIn(email, pass).subscribe(
-  //     user => {
-  //       this.userLogged = user;
-  //       this.router.navigate(['']);
-  //     },
-  //     error => console.log("Fail trying to login.")
-  //   );
-  // }
+  logInUser(email: string, pass: string) {
+     this.signinService.logIn(email, pass).subscribe(
+       user => {
+         this.userLogged = user;
+         this.router.navigate(['']);
+       },
+       error => console.log("Fail trying to login.")
+     );
+   }
 
-  // logOut() {
-  //   this.signinService.logOut();
-  // }
-
+   public logOutUser() {
+        console.log("Cerrando sesion");
+        this.signinService.logout();
+    }
 }

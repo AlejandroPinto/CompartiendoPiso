@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+
 import es.urjc.code.daw.compartiendoPiso.UploadFiles;
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
@@ -32,7 +33,7 @@ public class UserRestController {
 	interface UserReviews extends User.userAndOffer, Offer.UserOffer, Characteristics.BasicCharacteristics{}
 	
 	
-	@JsonView(UserReviews.class)
+	/*@JsonView(UserReviews.class)
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<User> getUser(@PathVariable long id){
 		User user = service.getUserById(id);	
@@ -42,7 +43,28 @@ public class UserRestController {
 		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-	}
+	}*/
+	
+	@JsonView(UserReviews.class)
+    @RequestMapping(value = "/{id:.*}", method = RequestMethod.GET)
+    public ResponseEntity<User> getSingleUser(@PathVariable String id){
+
+        boolean isEmail = false;
+        long idd = 0;
+        try{
+            idd = Long.parseLong(id);
+        } catch (NumberFormatException e){
+            isEmail = true;
+        }
+
+        User u = isEmail ? service.getUserByEmail(id) : service.getUserById(idd);
+
+        if (u != null){
+            return new ResponseEntity<>(u ,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 	
 	@JsonView(UserReviews.class)
 	@RequestMapping(value="/", method=RequestMethod.GET)

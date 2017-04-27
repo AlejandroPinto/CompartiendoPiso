@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import {SigninService} from '../signin/signin.service';
 
 
 @Component({
@@ -7,4 +8,10 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './navbar.component.html'
 })
 
-export class NavbarComponent { }
+
+export class NavbarComponent {
+
+
+  constructor(private signinService: SigninService ,private router:Router) {}
+
+ }

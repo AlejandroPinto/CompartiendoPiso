@@ -97,6 +97,10 @@ public class WebService {
 		return userRepository.findOne(id);
 	}
 	
+	public User getUserByEmail(String email){
+		return userRepository.findByEmail(email);
+	}
+	
 	public boolean isLoggedUser(){
 		return userComponent.isLoggedUser();
 	}
