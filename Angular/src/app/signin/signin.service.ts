@@ -89,4 +89,7 @@ export class SigninService {
     public forceUpdateUser() {
         return this.updateUser(this.http.sessionData.getUserLogged().email);
     }
+    public updateUserLogged(user:User){
+        this.http.setUser(user);
+    }
 }

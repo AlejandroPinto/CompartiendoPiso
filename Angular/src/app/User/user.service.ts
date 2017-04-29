@@ -27,13 +27,19 @@ export class UserService{
 			.catch(error => this.handleError(error));
 	}
 
+	getUserLogued() {
+		return this.http.get(BASE_URL)
+			.map(response => response.json())
+			.catch(error => this.handleError(error));
+	}
+
 	createUser(user: User){
 		return this.http.post(BASE_URL,user)
 		.map(response => response.json())
 		.catch(error => this.handleError(error));
 	}
 
-	updateUser(id :string, user :User){
+	updateUser(id :number, user :User){
 		return this.http.put(BASE_URL+id,user)
 		.map(response => response.json())
 		.catch(error => this.handleError(error));

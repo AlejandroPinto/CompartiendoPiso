@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-
+import ch.qos.logback.core.net.SyslogOutputStream;
 import es.urjc.code.daw.compartiendoPiso.UploadFiles;
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
@@ -104,12 +104,11 @@ public class UserRestController {
 			
 			userUpdated.setId(id);
 			userUpdated.setPass(user.getPass());
-			service.saveUser(userUpdated);
-			
+			service.saveUser(userUpdated); 
 			return new ResponseEntity<>(userUpdated, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND); 
+		} 
 			
 	}
 	
