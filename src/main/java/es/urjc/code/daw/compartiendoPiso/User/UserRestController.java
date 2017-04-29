@@ -101,13 +101,16 @@ public class UserRestController {
 		User user = service.getUserById(id);	
 		
 		if ((user != null) && (service.isLoggedUser())){	
-			
+			System.out.println(userUpdated.getPass());
 			userUpdated.setId(id);
-			userUpdated.setPass(user.getPass());
+			//if(userUpdated.getPass() != null){
+				//userUpdated.setPass(user.getPass());
+			//}
 			service.saveUser(userUpdated); 
-			return new ResponseEntity<>(userUpdated, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND); 
+			System.out.println(userUpdated.getPass());
+			return new ResponseEntity<>(userUpdated, HttpStatus.OK); 
+		} else { 
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);       
 		} 
 			
 	}
@@ -139,7 +142,7 @@ public class UserRestController {
 			}
 		}
 		else{
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);   
 		}
 	}
 }

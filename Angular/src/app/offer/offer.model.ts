@@ -17,5 +17,4 @@ export interface Offer {
     user: User;
     reviewList: Review[];
     characteristicList : Characteristic[];
-
 }

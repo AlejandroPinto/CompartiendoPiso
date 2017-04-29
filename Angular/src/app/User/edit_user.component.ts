@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import {User} from './user.model'
 import {UserService} from './user.service'
 import {SigninService} from '../signin/signin.service'
@@ -35,18 +36,17 @@ export class EditUserComponent {
   
 
   editUser(){
-    if(this.signInService.isLogged){
+    if(this.signInService.isLogged()){
       this.userService.updateUser(this.user.id,this.user).subscribe(
         response => {
           this.user = response;
-          console.log(this.user.pass);
-          //this.signInService.logoutService();
-          //this.signInService.logIn(this.user.email,this.user.pass);
-          //this.router.navigate(['user']);
+          this.signInService.logoutService();
+          this.signInService.logIn(this.user.email,this.user.pass);
+          this.router.navigate(['user']);
         }
       )
     }else{
-      console.log("No estoy logueado")
+      this.router.navigate(['/']);
     }
   }
 

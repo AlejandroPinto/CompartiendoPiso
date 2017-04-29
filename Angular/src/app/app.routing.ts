@@ -16,7 +16,7 @@ const appRoutes = [
     { path: 'admin', component: AdminComponent },
     { path: 'offer/:id', component: OfferComponent },
     { path: 'newOffer', component: NewOfferComponent },
-    { path: 'adModify', component: AdModifyComponent },
+    { path: 'adModify/:id', component: AdModifyComponent },
     { path: 'user/:id', component: UserComponent },
     { path: 'editUser', component: EditUserComponent },
     { path: 'index', component: IndexComponent},
