@@ -43,6 +43,12 @@ public class OfferRestController {
 	}
 	
 	@JsonView(CompleteOffer.class)
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public ResponseEntity <List<Offer>> getAllOffers(){
+			return new ResponseEntity<>(service.findAllOffers(), HttpStatus.OK);
+	}
+	
+	@JsonView(CompleteOffer.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer ){
@@ -98,12 +104,14 @@ public class OfferRestController {
 	@JsonView(CompleteOffer.class)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Offer> deleteOffer(@PathVariable long id) {
-		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
+		if(service.isLoggedUser() && (service.getOfferById(id).getUser().getId() == service.getUserId() || service.getUserById(id).getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))) {	
 			service.deleteOffer(id);
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 		}
+
 	}
+	
 
 }

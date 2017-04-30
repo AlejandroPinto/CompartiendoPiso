@@ -8,6 +8,7 @@ import { HttpClient } from '../HttpClient/httpClient';
 
 
 const BASE_URL = 'https://localhost:8443/api/offers/';
+const BASE_URL_OFFER = 'https://localhost:8443/api/offer/';
 
 @Injectable()
 export class OfferService {
@@ -19,6 +20,12 @@ export class OfferService {
 			.map(response => response.json())
 			.catch(error => this.handleError(error));
 	}
+
+	getAllOffers() {
+        return this.http.get(BASE_URL_OFFER).map(
+            response => response.json())
+            .catch(error => this.handleError(error))
+    }
 
 	getOffer(id: number | string) {
 		return this.http.get(BASE_URL + id)
@@ -33,7 +40,7 @@ export class OfferService {
 	}
 
 	deleteOffer(id: number | string) {
-		return this.http.delete(BASE_URL + id)
+		return this.http.delete(BASE_URL_OFFER + id)
 			.map(response => response.json())
 			.catch(error => this.handleError(error));
 	}

@@ -14,19 +14,17 @@
         </div>
         <div class="aa-latest-properties-content">
           <div class="row">
-          <!--{{#offers}}-->
+          <span *ngFor = "let offer of offers" class="add">
             <div class="col-md-4">
               <article class="aa-properties-item">
                     <br>
                     <div class="logedUser text-center">
-                      <a class="btn btn-danger editText discard-offert" role="button">Eliminar
-                      	<input class="idOffer" value="{{id}}" hidden/>
-                      </a>
-                      <a href="/offerModify/{{id}}" type="button" class="btn btn-primary editButton" role="button">Editar</a>
+                      <button class="btn btn-danger editText discard-offert" (click)="deleteOfferAdmin(offer.id)" role="button">Eliminar</button>
+                      <button [routerLink]="['/editOffer', offer.id]" type="button" class="btn btn-primary editButton" role="button">Editar</button>
                     </div>
                     <br>
                     <a class="aa-properties-item-img" href="#">
-                      <img src="./assets/img/cocina.americana.jpg" alt="img" width="370" height="220">
+                      <img src="https://localhost:8443/image/{{offer.user.id}}/{{offer.id}}/0.jpg" alt="img" width="370" height="220">
                     </a>
                     <div class="aa-properties-item-content">
                       <div class="aa-properties-info">
@@ -35,19 +33,19 @@
                         <span>{{offer.bathroom}} Baño</span>                      
                       </div>
                       <div class="aa-properties-about">
-                        <h3><a href="/offer/{{id}}">{{offer.location}}, {{offer.province}}<br>{{offer.title}}</a></h3>
+                        <h3><a [routerLink]="['/offer', offer.id]" >{{offer.location}}, {{offer.province}}<br>{{offer.title}}</a></h3>
                         <p class="offerParagraph">{{offer.description}}</p>                      
                       </div>
                       <div class="aa-properties-detial">
                         <span class="aa-price">
                           {{offer.price}} €
                         </span>
-                        <a class="aa-secondary-btn" href="/offer/{{id}}/?page=0&size=4">Ver</a>
+                        <a class="aa-secondary-btn" [routerLink]="['/offer', offer.id]">Ver</a>
                       </div>
                     </div>
                   </article>
             </div>
-            <!--{{/offers}}-->
+          </span>
           </div>
         </div>
       </div>

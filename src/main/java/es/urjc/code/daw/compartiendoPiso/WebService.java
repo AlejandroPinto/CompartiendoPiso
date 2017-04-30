@@ -134,4 +134,8 @@ public class WebService {
 	public User findUserByEmail(String email){
 		return userRepository.findByEmail(email);		
 	}
+	
+	public List<Offer> findAllOffers(){
+		return offerRepository.findAll();
+	}
 }	
