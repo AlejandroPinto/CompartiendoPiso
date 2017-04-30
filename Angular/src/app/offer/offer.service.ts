@@ -7,7 +7,7 @@ import { Offer } from './offer.model';
 import { HttpClient } from '../HttpClient/httpClient';
 
 
-const BASE_URL = 'https://localhost:8443/api/offers/';
+const BASE_URL = 'https://localhost:8443/api/offer/';
 const BASE_URL_OFFER = 'https://localhost:8443/api/offer/';
 
 @Injectable()
@@ -45,9 +45,9 @@ export class OfferService {
 			.catch(error => this.handleError(error));
 	}
 
-	updatedOffer(id: number | string, offer: Offer){
+	updateOffer(id: number | string, offer: Offer){
 		return this.http.put(BASE_URL + id,offer)
-            .map(response => response.json())
+            .map(response => {response.json(),console.log(response)})
             .catch(error => this.handleError(error));
 	}
 

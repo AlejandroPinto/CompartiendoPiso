@@ -46,6 +46,7 @@ export class SigninService {
           response => this.updateUser(username).subscribe())
           .catch(error =>{ console.log("Error");return this.loginFailed(error)});
     }
+    
     private loginFailed(error: any){
       this.http.sessionData.setAmILogged(false);
       return Observable.throw("Server error (" + error.status + "): " + error.text())
@@ -88,5 +89,8 @@ export class SigninService {
 
     public forceUpdateUser() {
         return this.updateUser(this.http.sessionData.getUserLogged().email);
+    }
+    public updateUserLogged(user:User){
+        this.http.setUser(user);
     }
 }

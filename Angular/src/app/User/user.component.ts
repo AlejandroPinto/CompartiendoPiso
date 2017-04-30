@@ -50,11 +50,20 @@ export class UserComponent {
 
  constructor(private router: Router, activatedRoute: ActivatedRoute, private userService:UserService, private signInService:SigninService) {
         let id = activatedRoute.snapshot.params['id'];
-        this.getUserId(id);
+        if(id != undefined){
+          this.getUserId(id);
+        }else{
+          this.getUser();
+        }
   }
 
    getUserId(id:number) {
         this.userService.getUser(id).subscribe(
+            userDetail => this.user = userDetail);
+    }
+    
+    getUser() {
+        this.userService.getUserLogued().subscribe(
             userDetail => this.user = userDetail);
     }
 
