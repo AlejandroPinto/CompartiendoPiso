@@ -41,6 +41,7 @@ export class AdModifyComponent {
 
     editOffer(){
     if(this.signInService.isLogged()){
+      console.log(this.offer.reviewList);
       this.offerService.updateOffer(this.offer.id,this.offer).subscribe(
         response => {
           this.offer = response;

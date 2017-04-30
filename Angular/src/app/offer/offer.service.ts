@@ -40,7 +40,7 @@ export class OfferService {
 
 	updateOffer(id: number | string, offer: Offer){
 		return this.http.put(BASE_URL + id,offer)
-            .map(response => response.json())
+            .map(response => {response.json(),console.log(response)})
             .catch(error => this.handleError(error));
 	}
 

@@ -38,35 +38,35 @@
                                     <p class="comment-form-author">
                                         <label>Título anuncio<span class="required">*</span>
                                         </label>
-                                        <input type="text" required="required" name="title" value="{{offer.title}}" >
+                                        <input type="text" required="required" name="title" [(ngModel)]="offer.title" >
                                     </p>
                                     <p class="comment-form-email">
                                         <label>Precio <span class="required">*</span>
                                         </label>
-                                        <input type="number" required="required" name="price" value="{{offer.price}}">
+                                        <input type="number" required="required" name="price" [(ngModel)]="offer.price">
                                     </p>
                                     <p class="comment-form-comment">
                                         <label for="comment">Descripción</label>
-                                        <textarea name="description" required="required" cols="45" rows="8"  aria-required="true">{{offer.description}}</textarea>
+                                        <textarea name="description" required="required" cols="45" rows="8" aria-required="true" [(ngModel)]="offer.description"></textarea>
                                     </p>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <p class="comment-form-url">
                                                 <label>Provincia<span class="required">*</span>
                                                 </label>
-                                                <input type="text" required="required" name="province" value="{{offer.province}}">
+                                                <input type="text" required="required" name="province" [(ngModel)]="offer.province">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p class="comment-form-url">
                                                 <label>Localidad</label>
-                                                <input type="text" required="required" name="location" value="{{offer.location}}">
+                                                <input type="text" required="required" name="location" [(ngModel)]="offer.location">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Barrio</label>
-                                                <input type="text" required="required" name="neighborhood" value="{{offer.neighborhood}}">
+                                                <input type="text" required="required" name="neighborhood" [(ngModel)]="offer.neighborhood">
                                             </p>
                                         </div>
                                     </div>
@@ -74,19 +74,19 @@
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Superficie</label>
-                                                <input type="number" required="required" name="area" value="{{offer.area}}">
+                                                <input type="number" required="required" name="area" [(ngModel)]="offer.area">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Nº baños</label>
-                                                <input type="number" required="required" name="bathroom" value="{{offer.bathroom}}">
+                                                <input type="number" required="required" name="bathroom" [(ngModel)]="offer.bathroom">
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
                                                 <label>Nº habitaciones</label>
-                                                <input id="nHab" type="number" name="rooms" value="{{offer.rooms}}">
+                                                <input id="nHab" type="number" name="rooms" [(ngModel)]="offer.rooms">
                                             </p>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <p class="form-submit">
-                                                    <input type="submit" name="submit"class="aa-browse-btn btn-lg btn-block" value="Modificar">
+                                                    <button type="text" name="submit"class="aa-browse-btn btn-lg btn-block" (click)="editOffer()">Modificar</button>
                                                 </p>
                                             </div>
                                         </div>
