@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
@@ -31,6 +32,7 @@ public class Review {
   @JsonView(BasicReview.class)
   private String comment;
   @JsonView(BasicReview.class)
+  @JsonFormat(pattern = "dd MMMM yyyy HH:mm")
   private Date date;
   
   @ManyToOne
