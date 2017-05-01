@@ -89,7 +89,7 @@
                                 <span class="logedUser">
                                    <!--onclick="window.location.href='/offerModify/{{id}}'"-->
                                   <a *ngIf="isOwner()" [routerLink]="['/adModify',offer.id]" class="btn btn-default editText" role="button"><i class="fa fa-pencil"></i>Editar</a>
-                                  <button  class="btn btn-default text-right delete-offert discard-offert">
+                                  <button (click)="deleteOffer(offer.id)" class="btn btn-default text-right delete-offert discard-offert">
                                   	<i class="fa fa-trash"></i>Eliminar
                                   	<input class="idOffer" value="{{offer.id}}" hidden/>
                                   	</button>
@@ -97,7 +97,7 @@
                                 </span>
                                 <figure class="aa-blog-img">
                                   <!--href="/offer/{{id}}/?page=0&size=4"-->
-                                  <a ><img src="https://localhost:8443/image/{{user.id}}/{{offer.id}}/0.jpg" alt="img" width="360" height="240"></a>
+                                  <a [routerLink]="['/offer',offer.id]"><img src="https://localhost:8443/image/{{user.id}}/{{offer.id}}/0.jpg" alt="img" width="360" height="240"></a>
                                   <span class="aa-date-tag">{{offer.title}}</span>
                                 </figure>
                                 <div class="aa-blog-single-content">

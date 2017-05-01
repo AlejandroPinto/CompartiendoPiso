@@ -4,6 +4,7 @@ import { UserService } from '../user/user.service';
 import {SigninService} from '../signin/signin.service'
 import { User } from './user.model';
 import { Offer } from '../offer/offer.model';
+import { OfferService } from '../offer/offer.service';
 import {Characteristic } from '../offer/characteristics.model';
 import { Review } from '../review/review.model';
 
@@ -44,11 +45,11 @@ export class UserComponent {
       type : "",
       user: this.user,
       reviewList: [],
-      characteristicList : []
+      characteristics : []
   };
 
 
- constructor(private router: Router, activatedRoute: ActivatedRoute, private userService:UserService, private signInService:SigninService) {
+ constructor(private router: Router, activatedRoute: ActivatedRoute, private userService:UserService, private signInService:SigninService,private offerService:OfferService) {
         let id = activatedRoute.snapshot.params['id'];
         if(id != undefined){
           this.getUserId(id);
@@ -62,6 +63,12 @@ export class UserComponent {
             userDetail => this.user = userDetail);
     }
     
+    deleteOffer(id:number){
+      this.offerService.deleteOffer(id).subscribe(
+        complete => this.router.navigate(['user'])
+    );
+    }
+
     getUser() {
         this.userService.getUserLogued().subscribe(
             userDetail => this.user = userDetail);

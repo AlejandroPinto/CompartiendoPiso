@@ -12,9 +12,7 @@
             <!-- Start properties content body -->
             <div class="aa-properties-details">
              <div class="aa-properties-details-img">
-             <!--{{#photos}}
-               <img src="/image/{{offer.user.id}}/{{offer.id}}/{{.}}" alt="img" width="1920" height="1280">
-             {{/photos}} -->
+               <img src="https://localhost:8443/image/{{offer.user.id}}/{{offer.id}}/0.jpg" alt="img" width="1920" height="1280">
              </div>
              <div class="aa-properties-info">
              <h1>Oferta de: {{offer.user.name}}</h1>
@@ -28,14 +26,7 @@
 	               	<li>Precio: {{offer.price}} €</li> 	         	
                <h4>Características especiales</h4>
                <ul>
-                 <!--{{#offer.characteristics}}-->
-                 	<li>{{name}}</li>
-                 <!--{{/offer.characteristics}}-->
-               </ul>
-               <ul>
-                 <!--{{#offer.offerReviews}}-->
-                 	<li>{{valoration}}</li>
-                 <!--{{/offer.offerReviews}}-->
+                 	<li *ngFor="let characteristic of offer.characteristics" >{{characteristic.name}}</li>
                </ul>
                <!--  
                <h4>Ubicación</h4>

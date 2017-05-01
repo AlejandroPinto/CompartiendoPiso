@@ -41,7 +41,7 @@ user: User = {
       type : "",
       user: this.user,
       reviewList: [],
-      characteristicList : []
+      characteristics: []
   };
   
   private offers: Offer[] = [];
