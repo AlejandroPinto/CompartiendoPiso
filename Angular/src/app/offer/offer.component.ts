@@ -28,6 +28,7 @@ export class OfferComponent {
    getOfferId(id : number) {
         this.offerService.getOffer(id).subscribe(
             OfferDetail => this.offer = OfferDetail);
+            console.log(this.offer.area);
     }
 
 

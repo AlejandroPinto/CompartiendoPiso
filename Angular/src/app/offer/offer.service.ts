@@ -27,7 +27,7 @@ export class OfferService {
 	}
 
 	createOffer(offer: Offer) {
-		return this.http.post(BASE_URL, offer)
+		 this.http.post(BASE_URL, offer)
 			.map(response => response.json())
 			.catch(error => this.handleError(error));
 	}
