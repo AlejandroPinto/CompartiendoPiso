@@ -45,6 +45,12 @@ export class UserService{
 		.catch(error => this.handleError(error));
 	}
 
+	setUserPhoto(id: number | string, formData: FormData){
+		return this.http.put(BASE_URL + 'userPhoto/' + id , formData)
+		.map(response => response.json())
+		.catch(error => this.handleError(error));
+	}
+
 	// getPhotoUser(userName :string){
 	// 	return this.http.get(BASE_URL+userName+'/photo')
 	// 	.map(response => response.json())

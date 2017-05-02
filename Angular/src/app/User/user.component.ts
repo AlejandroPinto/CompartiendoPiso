@@ -62,12 +62,21 @@ export class UserComponent {
         this.userService.getUser(id).subscribe(
             userDetail => this.user = userDetail);
     }
-    
-    deleteOffer(id:number){
-      this.offerService.deleteOffer(id).subscribe(
-        complete => this.router.navigate(['user'])
-    );
+
+  
+  deleteOffer(id: number) {
+    let index;
+    for (let i=0; i < this.user.offers.length; i++){
+          if(this.user.offers[i].id === id ){
+            index = i;
+          }
     }
+    this.offerService.deleteOffer(this.user.offers[index].id).subscribe(
+      offers => { 
+          this.user.offers.splice(index,1);
+          console.log(this.user.offers);
+    });
+  } 
 
     getUser() {
         this.userService.getUserLogued().subscribe(

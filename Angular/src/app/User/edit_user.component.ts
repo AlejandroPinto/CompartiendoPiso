@@ -27,19 +27,23 @@ export class EditUserComponent {
         offers: [],
         reviewList: []
   };
-
+  image:any;
   constructor(private router:Router,private activatedRoute:ActivatedRoute,private userService:UserService,private signInService:SigninService){
     let id = activatedRoute.snapshot.params['id'];
     this.user = signInService.getUser();
   }
 
-  
+  selectFile($event) {
+    this.image = $event.target.files[0];
+    console.log("Selected file: " + this.image.name + " type:" + this.image.type + " size:" + this.image.size);
+  }
 
   editUser(){
     if(this.signInService.isLogged()){
       this.userService.updateUser(this.user.id,this.user).subscribe(
         response => {
           this.user = response;
+          this.updatePhoto(this.user.id);
           this.signInService.logoutService();
           this.signInService.logIn(this.user.email,this.user.pass);
           this.router.navigate(['user']);
@@ -49,5 +53,13 @@ export class EditUserComponent {
       this.router.navigate(['/']);
     }
   }
+
+  updatePhoto(id: number){
+        let formData = new FormData();
+        formData.append('file', this.image);
+        this.userService.setUserPhoto(id, formData).subscribe(
+            error => console.error(error)
+        )
+    }
 
 }
