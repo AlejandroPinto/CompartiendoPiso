@@ -5,7 +5,7 @@ export interface Review {
 	id?: number;
 	valoration: number;
 	comment: string;
-    date: Date;
-    offer: Offer;
-    User: User; 
+    date?: string;
+    offer?: Offer;
+    user?: User; 
 }

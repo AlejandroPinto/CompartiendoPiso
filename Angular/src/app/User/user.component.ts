@@ -27,7 +27,7 @@ export class UserComponent {
         admin: false,
         roles: [''],
         offers: [],
-        reviewList: []
+        reviews: []
   };
 
   offer: Offer = {
@@ -43,8 +43,8 @@ export class UserComponent {
       room: 0,
       type : "",
       user: this.user,
-      reviewList: [],
-      characteristicList : []
+      reviews: [],
+      characteristics : []
   };
 
 

@@ -30,6 +30,7 @@ public class ReviewRestController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Offer> addReview(@PathVariable long id,@RequestBody Review review){
+		System.out.println(review.getDate());
 		if(service.isLoggedUser()){
 			Offer offer = service.getOfferById(id);
 			Review newReview = service.saveAndFlushReview(review);

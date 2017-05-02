@@ -4,11 +4,13 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 import { Offer } from './offer.model';
+import { Review } from '../review/review.model';
 import { HttpClient } from '../HttpClient/httpClient';
 
 
 const BASE_URL = 'https://localhost:8443/api/offer/';
 const BASE_URL_OFFER = 'https://localhost:8443/api/offer/';
+const BASE_URL_REVIEW = 'https://localhost:8443/api/review/';
 
 @Injectable()
 export class OfferService {
@@ -54,5 +56,12 @@ export class OfferService {
 	private handleError(error: any) {
 		console.error(error);
 		return Observable.throw("Server error (" + error.status + "): " + error.text())
+	}
+
+	addReviews(id: number | string, review: Review){
+		return this.http.post(BASE_URL_REVIEW + id, review)
+			.map(response => response.json())
+			.catch(error => this.handleError(error));
+
 	}
 }

@@ -13,6 +13,6 @@ export interface User {
     admin?: boolean;
     roles?: string[];
     offers?: Offer[];
-    reviewList?: Review[];
+    reviews?: Review[];
 
 }

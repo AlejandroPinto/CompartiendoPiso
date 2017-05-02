@@ -24,7 +24,7 @@ export class IndexComponent {
         admin: false,
         roles: [''],
         offers: [],
-        reviewList: []
+        reviews: []
   };
 
   offers: Offer[] = [];

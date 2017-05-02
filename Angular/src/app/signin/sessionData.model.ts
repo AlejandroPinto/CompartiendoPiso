@@ -42,7 +42,7 @@ export class SessionData {
         admin: false,
         roles: [''],
         offers: [],
-        reviewList: []
+        reviews: []
       }, authToken: ""
     };
     this.storage.setItem("sessionDataaa", JSON.stringify(this.sessionData));
