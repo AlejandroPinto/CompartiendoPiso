@@ -19,7 +19,7 @@ export class SigninComponent {
      this.signinService.logIn(email, pass).subscribe(
        user => {
          this.userLogged = user;
-         this.router.navigate(['']);
+         this.router.navigate(['user']);
        },
        error => console.log("Fail trying to login.")
      );

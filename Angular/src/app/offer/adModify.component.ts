@@ -44,7 +44,6 @@ setInputType(type:string){
     }else{
       this.attributes.splice(this.attributes.indexOf(attribute));
     }
->>>>>>> feature/crearOferta_angular
   }
 
   constructor(private router:Router,private activatedRoute:ActivatedRoute,private offerService:OfferService,private signInService:SigninService){
@@ -65,7 +64,7 @@ setInputType(type:string){
         characteristicToSave={name:characteristic,value:true};
         this.offer.characteristics.push(characteristicToSave);
      }
-      console.log(this.offer.reviewList);
+      console.log(this.offer.reviews);
       this.offerService.updateOffer(this.offer.id,this.offer).subscribe(
         response => {
           this.offer = response;

@@ -30,7 +30,7 @@ export class NewOfferComponent {
         admin: false,
         roles: [''],
         offers: [],
-        reviewList: []
+        reviews: []
   };
 
   //Variable aux para characteristics
@@ -48,7 +48,7 @@ export class NewOfferComponent {
       room: 0,
       type : "",
       user: this.user,
-      reviewList: [],
+      reviews: [],
       characteristics : []
   };
 
