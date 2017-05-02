@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { OfferService } from './offer.service';
+import { UserService } from '../user/user.service';
 import { Offer } from './offer.model';
+import { User } from '../user/user.model';
+import { Review } from '../review/review.model';
 
 import { Headers, RequestOptions, Response } from '@angular/http';
 
@@ -18,34 +21,98 @@ import {SigninService} from '../signin/signin.service'
 
 export class OfferComponent {
 
-  offer: Offer;
+  userDetail: User = {
+        id: 0,
+        name: "",
+        firstLastName: "",
+        secondLastName: "",
+        email: "",
+        phone: 0,
+        pass: "",
+        description: "",
+        admin: false,
+        roles: [''],
+        offers: [],
+        reviews: []
+  };
 
-  constructor(private router:Router, activatedRoute: ActivatedRoute, private offerService: OfferService){
+   offer: Offer = {
+      id: 0,
+	    title: "",
+	    price: 0,
+      description: "",
+      province: "",
+      location: "",
+      neighborhood: "",
+      area: 0,
+      bathroom: 0,
+      room: 0,
+      type : "",
+      user: this.userDetail,
+      reviews: [],
+      characteristics : []
+  };
+
+  review : Review = {
+    valoration: 0,
+    comment: "",
+    date : new Date().toDateString(), 
+    offer: this.offer,
+    user: this.userDetail,
+  }
+
+  reviewValoration: number;
+  reviewComment : string="";
+  offerID: number;
+ 
+  formData: Review = {
+    valoration: 0,
+    comment: ""
+  };
+
+   private _isValid = {
+    valoration: false,
+    comment: false
+  }
+
+  isValid() {
+    return this._isValid.valoration &&
+      this._isValid.comment
+  }
+
+  val1(value: String) {
+    return value.length > 1;
+  }
+
+  constructor(private router:Router, activatedRoute: ActivatedRoute, private offerService: OfferService,
+              private userService: UserService, private signinService: SigninService){
       let id = activatedRoute.snapshot.params['id'];
       this.getOfferId(id);   
+      this.getUserId(id);
+      this.offerID = id;
   }
 
    getOfferId(id : number) {
         this.offerService.getOffer(id).subscribe(
-            OfferDetail => this.offer = OfferDetail);
+            response => {
+              this.offer = response;
+            }
+        );       
     }
 
+    getUserId(id:number) {
+        this.userService.getUser(id).subscribe(
+            userDetail => this.userDetail = userDetail);
+    }
 
-  // constructor(private FilmsService: OfferService, private http: HttpClient, private loginService:SigninService) {
-
-  // }
-
-  // getAllOffers() {
-  //   this.OfferService.getOffers().subscribe(
-  //     filmsArray => { this.offersArray = filmsArray },
-  //     error => console.log(error));
-  // }
-
-  // isEmpty(){
-  //   if (this.offersArray.length===0){
-  //     return true;
-  //   }
-  //   else return false;
-  // }
+    addReview() {
+      this.offerService.addReviews(this.offerID, this.formData).subscribe(
+        review =>  {
+          this.review = review
+          this.offer.reviews.push(review); 
+          location.reload();        
+        }
+      );
+    }
 
  }

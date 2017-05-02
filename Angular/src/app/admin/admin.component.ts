@@ -24,7 +24,7 @@ user: User = {
         admin: false,
         roles: [''],
         offers: [],
-        reviewList: []
+        reviews: []
   };
 
   offer: Offer = {
@@ -40,12 +40,13 @@ user: User = {
       room: 0,
       type : "",
       user: this.user,
-      reviewList: [],
-      characteristicList : []
+      reviews: [],
+      characteristics : []
   };
   
   private offers: Offer[] = [];
 
+ 
   constructor(private adminservice: AdminService, private router :Router, private offerservice: OfferService){}
 
   ngOnInit() {

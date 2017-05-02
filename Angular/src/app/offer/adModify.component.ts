@@ -25,8 +25,8 @@ export class AdModifyComponent {
     room: 0,
     type : "",
     user: null,
-    reviewList: [],
-    characteristicList : []
+    reviews: [],
+    characteristics : []
   }
 
   constructor(private router:Router,private activatedRoute:ActivatedRoute,private offerService:OfferService,private signInService:SigninService){
@@ -41,7 +41,7 @@ export class AdModifyComponent {
 
     editOffer(){
     if(this.signInService.isLogged()){
-      console.log(this.offer.reviewList);
+      console.log(this.offer.reviews);
       this.offerService.updateOffer(this.offer.id,this.offer).subscribe(
         response => {
           this.offer = response;

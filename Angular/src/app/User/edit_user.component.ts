@@ -25,7 +25,7 @@ export class EditUserComponent {
         admin: false,
         roles: [''],
         offers: [],
-        reviewList: []
+        reviews: []
   };
 
   constructor(private router:Router,private activatedRoute:ActivatedRoute,private userService:UserService,private signInService:SigninService){

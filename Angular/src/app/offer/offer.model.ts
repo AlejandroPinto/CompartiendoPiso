@@ -15,6 +15,6 @@ export interface Offer {
     room?: number;
     type : string;
     user: User;
-    reviewList: Review[];
-    characteristicList : Characteristic[];
+    reviews: Review[];
+    characteristics : Characteristic[];
 }
