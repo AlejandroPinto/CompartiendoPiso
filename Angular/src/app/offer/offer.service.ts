@@ -53,6 +53,12 @@ export class OfferService {
             .catch(error => this.handleError(error));
 	}
 
+	setOfferPhoto(id: number | string, formData: FormData){
+		return this.http.put(BASE_URL_OFFER + '/offerPhoto/' + id , formData)
+		.map(response => response.json())
+		.catch(error => this.handleError(error));
+	}
+
 	private handleError(error: any) {
 		console.error(error);
 		return Observable.throw("Server error (" + error.status + "): " + error.text())

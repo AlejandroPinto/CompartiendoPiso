@@ -57,9 +57,10 @@ user: User = {
   }
   
   deleteOfferAdmin(id: number) {
+    console.log(id);
     let index;
     for (let i=0; i < this.offers.length; i++){
-          if(this.offers[id].id === id ){
+          if(this.offers[i].id === id ){
             index = i;
           }
     }

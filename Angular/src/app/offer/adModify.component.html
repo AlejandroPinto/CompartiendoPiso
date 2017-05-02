@@ -21,18 +21,17 @@
                                     <br>
                                     <div class="row">
                                         <div class="col-xs-6 col-md-3">
-                                            <button onClick="setInputType('Piso')" type="button"   style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
+                                            <button (click)="setInputType('Piso')" type="button"   style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Piso</button>
                                         </div>
                                         <div class="col-xs-6 col-md-3">
-                                            <button onClick="setInputType('Adosado')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
+                                            <button (click)="setInputType('Adosado')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Adosado</button>
                                         </div>
                                         <div class="col-md-3 col-xs-6">
-                                            <button onClick="setInputType('Chalé')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
+                                            <button (click)="setInputType('Chalé')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Chalé</button>
                                         </div>
                                         <div class="col-md-3 col-xs-6">
-                                            <button onClick="setInputType('Duplex')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
+                                            <button (click)="setInputType('Duplex')" type="button"  style=" background: #59abe3;color: #ffffff" class="btn btn-default btn-block" data-toggle="button" aria-pressed="false" autocomplete="off"> Duplex</button>
                                         </div>
-                                        <input id="type" type="text" name="type" value="{{offer.type}}" hidden>
                                     </div>
                                     <br>
                                     <p class="comment-form-author">
@@ -98,46 +97,46 @@
                                         <label>Características:</label>
                                         <div class="row">
                                             <div class="col-xs-6  col-md-3">
-                                                <button onClick="setAttributee('Aire')" type="button" id="button-caracteristics" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
+                                                <button (click)="setAttribute('Aire')" type="button" id="button-caracteristics" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
                                             </div>
                                             <div class="col-xs-6  col-md-3">
-                                                <button onClick="setAttributee('Ascensor')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
+                                                <button (click)="setAttribute('Ascensor')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Ascensor</button>
                                             </div>
                                             <div class="col-md-3 col-xs-6 ">
-                                                <button onClick="setAttributee('Terraza')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
+                                                <button (click)="setAttribute('Terraza')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Terraza</button>
                                             </div>
                                             <div class="col-md-3 col-xs-6 ">
-                                                <button onClick="setAttributee('Piscina')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
+                                                <button (click)="setAttribute('Piscina')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Piscina</button>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
                                             <div class="col-xs-6  col-md-3">
-                                                <button onClick="setAttributee('Fumadores')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
+                                                <button (click)="setAttribute('Fumadores')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Fumadores</button>
                                             </div>
                                             <div class="col-xs-6  col-md-3">
-                                                <button onClick="setAttributee('Mascotas')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
+                                                <button (click)="setAttribute('Mascotas')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Mascotas</button>
                                             </div>
                                             <div class="col-md-3 col-xs-6 ">
-                                                <button onClick="setAttributee('Iluminado')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Iluminado</button>
+                                                <button (click)="setAttribute('Iluminado')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Iluminado</button>
                                             </div>
                                             <div class="col-md-3 col-xs-6 ">
-                                                <button onClick="setAttributee('Bajo')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Bajo</button>
+                                                <button (click)="setAttribute('Bajo')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Bajo</button>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
                                             <div class="col-xs-6  col-md-3">
-                                                <button onClick="setAttributee('Trastero')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Trastero</button>
+                                                <button (click)="setAttribute('Trastero')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Trastero</button>
                                             </div>
                                             <div class="col-xs-6  col-md-3">
-                                                <button onClick="setAttributee('Calefacción central')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
+                                                <button (click)="setAttribute('Calefacción central')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
                                             </div>
                                             <div class="col-md-3 col-xs-6 ">
-                                                <button onClick="setAttributee('Patio')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Patio</button>
+                                                <button (click)="setAttribute('Patio')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Patio</button>
                                             </div>
                                             <div class="col-md-3 col-xs-6 ">
-                                                <button onClick="setAttributee('Garaje')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Garaje</button>
+                                                <button (click)="setAttribute('Garaje')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button" aria-pressed="false" autocomplete="off"> Garaje</button>
                                             </div>
                                         </div>
                                         <input id="attributes" type="text" value="" name="attributes" hidden/>

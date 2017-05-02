@@ -4,5 +4,5 @@ export interface Characteristic {
 	id?: number;
 	name: string;
 	value: boolean;
-    offer: Offer;
+    offer?: Offer;
 }

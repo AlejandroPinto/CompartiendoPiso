@@ -5,12 +5,17 @@ import {Offer} from './offer.model'
 import {OfferService} from './offer.service'
 import {SigninService} from '../signin/signin.service'
 
+import { Characteristic } from './characteristics.model';
+
 @Component({
   selector: 'adModify',
   templateUrl: './adModify.component.html'
 })
 
 export class AdModifyComponent {
+
+ //Variable aux para characteristics
+  attributes: string[] = [];
 
   offer: Offer = {
     id: 0,
@@ -29,6 +34,19 @@ export class AdModifyComponent {
     characteristics : []
   }
 
+setInputType(type:string){
+    this.offer.type = type;
+  }
+
+  setAttribute(attribute:string){
+    if(this.attributes.indexOf(attribute)==-1){
+      this.attributes.push(attribute);
+    }else{
+      this.attributes.splice(this.attributes.indexOf(attribute));
+    }
+>>>>>>> feature/crearOferta_angular
+  }
+
   constructor(private router:Router,private activatedRoute:ActivatedRoute,private offerService:OfferService,private signInService:SigninService){
     let id = activatedRoute.snapshot.params['id'];
     this.setOffer(id);
@@ -41,7 +59,13 @@ export class AdModifyComponent {
 
     editOffer(){
     if(this.signInService.isLogged()){
-      console.log(this.offer.reviews);
+      this.offer.characteristics = [];
+      for(let characteristic of this.attributes){
+        let characteristicToSave:Characteristic;
+        characteristicToSave={name:characteristic,value:true};
+        this.offer.characteristics.push(characteristicToSave);
+     }
+      console.log(this.offer.reviewList);
       this.offerService.updateOffer(this.offer.id,this.offer).subscribe(
         response => {
           this.offer = response;

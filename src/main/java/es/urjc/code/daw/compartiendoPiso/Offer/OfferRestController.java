@@ -101,12 +101,12 @@ public class OfferRestController {
 		}
 	}
 	
-	@JsonView(CompleteOffer.class)
+	@JsonView(CompleteOffer.class) 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Offer> deleteOffer(@PathVariable long id) {
-		if(service.isLoggedUser() && (service.getOfferById(id).getUser().getId() == service.getUserId() || service.getUserById(id).getRoles().toString().equals("[ROLE_USER, ROLE_ADMIN]"))) {	
+		if(service.isLoggedUser() && (service.getOfferById(id).getUser().getId() == service.getUserId() || service.getUserById(id).getRoles().toString().equals("[ROLE_USER]"))) {	
 			service.deleteOffer(id);
-			return new ResponseEntity<>(null, HttpStatus.OK);
+			return new ResponseEntity<>(null, HttpStatus.OK); 
 		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 		}

@@ -256,7 +256,7 @@
                                         {{offer.price}} €
                                     </span>
                                     <!--href="/offer/'+data[i]["id"]+'?page=0&size=4"-->
-                                    <a class="aa-secondary-btn" >Ver</a>
+                                    <a [routerLink]="['/offer',offer.id]" class="aa-secondary-btn" >Ver</a>
                                     </div>
                                 </div>
                             </article>
