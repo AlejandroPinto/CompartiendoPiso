@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from '../User/user.model'
-import { RegisterService } from './register.service'
+import { User } from '../User/user.model';
+import { RegisterService } from './register.service';
+import {UserService} from '../user/user.service';
 
 @Component({
   selector: 'register',
@@ -19,7 +20,7 @@ export class RegisterComponent {
     description: "",
     admin: false
   }
-
+  user: User;
   private _isValid = {
     userPassword: false,
     repeatUserPassword: false,
@@ -31,21 +32,22 @@ export class RegisterComponent {
   }
     private emailRegex = new RegExp(/[^\s@]+@[^\s@]+\.[^\s@]+/);
 
+    image:any;
 
 
-
-  constructor(private registerService: RegisterService, private router: Router) { }
+  constructor(private registerService: RegisterService, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
 
   }
   register() {
     this.registerService.registerNewUser(this.formData).subscribe(
-      response => 
-      this.router.navigate(['']),
-      error=>console.log(error)
+      response => {
+      this.user = response;
+      console.log(this.user.id);
+      this.router.navigate(['']);
+     }
     )
-
   }
 
 

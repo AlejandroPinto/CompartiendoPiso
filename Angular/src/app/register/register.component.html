@@ -78,18 +78,7 @@
                     value="" name="description" (blur)="_isValid.description = val1(formData.description)">
                 </div>
               </div>
-
-
-
-
-              <div class="aa-single-field">
-                <label for="phone">Imagen de perfil</label><br>
-                <input type="file" accept="image/*" name="file">
-              </div>
-
-
-
-
+              <br>
               <div class="aa-single-submit">
                 <button type="submit" class="btn btn-primary" value="Crear cuenta" [disabled]="!isValid()" (click)="register()" name="submit">Registrarse</button>
                 <p>¿Ya tienes una cuenta?. <a [routerLink]="['/signin']">Inicia sesión</a></p>

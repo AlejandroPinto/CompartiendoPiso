@@ -83,7 +83,6 @@ public class UserRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<User> addUser(@RequestBody User user){
 		try{
-			
 			User userSaved = service.saveAndFlushUser(user);
 			return new ResponseEntity<User>(userSaved, HttpStatus.CREATED);
 		}catch(Exception ex){
