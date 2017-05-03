@@ -18,7 +18,7 @@
                 <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
                     <li><a [routerLink]="['/index']">Inicio</a></li>
                     <li><a [routerLink]="['/contact']">Contacto</a></li>
-                    <li><a [routerLink]="['/user',signinService.getUser().id]">Perfil</a></li>
+                    <li><a *ngIf="signinService.isLogged()" [routerLink]="['/user',signinService.getUser().id]">Perfil</a></li>
                     <li><a *ngIf="signinService.isAdmin()" [routerLink]="['/admin']">ADMIN</a></li>
                 </ul>
             </div>

@@ -40,13 +40,12 @@ export class RegisterComponent {
   ngOnInit() {
 
   }
+  
   register() {
     this.registerService.registerNewUser(this.formData).subscribe(
-      response => {
-      this.user = response;
-      console.log(this.user.id);
-      this.router.navigate(['']);
-     }
+      response => 
+        this.router.navigate(['signin']),
+      error=>console.log(error)
     )
   }
 

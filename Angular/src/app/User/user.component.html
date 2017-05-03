@@ -28,7 +28,7 @@
                         <div class="col-lg-9">
                            <div class="text-right logedUser">
                             <a *ngIf="isOwner()" [routerLink]="['/newOffer']" class="btn btn-default editText" role="button">Añadir oferta</a>
-                            <a *ngIf="isOwner()" [routerLink]="['/editUser']" class="btn btn-default editText" role="button">Editar Perfil</a>
+                            <a *ngIf="isOwner()" [routerLink]="['/editUser',user.id]" class="btn btn-default editText" role="button">Editar Perfil</a>
                           </div>
                           <h2 class="box-heading" id="editName">{{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
                           <label id="label_name" style='display:none;'>Nombre: </label><input name="name" class="form-control editName" id="name" style='display:none;' value="{{user.name}}"/>

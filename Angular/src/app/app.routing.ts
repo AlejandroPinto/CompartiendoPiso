@@ -18,12 +18,13 @@ const appRoutes = [
     { path: 'newOffer', component: NewOfferComponent },
     { path: 'adModify/:id', component: AdModifyComponent },
     { path: 'user/:id', component: UserComponent },
-    { path: 'editUser', component: EditUserComponent },
+    { path: 'editUser/:id', component: EditUserComponent },
     { path: 'index', component: IndexComponent},
     { path: '', component: IndexComponent},
     { path: 'register', component: RegisterComponent},
     { path: 'signin', component: SigninComponent },
-    { path: 'user', component:UserComponent}
+    { path: 'user', component:UserComponent},
+    { path: '', redirectTo: 'index', pathMatch: 'full' }
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
