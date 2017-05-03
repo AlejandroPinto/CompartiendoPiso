@@ -92,6 +92,11 @@ export class OfferComponent {
       this.offerID = id;
   }
 
+  setValoration(rate:number){
+    this.review.valoration=rate;
+    console.log(rate);
+  }
+
    getOfferId(id : number) {
         this.offerService.getOffer(id).subscribe(
             response => {
