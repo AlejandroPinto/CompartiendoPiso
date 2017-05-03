@@ -27,32 +27,50 @@ export class EditUserComponent {
         offers: [],
         reviews: []
   };
+
+  formData: User = {
+     id: 0,
+        name: "",
+        firstLastName: "",
+        secondLastName: "",
+        email: "",
+        phone: 0,
+        pass: "",
+        description: "",
+  }
+
   image:any;
   constructor(private router:Router,private activatedRoute:ActivatedRoute,private userService:UserService,private signInService:SigninService){
     let id = activatedRoute.snapshot.params['id'];
-    this.user = signInService.getUser();
+    this.getUser(id);
   }
+
+  getUser(id) {
+        this.userService.getUser(id).subscribe(
+            userDetail => this.formData = userDetail
+        );
+    }
 
   selectFile($event) {
     this.image = $event.target.files[0];
     console.log("Selected file: " + this.image.name + " type:" + this.image.type + " size:" + this.image.size);
   }
 
-  editUser(){
-    if(this.signInService.isLogged()){
-      this.userService.updateUser(this.user.id,this.user).subscribe(
-        response => {
-          this.user = response;
-          this.updatePhoto(this.user.id);
-          this.signInService.logoutService();
-          this.signInService.logIn(this.user.email,this.user.pass);
-          this.router.navigate(['user']);
-        }
-      )
-    }else{
-      this.router.navigate(['/']);
-    }
-  }
+  editUser() {
+    this.userService.updateUser(this.formData.id, this.formData).subscribe(
+      response => {
+        this.user = response,
+        this.updatePhoto(this.user.id);
+          this.signInService.logIn(this.formData.email, this.formData.pass).subscribe(
+            response => {
+              this.router.navigate(['user', this.formData.id]);
+            },
+            error => console.log("Error en edit User")
+          );
+      })
+    this.router.navigate(['user', this.formData.id]);
+}
+
 
   updatePhoto(id: number){
         let formData = new FormData();

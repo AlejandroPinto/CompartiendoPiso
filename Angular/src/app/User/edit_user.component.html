@@ -20,27 +20,27 @@
                                 <form class="contactform" method="POST" action="/edit-user" enctype="multipart/form-data">
 									<div class="aa-single-field">
 					                  <label for="name">Nombre <span class="required">*</span></label>
-					                  <input type="text" [(ngModel)]="user.name" value="" name="name">
+					                  <input type="text" [(ngModel)]="formData.name" value="" name="name">
 					                </div>
 					                <div class="aa-single-field">
 					                  <label for="surname1">Apellido 1 <span class="required">*</span></label>
-					                  <input type="text" [(ngModel)]="user.firstLastName" value="" name="firstLastName">
+					                  <input type="text" [(ngModel)]="formData.firstLastName" value="" name="firstLastName">
 					                </div>
 					                <div class="aa-single-field">
 					                  <label for="surname2">Apellido 2 <span class="required">*</span></label>
-					                  <input type="text" [(ngModel)]="user.secondLastName" value="" name="secondLastName">
+					                  <input type="text" [(ngModel)]="formData.secondLastName" value="" name="secondLastName">
 					                </div>
 					                <div class="aa-single-field">
 					                  <label for="email">Email <span class="required">*</span></label>
-					                  <input type="email" [(ngModel)]="user.email" value="" name="email">
+					                  <input type="email" [(ngModel)]="formData.email" value="" name="email">
 					                </div>
 					                <div class="aa-single-field">
 					                  <label for="phone">Télefono <span class="required">*</span></label><br>
-					                  <input type="text" [(ngModel)]="user.phone" value="" name="phone">
+					                  <input type="text" [(ngModel)]="formData.phone" value="" name="phone">
 					                </div>
 					                <div class="aa-single-field">
 					                  <label for="password">Nueva Contraseña <span class="required">*</span></label>
-					                  <input type="password" [(ngModel)]="user.pass" value="" name="pass"> 
+					                  <input type="password" [(ngModel)]="formData.pass" value="" name="pass"> 
 					                </div>
 					                <div class="aa-single-field">
 					                  <label for="confirm-password">Confirmar contraseña <span class="required">*</span></label>
@@ -49,7 +49,7 @@
 					                </div>
 					                <div class="aa-single-field">
 					                  <label for="phone">Descripción del usuario</label><br>
-					                  <textarea maxlength="1080" [(ngModel)]="user.description" name="description"></textarea>
+					                  <textarea maxlength="1080" [(ngModel)]="formData.description" name="description"></textarea>
 					                </div>
 					                <div class="aa-single-field">
 					                  <label for="phone">Imagen de perfil</label><br>

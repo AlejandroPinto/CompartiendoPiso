@@ -42,7 +42,7 @@ export class RegisterComponent {
   register() {
     this.registerService.registerNewUser(this.formData).subscribe(
       response => 
-      this.router.navigate(['']),
+        this.router.navigate(['signin']),
       error=>console.log(error)
     )
 

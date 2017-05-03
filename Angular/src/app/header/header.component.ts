@@ -16,7 +16,7 @@ constructor(private signinService: SigninService ,private router:Router) {}
   user: User;
 
   logOutFin(){
-    this.signinService.logoutService().subscribe(response=> this.router.navigate(['']))
+    this.signinService.logoutService().subscribe(response=> this.router.navigate(['/']))
   }
 
   
