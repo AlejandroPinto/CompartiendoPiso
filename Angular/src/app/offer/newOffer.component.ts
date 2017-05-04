@@ -38,19 +38,27 @@ export class NewOfferComponent {
   formData: Offer = {
       id: 0,
 	    title: "",
-	    price: 0,
+	    price: null,
       description: "",
       province: "",
       location: "",
       neighborhood: "",
-      area: 0,
-      bathroom: 0,
-      room: 0,
+      area: null,
+      bathroom: null,
+      room: null,
       type : "",
       user: this.user,
       reviews: [],
       characteristics : []
   };
+
+  private _isValid = {
+    title: false,
+    province: false,
+    price: false,
+    description: false,
+    photos: false
+  }
 
   image: any;
 
@@ -95,4 +103,22 @@ export class NewOfferComponent {
             error => console.error(error)
         )
     }
+  isValid() {
+    return this._isValid.title &&
+    this._isValid.description && 
+    this._isValid.photos && 
+    this._isValid.price && 
+    this._isValid.province
+  }
+
+  val1(value: String) {
+    return value.length > 4;
+  }
+  val2(value: number) {
+    return value > 0;
+  }
+  valPhotos(value: string) {
+    console.log(value !== "");
+    return value !== "";
+  }
 }
