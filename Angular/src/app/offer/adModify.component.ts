@@ -33,6 +33,17 @@ export class AdModifyComponent {
     reviews: [],
     characteristics : []
   }
+  
+  private _isValid = {
+    title: false,
+    province: false,
+    price: false,
+    description: false,
+    photos: false
+  }
+
+
+  
 
 setInputType(type:string){
     this.offer.type = type;
@@ -76,5 +87,24 @@ setInputType(type:string){
     }else{
       this.router.navigate(['/']);
     }
+  }
+
+  isValid() {
+    return this._isValid.title &&
+    this._isValid.description && 
+    this._isValid.photos && 
+    this._isValid.price && 
+    this._isValid.province
+  }
+
+  val1(value: String) {
+    return value.length > 4;
+  }
+  val2(value: number) {
+    return value > 0;
+  }
+  valPhotos(value: string) {
+    console.log(value !== "");
+    return value !== "";
   }
 }

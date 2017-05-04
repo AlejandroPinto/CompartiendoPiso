@@ -34,27 +34,35 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <p class="comment-form-author">
-                                        <label>Título anuncio<span class="required">*</span>
-                                        </label>
-                                        <input type="text" required="required" name="title" [(ngModel)]="offer.title" >
-                                    </p>
-                                    <p class="comment-form-email">
-                                        <label>Precio <span class="required">*</span>
-                                        </label>
-                                        <input type="number" required="required" name="price" [(ngModel)]="offer.price">
-                                    </p>
-                                    <p class="comment-form-comment">
-                                        <label for="comment">Descripción</label>
-                                        <textarea name="description" required="required" cols="45" rows="8" aria-required="true" [(ngModel)]="offer.description"></textarea>
-                                    </p>
+                                    <div class="form-group" [class.has-error]="!(offer.title === '' || _isValid.title)" [class.has-success]="_isValid.title">
+                                        <p class="comment-form-author">
+                                            <label class="control-label" for="offer.title">Título anuncio<span class="required">*</span>
+                                            </label>
+                                            <input type="text" required="required" name="title" [(ngModel)]="offer.title" class="form-control" (blur)="_isValid.title = val1(offer.title)">
+                                        </p>
+                                    </div>
+                                    <div class="form-group" [class.has-error]="!(offer.price === '' || _isValid.price)" [class.has-success]="_isValid.price">
+                                        <p class="comment-form-email">
+                                            <label class="control-label" for="offer.price">Precio <span class="required">*</span>
+                                            </label>
+                                            <input type="number" required="required" name="price" [(ngModel)]="offer.price" class="form-control" (blur)="_isValid.price = val2(offer.price)">
+                                        </p>
+                                    </div>
+                                    <div class="form-group" [class.has-error]="!(offer.description === '' || _isValid.description)" [class.has-success]="_isValid.description">
+                                        <p class="comment-form-comment">
+                                            <label for="comment" class="control-label" for="offer.description">Descripción<span class="required">*</span></label>
+                                            <textarea name="description" required="required" cols="45" rows="8" aria-required="true" [(ngModel)]="offer.description" class="form-control" (blur)="_isValid.description = val1(offer.description)"></textarea>
+                                        </p>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <p class="comment-form-url">
-                                                <label>Provincia<span class="required">*</span>
-                                                </label>
-                                                <input type="text" required="required" name="province" [(ngModel)]="offer.province">
-                                            </p>
+                                            <div class="form-group" [class.has-error]="!(offer.province === '' || _isValid.province)" [class.has-success]="_isValid.province">
+                                                <p class="comment-form-url">
+                                                    <label class="control-label" for="offer.description">Provincia<span class="required">*</span>
+                                                    </label>
+                                                    <input type="text" required="required" name="province" [(ngModel)]="offer.province" class="form-control" (blur)="_isValid.province = val1(offer.province)">
+                                                </p>
+                                            </div>
                                         </div>
                                         <div class="col-md-4">
                                             <p class="comment-form-url">
@@ -89,9 +97,11 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <label class="control-label">Fotos<span class="required">*</span>
-                                    </label>
-                                    <input id="input-1" multiple="true" type="file" class="file" name="file">
+                                    <div class="form-group" [class.has-success]="_isValid.photos">
+                                        <label class="control-label">Fotos<span class="required">*</span>
+                                        </label>
+                                        <input #photos id="input-1" multiple="true" type="file" class="file" name="file" class="form-control" (blur)="_isValid.photos = valPhotos(photos.value)">
+                                    </div>
                                     <br>
                                     <div id="caracteristicas-anuncio">
                                         <label>Características:</label>
@@ -144,7 +154,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <p class="form-submit">
-                                                    <button type="text" name="submit"class="aa-browse-btn btn-lg btn-block" (click)="editOffer()">Modificar</button>
+                                                    <input type="submit" name="submit" class="aa-browse-btn btn-lg btn-block" [disabled]="!isValid()" value="Modificar" (click)="editOffer()">
                                                 </p>
                                             </div>
                                         </div>

@@ -118,7 +118,6 @@ export class NewOfferComponent {
     return value > 0;
   }
   valPhotos(value: string) {
-    console.log(value !== "");
     return value !== "";
   }
 }
