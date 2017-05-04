@@ -10,6 +10,7 @@ import {UserService} from '../user/user.service';
 })
 
 export class RegisterComponent {
+
   formData: User = {
     name: "",
     firstLastName: "",
@@ -20,7 +21,9 @@ export class RegisterComponent {
     description: "",
     admin: false
   }
+
   user: User;
+
   private _isValid = {
     userPassword: false,
     repeatUserPassword: false,
@@ -30,9 +33,10 @@ export class RegisterComponent {
     secondLastName:false,
     description:false,
   }
-    private emailRegex = new RegExp(/[^\s@]+@[^\s@]+\.[^\s@]+/);
 
-    image:any;
+  private emailRegex = new RegExp(/[^\s@]+@[^\s@]+\.[^\s@]+/);
+
+  image:any;
 
 
   constructor(private registerService: RegisterService, private router: Router, private userService: UserService) { }
@@ -60,8 +64,13 @@ export class RegisterComponent {
       this._isValid.description
 
   }
+
   val1(value: String) {
     return value.length > 6;
+  }
+  
+  valName(value: String) {
+    return value.length > 0;
   }
 
   val2(value: string) {

@@ -14,7 +14,7 @@
               <div class="form-group" [class.has-error]="!(formData.name === '' || _isValid.name)" [class.has-success]="_isValid.name">
                 <div class="aa-single-field">
                   <label class="control-label" for="formData.name">Nombre <span class="required" >*</span></label>
-                  <input type="text" class="form-control" [(ngModel)]="formData.name" (blur)="_isValid.name = val1(formData.name)" name="name">
+                  <input type="text" class="form-control" [(ngModel)]="formData.name" (blur)="_isValid.name = valName(formData.name)" name="name">
                 </div>
               </div>
               <div class="form-group" [class.has-error]="!(formData.firstLastName === '' || _isValid.firstLastName)" [class.has-success]="_isValid.firstLastName">
@@ -51,7 +51,7 @@
                 [class.has-success]="_isValid.userPassword">
                 <div class="aa-single-field">
                   <label class="control-label" for="formData.pass"> Password<span class="required">*</span></label>
-                  <input type="password" class="form-control" [(ngModel)]="formData.pass" (blur)="_isValid.userPassword = formData.pass.length >= 8"
+                  <input type="password" class="form-control" [(ngModel)]="formData.pass" (blur)="_isValid.userPassword = formData.pass.length >= 4"
                     required="required" aria-required="true" value="" name="secondLastName">
                 </div>
               </div>
