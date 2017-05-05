@@ -61,9 +61,15 @@
                         </div>
                         <div class="media-body">
                          <h4 class="author-name">{{review.userReview.name}} {{review.userReview.firstLastName}} {{review.userReview.secondLastName}}</h4>
-							          <input id="input-21e" value="{{review.valoration}}" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs" readonly>
                          <span class="comments-date">{{review.date}}</span>
                          <p>{{review.comment}}</p>
+                         <fieldset class="rating">
+                            <label *ngIf = "review.valoration == 5" style="color: #FFD700" class = "full" for="star5"></label>
+                            <label *ngIf = "review.valoration >= 4" style="color: #FFD700" class = "full" for="star4"></label>
+                            <label *ngIf = "review.valoration >= 3" style="color: #FFD700" class = "full" for="star3"></label>
+                            <label *ngIf = "review.valoration >= 2" style="color: #FFD700" class = "full" for="star2"></label>
+                            <label *ngIf = "review.valoration >= 1" style="color: #FFD700" class = "full" for="star1"></label>
+                          </fieldset>
                          <!-- <a class="reply-btn" href="#">Contestar</a>  -->
                         </div>
                       </div>
@@ -106,10 +112,13 @@
                         </p>
                       </div>
                       <div class="col-md-4">
-                        <input name="valoration" value="" name="valoration" [(ngModel)]="formData.valoration" type="number" max="5" min="0" >
-                        <!--<input id="input-21e" name="valoration" value="" [(ngModel)]="formData.valoration" type="text" class="rating" data-min=0 data-max=5 data-step=0.5 data-size="xs">-->
-                        <!--<star-rating-comp [startype]="'svg'" [rating]="2.63"></star-rating-comp>-->
-                        <!--<star-rating-comp [getHalfStarClass]="ctrl.getHalfStarClass(rating)" [rating]="3.2"></star-rating-comp>-->
+                      <fieldset class="rating">
+                        <input (click)="setValoration('5')" type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Increible - 5 stars"></label>
+                        <input (click)="setValoration('4')" type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Bastante bueno - 4 stars"></label>
+                        <input (click)="setValoration('3')" type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Regulero - 3 stars"></label>
+                        <input (click)="setValoration('2')" type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Un poco malo - 2 stars"></label>
+                        <input (click)="setValoration('1')" type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Una mierda - 1 star"></label>
+                      </fieldset>
                       </div>
                     </div>
                     <p class="comment-form-comment">
