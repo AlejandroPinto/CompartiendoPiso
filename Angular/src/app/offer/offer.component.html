@@ -60,15 +60,15 @@
                         </div>
                         <div class="media-body">
                          <h4 class="author-name">{{review.userReview.name}} {{review.userReview.firstLastName}} {{review.userReview.secondLastName}}</h4>
-                          <fieldset class="rating">
+                         <span class="comments-date">{{review.date}}</span>
+                         <p>{{review.comment}}</p>
+                         <fieldset class="rating">
                             <label *ngIf = "review.valoration == 5" style="color: #FFD700" class = "full" for="star5"></label>
                             <label *ngIf = "review.valoration >= 4" style="color: #FFD700" class = "full" for="star4"></label>
                             <label *ngIf = "review.valoration >= 3" style="color: #FFD700" class = "full" for="star3"></label>
                             <label *ngIf = "review.valoration >= 2" style="color: #FFD700" class = "full" for="star2"></label>
                             <label *ngIf = "review.valoration >= 1" style="color: #FFD700" class = "full" for="star1"></label>
                           </fieldset>
-                         <span class="comments-date">{{review.date}}</span>
-                         <p>{{review.comment}}</p>
                          <!-- <a class="reply-btn" href="#">Contestar</a>  -->
                         </div>
                       </div>
