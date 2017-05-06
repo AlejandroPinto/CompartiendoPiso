@@ -14,12 +14,12 @@ import {SigninService} from '../signin/signin.service'
 export class EditUserComponent {
 
    user: User = {
-        id: 0,
+        id: null,
         name: "",
         firstLastName: "",
         secondLastName: "",
         email: "",
-        phone: 0,
+        phone: null,
         pass: "",
         description: "",
         admin: false,
@@ -29,17 +29,27 @@ export class EditUserComponent {
   };
 
   formData: User = {
-     id: 0,
-        name: "",
-        firstLastName: "",
-        secondLastName: "",
-        email: "",
-        phone: 0,
-        pass: "",
-        description: "",
+    id: null,
+    name: "",
+    firstLastName: "",
+    secondLastName: "",
+    email: "",
+    phone: 0,
+    pass: "",
+    description: "",
+  }
+  private _isValid = {
+    name:false,
+    firstLastName: false,
+    secondLastName: false,
+    email: false,
+    phone: false,
+    userPassword: false,
+    repeatUserPassword: false
   }
 
   image:any;
+
   constructor(private router:Router,private activatedRoute:ActivatedRoute,private userService:UserService,private signInService:SigninService){
     let id = activatedRoute.snapshot.params['id'];
     this.getUser(id);
@@ -79,5 +89,23 @@ export class EditUserComponent {
             error => console.error(error)
         )
     }
+  
+    isValid() {
+    return this._isValid.name &&
+      this._isValid.userPassword &&
+      this._isValid.repeatUserPassword &&
+      this._isValid.email &&
+      this._isValid.firstLastName &&
+      this._isValid.phone &&
+      this._isValid.secondLastName 
 
+  }
+
+  val1(value: String) {
+    return value.length > 4;
+  }
+  
+  valName(value: String) {
+    return value.length > 0;
+  }
 }
