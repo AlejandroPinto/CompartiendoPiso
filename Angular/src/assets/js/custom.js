@@ -446,12 +446,12 @@ $(document).ready(function(){
 	  });
   });
 
-  $(".logued").click(function(){
-    $(".logedUser").show();
-  });
-  $(".unlogued").click(function(){
-    window.location.href = "user.html";
-  });
+  // $(".logued").click(function(){
+  //   $(".logedUser").show();
+  // });
+  // $(".unlogued").click(function(){
+  //   window.location.href = "user.html";
+  // });
 
 //  $(".delete-offert").click(function(){
 //    bootbox.confirm({

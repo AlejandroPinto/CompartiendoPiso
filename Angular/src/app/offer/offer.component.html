@@ -25,7 +25,7 @@
                     <img alt="img" class="circularProfile" src="https://localhost:8443/api/user/image/{{offer.user.id}}">      
                 </div>
                 <div class="media-body">
-                  <h3 class="author-name">     {{offer.user.name}} {{offer.user.firstLastName}} {{offer.user.secondLastName}}</h3>
+                  <h3 [routerLink]="['/user',offer.user.id]" class="author-name">     {{offer.user.name}} {{offer.user.firstLastName}} {{offer.user.secondLastName}}</h3>
                   <h4 class="comments-date">     <i class="fa fa-phone" aria-hidden="true"></i> {{offer.user.phone}}</h4>
                   <p>    {{offer.user.description}}</p>
                 </div>
@@ -64,9 +64,9 @@
               <div class="aa-comments-area">
                 <h3>{{numReviews}} Comentario/s</h3>
                 <div class="comments">
-                  <ul *ngFor = "let review of offer.reviews" class="commentlist">
+                  <ul class="commentlist">
                   <!--{{#reviews}}-->
-                    <li>
+                    <li *ngFor = "let review of offer.reviews | paginate: { itemsPerPage: 4, currentPage: p }">
                       <div class="media">
                         <div class="media-left">    
                             <img alt="img" src="https://localhost:8443/api/user/image/{{review.userReview.id}}" class="media-object news-img">      
@@ -89,6 +89,7 @@
                    <!-- {{/reviews}}-->
                    </ul>
                   <!-- comments pagination -->
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
                 </div>
               </div>
             </div>

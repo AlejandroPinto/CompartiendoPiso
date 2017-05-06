@@ -30,6 +30,8 @@ import { UserService } from './user/user.service';
 import { RegisterService } from './register/register.service';
 import { AdminService } from './admin/admin.service';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { AdminService } from './admin/admin.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing,JsonpModule
+    routing,JsonpModule,
+    NgxPaginationModule
   ],
   bootstrap: [AppComponent],
   providers: [OfferService, UserService, SigninService, HttpClient,IndexService,RegisterService,AdminService]
