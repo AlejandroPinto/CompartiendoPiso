@@ -37,7 +37,7 @@ export class OfferComponent {
   };
 
    offer: Offer = {
-      id: 0,
+      id: null,
 	    title: "",
 	    price: 0,
       description: "",
@@ -96,6 +96,10 @@ export class OfferComponent {
     this.formData.valoration=rate;
   }
 
+  setInputType(type:string){
+    this.formData.offer.type;
+  }
+  
    getOfferId(id : number) {
         this.offerService.getOffer(id).subscribe(
             response => {

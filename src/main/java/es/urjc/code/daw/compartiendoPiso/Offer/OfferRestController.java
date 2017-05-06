@@ -1,7 +1,14 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -111,6 +118,12 @@ public class OfferRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 		}
 
+	}
+	
+	@RequestMapping(value = "/image/{id}", method = RequestMethod.GET)
+	public void getImage(@PathVariable long id, HttpServletResponse response) throws FileNotFoundException, IOException{
+		User ownOffer = service.getOwnOffer(id);
+		IOUtils.copy(new FileInputStream("img\\users\\"+ownOffer.getId()+"\\"+id+"\\0.jpg"), response.getOutputStream());
 	}
 	
 

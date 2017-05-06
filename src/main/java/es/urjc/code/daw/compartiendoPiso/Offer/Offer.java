@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import es.urjc.code.daw.compartiendoPiso.Offer.Characteristics.BasicCharacteristics;
 import es.urjc.code.daw.compartiendoPiso.User.User;
 import es.urjc.code.daw.compartiendoPiso.review.Review;
 import es.urjc.code.daw.compartiendoPiso.review.Review.BasicReview;

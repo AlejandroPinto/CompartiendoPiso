@@ -1,7 +1,13 @@
 package es.urjc.code.daw.compartiendoPiso.User;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -143,5 +149,10 @@ public class UserRestController {
 		else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);   
 		}
+	}
+	
+	@RequestMapping(value = "/image/{id}", method = RequestMethod.GET)
+	public void getImage(@PathVariable long id, HttpServletResponse response) throws FileNotFoundException, IOException{
+		IOUtils.copy(new FileInputStream("img\\users\\"+id+"\\0.jpg"), response.getOutputStream());
 	}
 }
