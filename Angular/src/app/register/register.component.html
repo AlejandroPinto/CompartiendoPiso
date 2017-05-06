@@ -44,31 +44,22 @@
                 <input type="text" [(ngModel)]="formData.phone" required="required" aria-required="true" value="" name="phone">
               </div>
 
-
-
-
               <div class="form-group" id="passwordfieldcontainer" [class.has-error]="!(formData.pass === '' || _isValid.userPassword)"
                 [class.has-success]="_isValid.userPassword">
                 <div class="aa-single-field">
                   <label class="control-label" for="formData.pass"> Password<span class="required">*</span></label>
                   <input type="password" class="form-control" [(ngModel)]="formData.pass" (blur)="_isValid.userPassword = formData.pass.length >= 4"
-                    required="required" aria-required="true" value="" name="secondLastName">
+                    required="required" aria-required="true" value="" name="pass">
                 </div>
               </div>
-
-
 
               <div class="form-group" id="confirmpasswordfieldcontainer" [class.has-error]="!(repeatPasswordField.value === '' || _isValid.repeatUserPassword)"
                 [class.has-success]="_isValid.repeatUserPassword">
                 <div class="aa-single-field">
                   <label class="control-label" for="ConfirmPassword">Repite Password<span class="required">*</span></label>
-                  <input #repeatPasswordField type="password" class="form-control" name="userPasswordRepeat" id="confirmPassword" (blur)="_isValid.repeatUserPassword = formData.pass === repeatPasswordField.value ">
+                  <input #repeatPasswordField type="password" class="form-control" name="userPasswordRepeat" id="confirmPassword" (blur)="_isValid.repeatUserPassword = formData.pass === repeatPasswordField.value">
                 </div>
               </div>
-
-
-
-
 
               <div class="form-group" [class.has-error]="!(formData.description === '' || _isValid.description)" [class.has-success]="_isValid.description">
                 <div class="aa-single-field">
