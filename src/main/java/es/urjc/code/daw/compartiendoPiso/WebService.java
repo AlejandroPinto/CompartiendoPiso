@@ -88,6 +88,11 @@ public class WebService {
 		
 	}
 	
+	public User getOwnOffer(long idOffer){
+		Offer offer = getOfferById(idOffer);
+		return offer.getUser();
+	}
+	
 	//USER UTILS
 	public void saveUser(User user){
 		userRepository.save(user);

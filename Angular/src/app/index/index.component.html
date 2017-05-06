@@ -237,8 +237,8 @@
                     <span *ngFor = "let offer of offers" class="add">
                         <div class="col-md-4">
                             <article class="aa-properties-item">
-                                <a class="aa-properties-item-img" href="#">
-                                    <img src="https://localhost:8443/image/{{offer.user.id}}/{{offer.id}}/0.jpg" alt="img" width="370" height="220">
+                                <a class="aa-properties-item-img" [routerLink]="['/offer',offer.id]">
+                                    <img src="https://localhost:8443/api/offer/image/{{offer.id}}" alt="img" width="370" height="220">
                                 </a>
                                 <div class="aa-properties-item-content">
                                     <div class="aa-properties-info">

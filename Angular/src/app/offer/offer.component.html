@@ -13,24 +13,36 @@
             <div class="aa-properties-details">
              <div class="aa-properties-details-img">
              <!--{{#photos}}-->
-               <img src="https://localhost:8443/image/{{offer.user.id}}/{{offer.id}}/0.jpg" alt="img" width="1920" height="1280">
-               <img src="https://localhost:8443/image/{{offer.user.id}}/{{offer.id}}/1.jpg" alt="img" width="1920" height="1280">
+               <img src="https://localhost:8443/api/offer/image/{{offer.id}}" alt="img" width="1920" height="1280">
              <!--{{/photos}} -->
              </div>
              <div class="aa-properties-info">
-             <h1>Oferta de: {{offer.user.name}}</h1>
-               <h2>{{offer.type}}: {{offer.title}}</h2>
-               <span class="aa-price">{{offer.location}}, {{offer.province}}</span>
-               	<p>- {{offer.description}}</p>
-               <h4>Características básicas</h4>
-	               	<li>Tamaño: {{offer.area}} m2</li>
-	               	<li>Baños: {{offer.bathroom}} </li>
-	               	<li>Habitaciones: {{offer.rooms}}</li>   
-	               	<li>Precio: {{offer.price}} €</li> 	         	
-               <h4>Características especiales</h4>
+             <h1>{{offer.type}}: {{offer.title}}</h1>
+             <h2>PRECIO: {{offer.price}} <i class="fa fa-eur" aria-hidden="true"></i></h2>
+             <h2>Oferta de:</h2>
+             <div>
+                <div class="media-left">    
+                    <img alt="img" class="circularProfile" src="https://localhost:8443/api/user/image/{{offer.user.id}}">      
+                </div>
+                <div class="media-body">
+                  <h3 class="author-name">     {{offer.user.name}} {{offer.user.firstLastName}} {{offer.user.secondLastName}}</h3>
+                  <h4 class="comments-date">     <i class="fa fa-phone" aria-hidden="true"></i> {{offer.user.phone}}</h4>
+                  <p>    {{offer.user.description}}</p>
+                </div>
+              </div>
+               <h2>Descripción:</h2>
+               <h4>{{offer.description}}</h4>
+               <h2>Características:</h2>
+               <div class="row">
+                 <div class="col-md-3"><h4><i class="fa fa-home" aria-hidden="true"></i> Tamaño: {{offer.area}} m2</h4></div>
+                 <div class="col-md-2"><h4><i class="fa fa-tint" aria-hidden="true"></i> Baños: {{offer.bathroom}}</h4></div>
+                 <div class="col-md-3"><h4><i class="fa fa-bed" aria-hidden="true"></i> Habitaciones: {{offer.rooms}}</h4></div>
+                 <div class="col-md-4"><h4><i class="fa fa-map-marker" aria-hidden="true"></i> Ubicación: {{offer.location}}, {{offer.province}}</h4></div>
+               </div>	
+               <h2>Características especiales</h2>
                <ul *ngFor = "let offer of offer.characteristics">
                  <!--{{#offer.characteristics}}-->
-                 	<li>{{offer.name}}</li>
+                 	<h4><li>{{offer.name}}</li></h4>
                  <!--{{/offer.characteristics}}-->
                </ul>  
                <!--  
@@ -57,7 +69,7 @@
                     <li>
                       <div class="media">
                         <div class="media-left">    
-                            <img alt="img" src="https://localhost:8443/image/{{review.userReview.id}}/0.jpg" class="media-object news-img">      
+                            <img alt="img" src="https://localhost:8443/api/user/image/{{review.userReview.id}}" class="media-object news-img">      
                         </div>
                         <div class="media-body">
                          <h4 class="author-name">{{review.userReview.name}} {{review.userReview.firstLastName}} {{review.userReview.secondLastName}}</h4>

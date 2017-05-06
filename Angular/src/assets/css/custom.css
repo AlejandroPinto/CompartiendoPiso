@@ -104,6 +104,14 @@ h1 { font-size: 1.5em; margin: 10px; }
   color: #ddd; 
  float: right; 
 }
+.circularProfile {
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(http://link-to-your/image.jpg) no-repeat;
+	}
 
 /***** CSS Magic to Highlight Stars on Hover *****/
 
