@@ -93,8 +93,7 @@ export class OfferComponent {
   }
 
   setValoration(rate:number){
-    this.review.valoration=rate;
-    console.log(rate);
+    this.formData.valoration=rate;
   }
 
    getOfferId(id : number) {
