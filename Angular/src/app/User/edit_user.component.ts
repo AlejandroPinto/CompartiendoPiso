@@ -67,20 +67,22 @@ export class EditUserComponent {
   }
 
   editUser() {
-    this.userService.updateUser(this.formData.id, this.formData).subscribe(
-      response => {
-        this.user = response,
-        this.updatePhoto(this.user.id);
-          this.signInService.logIn(this.formData.email, this.formData.pass).subscribe(
-            response => {
-              this.router.navigate(['user', this.formData.id]);
-            },
-            error => console.log("Error en edit User")
-          );
-      })
-    this.router.navigate(['user', this.formData.id]);
+    if(this.signInService.isLogged()){
+      this.userService.updateUser(this.formData.id, this.formData).subscribe(
+        response => {
+          this.user = response,
+          this.updatePhoto(this.user.id);
+            this.signInService.logIn(this.formData.email, this.formData.pass).subscribe(
+              response => {
+                this.router.navigate(['user', this.formData.id]);
+              },
+              error => console.log("Error en edit User")
+            );
+        })
+    }else{
+      this.router.navigate(['user', this.formData.id]);
+    }
 }
-
 
   updatePhoto(id: number){
         let formData = new FormData();
