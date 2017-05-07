@@ -116,7 +116,7 @@ export class OfferComponent {
     addReview() {
       this.offerService.addReviews(this.offerID, this.formData).subscribe(
         review =>  {
-          this.offer.reviews=review.reviews;
+          this.offer.reviews = review.reviews;
         }
       );
     }

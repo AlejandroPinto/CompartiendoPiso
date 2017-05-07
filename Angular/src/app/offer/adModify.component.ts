@@ -42,8 +42,7 @@ export class AdModifyComponent {
     photos: false
   }
 
-  image:any;
-  
+  image:any;  
 
 setInputType(type:string){
     this.offer.type = type;
@@ -106,6 +105,7 @@ setInputType(type:string){
     console.log(value !== "");
     return value !== "";
   }
+
    updatePhoto(id: number){
          let formData = new FormData();
         formData.append('file', this.image);

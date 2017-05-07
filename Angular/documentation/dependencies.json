@@ -1,0 +1,834 @@
+[
+  {
+    "name": "AppRoutingModule",
+    "file": "__path__/app/app-routing.module.ts",
+    "providers": [],
+    "declarations": [],
+    "imports": [
+      {
+        "ns": "RouterModule",
+        "name": "RouterModule.forRoot(args)"
+      }
+    ],
+    "exports": [
+      {
+        "name": "RouterModule"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "kind": 253,
+        "pos": 178,
+        "end": 220,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 178,
+          "end": 188,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 189,
+          "end": 220,
+          "flags": 0,
+          "elements": [
+            {
+              "kind": 174,
+              "pos": 191,
+              "end": 219,
+              "flags": 0,
+              "expression": {
+                "kind": 172,
+                "pos": 191,
+                "end": 211,
+                "flags": 0,
+                "expression": {
+                  "kind": 69,
+                  "pos": 191,
+                  "end": 203,
+                  "flags": 0,
+                  "text": "RouterModule"
+                },
+                "name": {
+                  "kind": 69,
+                  "pos": 204,
+                  "end": 211,
+                  "flags": 0,
+                  "text": "forRoot"
+                }
+              },
+              "arguments": [
+                {
+                  "kind": 69,
+                  "pos": 212,
+                  "end": 218,
+                  "flags": 0,
+                  "text": "routes"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 221,
+        "end": 247,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 221,
+          "end": 231,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 232,
+          "end": 247,
+          "flags": 0,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 234,
+              "end": 246,
+              "flags": 0,
+              "text": "RouterModule"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "StarRatingModule",
+    "file": "node_modules/angular-star-rating/index.ts",
+    "providers": [],
+    "declarations": [
+      {
+        "name": "StarRatingComponent"
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      }
+    ],
+    "exports": [
+      {
+        "name": "StarRatingComponent"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "kind": 253,
+        "pos": 569,
+        "end": 606,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 569,
+          "end": 580,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 581,
+          "end": 606,
+          "flags": 0,
+          "multiLine": true,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 583,
+              "end": 601,
+              "flags": 0,
+              "text": "CommonModule"
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 607,
+        "end": 656,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 607,
+          "end": 623,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 624,
+          "end": 656,
+          "flags": 0,
+          "multiLine": true,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 626,
+              "end": 651,
+              "flags": 0,
+              "text": "StarRatingComponent"
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 657,
+        "end": 701,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 657,
+          "end": 668,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 669,
+          "end": 701,
+          "flags": 0,
+          "multiLine": true,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 671,
+              "end": 696,
+              "flags": 0,
+              "text": "StarRatingComponent"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "StarRatingModule",
+    "file": "angular-star-rating/src/star-rating.module.ts",
+    "providers": [
+      {
+        "name": "StarRatingConfig"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "EXPORTS"
+      }
+    ],
+    "imports": [
+      {
+        "name": "CommonModule"
+      }
+    ],
+    "exports": [
+      {
+        "name": "EXPORTS"
+      }
+    ],
+    "bootstrap": [],
+    "__raw": [
+      {
+        "kind": 253,
+        "pos": 391,
+        "end": 420,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 391,
+          "end": 402,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 403,
+          "end": 420,
+          "flags": 0,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 405,
+              "end": 418,
+              "flags": 0,
+              "text": "CommonModule"
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 421,
+        "end": 450,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 421,
+          "end": 432,
+          "flags": 0,
+          "text": "exports"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 433,
+          "end": 450,
+          "flags": 0,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 440,
+              "end": 448,
+              "flags": 0,
+              "text": "EXPORTS"
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 451,
+        "end": 480,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 451,
+          "end": 467,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 468,
+          "end": 480,
+          "flags": 0,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 470,
+              "end": 478,
+              "flags": 0,
+              "text": "EXPORTS"
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 481,
+        "end": 516,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 481,
+          "end": 494,
+          "flags": 0,
+          "text": "providers"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 495,
+          "end": 516,
+          "flags": 0,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 497,
+              "end": 514,
+              "flags": 0,
+              "text": "StarRatingConfig"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "name": "AppModule",
+    "file": "src/app/app.module.ts",
+    "providers": [
+      {
+        "name": "OfferService"
+      },
+      {
+        "name": "UserService"
+      },
+      {
+        "name": "SigninService"
+      },
+      {
+        "name": "HttpClient"
+      },
+      {
+        "name": "IndexService"
+      },
+      {
+        "name": "RegisterService"
+      },
+      {
+        "name": "AdminService"
+      }
+    ],
+    "declarations": [
+      {
+        "name": "AppComponent",
+        "file": "src/app/app.component.ts",
+        "selector": "app-root",
+        "providers": [],
+        "templateUrl": [
+          "app.component.html"
+        ],
+        "styleUrls": [],
+        "__raw": [
+          {
+            "kind": 253,
+            "pos": 58,
+            "end": 82,
+            "flags": 0,
+            "name": {
+              "kind": 69,
+              "pos": 58,
+              "end": 70,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "kind": 9,
+              "pos": 71,
+              "end": 82,
+              "flags": 0,
+              "text": "app-root"
+            }
+          },
+          {
+            "kind": 253,
+            "pos": 83,
+            "end": 122,
+            "flags": 0,
+            "name": {
+              "kind": 69,
+              "pos": 83,
+              "end": 98,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "kind": 9,
+              "pos": 99,
+              "end": 122,
+              "flags": 0,
+              "text": "./app.component.html"
+            }
+          }
+        ]
+      },
+      {
+        "name": "ContactComponent"
+      },
+      {
+        "name": "RegisterComponent"
+      },
+      {
+        "name": "SigninComponent"
+      },
+      {
+        "name": "AdModifyComponent"
+      },
+      {
+        "name": "AdminComponent",
+        "file": "app/admin/admin.component.ts",
+        "selector": "admin",
+        "providers": [],
+        "templateUrl": [
+          "admin.component.html"
+        ],
+        "styleUrls": [],
+        "__raw": [
+          {
+            "kind": 253,
+            "pos": 322,
+            "end": 343,
+            "flags": 0,
+            "name": {
+              "kind": 69,
+              "pos": 322,
+              "end": 334,
+              "flags": 0,
+              "text": "selector"
+            },
+            "initializer": {
+              "kind": 9,
+              "pos": 335,
+              "end": 343,
+              "flags": 0,
+              "text": "admin"
+            }
+          },
+          {
+            "kind": 253,
+            "pos": 344,
+            "end": 385,
+            "flags": 0,
+            "name": {
+              "kind": 69,
+              "pos": 344,
+              "end": 359,
+              "flags": 0,
+              "text": "templateUrl"
+            },
+            "initializer": {
+              "kind": 9,
+              "pos": 360,
+              "end": 385,
+              "flags": 0,
+              "text": "./admin.component.html"
+            }
+          }
+        ]
+      },
+      {
+        "name": "FooterComponent"
+      },
+      {
+        "name": "HeaderComponent"
+      },
+      {
+        "name": "IndexComponent"
+      },
+      {
+        "name": "NavbarComponent"
+      },
+      {
+        "name": "NewOfferComponent"
+      },
+      {
+        "name": "OfferComponent"
+      },
+      {
+        "name": "EditUserComponent"
+      },
+      {
+        "name": "UserComponent"
+      }
+    ],
+    "imports": [
+      {
+        "name": "BrowserModule"
+      },
+      {
+        "name": "FormsModule"
+      },
+      {
+        "name": "HttpModule"
+      },
+      {
+        "name": "routing"
+      },
+      {
+        "name": "JsonpModule"
+      },
+      {
+        "name": "NgxPaginationModule"
+      }
+    ],
+    "exports": [],
+    "bootstrap": [
+      {
+        "name": "AppComponent"
+      }
+    ],
+    "__raw": [
+      {
+        "kind": 253,
+        "pos": 1586,
+        "end": 1854,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 1586,
+          "end": 1602,
+          "flags": 0,
+          "text": "declarations"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 1603,
+          "end": 1854,
+          "flags": 0,
+          "multiLine": true,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 1605,
+              "end": 1623,
+              "flags": 0,
+              "text": "AppComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1624,
+              "end": 1640,
+              "flags": 0,
+              "text": "ContactComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1641,
+              "end": 1658,
+              "flags": 0,
+              "text": "RegisterComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1659,
+              "end": 1674,
+              "flags": 0,
+              "text": "SigninComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1675,
+              "end": 1698,
+              "flags": 0,
+              "text": "AdModifyComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1699,
+              "end": 1713,
+              "flags": 0,
+              "text": "AdminComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1714,
+              "end": 1729,
+              "flags": 0,
+              "text": "FooterComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1730,
+              "end": 1745,
+              "flags": 0,
+              "text": "HeaderComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1746,
+              "end": 1761,
+              "flags": 0,
+              "text": "IndexComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1762,
+              "end": 1778,
+              "flags": 0,
+              "text": "NavbarComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1779,
+              "end": 1802,
+              "flags": 0,
+              "text": "NewOfferComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1803,
+              "end": 1817,
+              "flags": 0,
+              "text": "OfferComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1818,
+              "end": 1835,
+              "flags": 0,
+              "text": "EditUserComponent"
+            },
+            {
+              "kind": 69,
+              "pos": 1836,
+              "end": 1849,
+              "flags": 0,
+              "text": "UserComponent"
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 1855,
+        "end": 1980,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 1855,
+          "end": 1866,
+          "flags": 0,
+          "text": "imports"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 1867,
+          "end": 1980,
+          "flags": 0,
+          "multiLine": true,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 1869,
+              "end": 1888,
+              "flags": 0,
+              "text": "BrowserModule"
+            },
+            {
+              "kind": 69,
+              "pos": 1889,
+              "end": 1906,
+              "flags": 0,
+              "text": "FormsModule"
+            },
+            {
+              "kind": 69,
+              "pos": 1907,
+              "end": 1923,
+              "flags": 0,
+              "text": "HttpModule"
+            },
+            {
+              "kind": 69,
+              "pos": 1924,
+              "end": 1937,
+              "flags": 0,
+              "text": "routing"
+            },
+            {
+              "kind": 69,
+              "pos": 1938,
+              "end": 1949,
+              "flags": 0,
+              "text": "JsonpModule"
+            },
+            {
+              "kind": 69,
+              "pos": 1950,
+              "end": 1975,
+              "flags": 0,
+              "text": "NgxPaginationModule"
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 1981,
+        "end": 2010,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 1981,
+          "end": 1994,
+          "flags": 0,
+          "text": "bootstrap"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 1995,
+          "end": 2010,
+          "flags": 0,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 1997,
+              "end": 2009,
+              "flags": 0,
+              "text": "AppComponent"
+            }
+          ]
+        }
+      },
+      {
+        "kind": 253,
+        "pos": 2011,
+        "end": 2122,
+        "flags": 0,
+        "name": {
+          "kind": 69,
+          "pos": 2011,
+          "end": 2024,
+          "flags": 0,
+          "text": "providers"
+        },
+        "initializer": {
+          "kind": 170,
+          "pos": 2025,
+          "end": 2122,
+          "flags": 0,
+          "elements": [
+            {
+              "kind": 69,
+              "pos": 2027,
+              "end": 2039,
+              "flags": 0,
+              "text": "OfferService"
+            },
+            {
+              "kind": 69,
+              "pos": 2040,
+              "end": 2052,
+              "flags": 0,
+              "text": "UserService"
+            },
+            {
+              "kind": 69,
+              "pos": 2053,
+              "end": 2067,
+              "flags": 0,
+              "text": "SigninService"
+            },
+            {
+              "kind": 69,
+              "pos": 2068,
+              "end": 2079,
+              "flags": 0,
+              "text": "HttpClient"
+            },
+            {
+              "kind": 69,
+              "pos": 2080,
+              "end": 2092,
+              "flags": 0,
+              "text": "IndexService"
+            },
+            {
+              "kind": 69,
+              "pos": 2093,
+              "end": 2108,
+              "flags": 0,
+              "text": "RegisterService"
+            },
+            {
+              "kind": 69,
+              "pos": 2109,
+              "end": 2121,
+              "flags": 0,
+              "text": "AdminService"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]
