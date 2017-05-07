@@ -10,7 +10,7 @@ CompartiendoPiso es una aplicación web que permite publicar anuncios para alqui
 
 - Administrador: Será el encargado de actualizar y moderar las ofertas de pisos y habitaciones.
 
-[![Video Demostracion](http://imgur.com/a/m4uM4)](https://www.youtube.com/watch?v=4y_Ea45KGMI&feature=youtu.be "CompartiendoPiso : Video Demostracion")
+[![Video Demostracion](http://imgur.com/a/m4uM4.jpg)](https://www.youtube.com/watch?v=4y_Ea45KGMI&feature=youtu.be "CompartiendoPiso : Video Demostracion")
 
 ## Entidades:
 - Usuario: El usuario podrá editar y actualizar su perfil al igual que crear y editar ofertas sobre pisos o habitaciones.
@@ -120,11 +120,12 @@ Los html newAd.html y newAdModify.html son creados por nosotros mediante formula
 
 ## FASE 5
  
- [![Video Demostracion](http://imgur.com/a/m4uM4)](https://www.youtube.com/watch?v=4y_Ea45KGMI&feature=youtu.be "CompartiendoPiso : Video Demostracion")
+ [![Video Demostracion](http://imgur.com/a/m4uM4.jpg)](https://www.youtube.com/watch?v=4y_Ea45KGMI&feature=youtu.be "CompartiendoPiso : Video Demostracion")
 
 ## Diagrama de clases y Diagrama Padre Hijo:
 
-[Diagrama Angular](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaAngular.png "DiagramaAngular")
+![Diagrama Angular](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaAngular.png?raw=true "DiagramaAngular")
 
-[Diagrama Padre Hijo]((https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaPadreHijo.png "Diagrama Padre Hijo")
+
+![Diagrama Padre Hijo](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaPadreHijo.png?raw=true "Diagrama Padre Hijo")
 
