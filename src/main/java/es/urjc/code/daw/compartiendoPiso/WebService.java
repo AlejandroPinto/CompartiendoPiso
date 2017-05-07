@@ -88,6 +88,11 @@ public class WebService {
 		
 	}
 	
+	public User getOwnOffer(long idOffer){
+		Offer offer = getOfferById(idOffer);
+		return offer.getUser();
+	}
+	
 	//USER UTILS
 	public void saveUser(User user){
 		userRepository.save(user);
@@ -95,6 +100,10 @@ public class WebService {
 	
 	public User getUserById(long id){
 		return userRepository.findOne(id);
+	}
+	
+	public User getUserByEmail(String email){
+		return userRepository.findByEmail(email);
 	}
 	
 	public boolean isLoggedUser(){
@@ -129,5 +138,9 @@ public class WebService {
 	
 	public User findUserByEmail(String email){
 		return userRepository.findByEmail(email);		
+	}
+	
+	public List<Offer> findAllOffers(){
+		return offerRepository.findAll();
 	}
 }	

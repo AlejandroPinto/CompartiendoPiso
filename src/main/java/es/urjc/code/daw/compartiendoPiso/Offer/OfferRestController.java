@@ -1,7 +1,14 @@
 package es.urjc.code.daw.compartiendoPiso.Offer;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,12 +50,17 @@ public class OfferRestController {
 	}
 	
 	@JsonView(CompleteOffer.class)
-	@RequestMapping(value = "/addOffer", method = RequestMethod.POST)
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public ResponseEntity <List<Offer>> getAllOffers(){
+			return new ResponseEntity<>(service.findAllOffers(), HttpStatus.OK);
+	}
+	
+	@JsonView(CompleteOffer.class)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer ){
 		if(service.isLoggedUser()){
 			User user = service.getUserById(service.getUserId());
-			System.out.println(user.getName()+"++++++++++++++");
 			offer.setUser(user);
 			service.saveOffer(offer);
 			return new ResponseEntity<Offer>(offer, HttpStatus.OK);
@@ -59,7 +71,7 @@ public class OfferRestController {
 	}
 	
 	@JsonView(CompleteOffer.class)
-	@RequestMapping(value = "/setOfferPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
+	@RequestMapping(value = "/offerPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
 	public ResponseEntity<Offer> setPhotoToOffer(@PathVariable long id, @RequestParam("file") List<MultipartFile> files ){
 		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
 			Offer updateOffer = service.getOfferById(id);
@@ -96,15 +108,23 @@ public class OfferRestController {
 		}
 	}
 	
-	@JsonView(CompleteOffer.class)
-	@RequestMapping(value = "/deleteOffer/{id}", method = RequestMethod.DELETE)
+	@JsonView(CompleteOffer.class) 
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Offer> deleteOffer(@PathVariable long id) {
-		if((service.isLoggedUser()) && (service.getOfferById(id).getUser().getId() == service.getUserId())){
+		if(service.isLoggedUser() && (service.getOfferById(id).getUser().getId() == service.getUserId() || service.getUserById(id).getRoles().toString().equals("[ROLE_USER]"))) {	
 			service.deleteOffer(id);
-			return new ResponseEntity<>(null, HttpStatus.OK);
+			return new ResponseEntity<>(null, HttpStatus.OK); 
 		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 		}
+
 	}
+	
+	@RequestMapping(value = "/imageOffer/{id}", method = RequestMethod.GET)
+	public void getImage(@PathVariable long id, HttpServletResponse response) throws FileNotFoundException, IOException{
+		User ownOffer = service.getOwnOffer(id);
+		IOUtils.copy(new FileInputStream("img\\users\\"+ownOffer.getId()+"\\"+id+"\\0.jpg"), response.getOutputStream());
+	}
+	
 
 }

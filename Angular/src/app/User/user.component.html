@@ -1,0 +1,128 @@
+
+  <!-- Start Proerty header  -->
+  <section id="aa-user">
+  </section> 
+  <!-- End Proerty header  -->
+
+  <!-- Start Proerty header  -->
+
+  <!-- End Proerty header  -->
+
+  <!-- Start Blog  -->
+  <section id="aa-properties">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-properties-area">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="aa-properties-content">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <article class="aa-properties-single-sidebar aa-properties-details">
+                        <form action="editarPerfil">
+                        <div class="col-lg-3 col-md-3">
+                            <img class="circularProfile" src="https://localhost:8443/api/user/image/{{user.id}}" alt="" title="" width="150" height="150" id="imgSalida">                      
+                        </div>
+                        
+                        <div class="col-lg-9">
+                           <div class="text-right logedUser">
+                            <a *ngIf="isOwner()" [routerLink]="['/newOffer']" class="btn btn-default editText" role="button">Añadir oferta</a>
+                            <a *ngIf="isOwner()" [routerLink]="['/editUser',user.id]" class="btn btn-default editText" role="button">Editar Perfil</a>
+                          </div>
+                          <h2 class="box-heading" id="editName">{{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
+                          <label id="label_name" style='display:none;'>Nombre: </label><input name="name" class="form-control editName" id="name" style='display:none;' value="{{user.name}}"/>
+                          <label id="label_firstLastName" style='display:none;'>Primer apellido: </label><input name="name" class="form-control editName" id="fisrtLastName" style='display:none;' value="{{user.firstLastName}}"/>
+                          <label id="label_secondLastName" style='display:none;'>Segundo apellido:</label> <input name="name" class="form-control editName" id="secondLastName" style='display:none;' value="{{user.secondLastName}}"/>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editDescription">{{user.description}}</h5>
+                              <label id="label_description" style='display:none;'>Descripción: </label><input name="description" class="form-control editDescription" id="description" style='display:none;' value="{{user.description}}"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editMail">{{user.email}}</h5>
+                              <label id="label_email" style='display:none;'>Email: </label><input name="email" class="form-control editEmail" id="email" style='display:none;' value="{{user.email}}"/>
+                              
+                            </div>
+                          </div> 
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <h5 class="box-heading" id="editPhone">{{user.phone}}</h5>
+                              <label id="label_phone" style='display:none;'>Teléfono: </label><input name="phone" class="form-control editPhone" id="phone" style='display:none;' value="{{user.phone}}"/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <label id="label_pass" style='display:none;'>Contraseña: </label><input style='display:none;' class="form-control" id="editPassword" name="password" placeholder="Escriba la nueva contraseña">
+                            </div>
+                          </div>
+                         <!--  <div class="changeImage" hidden>
+                            <input name="file-input" class="btn btn-default" id="file-input" type="file"/>
+                          </div> -->
+                          <input name="id" value="{{user.id}}" id="id_user" type="hidden"/>
+                          <input name="admin" value="false" id="admin" type="hidden"/>
+                        </div>     
+                        <span hidden class="saveButton">
+                          <div class="text-right">
+                            <button type="button" class="btn btn-primary guardarCambios" role="button">
+                              <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>  Guardar Cambios
+                            </button>
+                          </div>
+                        </span>    
+                        </form> 
+                      </article>
+                    </div>
+                    <!-- Related blog post -->
+                    <div class="col-md-12">
+                      <div class="aa-blog-related-post">
+                        <div class="aa-title">
+                          <h2>Lista de pisos del usuario {{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
+                          <span></span>
+                        </div>
+                        
+                        <div class="aa-blog-related-post-area">
+                          <div class="row">
+                            <div *ngFor="let offer of user.offers" class="col-md-6 col-sm-6">
+                              <article class="aa-blog-single">
+                                <span class="logedUser">
+                                   <!--onclick="window.location.href='/offerModify/{{id}}'"-->
+                                  <a *ngIf="isOwner()" [routerLink]="['/adModify',offer.id]" class="btn btn-default editText" role="button"><i class="fa fa-pencil"></i>Editar</a>
+                                  <button (click)="deleteOffer(offer.id)" class="btn btn-default text-right delete-offert discard-offert">
+                                  	<i class="fa fa-trash"></i>Eliminar
+                                  	<input class="idOffer" value="{{offer.id}}" hidden/>
+                                  	</button>
+                                  <br>
+                                </span>
+                                <figure class="aa-blog-img">
+                                  <!--href="/offer/{{id}}/?page=0&size=4"-->
+                                  <a [routerLink]="['/offer',offer.id]"><img src="https://localhost:8443/api/offer/imageOffer/{{offer.id}}" alt="img" width="360" height="240"></a>
+                                  <span class="aa-date-tag">{{offer.title}}</span>
+                                </figure>
+                                <div class="aa-blog-single-content">
+                                  <h3><a href="#"></a></h3>
+                                 <h4><b>{{offer.price}} €</b></h4>
+                                   <p class="offerParagraph">{{offer.description}}</p>
+                                  <div class="aa-blog-single-bottom">
+                                    <a href="#" class="aa-blog-author"><i class="fa fa-user"></i> Admin</a>
+                                    <a href="#" class="aa-blog-comments"><i class="fa fa-comment-o"></i>6</a>
+                                  </div>
+                                </div>                   
+                              </article>
+                            </div>
+                          </div>
+                        </div>
+                        <p *ngIf="isEmpty()"> El usuario no ha publicado ofertas</p>
+                      </div>
+                    </div>  
+                  </div>
+                </div>   
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Blog  -->

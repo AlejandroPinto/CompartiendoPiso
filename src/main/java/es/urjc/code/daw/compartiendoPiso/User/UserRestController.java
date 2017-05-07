@@ -1,7 +1,13 @@
 package es.urjc.code.daw.compartiendoPiso.User;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import es.urjc.code.daw.compartiendoPiso.UploadFiles;
 import es.urjc.code.daw.compartiendoPiso.WebService;
 import es.urjc.code.daw.compartiendoPiso.Offer.Offer;
@@ -32,7 +39,7 @@ public class UserRestController {
 	interface UserReviews extends User.userAndOffer, Offer.UserOffer, Characteristics.BasicCharacteristics{}
 	
 	
-	@JsonView(UserReviews.class)
+	/*@JsonView(UserReviews.class)
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<User> getUser(@PathVariable long id){
 		User user = service.getUserById(id);	
@@ -42,7 +49,28 @@ public class UserRestController {
 		}else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-	}
+	}*/
+	
+	@JsonView(UserReviews.class)
+    @RequestMapping(value = "/{id:.*}", method = RequestMethod.GET)
+    public ResponseEntity<User> getSingleUser(@PathVariable String id){
+
+        boolean isEmail = false;
+        long idd = 0;
+        try{
+            idd = Long.parseLong(id);
+        } catch (NumberFormatException e){
+            isEmail = true;
+        }
+
+        User u = isEmail ? service.getUserByEmail(id) : service.getUserById(idd);
+
+        if (u != null){
+            return new ResponseEntity<>(u ,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 	
 	@JsonView(UserReviews.class)
 	@RequestMapping(value="/", method=RequestMethod.GET)
@@ -57,11 +85,10 @@ public class UserRestController {
 	
 	
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value="/addUser", method=RequestMethod.POST)
+	@RequestMapping(value="/", method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<User> addUser(@RequestBody User user){
 		try{
-			
 			User userSaved = service.saveAndFlushUser(user);
 			return new ResponseEntity<User>(userSaved, HttpStatus.CREATED);
 		}catch(Exception ex){
@@ -73,27 +100,29 @@ public class UserRestController {
 	
 	
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value="/editUser/{id}", method=RequestMethod.PUT)
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<User> editUser(@PathVariable long id,@RequestBody User userUpdated){
 		
 		User user = service.getUserById(id);	
 		
 		if ((user != null) && (service.isLoggedUser())){	
-			
+			System.out.println(userUpdated.getPass());
 			userUpdated.setId(id);
-			userUpdated.setPass(user.getPass());
-			service.saveUser(userUpdated);
-			
-			return new ResponseEntity<>(userUpdated, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+			//if(userUpdated.getPass() != null){
+				//userUpdated.setPass(user.getPass());
+			//}
+			service.saveUser(userUpdated); 
+			System.out.println(userUpdated.getPass());
+			return new ResponseEntity<>(userUpdated, HttpStatus.OK); 
+		} else { 
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);       
+		} 
 			
 	}
 	
 	//El delete no se si es necesario pero ahi lo dejo
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value="/deleteUser/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<String> deleteUser(@PathVariable long id){
 		
 			if(service.isAdmin()){
@@ -104,7 +133,7 @@ public class UserRestController {
 	}
 	
 	@JsonView(CompleteUser.class)
-	@RequestMapping(value = "/setUserPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
+	@RequestMapping(value = "/userPhoto/{id}", method = RequestMethod.PUT, consumes = "multipart/form-data")
 	public ResponseEntity<User> setUserPhoto(@PathVariable long id, @RequestParam("file") List<MultipartFile> files ){
 		if((service.isLoggedUser())){
 			if(service.getLoggedUser().getId() == id){
@@ -118,7 +147,12 @@ public class UserRestController {
 			}
 		}
 		else{
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);   
 		}
+	}
+	
+	@RequestMapping(value = "/image/{id}", method = RequestMethod.GET)
+	public void getImage(@PathVariable long id, HttpServletResponse response) throws FileNotFoundException, IOException{
+		IOUtils.copy(new FileInputStream("img\\users\\"+id+"\\0.jpg"), response.getOutputStream());
 	}
 }

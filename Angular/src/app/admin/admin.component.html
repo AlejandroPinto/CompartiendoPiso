@@ -1,0 +1,54 @@
+  <!-- Start Proerty header  -->
+
+    <section id="aa-user">
+    </section>
+    
+  <!-- Latest property -->
+  <section id="aa-latest-property">
+    <div class="container">
+      <div class="aa-latest-property-area">
+        <div class="aa-title">
+          <h2>Ofertas</h2>
+          <span></span>
+          <p>Todas.</p>         
+        </div>
+        <div class="aa-latest-properties-content">
+          <div class="row">
+          <span *ngFor = "let offer of offers" class="add">
+            <div class="col-md-4">
+              <article class="aa-properties-item">
+                    <br>
+                    <div class="logedUser text-center">
+                      <button class="btn btn-danger editText discard-offert" (click)="deleteOfferAdmin(offer.id)" role="button">Eliminar</button>
+                      <button [routerLink]="['/adModify',offer.id]" type="button" class="btn btn-primary editButton" role="button">Editar</button>
+                    </div>
+                    <br>
+                    <a class="aa-properties-item-img" href="#">
+                      <img src="https://localhost:8443/image/{{offer.user.id}}/{{offer.id}}/0.jpg" alt="img" width="370" height="220">
+                    </a>
+                    <div class="aa-properties-item-content">
+                      <div class="aa-properties-info">
+                        <span>{{offer.area}} m2</span>
+                        <span>{{offer.rooms}} Habitaciones</span>
+                        <span>{{offer.bathroom}} Baño</span>                      
+                      </div>
+                      <div class="aa-properties-about">
+                        <h3><a [routerLink]="['/offer', offer.id]" >{{offer.location}}, {{offer.province}}<br>{{offer.title}}</a></h3>
+                        <p class="offerParagraph">{{offer.description}}</p>                      
+                      </div>
+                      <div class="aa-properties-detial">
+                        <span class="aa-price">
+                          {{offer.price}} €
+                        </span>
+                        <a class="aa-secondary-btn" [routerLink]="['/offer', offer.id]">Ver</a>
+                      </div>
+                    </div>
+                  </article>
+            </div>
+          </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Latest property -->

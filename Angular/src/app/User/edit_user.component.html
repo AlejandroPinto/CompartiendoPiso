@@ -1,0 +1,85 @@
+    <!-- Start Proerty header  -->
+
+    <section id="aa-user">
+    </section>
+    <!-- End Proerty header  -->
+
+    <section id="aa-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="aa-contact-area">
+                        <div class="aa-contact-bottom">
+                            <div class="aa-title">
+                                <h2>Editar el Usuario {{user.name}} {{user.firstLastName}} {{user.secondLastName}}</h2>
+                                <span></span>
+                                <p>Los campos señalados son obligatorios<strong class="required">*</strong>
+                                </p>
+                            </div>
+                            <div class="aa-contact-form">
+                                <form class="contactform" method="POST" action="/edit-user" enctype="multipart/form-data">
+									<div class="form-group" [class.has-error]="!(formData.name === '' || _isValid.name)" [class.has-success]="_isValid.name">
+										<div class="aa-single-field">
+											<label class="control-label" for="formData.name">Nombre <span class="required">*</span></label>
+											<input type="text" [(ngModel)]="formData.name" value="" (blur)="_isValid.name = valName(formData.name)" name="name">
+										</div>
+									</div>
+									<div class="form-group" [class.has-error]="!(formData.firstLastName === '' || _isValid.firstLastName)" [class.has-success]="_isValid.firstLastName">
+										<div class="aa-single-field">
+											<label class="control-label" for="formData.firstLastName">Apellido 1 <span class="required">*</span></label>
+											<input type="text" [(ngModel)]="formData.firstLastName" value="" (blur)="_isValid.firstLastName = val1(formData.firstLastName)" name="firstLastName">
+										</div>
+									</div>
+									<div class="form-group" [class.has-error]="!(formData.secondLastName === '' || _isValid.secondLastName)" [class.has-success]="_isValid.secondLastName">
+										<div class="aa-single-field">
+											<label class="control-label" for="formData.secondLastName">Apellido 2 <span class="required">*</span></label>
+											<input type="text" [(ngModel)]="formData.secondLastName" value="" name="secondLastName" (blur)="_isValid.secondLastName = val1(formData.secondLastName)">
+										</div>
+									</div>
+									<div class="form-group" [class.has-error]="!(formData.email === '' || _isValid.email)" [class.has-success]="_isValid.email">
+										<div class="aa-single-field">
+											<label class="control-label" for="formData.email">Email <span class="required">*</span></label>
+											<input type="email" [(ngModel)]="formData.email" value="" name="email" (blur)="_isValid.email = val1(formData.email)">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="aa-single-field">
+											<label class="control-label" for="formData.phone">Télefono <span class="required">*</span></label><br>
+											<input type="text" [(ngModel)]="formData.phone" value="" name="phone">
+										</div>
+									</div>
+									<div class="form-group" [class.has-error]="!(formData.pass === '' || _isValid.userPassword)" [class.has-success]="_isValid.userPassword">
+										<div class="aa-single-field">
+											<label class="control-label" for="formData.pass">Nueva Contraseña <span class="required">*</span></label>
+											<input type="password" class="form-control" [(ngModel)]="formData.pass" (blur)="(_isValid.userPassword = formData.pass.length >= 4 || formData !== undefined)" required="required" aria-required="true" value="" name="pass"> 
+										</div>
+									</div>
+									<div class="form-group" id="confirmpasswordfieldcontainer" [class.has-error]="!(repeatPasswordField.value === '' || _isValid.repeatUserPassword)" [class.has-success]="_isValid.repeatUserPassword">
+										<div class="aa-single-field">
+											<label class="control-label" for="ConfirmPassword">Confirmar contraseña <span class="required">*</span></label>
+											<input #repeatPasswordField type="password" class="form-control" name="userPasswordRepeat" id="confirmPassword" (blur)="_isValid.repeatUserPassword = formData.pass === repeatPasswordField.value">
+										</div>
+									</div>
+					                <div class="aa-single-field">
+					                  <label for="phone">Descripción del usuario</label><br>
+					                  <textarea maxlength="1080" [(ngModel)]="formData.description" name="description"></textarea>
+					                </div>
+					                <div class="aa-single-field">
+					                  <label for="phone">Imagen de perfil</label><br>
+					                  <input type="file" accept="image/*" name="file" (change)="selectFile($event)" >
+					                </div>
+					                <div class="row">
+                                       <div class="col-md-12">
+                                           <p class="form-submit">
+                                               <input type="submit" name="submit"class="aa-browse-btn btn-lg btn-block" [disabled]="!isValid()" (click)="editUser()" value="Actualizar perfil">
+                                           </p>
+                                       </div>
+                                   </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>

@@ -30,7 +30,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JsonView(BasicUser.class)
+	@JsonView({BasicUser.class,userAndOffer.class})
 	private long id;
 	@JsonView({BasicUser.class,UserLogin.class,userAndOffer.class})
 	private String name;
@@ -49,9 +49,8 @@ public class User {
 	@JsonIgnore
 	private boolean admin;
 	
-	
 	@ElementCollection(fetch = FetchType.EAGER)
-	@JsonIgnore
+	@JsonView({BasicUser.class,userAndOffer.class})	
 	private List<String> roles;
 	
 	public User () {

@@ -1,0 +1,275 @@
+<section id="aa-slider">
+    <div class="aa-slider-area">
+        <!-- Top slider -->
+        <div class="aa-top-slider">
+            <!-- Top slider single slide -->
+            <div class="aa-top-slider-single">
+                <img src="./assets/img/slider/fotoindex1.jpg" alt="img" width="1920" height="1280">
+            </div>
+            <!-- / Top slider single slide -->
+        </div>
+    </div>
+</section>
+<!-- End slider  -->
+
+<!-- Advance Search -->
+<section id="aa-advance-search" class="mainBrowser">
+    <div class="container">
+        <div class="aa-advance-search-area">
+            <div class="form">
+                <form action="/api/search" method="GET" id="busca">
+                    <div class="aa-advance-search-top">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="aa-single-advance-search">
+                                    <input type="text" class="select-color" placeholder="Ciudad, localidad, barrio..." [(ngModel)]="queryBox" name="queryBox">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <div class="col-md-2 col-md-offset-2">
+                                <div class="aa-single-advance-search">
+                                    <select [(ngModel)]="formData.priceFrom" class="select-color" name="priceFrom">
+                     <option value="0" selected>Desde (€)</option>
+                     <option value="100">100</option>
+                     <option value="200">200</option>
+                     <option value="300">300</option>
+                     <option value="400">400</option>
+                     <option value="500">500</option>
+                     <option value="600">600</option>
+                     <option value="700">700</option>
+                     <option value="800">800</option>
+                     <option value="900">900</option>
+                     <option value="1000">1000</option>
+                     <option value="1400">1400</option>
+                     <option value="1800">1800</option>
+                     <option value="2000">2000</option>
+                     <option value="2500">2500</option>
+                     <option value="3000">3000</option>
+                     <option value="4000">4000</option>
+                     <option value="5000">5000</option>
+                     <option value="6000">6000</option>
+                     <option value="7000">7000</option>
+                     <option value="10000">10000</option>
+                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="aa-single-advance-search">
+                                    <select [(ngModel)]="formData.priceTo" class="select-color" name="priceTo">
+                   <option value="0" selected>Hasta (€)</option>
+                   <option value="100">100</option>
+                   <option value="200">200</option>
+                   <option value="300">300</option>
+                   <option value="400">400</option>
+                   <option value="500">500</option>
+                   <option value="600">600</option>
+                   <option value="700">700</option>
+                   <option value="800">800</option>
+                   <option value="900">900</option>
+                   <option value="1000">1000</option>
+                   <option value="1400">1400</option>
+                   <option value="1800">1800</option>
+                   <option value="2000">2000</option>
+                   <option value="2500">2500</option>
+                   <option value="3000">3000</option>
+                   <option value="4000">4000</option>
+                   <option value="5000">5000</option>
+                   <option value="6000">6000</option>
+                   <option value="7000">7000</option>
+                   <option value="10000">10000</option>
+                  </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="aa-single-advance-search">
+                                    <select [(ngModel)]="formData.type" name="type" class="select-color">
+                     <option value="empty">Tipo</option>
+                     <option value="Piso">Piso</option>
+                     <option value="Adosado">Adosado</option>
+                     <option value="Chalé">Chalé</option>
+                     <option value="Dúplex">Dúplex</option>
+                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="checkbox">
+                                    <label id="chk1">
+                       <span class="glyphicon glyphicon-chevron-down"></span><b>Búsqueda avanzada</b>
+                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="aa-single-advance-search">
+                                    <button id="search" class="aa-search-btn" type="button" value="Buscar" (click)="search()">Buscar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="advancedSearch" hidden>
+                            <!--<span hidden class="advandecSearch"-->
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-2">
+                                    <div class="aa-single-advance-search">
+                                        <select [(ngModel)]="formData.rooms" name="rooms" class="select-color">
+                                        <option value="0" selected>Habitaciones</option>
+                                        <option value="1">1 o más habs.</option>
+                                        <option value="2">2 o más habs.</option>
+                                        <option value="3">3 o más habs.</option>
+                                        <option value="4">4 o más habs.</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="aa-single-advance-search">
+                                        <select [(ngModel)]="formData.bathroom" name="bathroom" class="select-color">
+                                            <option value="0" selected>Baños</option>
+                                            <option value="1">1 o más baños</option>
+                                            <option value="2">2 o más baños</option>
+                                            <option value="3">3 o más baños</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="aa-single-advance-search">
+                                        <select class="select-color" [(ngModel)]="formData.area" name="area">
+                                            <option value="0" selected>Superficie mínima (m2)</option>
+                                            <option value="100">100</option>
+                                            <option value="200">200</option>
+                                            <option value="300">300</option>
+                                            <option value="400">400</option>
+                                            <option value="500">500</option>
+                                            <option value="600">600</option>
+                                            <option value="700">700</option>
+                                            <option value="800">800</option>
+                                            <option value="900">900</option>
+                                            <option value="1000">1000</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="caracteristicas-anuncio">
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-offset-2 col-xs-6  col-md-2">
+                                        <button onClick="setAttributee('Aire')" type="button" id="button-caracteristics" class="btn btn-default btn-block button-caracteristics"
+                                            data-toggle="button" aria-pressed="false" autocomplete="off"> Aire</button>
+                                    </div>
+                                    <div class="col-xs-6  col-md-2">
+                                        <button onClick="setAttributee('Ascensor')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Ascensor</button>
+                                    </div>
+                                    <div class="col-md-2 col-xs-6 ">
+                                        <button onClick="setAttributee('Terraza')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Terraza</button>
+                                    </div>
+                                    <div class="col-md-2 col-xs-6 ">
+                                        <button onClick="setAttributee('Piscina')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Piscina</button>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-offset-2 col-xs-6  col-md-2">
+                                        <button onClick="setAttributee('Fumadores')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Fumadores</button>
+                                    </div>
+                                    <div class="col-xs-6  col-md-2">
+                                        <button onClick="setAttributee('Mascotas')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Mascotas</button>
+                                    </div>
+                                    <div class="col-md-2 col-xs-6 ">
+                                        <button onClick="setAttributee('Iluminado')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Iluminado</button>
+                                    </div>
+                                    <div class="col-md-2 col-xs-6 ">
+                                        <button onClick="setAttributee('Bajo')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Bajo</button>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-offset-2 col-xs-6  col-md-2">
+                                        <button onClick="setAttributee('Trastero')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Trastero</button>
+                                    </div>
+                                    <div class="col-xs-6  col-md-2">
+                                        <button onClick="setAttributee('Calefacción central')" type="button" class="btn btn-default btn-block button-caracteristics"
+                                            data-toggle="button" aria-pressed="false" autocomplete="off"> Calefacción central</button>
+                                    </div>
+                                    <div class="col-md-2 col-xs-6 ">
+                                        <button onClick="setAttributee('Patio')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Patio</button>
+                                    </div>
+                                    <div class="col-md-2 col-xs-6 ">
+                                        <button onClick="setAttributee('Garaje')" type="button" class="btn btn-default btn-block button-caracteristics" data-toggle="button"
+                                            aria-pressed="false" autocomplete="off"> Garaje</button>
+                                    </div>
+                                </div>
+                                <!--ID-->
+                                <input id="attributes" type="text" value="" name="attributes" hidden/>
+                            </div>
+                        </div>
+                    </div>
+                    <input id="attributes" type="text" value="" name="attributes" hidden/>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Advance Search -->
+
+<!-- Latest property -->
+<section id="aa-latest-property">
+    <div class="container">
+        <div class="aa-latest-property-area">
+            <div class="aa-title">
+                <h2>Ofertas</h2>
+                <span></span>
+                <p id="showInitialMessage">Se muestran ofertas de acuerdo a su búsqueda.</p>
+            </div>
+            <div class="aa-latest-properties-content">
+                <div class="row">
+                    <span *ngFor = "let offer of offers" class="add">
+                        <div class="col-md-4">
+                            <article class="aa-properties-item">
+                                <a class="aa-properties-item-img" [routerLink]="['/offer',offer.id]">
+                                    <img src="https://localhost:8443/api/offer/imageOffer/{{offer.id}}" alt="img" width="370" height="220">
+                                </a>
+                                <div class="aa-properties-item-content">
+                                    <div class="aa-properties-info">
+                                    <span>{{offer.area}} m2</span>
+                                    <span>{{offer.rooms}} Habitaciones</span>
+                                    <span>{{offer.bathroom}} Baño</span>               
+                                    </div>
+                                    <div class="aa-properties-about">
+                                        <!-- href="/offer/'+data[i]["id"]+'?page=0&size=4"-->
+                                    <h3><a>{{offer.location}}, {{offer.province}}<br>{{offer.title}}</a></h3>
+                                    <p class="offerParagraph">{{offer.description}}</p>                 
+                                    </div>
+                                    <div class="aa-properties-detial">
+                                    <span class="aa-price">
+                                        {{offer.price}} €
+                                    </span>
+                                    <!--href="/offer/'+data[i]["id"]+'?page=0&size=4"-->
+                                    <a [routerLink]="['/offer',offer.id]" class="aa-secondary-btn" >Ver</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </span>
+                    <span id="spinner"></span>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <br>
+    <br>
+    <div class="col md-2 col-md-offset-5">
+        <button class="btn btn-info col-centered"  *ngIf="page > 0" id="showMore" (click) = "showMore()">Mostrar Más</button>
+    </div>
+</section>
