@@ -43,7 +43,6 @@ export class EditUserComponent {
     firstLastName: false,
     secondLastName: false,
     email: false,
-    phone: false,
     userPassword: false,
     repeatUserPassword: false
   }
@@ -98,7 +97,6 @@ export class EditUserComponent {
       this._isValid.repeatUserPassword &&
       this._isValid.email &&
       this._isValid.firstLastName &&
-      this._isValid.phone &&
       this._isValid.secondLastName 
 
   }
