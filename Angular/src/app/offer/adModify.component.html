@@ -100,7 +100,7 @@
                                     <div class="form-group" [class.has-success]="_isValid.photos">
                                         <label class="control-label">Fotos<span class="required">*</span>
                                         </label>
-                                        <input #photos id="input-1" multiple="true" type="file" class="file" name="file" class="form-control" (blur)="_isValid.photos = valPhotos(photos.value)">
+                                        <input #photos id="input-1" type="file" class="file" (change)="selectFile($event)" name="file" multiple class="form-control" (blur)="_isValid.photos = valPhotos(photos.value)">
                                     </div>
                                     <br>
                                     <div id="caracteristicas-anuncio">

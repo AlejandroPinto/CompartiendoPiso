@@ -78,7 +78,6 @@ export class NewOfferComponent {
 
   selectFile($event) {
     this.image = $event.target.files[0];
-    console.log("Selected file: " + this.image.name + " type:" + this.image.type + " size:" + this.image.size);
   }
 
   createOffer(){
