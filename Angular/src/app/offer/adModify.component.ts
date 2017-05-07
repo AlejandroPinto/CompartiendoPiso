@@ -42,6 +42,7 @@ export class AdModifyComponent {
     photos: false
   }
 
+  image:any;
 
   
 
@@ -68,26 +69,25 @@ setInputType(type:string){
     }
 
     editOffer(){
-    if(this.signInService.isLogged()){
-      this.offer.characteristics = [];
-      for(let characteristic of this.attributes){
-        let characteristicToSave:Characteristic;
-        characteristicToSave={name:characteristic,value:true};
-        this.offer.characteristics.push(characteristicToSave);
-     }
-      console.log(this.offer.reviews);
-      this.offerService.updateOffer(this.offer.id,this.offer).subscribe(
-        response => {
-          this.offer = response;
-          //this.signInService.logoutService();
-          //this.signInService.logIn(this.user.email,this.user.pass);
-          this.router.navigate(['user']);
-        }
-      )
-    }else{
-      this.router.navigate(['/']);
+      if(this.signInService.isLogged()){
+        this.offer.characteristics = [];
+        for(let characteristic of this.attributes){
+          let characteristicToSave:Characteristic;
+          characteristicToSave={name:characteristic,value:true};
+          this.offer.characteristics.push(characteristicToSave);
+      }
+        this.offerService.updateOffer(this.offer.id,this.offer).subscribe(
+          response => {
+            this.updatePhoto(this.offer.id);
+            //this.signInService.logoutService();
+            //this.signInService.logIn(this.user.email,this.user.pass);
+            this.router.navigate(['user']);
+          }
+        )
+      }else{
+        this.router.navigate(['/']);
+      }
     }
-  }
 
   isValid() {
     return this._isValid.title &&
@@ -106,5 +106,17 @@ setInputType(type:string){
   valPhotos(value: string) {
     console.log(value !== "");
     return value !== "";
+  }
+
+  updatePhoto(id: number){
+         let formData = new FormData();
+        formData.append('file', this.image);
+        this.offerService.setOfferPhoto(id, formData).subscribe(
+            error => console.error(error)
+        )
+    }
+
+    selectFile($event) {
+    this.image = $event.target.files[0];
   }
 }
