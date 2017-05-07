@@ -26,7 +26,7 @@ export class IndexService{
 		return this.http.get(BASE_URL+"search?&queryBox="+queryBox+"&priceFrom="+priceFrom+"&priceTo="+priceTo+"&type="+type+"&rooms="+rooms+"&bathroom="+bathroom+"&area="+area+"&attributes=&page="+page).map(
 			response => response.json(),
 		)._catch(
-			error => this.handleError(error)
+			response => this.handleError(response)
 		)
 	}
 

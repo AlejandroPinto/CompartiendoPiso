@@ -33,8 +33,8 @@ export class UserComponent {
 
   offer: Offer = {
       id: 0,
-	  title: "",
-	  price: 0,
+	    title: "",
+	    price: 0,
       description: "",
       province: "",
       location: "",
@@ -50,12 +50,12 @@ export class UserComponent {
 
 
  constructor(private router: Router, activatedRoute: ActivatedRoute, private userService:UserService, private signInService:SigninService,private offerService:OfferService) {
-        let id = activatedRoute.snapshot.params['id'];
-        if(id != undefined){
-          this.getUserId(id);
-        }else{
-          this.getUser();
-        }
+    let id = activatedRoute.snapshot.params['id'];
+    if(id != undefined){
+      this.getUserId(id);
+    }else{
+      this.getUser();
+    }
   }
 
    getUserId(id:number) {

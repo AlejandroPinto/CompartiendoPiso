@@ -89,8 +89,14 @@ export class IndexComponent {
       this.formData.area = this.area;
     
     this.index.search(this.formData.queryBox,this.formData.priceFrom,this.formData.priceTo,this.formData.type,this.formData.rooms,this.formData.bathroom,this.formData.area,this.page).subscribe(
-      offers => this.offers = this.offers.concat(offers),
+      offers => {
+          this.offers = this.offers.concat(offers);
+          this.page += 1;
+      },
+      error => {
+        this.page = 0; 
+      }
     );
-    this.page += 1;
+    
   }
 }

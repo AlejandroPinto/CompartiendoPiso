@@ -65,7 +65,7 @@ public class IndexRestController {
 		}
 		
 		if(!offersPage.hasContent()){
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
 		}else{
 			return new ResponseEntity<List<Offer>>(verifyOffers,HttpStatus.OK);
 		}	

@@ -120,7 +120,7 @@ public class OfferRestController {
 
 	}
 	
-	@RequestMapping(value = "/image/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/imageOffer/{id}", method = RequestMethod.GET)
 	public void getImage(@PathVariable long id, HttpServletResponse response) throws FileNotFoundException, IOException{
 		User ownOffer = service.getOwnOffer(id);
 		IOUtils.copy(new FileInputStream("img\\users\\"+ownOffer.getId()+"\\"+id+"\\0.jpg"), response.getOutputStream());
