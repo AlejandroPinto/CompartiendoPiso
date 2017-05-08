@@ -131,5 +131,5 @@ Los html newAd.html y newAdModify.html son creados por nosotros mediante formula
 ![Diagrama Padre Hijo](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/CapturasFase2/DiagramaPadreHijo.png?raw=true "Diagrama Padre Hijo")
 
 ## Docker:
-Esta aplicación puede ser ejecutada haciendo uso de docker. DOCKER-COMPOSE.YML(https://hub.docker.com/r/compartiendopisourjc/compartiendopiso/)
-docker pull compartiendopisourjc/compartiendopiso
+Esta aplicación puede ser ejecutada haciendo uso de Docker.
+[docker-compose.yml](https://github.com/OscarSanchezSanchez/CompartiendoPiso/blob/master/docker-compose.yml)
